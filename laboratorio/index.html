@@ -367,6 +367,9 @@
         show('pantalla-denegado'); return;
       }
 
+      // Registrar acceso
+      await db.rpc('registrar_acceso', { p_token: token });
+
       // Cargar capítulos y lecciones
       const { data: capitulos } = await db
         .from('laboratorio_capitulos')
@@ -413,7 +416,13 @@
             <span class="leccion-num">${i + 1}</span>
             <span class="leccion-titulo">${lec.titulo}</span>
           `;
-          item.addEventListener('click', () => cargarVideo(lec, cap.titulo, item));
+          item.addEventListener('click', () => {
+            cargarVideo(lec, cap.titulo, item);
+            db.rpc('registrar_visualizacion', {
+              p_usuario_id: usuario.id,
+              p_leccion_id: lec.id
+            });
+          });
           sidebar.appendChild(item);
         });
       });
