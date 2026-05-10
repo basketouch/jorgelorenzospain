@@ -179,6 +179,13 @@
       white-space: nowrap; transition: background 0.2s;
     }
     .aviso-cta:hover { background: var(--oro-claro); }
+    .aviso-botones { display: flex; gap: 10px; flex-shrink: 0; }
+    .aviso-cta-secondary {
+      background: transparent;
+      border: 1px solid var(--oro);
+      color: var(--oro);
+    }
+    .aviso-cta-secondary:hover { background: var(--oro); color: var(--negro); }
     @media (max-width: 680px) {
       .aviso-inner { flex-direction: column; align-items: flex-start; }
       .aviso-transicion { padding: 16px; }
@@ -282,9 +289,14 @@
             Si aún no eres miembro, este es el momento.
           </p>
         </div>
-        <a href="https://www.skool.com/jorge-lorenzo-coach/about" target="_blank" class="aviso-cta">
-          Accede a la comunidad
-        </a>
+        <div class="aviso-botones">
+          <a href="https://jorge-lorenzo-coach.vercel.app/" target="_blank" class="aviso-cta aviso-cta-secondary">
+            Más información
+          </a>
+          <a href="https://www.skool.com/jorge-lorenzo-coach/plans" target="_blank" class="aviso-cta">
+            Accede a la comunidad
+          </a>
+        </div>
       </div>
     </div>
 
