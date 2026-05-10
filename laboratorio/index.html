@@ -161,6 +161,11 @@
       display: flex; align-items: center;
       justify-content: space-between; gap: 24px;
     }
+    .aviso-saludo {
+      font-size: 26px; font-weight: 800;
+      color: var(--blanco); letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
     .aviso-titulo {
       font-size: 13px; font-weight: 700;
       color: var(--oro); letter-spacing: 0.05em;
@@ -282,6 +287,7 @@
     <div class="aviso-transicion">
       <div class="aviso-inner">
         <div class="aviso-texto">
+          <p class="aviso-saludo" id="aviso-saludo">Hola</p>
           <p class="aviso-titulo">El Laboratorio se mueve a Skool</p>
           <p class="aviso-desc">
             Este espacio es temporal — tienes acceso hasta el <strong>31 de julio de 2026</strong>.
@@ -305,7 +311,7 @@
       <!-- SIDEBAR -->
       <nav class="sidebar" id="sidebar">
         <div class="sidebar-bienvenida">
-          <strong id="nombre-usuario">Bienvenido</strong>
+          <strong id="nombre-usuario"></strong>
           <p>Capítulos 8 y 9 del Laboratorio</p>
         </div>
         <!-- Se genera con JS -->
@@ -381,8 +387,8 @@
 
     // ── RENDER ──────────────────────────────
     function renderVisor(usuario, capitulos) {
-      document.getElementById('nombre-usuario').textContent =
-        'Hola, ' + usuario.nombre;
+      document.getElementById('nombre-usuario').textContent = usuario.nombre;
+      document.getElementById('aviso-saludo').textContent   = 'Hola, ' + usuario.nombre + '.';
 
       const sidebar = document.getElementById('sidebar');
       // Limpiar excepto bienvenida
