@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧪</text></svg>">
+  <title>El Laboratorio del Entrenador — Jorge Lorenzo</title>
+  <meta name="description" content="Programa mensual de formación para entrenadores de baloncesto. Técnica, táctica, gestión y liderazgo. Con Jorge Lorenzo, Campeón del Mundo y de Europa." />
+  <meta name="robots" content="noindex" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --negro: #0a0a0a;
+      --oscuro: #111318;
+      --card: #16191f;
+      --borde: #242830;
+      --oro: #c9a84c;
+      --oro-claro: #e2c06e;
+      --texto: #e8e8e8;
+      --texto-suave: #8a8f9a;
+      --blanco: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--negro);
+      color: var(--texto);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    .section-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--oro);
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800; letter-spacing: -0.02em;
+      color: var(--blanco); line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+    .lead {
+      font-size: 18px; color: var(--texto-suave);
+      max-width: 620px; line-height: 1.75;
+    }
+
+    section { padding: 96px 0; }
+    section + section { border-top: 1px solid var(--borde); }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--borde);
+      padding: 16px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo {
+      font-size: 14px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--blanco); text-decoration: none;
+    }
+    .nav-logo span { color: var(--oro); }
+    .nav-links { display: flex; align-items: center; gap: 24px; }
+    .nav-link {
+      font-size: 13px; color: var(--texto-suave);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-link:hover { color: var(--oro); }
+    .nav-cta {
+      background: var(--oro); color: var(--negro);
+      font-size: 13px; font-weight: 700; letter-spacing: 0.05em;
+      padding: 10px 20px; border-radius: 4px;
+      text-decoration: none; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--oro-claro); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 60vh;
+      display: flex; align-items: center;
+      padding: 140px 0 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(201,168,76,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner { position: relative; }
+    .hero-eyebrow {
+      font-size: 13px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--oro); margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 800; line-height: 1.05;
+      color: var(--blanco); letter-spacing: -0.02em; margin-bottom: 16px;
+    }
+    .hero h1 .accent { color: var(--oro); }
+    .hero-body {
+      font-size: 17px; color: var(--texto-suave);
+      max-width: 560px; margin-bottom: 40px; line-height: 1.7;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--oro); color: var(--negro);
+      font-size: 15px; font-weight: 800; letter-spacing: 0.04em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 16px 36px; border-radius: 4px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: var(--oro-claro); transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-block;
+      border: 1px solid var(--borde); color: var(--texto-suave);
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      text-transform: uppercase; text-decoration: none;
+      padding: 16px 36px; border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--oro); color: var(--oro); }
+    .hero-botones { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ─── CÓMO FUNCIONA ─── */
+    .cadencia-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-top: 48px;
+    }
+    .cadencia-item {
+      background: var(--card); border: 1px solid var(--borde);
+      border-radius: 10px; padding: 28px;
+    }
+    .cadencia-item.destacado { border-color: var(--oro); }
+    .cadencia-icon { font-size: 28px; margin-bottom: 12px; }
+    .cadencia-titulo {
+      font-size: 13px; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--oro); margin-bottom: 8px;
+    }
+    .cadencia-desc { font-size: 14px; color: var(--texto-suave); line-height: 1.6; }
+
+    /* ─── CAPÍTULOS ─── */
+    .capitulos-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 12px; margin-top: 40px;
+    }
+    .capitulo-item {
+      background: var(--card); border: 1px solid var(--borde);
+      border-radius: 8px; padding: 20px 24px;
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .capitulo-numero {
+      font-size: 28px; font-weight: 800; color: var(--oro);
+      line-height: 1; flex-shrink: 0; min-width: 40px;
+    }
+    .capitulo-titulo {
+      font-size: 15px; font-weight: 600; color: var(--blanco); margin-bottom: 4px;
+    }
+    .capitulo-desc { font-size: 13px; color: var(--texto-suave); line-height: 1.5; }
+    .capitulo-loading {
+      grid-column: 1 / -1; text-align: center;
+      padding: 48px; color: var(--texto-suave); font-size: 15px;
+    }
+
+    /* ─── CONTENIDO ─── */
+    .contenido-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 32px; margin-top: 40px;
+    }
+    .contenido-col-titulo {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--oro); margin-bottom: 16px;
+    }
+    .contenido-lista { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .contenido-lista li {
+      font-size: 14px; color: var(--texto-suave); line-height: 1.5;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .contenido-lista li::before {
+      content: '→'; color: var(--oro); font-weight: 700; flex-shrink: 0;
+    }
+
+    /* ─── FAQ ─── */
+    .faq-lista { display: flex; flex-direction: column; gap: 8px; margin-top: 40px; }
+    .faq-item {
+      background: var(--card); border: 1px solid var(--borde);
+      border-radius: 8px; overflow: hidden;
+    }
+    .faq-pregunta {
+      width: 100%; padding: 20px 24px;
+      display: flex; justify-content: space-between; align-items: center;
+      background: none; border: none; cursor: pointer;
+      text-align: left; color: var(--texto);
+      font-size: 15px; font-weight: 600; font-family: inherit;
+      transition: color 0.2s;
+    }
+    .faq-pregunta:hover { color: var(--oro); }
+    .faq-icono {
+      font-size: 22px; color: var(--oro); flex-shrink: 0;
+      transition: transform 0.3s; margin-left: 16px;
+    }
+    .faq-respuesta {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.35s ease;
+      padding: 0 24px;
+      font-size: 14px; color: var(--texto-suave); line-height: 1.7;
+    }
+    .faq-item.abierto .faq-respuesta { max-height: 200px; padding: 0 24px 20px; }
+    .faq-item.abierto .faq-icono { transform: rotate(45deg); }
+
+    /* ─── CTA FINAL ─── */
+    .cta-final {
+      text-align: center; padding: 96px 0;
+      background: radial-gradient(ellipse at center, rgba(201,168,76,0.07) 0%, transparent 65%);
+    }
+    .cta-final h2 { margin-bottom: 16px; }
+    .cta-final .lead { margin: 0 auto 40px; text-align: center; }
+    .cta-botones { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--borde);
+      padding: 32px 24px; text-align: center;
+      font-size: 13px; color: var(--texto-suave);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 720px) {
+      section { padding: 60px 0; }
+      .hero { padding: 120px 0 60px; }
+      .cadencia-grid { grid-template-columns: 1fr; }
+      .capitulos-grid { grid-template-columns: 1fr; }
+      .contenido-grid { grid-template-columns: 1fr; }
+      .hero-botones { flex-direction: column; }
+      .cta-botones { flex-direction: column; align-items: center; }
+      .nav-links .nav-link { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">Jorge <span>Lorenzo</span></a>
+    <div class="nav-links">
+      <a href="#programa" class="nav-link">Programa</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="https://www.skool.com/jorge-lorenzo-coach/plans" target="_blank" class="nav-cta">Acceder en Skool</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <p class="hero-eyebrow">Jorge Lorenzo · Comunidad de Entrenadores</p>
+        <h1>El Laboratorio<br><span class="accent">del Entrenador.</span></h1>
+        <p class="hero-body">
+          Un programa mensual para entrenadores que quieren ir más allá del ejercicio y el sistema. Técnica, táctica, gestión y liderazgo — todo construido sobre situaciones reales de pista.
+        </p>
+        <div class="hero-botones">
+          <a href="https://www.skool.com/jorge-lorenzo-coach/plans" target="_blank" class="btn-primary">Acceder en Skool</a>
+          <a href="#programa" class="btn-outline">Ver el programa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section>
+    <div class="container">
+      <p class="section-label">Cómo funciona</p>
+      <h2>Cada mes, tres entregas.</h2>
+      <p class="lead">El Laboratorio sigue el ritmo de la temporada: septiembre a junio, más post-temporada en julio y pre-temporada en agosto.</p>
+
+      <div class="cadencia-grid">
+        <div class="cadencia-item destacado">
+          <div class="cadencia-icon">📹</div>
+          <p class="cadencia-titulo">Primer miércoles</p>
+          <p class="cadencia-desc">Contenido central del mes. Vídeos de técnica, táctica o gestión con contexto y aplicación directa.</p>
+        </div>
+        <div class="cadencia-item">
+          <div class="cadencia-icon">🎙</div>
+          <p class="cadencia-titulo">Tercer miércoles</p>
+          <p class="cadencia-desc">Charla grabada. Análisis en profundidad, lectura de partido o tema de liderazgo del mes.</p>
+        </div>
+        <div class="cadencia-item">
+          <div class="cadencia-icon">💬</div>
+          <p class="cadencia-titulo">Q&A en Skool</p>
+          <p class="cadencia-desc">Sesión en directo para quien se apunte. Preguntas, debate y análisis con la comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMA -->
+  <section id="programa">
+    <div class="container">
+      <p class="section-label">Temporada 2026/27</p>
+      <h2>El programa del año.</h2>
+      <p class="lead">Un guión definido antes de empezar la temporada. Sabes desde el primer día qué vamos a trabajar y cuándo.</p>
+      <div class="capitulos-grid" id="capitulos-container">
+        <div class="capitulo-loading">Cargando programa…</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENIDO -->
+  <section>
+    <div class="container">
+      <p class="section-label">Qué encontrarás</p>
+      <h2>Dos áreas de trabajo.</h2>
+      <p class="lead" style="margin-bottom: 0;">Todo el contenido gira en torno a dos ejes que definen al entrenador completo.</p>
+      <div class="contenido-grid">
+        <div>
+          <p class="contenido-col-titulo">Técnico y táctico</p>
+          <ul class="contenido-lista">
+            <li>Estilos de juego actuales y detalles del alto nivel</li>
+            <li>Construcción defensiva: 1×1, ayudas y ajustes colectivos</li>
+            <li>Técnica individual ofensiva aplicada al juego real</li>
+            <li>Defensa del bloqueo directo y toma de decisiones</li>
+            <li>Spacing y juego con 4 abiertos</li>
+            <li>Sistemas de ataque para diferentes perfiles</li>
+            <li>Planificación semanal y desarrollo de entrenamientos</li>
+            <li>Scouting y preparación de partido</li>
+          </ul>
+        </div>
+        <div>
+          <p class="contenido-col-titulo">Gestión y liderazgo</p>
+          <ul class="contenido-lista">
+            <li>Gestión del vestuario y reparto de roles</li>
+            <li>Uso de tecnología, IA y estadísticas aplicadas</li>
+            <li>Construcción de mentalidad defensiva</li>
+            <li>Creatividad táctica y lectura del juego</li>
+            <li>Desarrollo de especialistas</li>
+            <li>Liderazgo del entrenador en el día a día</li>
+            <li>Gestión de la presión y cierre de temporada</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <p class="section-label">FAQ</p>
+      <h2>Preguntas necesarias.</h2>
+      <div class="faq-lista">
+
+        <div class="faq-item">
+          <button class="faq-pregunta">
+            ¿Qué pasa si entro a mitad de mes?
+            <span class="faq-icono">+</span>
+          </button>
+          <div class="faq-respuesta">
+            Accederás inmediatamente al contenido del mes en curso, aunque ya se haya liberado parte. Ejemplo: si entras el día 10, verás lo publicado el 1er miércoles y después lo del 3er miércoles.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pregunta">
+            ¿Tengo acceso a los capítulos anteriores?
+            <span class="faq-icono">+</span>
+          </button>
+          <div class="faq-respuesta">
+            Con Premium accedes al mes en curso y al anterior. El archivo completo de la temporada está disponible como producto independiente dentro de la comunidad.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pregunta">
+            ¿Qué ocurre si cancelo mi suscripción?
+            <span class="faq-icono">+</span>
+          </button>
+          <div class="faq-respuesta">
+            Seguirás teniendo acceso hasta que acabe tu periodo ya pagado. Después perderás el acceso al Laboratorio y al contenido de la comunidad.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pregunta">
+            ¿Cuándo se me cobra?
+            <span class="faq-icono">+</span>
+          </button>
+          <div class="faq-respuesta">
+            El primer pago se hace en el momento de la compra. Después se renueva cada mes en la misma fecha. Ejemplo: si compras el día 5, renovarás el 5 de cada mes.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-pregunta">
+            ¿Puedo compartir mi acceso?
+            <span class="faq-icono">+</span>
+          </button>
+          <div class="faq-respuesta">
+            No. La suscripción es personal e intransferible. El contenido está diseñado solo para miembros activos.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="container">
+      <p class="section-label">Accede al Laboratorio</p>
+      <h2>Empieza cuando quieras.</h2>
+      <p class="lead">Incluido en el plan Premium ($45/mes). Si prefieres el archivo completo de la temporada, está disponible como producto independiente dentro de la comunidad.</p>
+      <div class="cta-botones">
+        <a href="https://www.skool.com/jorge-lorenzo-coach/plans" target="_blank" class="btn-primary">Acceder en Skool</a>
+        <a href="/" class="btn-outline">Volver a la comunidad</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto</p>
+  </footer>
+
+  <!-- SUPABASE + FAQ ACCORDION -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://otsbpiukzftacmvmkajy.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_0C5wCN5Pzrc71_Gr41SDVg_eSMAKhTz';
+    const { createClient } = supabase;
+    const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+    async function cargarCapitulos() {
+      const { data, error } = await sb
+        .from('laboratorio_guion')
+        .select('*')
+        .eq('activo', true)
+        .order('numero');
+
+      const container = document.getElementById('capitulos-container');
+
+      if (error || !data || data.length === 0) {
+        container.innerHTML = '<div class="capitulo-loading">El programa de la nueva temporada se publicará próximamente.</div>';
+        return;
+      }
+
+      container.innerHTML = data.map(cap => `
+        <div class="capitulo-item">
+          <div class="capitulo-numero">${String(cap.numero).padStart(2, '0')}</div>
+          <div>
+            <p class="capitulo-titulo">${cap.titulo}</p>
+            ${cap.descripcion ? `<p class="capitulo-desc">${cap.descripcion}</p>` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-pregunta').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const estaAbierto = item.classList.contains('abierto');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('abierto'));
+        if (!estaAbierto) item.classList.add('abierto');
+      });
+    });
+
+    cargarCapitulos();
+  </script>
+
+</body>
+</html>
