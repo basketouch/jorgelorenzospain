@@ -149,6 +149,29 @@
     }
     .cadencia-desc { font-size: 14px; color: var(--texto-suave); line-height: 1.6; }
 
+    /* ─── VÍDEOS PREVIEW ─── */
+    .videos-preview {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 24px; margin-top: 48px;
+    }
+    .video-card { display: flex; flex-direction: column; gap: 12px; }
+    .video-wrapper {
+      position: relative; padding-bottom: 56.25%;
+      height: 0; overflow: hidden;
+      border-radius: 8px; background: var(--card);
+      border: 1px solid var(--borde);
+    }
+    .video-wrapper iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; border: 0;
+    }
+    .video-label {
+      font-size: 13px; font-weight: 600; color: var(--texto-suave);
+      letter-spacing: 0.04em;
+    }
+    .video-label span { color: var(--oro); margin-right: 8px; }
+    @media (max-width: 720px) { .videos-preview { grid-template-columns: 1fr; } }
+
     /* ─── CAPÍTULOS ─── */
     .capitulos-grid {
       display: grid; grid-template-columns: repeat(2, 1fr);
@@ -298,6 +321,31 @@
           <div class="cadencia-icon">💬</div>
           <p class="cadencia-titulo">Q&A en Skool</p>
           <p class="cadencia-desc">Sesión en directo para quien se apunte. Preguntas, debate y análisis con la comunidad.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VÍDEOS PREVIEW -->
+  <section>
+    <div class="container">
+      <p class="section-label">El Laboratorio por dentro</p>
+      <h2>Así suena el Laboratorio.</h2>
+      <p class="lead">Dos muestras de la temporada 2025/26 — para que veas de qué va antes de entrar.</p>
+      <div class="videos-preview">
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://player.vimeo.com/video/VIMEO_ID_TECNICO?color=c9a84c&byline=0&portrait=0&title=0&dnt=1"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <p class="video-label"><span>↳</span>Contenido técnico — muestra de la temporada 2025/26</p>
+        </div>
+        <div class="video-card">
+          <div class="video-wrapper">
+            <iframe src="https://player.vimeo.com/video/VIMEO_ID_CHARLA?color=c9a84c&byline=0&portrait=0&title=0&dnt=1"
+              allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <p class="video-label"><span>↳</span>Charla — muestra de la temporada 2025/26</p>
         </div>
       </div>
     </div>
