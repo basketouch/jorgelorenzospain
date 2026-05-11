@@ -440,9 +440,10 @@
 
     async function cargarCapitulos() {
       const { data, error } = await sb
-        .from('laboratorio_guion')
+        .from('laboratorio_programa')
         .select('*')
         .eq('activo', true)
+        .eq('en_curso', false)
         .order('numero');
 
       const container = document.getElementById('capitulos-container');

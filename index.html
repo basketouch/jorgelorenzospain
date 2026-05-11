@@ -824,7 +824,28 @@
       document.getElementById('landing-lista-gestion').innerHTML = renderLista(gestion);
     }
 
+    async function cargarCapitulosLanding() {
+      const { data, error } = await sb
+        .from('laboratorio_programa')
+        .select('*')
+        .eq('activo', true)
+        .eq('en_curso', true)
+        .order('numero');
+
+      if (error || !data || data.length === 0) return;
+
+      // Mostrar solo los primeros 6 en la landing como muestra del archivo
+      const muestra = data.slice(0, 6);
+      const container = document.getElementById('landing-capitulos');
+      if (!container) return;
+
+      container.innerHTML = muestra.map(cap => `
+        <li>${String(cap.numero).padStart(2,'0')}. ${cap.titulo}</li>
+      `).join('');
+    }
+
     cargarTemasLanding();
+    cargarCapitulosLanding();
   </script>
 </body>
 </html>
