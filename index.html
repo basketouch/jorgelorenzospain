@@ -747,29 +747,12 @@
 
         <div class="laboratorio-contenido">
           <div class="laboratorio-col">
-            <p class="laboratorio-col-titulo">Contenido técnico y táctico</p>
-            <ul class="laboratorio-lista">
-              <li>Estilos de juego actuales y detalles prácticos del alto nivel</li>
-              <li>Construcción defensiva: 1×1, ayudas y ajustes colectivos</li>
-              <li>Técnica individual ofensiva aplicada al juego real</li>
-              <li>Defensa del bloqueo directo y toma de decisiones</li>
-              <li>Spacing y juego con 4 abiertos</li>
-              <li>Sistemas de ataque para diferentes perfiles</li>
-              <li>Planificación semanal y desarrollo de entrenamientos</li>
-              <li>Scouting y preparación de partido</li>
-            </ul>
+            <p class="laboratorio-col-titulo">Técnico y táctico</p>
+            <ul class="laboratorio-lista" id="landing-lista-tecnico"><li style="color:var(--borde)">·</li></ul>
           </div>
           <div class="laboratorio-col">
-            <p class="laboratorio-col-titulo">Contexto que marca la diferencia</p>
-            <ul class="laboratorio-lista">
-              <li>Gestión del vestuario y reparto de roles</li>
-              <li>Uso de tecnología, IA y estadísticas aplicadas</li>
-              <li>Construcción de mentalidad defensiva</li>
-              <li>Creatividad táctica y lectura del juego</li>
-              <li>Desarrollo de especialistas</li>
-              <li>Liderazgo del entrenador en el día a día</li>
-              <li>Gestión de la presión y cierre de temporada</li>
-            </ul>
+            <p class="laboratorio-col-titulo">Gestión y liderazgo</p>
+            <ul class="laboratorio-lista" id="landing-lista-gestion"><li style="color:var(--borde)">·</li></ul>
           </div>
         </div>
 
@@ -816,5 +799,32 @@
     <p>© 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const { createClient } = supabase;
+    const sb = createClient(
+      'https://otsbpiukzftacmvmkajy.supabase.co',
+      'sb_publishable_0C5wCN5Pzrc71_Gr41SDVg_eSMAKhTz'
+    );
+
+    async function cargarTemasLanding() {
+      const { data, error } = await sb
+        .from('laboratorio_temas')
+        .select('*')
+        .eq('activo', true)
+        .order('orden');
+
+      if (error || !data || data.length === 0) return;
+
+      const tecnico = data.filter(t => t.area === 'tecnico');
+      const gestion = data.filter(t => t.area === 'gestion');
+
+      const renderLista = items => items.map(t => `<li>${t.tema}</li>`).join('');
+      document.getElementById('landing-lista-tecnico').innerHTML = renderLista(tecnico);
+      document.getElementById('landing-lista-gestion').innerHTML = renderLista(gestion);
+    }
+
+    cargarTemasLanding();
+  </script>
 </body>
 </html>

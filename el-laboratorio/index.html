@@ -318,34 +318,17 @@
   <!-- CONTENIDO -->
   <section>
     <div class="container">
-      <p class="section-label">Qué encontrarás</p>
-      <h2>Dos áreas de trabajo.</h2>
-      <p class="lead" style="margin-bottom: 0;">Todo el contenido gira en torno a dos ejes que definen al entrenador completo.</p>
-      <div class="contenido-grid">
+      <p class="section-label">Temporada 2025/26 · De referencia</p>
+      <h2>Lo que trabajamos el año pasado.</h2>
+      <p class="lead" style="margin-bottom: 0;">El programa 2026/27 se publicará antes del inicio de temporada. Esto es lo que cubrimos en 2025/26.</p>
+      <div class="contenido-grid" id="temas-container">
         <div>
           <p class="contenido-col-titulo">Técnico y táctico</p>
-          <ul class="contenido-lista">
-            <li>Estilos de juego actuales y detalles del alto nivel</li>
-            <li>Construcción defensiva: 1×1, ayudas y ajustes colectivos</li>
-            <li>Técnica individual ofensiva aplicada al juego real</li>
-            <li>Defensa del bloqueo directo y toma de decisiones</li>
-            <li>Spacing y juego con 4 abiertos</li>
-            <li>Sistemas de ataque para diferentes perfiles</li>
-            <li>Planificación semanal y desarrollo de entrenamientos</li>
-            <li>Scouting y preparación de partido</li>
-          </ul>
+          <ul class="contenido-lista" id="lista-tecnico"><li>Cargando…</li></ul>
         </div>
         <div>
           <p class="contenido-col-titulo">Gestión y liderazgo</p>
-          <ul class="contenido-lista">
-            <li>Gestión del vestuario y reparto de roles</li>
-            <li>Uso de tecnología, IA y estadísticas aplicadas</li>
-            <li>Construcción de mentalidad defensiva</li>
-            <li>Creatividad táctica y lectura del juego</li>
-            <li>Desarrollo de especialistas</li>
-            <li>Liderazgo del entrenador en el día a día</li>
-            <li>Gestión de la presión y cierre de temporada</li>
-          </ul>
+          <ul class="contenido-lista" id="lista-gestion"><li>Cargando…</li></ul>
         </div>
       </div>
     </div>
@@ -438,6 +421,23 @@
     const { createClient } = supabase;
     const sb = createClient(SUPABASE_URL, SUPABASE_KEY);
 
+    async function cargarTemas() {
+      const { data, error } = await sb
+        .from('laboratorio_temas')
+        .select('*')
+        .eq('activo', true)
+        .order('orden');
+
+      if (error || !data || data.length === 0) return;
+
+      const tecnico = data.filter(t => t.area === 'tecnico');
+      const gestion = data.filter(t => t.area === 'gestion');
+
+      const renderLista = items => items.map(t => `<li>${t.tema}</li>`).join('');
+      document.getElementById('lista-tecnico').innerHTML = renderLista(tecnico);
+      document.getElementById('lista-gestion').innerHTML = renderLista(gestion);
+    }
+
     async function cargarCapitulos() {
       const { data, error } = await sb
         .from('laboratorio_guion')
@@ -474,6 +474,7 @@
     });
 
     cargarCapitulos();
+    cargarTemas();
   </script>
 
 </body>
