@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 
 export default function NewsletterPage() {
   const [nombre, setNombre] = useState("");
@@ -60,7 +59,6 @@ export default function NewsletterPage() {
         position: "relative",
         overflow: "hidden",
       }}>
-        {/* Fondo decorativo */}
         <div style={{
           position: "absolute", inset: 0, zIndex: 0,
           backgroundImage: "url(https://otsbpiukzftacmvmkajy.supabase.co/storage/v1/object/public/portadas/Court.png)",
@@ -86,7 +84,7 @@ export default function NewsletterPage() {
         <div className="container">
           <div style={{
             display: "grid",
-            gridTemplateColumns: "1fr 440px",
+            gridTemplateColumns: "1fr 420px",
             gap: 64,
             alignItems: "start",
           }}
@@ -106,10 +104,9 @@ export default function NewsletterPage() {
               {/* Puntos clave */}
               <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 14, marginBottom: 40 }}>
                 {[
-                  "Análisis táctico con ejemplos del Eurobasket y la NBA",
+                  "Análisis táctico y técnico a todos los niveles",
                   "Gestión del entrenador: liderazgo, presión y comunicación",
                   "Recursos y herramientas que uso con mis equipos",
-                  "Acceso prioritario a contenido del Laboratorio",
                 ].map((item) => (
                   <li key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start", fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.5 }}>
                     <span style={{ color: "var(--oro)", fontWeight: 700, flexShrink: 0, marginTop: 1 }}>→</span>
@@ -162,8 +159,7 @@ export default function NewsletterPage() {
                     <span style={{ fontSize: 13, color: "var(--texto-suave)", lineHeight: 1.5 }}>
                       Acepto recibir la newsletter y los{" "}
                       <a
-                        href="https://www.jorgelorenzo.coach/pages/aceptacion-de-terminos-y-condiciones"
-                        target="_blank" rel="noopener noreferrer"
+                        href="/pages/aceptacion-de-terminos-y-condiciones"
                         style={{ color: "var(--oro)" }}
                       >
                         términos y condiciones
@@ -193,8 +189,7 @@ export default function NewsletterPage() {
               <div style={{ marginTop: 48, paddingTop: 32, borderTop: "1px solid var(--borde)" }}>
                 <p style={{ fontSize: 13, color: "var(--texto-suave)", marginBottom: 8 }}>¿Quién es Jorge Lorenzo?</p>
                 <a
-                  href="https://newsletter.jorgelorenzo.coach/historia.html"
-                  target="_blank" rel="noopener noreferrer"
+                  href="/historia"
                   style={{ color: "var(--oro)", fontWeight: 600, fontSize: 14, textDecoration: "none" }}
                 >
                   Lee su historia →
@@ -222,10 +217,10 @@ export default function NewsletterPage() {
                 gap: 12, marginTop: 24,
               }}>
                 {[
-                  { valor: "2x", etiqueta: "Campeón del Mundo" },
-                  { valor: "2x", etiqueta: "Medallista Olímpico" },
-                  { valor: "9", etiqueta: "años en la Selección" },
-                  { valor: "+500", etiqueta: "entrenadores en Skool" },
+                  { valor: "2x", etiqueta: "Campeón del Mundo y Eurobasket" },
+                  { valor: "6", etiqueta: "Competiciones FIBA" },
+                  { valor: "8", etiqueta: "Años en la Selección" },
+                  { valor: "16+", etiqueta: "Años como entrenador" },
                 ].map(({ valor, etiqueta }) => (
                   <div key={etiqueta} style={{
                     background: "var(--card)", border: "1px solid var(--borde)",
@@ -242,7 +237,7 @@ export default function NewsletterPage() {
         </div>
       </section>
 
-      {/* ÚLTIMAS ENTREGAS */}
+      {/* TEMAS */}
       <section style={{ paddingBottom: 80, borderTop: "1px solid var(--borde)", paddingTop: 64 }}>
         <div className="container">
           <p className="section-label">De qué va esto</p>
@@ -262,7 +257,7 @@ export default function NewsletterPage() {
               {
                 numero: "03",
                 titulo: "Defensa del bloqueo directo",
-                descripcion: "Cinco conceptos del Eurobasket '25 que puedes aplicar esta semana en tu entrenamiento.",
+                descripcion: "Cinco conceptos del Eurobasket que puedes aplicar esta semana en tu entrenamiento.",
               },
             ].map(({ numero, titulo, descripcion }) => (
               <div key={numero} style={{
