@@ -58,13 +58,10 @@ export default async function PlayerIndex({ params }: { params: Promise<{ slug: 
                   const hecha = completadas.has(leccion.id);
                   return (
                     <Link key={leccion.id} href={`/ver/${slug}/${leccion.id}`} style={{ textDecoration: "none" }}>
-                      <div style={{
+                      <div className="leccion-item" style={{
                         padding: "16px 20px", display: "flex", alignItems: "center", gap: 16,
                         borderBottom: i < modulo.lecciones_curso.length - 1 ? "1px solid var(--borde)" : "none",
-                        transition: "background 0.15s",
                       }}
-                        onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(201,168,76,0.05)")}
-                        onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                       >
                         <span style={{ fontSize: 16, flexShrink: 0 }}>{hecha ? "✅" : "⬜"}</span>
                         <span style={{ fontSize: 14, color: hecha ? "var(--texto-suave)" : "var(--texto)", flex: 1 }}>{leccion.titulo}</span>

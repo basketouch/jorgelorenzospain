@@ -217,6 +217,9 @@ footer { border-top: 1px solid var(--borde); padding: 32px 24px; text-align: cen
 .contenido-lista li { font-size: 14px; color: var(--texto-suave); line-height: 1.5; display: flex; align-items: flex-start; gap: 10px; }
 .contenido-lista li::before { content: '→'; color: var(--oro); font-weight: 700; flex-shrink: 0; }
 
+.leccion-item { transition: background 0.15s; }
+.leccion-item:hover { background: rgba(201,168,76,0.05); }
+
 .faq-lista { display: flex; flex-direction: column; gap: 8px; margin-top: 40px; }
 .faq-item { background: var(--card); border: 1px solid var(--borde); border-radius: 8px; overflow: hidden; }
 .faq-pregunta { width: 100%; padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; background: none; border: none; cursor: pointer; text-align: left; color: var(--texto); font-size: 15px; font-weight: 600; font-family: inherit; transition: color 0.2s; }
