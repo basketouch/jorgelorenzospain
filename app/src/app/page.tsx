@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase-server";
+import Footer from "@/components/Footer";
 
 const tecnico = [
   "Estilos de juego del Eurobasket '25",
@@ -363,10 +364,7 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer>
-        <p>© 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto</p>
-      </footer>
+      <Footer />
     </>
   );
 }

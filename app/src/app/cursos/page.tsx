@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase-server";
+import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export const metadata = { title: "Cursos — Jorge Lorenzo" };
@@ -53,9 +54,7 @@ export default async function CursosPage() {
         </div>
       </section>
 
-      <footer style={{ marginTop: 120 }}>
-        <p>© 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto</p>
-      </footer>
+      <Footer />
     </>
   );
 }

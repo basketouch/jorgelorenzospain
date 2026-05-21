@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase-server";
+import Footer from "@/components/Footer";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import EditarPerfil from "./EditarPerfil";
@@ -147,11 +148,7 @@ export default async function CuentaPage() {
         </div>
       </section>
 
-      <footer style={{ marginTop: 40, borderTop: "1px solid var(--borde)", padding: "32px 0" }}>
-        <div className="container">
-          <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>© 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto</p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

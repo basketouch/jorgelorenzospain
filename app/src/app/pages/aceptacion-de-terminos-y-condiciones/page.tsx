@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Términos y condiciones — Jorge Lorenzo",
@@ -136,13 +137,7 @@ export default function TerminosPage() {
         </div>
       </div>
 
-      <footer style={{ borderTop: "1px solid var(--borde)", padding: "32px 0" }}>
-        <div className="container">
-          <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>
-            © 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

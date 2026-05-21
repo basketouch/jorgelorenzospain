@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 export default function HistoriaPage() {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
@@ -196,13 +197,7 @@ export default function HistoriaPage() {
         </div>
       </article>
 
-      <footer style={{ borderTop: "1px solid var(--borde)", padding: "32px 0" }}>
-        <div className="container">
-          <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>
-            © 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto
-          </p>
-        </div>
-      </footer>
+      <Footer />
 
       {/* Lightbox */}
       {lightboxSrc && (

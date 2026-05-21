@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
 export default function NewsletterPage() {
   const [nombre, setNombre] = useState("");
@@ -275,13 +276,7 @@ export default function NewsletterPage() {
         </div>
       </section>
 
-      <footer style={{ borderTop: "1px solid var(--borde)", padding: "32px 0" }}>
-        <div className="container">
-          <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>
-            © 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto
-          </p>
-        </div>
-      </footer>
+      <Footer />
 
       <style>{`
         @media (max-width: 768px) {

@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase-server";
+import Footer from "@/components/Footer";
 import { notFound } from "next/navigation";
 import CurriculumAccordion from "./CurriculumAccordion";
 import NavBar from "@/components/NavBar";
@@ -243,9 +244,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         </div>
       </section>
 
-      <footer>
-        <p>© 2026 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto</p>
-      </footer>
+      <Footer />
     </>
   );
 }
