@@ -49,11 +49,9 @@ export default async function PlayerLeccion({
     .single();
 
   // Registrar visualización (en background, no bloquea el render)
-  createAdminClient()
+  void createAdminClient()
     .from("visualizaciones")
-    .insert({ user_id: user.id, leccion_id: leccion.id })
-    .then(() => {})
-    .catch(() => {});
+    .insert({ user_id: user.id, leccion_id: leccion.id });
 
   // Progreso de todas las lecciones para el sidebar
   const { data: todoProgreso } = await supabase
