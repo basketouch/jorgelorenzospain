@@ -2,6 +2,7 @@ import { requireAdmin } from "@/lib/admin-guard";
 import LeccionEditor from "./LeccionEditor";
 import AddLeccionForm from "./AddLeccionForm";
 import AddModuloForm from "./AddModuloForm";
+import CursoEditor from "./CursoEditor";
 
 export default async function AdminCursos() {
   const { admin } = await requireAdmin();
@@ -41,6 +42,15 @@ export default async function AdminCursos() {
                   {curso.activo ? "Activo" : "Inactivo"}
                 </span>
               </div>
+
+              {/* Lemon Squeezy */}
+              <CursoEditor curso={{
+                id: curso.id,
+                slug: curso.slug,
+                precio: curso.precio,
+                lemon_variant_id: curso.lemon_variant_id,
+                activo: curso.activo,
+              }} />
 
               {/* Módulos */}
               <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
