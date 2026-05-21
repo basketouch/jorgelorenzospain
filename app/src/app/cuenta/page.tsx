@@ -37,7 +37,7 @@ export default async function CuentaPage() {
         {/* Imagen de fondo difuminada */}
         <div style={{
           position: "absolute", inset: 0, zIndex: 0,
-          backgroundImage: `url(https://otsbpiukzftacmvmkajy.supabase.co/storage/v1/object/public/portadas/ChatGPT%20Image%2021%20may%202026,%2012_55_41.png)`,
+          backgroundImage: `url(https://otsbpiukzftacmvmkajy.supabase.co/storage/v1/object/public/portadas/Court.png)`,
           backgroundSize: "cover", backgroundPosition: "center top",
           opacity: 0.12, filter: "blur(2px)",
         }} />
@@ -56,7 +56,7 @@ export default async function CuentaPage() {
             </div>
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 4 }}>
-                Área privada
+                Accede a tus datos
               </p>
               <h2 style={{ fontSize: "clamp(20px, 3vw, 32px)", marginBottom: 2 }}>
                 {nombre ? `Hola, ${perfil!.nombre}.` : "Bienvenido."}
