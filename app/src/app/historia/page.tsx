@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 
-export const metadata = undefined; // client component
-
 export default function HistoriaPage() {
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
 
