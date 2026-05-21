@@ -39,10 +39,24 @@ export default async function PlayerIndex({ params }: { params: Promise<{ slug: 
       </nav>
 
       <div style={{ paddingTop: 80, minHeight: "100vh" }}>
-        <div className="container" style={{ paddingTop: 48 }}>
-          <h2 style={{ marginBottom: 8 }}>{curso.titulo}</h2>
+        {/* Banner del curso */}
+        {curso.portada_url && (
+          <div style={{ position: "relative", width: "100%", height: 280, overflow: "hidden" }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={curso.portada_url} alt={curso.titulo}
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 30%" }} />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(10,10,10,0.2) 0%, rgba(10,10,10,0.85) 100%)" }} />
+            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "24px 32px" }}>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 6 }}>Curso · Temporada 2025/26</p>
+              <h2 style={{ fontSize: "clamp(20px, 3vw, 32px)", marginBottom: 0 }}>{curso.titulo}</h2>
+            </div>
+          </div>
+        )}
+
+        <div className="container" style={{ paddingTop: 40 }}>
+          {!curso.portada_url && <h2 style={{ marginBottom: 8 }}>{curso.titulo}</h2>}
           {primeraLeccion && (
-            <Link href={`/ver/${slug}/${primeraLeccion.id}`} className="btn-primary" style={{ display: "inline-block", marginBottom: 48 }}>
+            <Link href={`/ver/${slug}/${primeraLeccion.id}`} className="btn-primary" style={{ display: "inline-block", marginBottom: 40 }}>
               Empezar →
             </Link>
           )}
