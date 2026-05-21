@@ -5,6 +5,7 @@ import Link from "next/link";
 import MarcarCompletada from "./MarcarCompletada";
 import SidebarModulos from "./SidebarModulos";
 import { NavBarPlayer } from "@/components/NavBar";
+import PlayerLayout from "./PlayerLayout";
 
 export default async function PlayerLeccion({
   params,
@@ -62,62 +63,51 @@ export default async function PlayerLeccion({
 
   const completadasIds = new Set(todoProgreso?.filter((p) => p.completada).map((p) => p.leccion_id) ?? []);
 
-  return (
-    <div style={{ display: "grid", gridTemplateRows: "56px 1fr", gridTemplateColumns: "280px 1fr", height: "100vh", overflow: "hidden" }}>
-
-      {/* HEADER */}
-      <NavBarPlayer slug={slug} cursoTitulo={curso.titulo} />
-
-      {/* Sidebar */}
-      <SidebarModulos
-        modulos={curso.modulos ?? []}
-        slug={slug}
-        leccionActivaId={leccion.id}
-        completadasIds={[...completadasIds]}
-        cursoTitulo={curso.titulo}
-      />
-
-      {/* Player */}
-      <div style={{ overflowY: "auto", height: "100%" }}>
-        {leccion.vimeo_id ? (
-          <div style={{ position: "relative", paddingBottom: "56.25%", background: "#000" }}>
-            <iframe
-              src={`https://player.vimeo.com/video/${leccion.vimeo_id}?color=c9a84c&byline=0&portrait=0&title=0`}
-              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-            />
+  const playerContent = (
+    <>
+      {leccion.vimeo_id ? (
+        <div style={{ position: "relative", paddingBottom: "56.25%", background: "#000" }}>
+          <iframe
+            src={`https://player.vimeo.com/video/${leccion.vimeo_id}?color=c9a84c&byline=0&portrait=0&title=0`}
+            style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      ) : (
+        <div style={{ aspectRatio: "16/9", background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <p style={{ color: "var(--texto-suave)" }}>Vídeo próximamente</p>
+        </div>
+      )}
+      <div style={{ padding: 32 }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16, flexWrap: "wrap", marginBottom: 32 }}>
+          <div>
+            <h2 style={{ fontSize: "clamp(20px, 3vw, 28px)", marginBottom: 4 }}>{leccion.titulo}</h2>
+            {leccion.duracion && <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>{leccion.duracion}</p>}
           </div>
-        ) : (
-          <div style={{ aspectRatio: "16/9", background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <p style={{ color: "var(--texto-suave)" }}>Vídeo próximamente</p>
-          </div>
-        )}
-
-        <div style={{ padding: 32 }}>
-          <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 16, flexWrap: "wrap", marginBottom: 32 }}>
-            <div>
-              <h2 style={{ fontSize: "clamp(20px, 3vw, 28px)", marginBottom: 4 }}>{leccion.titulo}</h2>
-              {leccion.duracion && <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>{leccion.duracion}</p>}
-            </div>
-            <MarcarCompletada leccionId={leccion.id} completada={!!progreso?.completada} siguienteId={siguiente?.id} slug={slug} />
-          </div>
-
-          {/* Navegación */}
-          <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            {anterior && (
-              <Link href={`/ver/${slug}/${anterior.id}`} className="btn-secondary" style={{ fontSize: 13 }}>
-                ← Anterior
-              </Link>
-            )}
-            {siguiente && (
-              <Link href={`/ver/${slug}/${siguiente.id}`} className="btn-primary" style={{ fontSize: 13 }}>
-                Siguiente →
-              </Link>
-            )}
-          </div>
+          <MarcarCompletada leccionId={leccion.id} completada={!!progreso?.completada} siguienteId={siguiente?.id} slug={slug} />
+        </div>
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          {anterior && <Link href={`/ver/${slug}/${anterior.id}`} className="btn-secondary" style={{ fontSize: 13 }}>← Anterior</Link>}
+          {siguiente && <Link href={`/ver/${slug}/${siguiente.id}`} className="btn-primary" style={{ fontSize: 13 }}>Siguiente →</Link>}
         </div>
       </div>
-    </div>
+    </>
+  );
+
+  return (
+    <PlayerLayout
+      header={<NavBarPlayer slug={slug} cursoTitulo={curso.titulo} />}
+      sidebar={
+        <SidebarModulos
+          modulos={curso.modulos ?? []}
+          slug={slug}
+          leccionActivaId={leccion.id}
+          completadasIds={[...completadasIds]}
+          cursoTitulo={curso.titulo}
+        />
+      }
+      player={playerContent}
+    />
   );
 }

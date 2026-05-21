@@ -39,7 +39,7 @@ export function NavBarPlayer({
 }) {
   return (
     <div style={{
-      gridColumn: "1 / -1",
+      height: "100%",
       background: "rgba(10,10,10,0.97)",
       borderBottom: "1px solid var(--borde)",
       display: "flex", alignItems: "center", justifyContent: "space-between",
