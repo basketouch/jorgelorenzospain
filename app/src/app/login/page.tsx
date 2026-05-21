@@ -14,7 +14,7 @@ export default function LoginPage() {
           position: "fixed", inset: 0, zIndex: 0,
           backgroundImage: "url(https://otsbpiukzftacmvmkajy.supabase.co/storage/v1/object/public/portadas/Court.png)",
           backgroundSize: "cover", backgroundPosition: "center",
-          opacity: 0.06,
+          opacity: 0.12,
         }} />
         <div style={{ width: "100%", maxWidth: 420, position: "relative", zIndex: 1 }}>
           <p className="section-label" style={{ textAlign: "center" }}>Área privada</p>
