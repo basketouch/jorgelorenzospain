@@ -306,14 +306,16 @@ export default async function Home() {
                 {/* Comunidad */}
                 <div style={{ background: "var(--negro)", border: "2px solid var(--oro)", borderRadius: 10, padding: 24, position: "relative" }}>
                   <div style={{ position: "absolute", top: -12, left: 20, background: "var(--oro)", color: "var(--negro)", fontSize: 10, fontWeight: 800, padding: "3px 10px", borderRadius: 4, letterSpacing: "0.1em", textTransform: "uppercase" }}>Mejor opción</div>
-                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--texto-suave)", marginBottom: 8 }}>Dentro de la comunidad · Skool</p>
-                  <div className="laboratorio-precio" style={{ color: "var(--oro)" }}>~300€</div>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--texto-suave)", marginBottom: 8 }}>Miembro Premium · Skool</p>
+                  <div className="laboratorio-precio" style={{ color: "var(--oro)" }}>297€</div>
                   <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 8, lineHeight: 1.5 }}>
-                    Archivo incluido en el plan VIP<br />+ comunidad activa durante toda la temporada
+                    Precio exclusivo para miembros Premium<br />+ comunidad activa toda la temporada
                   </p>
-                  <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 12, fontStyle: "italic" }}>
-                    El precio efectivo del archivo es menor porque ya pagas la comunidad.
-                  </p>
+                  <div style={{ marginTop: 12, padding: "8px 12px", background: "rgba(201,168,76,0.08)", borderRadius: 6 }}>
+                    <p style={{ fontSize: 11, color: "var(--oro)" }}>
+                      Si ya eres Premium ($45/mes), el archivo completo cuesta 297€ — 50€ menos que en la web.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
