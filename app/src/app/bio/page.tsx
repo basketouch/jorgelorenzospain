@@ -271,15 +271,17 @@ export default function BioPage() {
             {/* HEADER */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", gap: 14, paddingTop: 8 }}>
               {/* Avatar */}
-              <div style={{
-                width: 100, height: 100, borderRadius: "50%",
-                background: "linear-gradient(135deg, #c9a84c, #8a6820)",
-                border: "3px solid #FF4757",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: 36, fontWeight: 800, color: "#0d0d0d", flexShrink: 0,
-              }}>
-                JL
-              </div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://otsbpiukzftacmvmkajy.supabase.co/storage/v1/object/public/portadas/jorge_lorenzo_profile.jpg"
+                alt="Jorge Lorenzo"
+                style={{
+                  width: 100, height: 100, borderRadius: "50%",
+                  border: "3px solid #FF4757",
+                  objectFit: "cover", objectPosition: "top",
+                  flexShrink: 0,
+                }}
+              />
 
               <div>
                 <h1 style={{ fontSize: 28, fontWeight: 800, color: "#fff", margin: 0, letterSpacing: "-0.5px" }}>
