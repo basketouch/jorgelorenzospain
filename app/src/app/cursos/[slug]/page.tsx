@@ -109,6 +109,34 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                 </div>
               </div>
 
+              {/* Vídeos de ejemplo */}
+              <div style={{ marginBottom: 48 }}>
+                <p className="section-label">Muestra del contenido</p>
+                <p style={{ fontSize: 15, color: "var(--texto-suave)", marginBottom: 24, lineHeight: 1.6 }}>
+                  Dos lecciones del programa para que veas el nivel y el formato antes de decidir.
+                </p>
+                <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+                  {[
+                    { id: "1190934536", titulo: "Puntos Clave del Scouting — Temporada 2025/26" },
+                    { id: "1191259291", titulo: "Liderazgo del entrenador — de la pizarra al día a día" },
+                  ].map(({ id, titulo }) => (
+                    <div key={id}>
+                      <div style={{ position: "relative", paddingBottom: "56.25%", borderRadius: 10, overflow: "hidden", background: "#000" }}>
+                        <iframe
+                          src={`https://player.vimeo.com/video/${id}?color=c9a84c&byline=0&portrait=0&title=0&dnt=1`}
+                          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                          allow="autoplay; fullscreen; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </div>
+                      <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 10 }}>
+                        <span style={{ color: "var(--oro)", marginRight: 6 }}>↳</span>{titulo}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               {/* Temario */}
               <div>
                 <p className="section-label">Temario completo</p>
