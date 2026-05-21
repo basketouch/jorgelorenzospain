@@ -299,7 +299,7 @@ export default function BioPage() {
             </div>
 
             {/* LINKS */}
-            <nav style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 28 }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, marginTop: 28 }}>
               {LINKS.map(({ href, label, url, icon }) => (
                 <a
                   key={href}
@@ -333,7 +333,7 @@ export default function BioPage() {
                   }} className="bio-url">{url}</span>
                 </a>
               ))}
-            </nav>
+            </div>
 
             {/* ICONOS DE CONTACTO */}
             <div style={{ display: "flex", justifyContent: "center", gap: 16, marginTop: 24, marginBottom: 24 }}>
