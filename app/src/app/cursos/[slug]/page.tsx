@@ -134,20 +134,14 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                 )}
 
                 {/* Precio */}
-                <div style={{ marginBottom: 20 }}>
-                  {esGratuito ? (
-                    <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--oro)" }}>
-                      Acceso incluido
+                {!esGratuito && (
+                  <div style={{ marginBottom: 20 }}>
+                    <div style={{ fontSize: 40, fontWeight: 800, color: "var(--blanco)", lineHeight: 1 }}>
+                      {(curso.precio / 100).toFixed(0)}€
                     </div>
-                  ) : (
-                    <>
-                      <div style={{ fontSize: 40, fontWeight: 800, color: "var(--blanco)", lineHeight: 1 }}>
-                        {(curso.precio / 100).toFixed(0)}€
-                      </div>
-                      <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 4 }}>Pago único · Acceso permanente</p>
-                    </>
-                  )}
-                </div>
+                    <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 4 }}>Pago único · Acceso permanente</p>
+                  </div>
+                )}
 
                 {/* CTA */}
                 {tieneAcceso ? (
@@ -174,7 +168,6 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                     `${modulos.length} módulos · ${totalLecciones} lecciones`,
                     "Acceso permanente",
                     "Vídeos en alta calidad",
-                    "Sesiones de preguntas y respuestas",
                   ].map((item) => (
                     <li key={item} style={{ fontSize: 13, color: "var(--texto-suave)", display: "flex", gap: 8, alignItems: "flex-start" }}>
                       <span style={{ color: "var(--oro)", flexShrink: 0 }}>✓</span> {item}
