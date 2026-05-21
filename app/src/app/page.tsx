@@ -1,3 +1,5 @@
+import { createClient } from "@/lib/supabase-server";
+
 const tecnico = [
   "Estilos de juego del Eurobasket '25",
   "Defensa en bloqueo directo y formación",
@@ -19,13 +21,26 @@ const gestion = [
 ];
 
 export default async function Home() {
+  const supabase = await createClient();
+  const { data: { user } } = await supabase.auth.getUser();
 
   return (
     <>
       {/* NAV */}
       <nav>
-        <div className="nav-logo">Jorge <span>Lorenzo</span></div>
-        <a href="#niveles" className="nav-cta">Entra ahora</a>
+        <a href="/" className="nav-logo">Jorge <span>Lorenzo</span></a>
+        <div className="nav-links">
+          <a href="#niveles" className="nav-link">Planes</a>
+          <a href="/cursos/laboratorio-2526" className="nav-link">El Laboratorio</a>
+          {user ? (
+            <a href="/cuenta" className="nav-cta">Mi cuenta</a>
+          ) : (
+            <>
+              <a href="/login" className="nav-link">Acceder</a>
+              <a href="#niveles" className="nav-cta">Unirse</a>
+            </>
+          )}
+        </div>
       </nav>
 
       {/* HERO */}
