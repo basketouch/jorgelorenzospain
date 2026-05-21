@@ -13,12 +13,18 @@ export default async function CuentaPage() {
 
   const [{ data: compras }, { data: perfil }] = await Promise.all([
     supabase.from("compras").select("*, cursos(slug, titulo, portada_url)").eq("user_id", user.id),
-    supabase.from("perfiles").select("nombre, apellido").eq("id", user.id).single(),
+    supabase.from("perfiles").select("nombre, apellido, is_admin").eq("id", user.id).single(),
   ]);
 
   return (
     <>
-      <NavBar links={[{ label: "Cursos", href: "/cursos" }]} mostrarSalir />
+      <NavBar
+        links={[
+          { label: "Cursos", href: "/cursos" },
+          ...(perfil?.is_admin ? [{ label: "Admin", href: "/admin" }] : []),
+        ]}
+        mostrarSalir
+      />
 
       <section style={{ paddingTop: 140 }}>
         <div className="container">
