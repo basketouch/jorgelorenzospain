@@ -1,5 +1,6 @@
 import { createClient } from "@/lib/supabase-server";
 import { notFound } from "next/navigation";
+import CurriculumAccordion from "./CurriculumAccordion";
 
 export default async function CursoPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -22,14 +23,16 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
     tieneAcceso = !!data;
   }
 
-  const totalLecciones = curso.modulos?.reduce(
+  const modulos = curso.modulos?.sort((a: { orden: number }, b: { orden: number }) => a.orden - b.orden) ?? [];
+  const totalLecciones = modulos.reduce(
     (acc: number, m: { lecciones_curso: unknown[] }) => acc + (m.lecciones_curso?.length ?? 0), 0
-  ) ?? 0;
+  );
+  const esGratuito = curso.precio === 0;
 
   return (
     <>
       <nav>
-        <a href="/cursos" className="nav-logo">Jorge <span>Lorenzo</span></a>
+        <a href="/" className="nav-logo">Jorge <span>Lorenzo</span></a>
         <div className="nav-links">
           {user ? (
             <a href="/cuenta" className="nav-link">Mi cuenta</a>
@@ -39,88 +42,154 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         </div>
       </nav>
 
-      <section style={{ paddingTop: 140 }}>
-        <div className="container">
-          <a href="/cursos" style={{ color: "var(--texto-suave)", fontSize: 13, textDecoration: "none", display: "inline-block", marginBottom: 32 }}>
+      {/* HERO */}
+      <div style={{ paddingTop: 64, background: "var(--oscuro)", borderBottom: "1px solid var(--borde)" }}>
+        <div className="container" style={{ paddingTop: 60, paddingBottom: 60 }}>
+          <a href="/cursos" style={{ color: "var(--texto-suave)", fontSize: 13, textDecoration: "none", display: "inline-block", marginBottom: 24 }}>
             ← Todos los cursos
           </a>
+          <p className="section-label">Curso · Temporada 2025/26</p>
+          <h2 style={{ fontSize: "clamp(28px, 5vw, 52px)", maxWidth: 700, marginBottom: 20 }}>{curso.titulo}</h2>
+          {curso.descripcion && (
+            <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 620, lineHeight: 1.7, marginBottom: 32 }}>
+              {curso.descripcion}
+            </p>
+          )}
+          {/* Stats */}
+          <div style={{ display: "flex", gap: 32, flexWrap: "wrap" }}>
+            {[
+              { valor: modulos.length, etiqueta: "módulos" },
+              { valor: totalLecciones, etiqueta: "lecciones" },
+              { valor: "9 meses", etiqueta: "de contenido" },
+            ].map(({ valor, etiqueta }) => (
+              <div key={etiqueta}>
+                <span style={{ fontSize: 28, fontWeight: 800, color: "var(--oro)" }}>{valor}</span>
+                <span style={{ fontSize: 14, color: "var(--texto-suave)", marginLeft: 6 }}>{etiqueta}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 340px", gap: 48, alignItems: "start" }}>
-            {/* Contenido */}
+      {/* CONTENIDO */}
+      <section style={{ paddingTop: 60, paddingBottom: 120 }}>
+        <div className="container">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 48, alignItems: "start" }}>
+
+            {/* IZQUIERDA */}
             <div>
-              <p className="section-label">Curso</p>
-              <h2 style={{ marginBottom: 16 }}>{curso.titulo}</h2>
-              {curso.descripcion && <p className="lead" style={{ marginBottom: 40 }}>{curso.descripcion}</p>}
+              {/* Para quién es */}
+              <div style={{ marginBottom: 48 }}>
+                <p className="section-label">¿Para quién es?</p>
+                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 12 }}>
+                  {[
+                    "Entrenadores de baloncesto que quieren ir más allá del ejercicio y el sistema.",
+                    "Técnicos que buscan contenido práctico aplicable desde el primer día.",
+                    "Entrenadores que quieren mejorar su gestión, liderazgo y toma de decisiones.",
+                  ].map((item) => (
+                    <li key={item} style={{ display: "flex", gap: 12, alignItems: "flex-start", fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.6 }}>
+                      <span style={{ color: "var(--oro)", fontWeight: 700, flexShrink: 0 }}>→</span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-              {/* Programa */}
-              {curso.modulos?.sort((a: { orden: number }, b: { orden: number }) => a.orden - b.orden).map((modulo: { id: number; titulo: string; lecciones_curso: { id: number; titulo: string; duracion?: string; es_preview: boolean }[] }) => (
-                <div key={modulo.id} style={{ marginBottom: 24 }}>
-                  <p style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>
-                    {modulo.titulo}
-                  </p>
-                  <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8, overflow: "hidden" }}>
-                    {modulo.lecciones_curso?.sort((a, b) => a.id - b.id).map((leccion, i: number) => (
-                      <div key={leccion.id} style={{
-                        padding: "14px 20px", display: "flex", alignItems: "center", justifyContent: "space-between",
-                        borderBottom: i < modulo.lecciones_curso.length - 1 ? "1px solid var(--borde)" : "none"
-                      }}>
-                        <span style={{ fontSize: 14, color: "var(--texto)" }}>{leccion.titulo}</span>
-                        <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
-                          {leccion.duracion && <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>{leccion.duracion}</span>}
-                          {leccion.es_preview && (
-                            <span style={{ fontSize: 11, color: "var(--oro)", border: "1px solid var(--oro)", padding: "2px 8px", borderRadius: 4 }}>Preview</span>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+              {/* Lo que trabajamos */}
+              <div style={{ marginBottom: 48 }}>
+                <p className="section-label">Lo que trabajamos</p>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                  {[
+                    { icono: "🎯", texto: "Estilos de juego del Eurobasket" },
+                    { icono: "🛡️", texto: "Defensa en formación y élite" },
+                    { icono: "⚡", texto: "Técnica individual ofensiva" },
+                    { icono: "🔄", texto: "Defensa del bloqueo directo" },
+                    { icono: "📐", texto: "Spacing con 4 abiertos" },
+                    { icono: "📋", texto: "Sistemas de ataque" },
+                    { icono: "🗓️", texto: "Planificación de entrenamientos" },
+                    { icono: "🔍", texto: "Scouting y preparación de partido" },
+                  ].map(({ icono, texto }) => (
+                    <div key={texto} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8, padding: "14px 16px", display: "flex", gap: 10, alignItems: "center" }}>
+                      <span style={{ fontSize: 18 }}>{icono}</span>
+                      <span style={{ fontSize: 13, color: "var(--texto-suave)" }}>{texto}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              {/* Temario */}
+              <div>
+                <p className="section-label">Temario completo</p>
+                <CurriculumAccordion modulos={modulos} />
+              </div>
             </div>
 
-            {/* Card compra */}
+            {/* DERECHA — Card */}
             <div style={{ position: "sticky", top: 100 }}>
-              <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: 32 }}>
+              <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 12, padding: 28, boxShadow: "0 4px 24px rgba(0,0,0,0.3)" }}>
                 {curso.portada_url && (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img src={curso.portada_url} alt={curso.titulo} style={{ width: "100%", borderRadius: 6, marginBottom: 20, aspectRatio: "16/9", objectFit: "cover" }} />
+                  <img src={curso.portada_url} alt={curso.titulo}
+                    style={{ width: "100%", borderRadius: 8, marginBottom: 20, aspectRatio: "16/9", objectFit: "cover" }} />
                 )}
-                <div style={{ fontSize: 36, fontWeight: 800, color: "var(--blanco)", marginBottom: 4 }}>
-                  {(curso.precio / 100).toFixed(0)}€
-                </div>
-                <p style={{ fontSize: 13, color: "var(--texto-suave)", marginBottom: 24 }}>
-                  {totalLecciones} lecciones · Acceso permanente
-                </p>
 
+                {/* Precio */}
+                <div style={{ marginBottom: 20 }}>
+                  {esGratuito ? (
+                    <div style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--oro)" }}>
+                      Acceso incluido
+                    </div>
+                  ) : (
+                    <>
+                      <div style={{ fontSize: 40, fontWeight: 800, color: "var(--blanco)", lineHeight: 1 }}>
+                        {(curso.precio / 100).toFixed(0)}€
+                      </div>
+                      <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 4 }}>Pago único · Acceso permanente</p>
+                    </>
+                  )}
+                </div>
+
+                {/* CTA */}
                 {tieneAcceso ? (
-                  <a href={`/ver/${curso.slug}`} className="btn-primary" style={{ display: "block", textAlign: "center" }}>
-                    Ir al curso →
+                  <a href={`/ver/${curso.slug}`} className="btn-primary" style={{ display: "block", textAlign: "center", marginBottom: 20 }}>
+                    Continuar curso →
+                  </a>
+                ) : esGratuito ? (
+                  <a href="/login" className="btn-primary" style={{ display: "block", textAlign: "center", marginBottom: 20 }}>
+                    Acceder al curso →
                   </a>
                 ) : (
                   <a
                     href={`https://jorgelorenzo.lemonsqueezy.com/checkout/buy/${curso.slug}`}
                     target="_blank" rel="noopener noreferrer"
-                    className="btn-primary" style={{ display: "block", textAlign: "center" }}
+                    className="btn-primary" style={{ display: "block", textAlign: "center", marginBottom: 20 }}
                   >
-                    Comprar curso
+                    Comprar — {(curso.precio / 100).toFixed(0)}€
                   </a>
                 )}
 
-                <ul style={{ listStyle: "none", marginTop: 24, display: "flex", flexDirection: "column", gap: 8 }}>
-                  {["Acceso permanente", "Vídeos en alta calidad", "Actualizado cada temporada"].map((item) => (
-                    <li key={item} style={{ fontSize: 13, color: "var(--texto-suave)", display: "flex", gap: 8 }}>
-                      <span style={{ color: "var(--oro)" }}>✓</span> {item}
+                {/* Incluye */}
+                <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10, borderTop: "1px solid var(--borde)", paddingTop: 20 }}>
+                  {[
+                    `${modulos.length} módulos · ${totalLecciones} lecciones`,
+                    "Acceso permanente",
+                    "Vídeos en alta calidad",
+                    "Sesiones de preguntas y respuestas",
+                  ].map((item) => (
+                    <li key={item} style={{ fontSize: 13, color: "var(--texto-suave)", display: "flex", gap: 8, alignItems: "flex-start" }}>
+                      <span style={{ color: "var(--oro)", flexShrink: 0 }}>✓</span> {item}
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
-      <footer style={{ marginTop: 120 }}>
-        <p>© 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto</p>
+      <footer>
+        <p>© 2026 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto</p>
       </footer>
     </>
   );
