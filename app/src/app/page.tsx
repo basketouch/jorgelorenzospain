@@ -1,18 +1,24 @@
-import { supabase } from "@/lib/supabase";
+const tecnico = [
+  "Estilos de juego del Eurobasket '25",
+  "Defensa en bloqueo directo y formación",
+  "Técnica individual ofensiva",
+  "Spacing con 4 abiertos",
+  "Sistemas de ataque estructurados",
+  "Scouting y preparación de partido",
+  "Análisis de equipos de élite mundial",
+  "Finalizaciones en situaciones reales de pista",
+];
 
-async function getTemas() {
-  const { data } = await supabase
-    .from("laboratorio_temas")
-    .select("*")
-    .eq("activo", true)
-    .order("orden");
-  return data ?? [];
-}
+const gestion = [
+  "Liderazgo del entrenador — de la pizarra al día a día",
+  "Gestión de la presión del jugador y del entrenador",
+  "Comunicación dentro del cuerpo técnico",
+  "Planificación y periodización de la temporada",
+  "Toma de decisiones en partido",
+  "Relación entrenador–jugador en el alto rendimiento",
+];
 
 export default async function Home() {
-  const temas = await getTemas();
-  const tecnico = temas.filter((t) => t.area === "tecnico");
-  const gestion = temas.filter((t) => t.area === "gestion");
 
   return (
     <>
@@ -249,31 +255,51 @@ export default async function Home() {
               <div className="laboratorio-col">
                 <p className="laboratorio-col-titulo">Técnico y táctico</p>
                 <ul className="laboratorio-lista">
-                  {tecnico.map((t) => <li key={t.id}>{t.tema}</li>)}
+                  {tecnico.map((t) => <li key={t}>{t}</li>)}
                 </ul>
               </div>
               <div className="laboratorio-col">
                 <p className="laboratorio-col-titulo">Gestión y liderazgo</p>
                 <ul className="laboratorio-lista">
-                  {gestion.map((t) => <li key={t.id}>{t.tema}</li>)}
+                  {gestion.map((t) => <li key={t}>{t}</li>)}
                 </ul>
               </div>
             </div>
             <div className="laboratorio-footer">
               <p className="laboratorio-horas">+19 horas de formación aplicada, basada en situaciones reales de pista.</p>
-              <div className="laboratorio-precio-block">
-                <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Archivo · Temporada 2025/26</p>
-                <div className="laboratorio-precio">347€</div>
-                <p className="laboratorio-precio-desc">
-                  El archivo completo · Pago único<br />Acceso permanente<br />
-                  <span style={{ color: "var(--texto-suave)", fontSize: 11 }}>Aprox. $382 según el cambio del día</span><br />
-                  <span style={{ color: "var(--oro)" }}>Incluido en VIP al finalizar la temporada</span>
-                </p>
-                <p style={{ fontSize: 12, color: "var(--texto-suave)", marginTop: 10 }}>🔒 Disponible exclusivamente dentro de la comunidad</p>
+
+              {/* Bloque precio + urgencia */}
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginTop: 24 }}>
+                {/* Standalone */}
+                <div style={{ background: "var(--negro)", border: "1px solid var(--borde)", borderRadius: 10, padding: 24 }}>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--texto-suave)", marginBottom: 8 }}>Acceso independiente · Web</p>
+                  <div className="laboratorio-precio">347€</div>
+                  <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 8, lineHeight: 1.5 }}>
+                    El archivo completo · Pago único<br />Acceso permanente a las 50 lecciones
+                  </p>
+                  <div style={{ marginTop: 16, padding: "10px 14px", background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.25)", borderRadius: 6 }}>
+                    <p style={{ fontSize: 12, color: "var(--oro)", fontWeight: 700 }}>⏳ Apertura única · Junio 2026</p>
+                    <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 4 }}>Ventana de venta limitada. Una vez cerrada, no vuelve a estar disponible hasta la próxima temporada.</p>
+                  </div>
+                </div>
+
+                {/* Comunidad */}
+                <div style={{ background: "var(--negro)", border: "2px solid var(--oro)", borderRadius: 10, padding: 24, position: "relative" }}>
+                  <div style={{ position: "absolute", top: -12, left: 20, background: "var(--oro)", color: "var(--negro)", fontSize: 10, fontWeight: 800, padding: "3px 10px", borderRadius: 4, letterSpacing: "0.1em", textTransform: "uppercase" }}>Mejor opción</div>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--texto-suave)", marginBottom: 8 }}>Dentro de la comunidad · Skool</p>
+                  <div className="laboratorio-precio" style={{ color: "var(--oro)" }}>~300€</div>
+                  <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 8, lineHeight: 1.5 }}>
+                    Archivo incluido en el plan VIP<br />+ comunidad activa durante toda la temporada
+                  </p>
+                  <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 12, fontStyle: "italic" }}>
+                    El precio efectivo del archivo es menor porque ya pagas la comunidad.
+                  </p>
+                </div>
               </div>
             </div>
+
             <div style={{ display: "flex", gap: 16, marginTop: 32, paddingTop: 32, borderTop: "1px solid var(--borde)", flexWrap: "wrap", alignItems: "stretch" }}>
-              <a href="/el-laboratorio" className="btn-secondary" style={{ flex: 1, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>Ver el programa completo</a>
+              <a href="/cursos/laboratorio-2526" className="btn-secondary" style={{ flex: 1, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>Ver el programa completo</a>
               <a href="https://www.skool.com/jorge-lorenzo-coach/plans" target="_blank" rel="noopener noreferrer" className="btn-primary" style={{ flex: 1, textAlign: "center", display: "flex", alignItems: "center", justifyContent: "center" }}>Acceder en Skool</a>
             </div>
           </div>
