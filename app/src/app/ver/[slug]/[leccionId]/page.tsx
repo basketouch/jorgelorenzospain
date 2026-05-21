@@ -62,7 +62,39 @@ export default async function PlayerLeccion({
   const completadasIds = new Set(todoProgreso?.filter((p) => p.completada).map((p) => p.leccion_id) ?? []);
 
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "280px 1fr", minHeight: "100vh" }}>
+    <div style={{ display: "grid", gridTemplateRows: "56px 1fr", gridTemplateColumns: "280px 1fr", height: "100vh", overflow: "hidden" }}>
+
+      {/* HEADER */}
+      <div style={{
+        gridColumn: "1 / -1",
+        background: "rgba(10,10,10,0.97)",
+        borderBottom: "1px solid var(--borde)",
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        padding: "0 20px", gap: 16,
+        backdropFilter: "blur(8px)",
+      }}>
+        {/* Logo */}
+        <a href="/cuenta" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
+          <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--blanco)" }}>
+            Jorge <span style={{ color: "var(--oro)" }}>Lorenzo</span>
+          </span>
+          <span style={{ width: 1, height: 16, background: "var(--borde)" }} />
+          <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--texto-suave)" }}>
+            Coach
+          </span>
+        </a>
+
+        {/* Título del curso */}
+        <a href={`/ver/${slug}`} style={{ textDecoration: "none", flex: 1, textAlign: "center" }}>
+          <span style={{ fontSize: 13, color: "var(--texto-suave)", fontWeight: 500 }}>{curso.titulo}</span>
+        </a>
+
+        {/* Mi cuenta */}
+        <a href="/cuenta" style={{ textDecoration: "none", fontSize: 12, color: "var(--texto-suave)", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", flexShrink: 0 }}>
+          Mi cuenta
+        </a>
+      </div>
+
       {/* Sidebar */}
       <SidebarModulos
         modulos={curso.modulos ?? []}
@@ -73,7 +105,7 @@ export default async function PlayerLeccion({
       />
 
       {/* Player */}
-      <div style={{ overflowY: "auto" }}>
+      <div style={{ overflowY: "auto", height: "100%" }}>
         {leccion.vimeo_id ? (
           <div style={{ position: "relative", paddingBottom: "56.25%", background: "#000" }}>
             <iframe

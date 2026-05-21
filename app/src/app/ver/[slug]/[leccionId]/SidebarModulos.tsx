@@ -45,7 +45,7 @@ export default function SidebarModulos({ modulos, slug, leccionActivaId, complet
   }
 
   return (
-    <div style={{ background: "var(--oscuro)", borderRight: "1px solid var(--borde)", overflowY: "auto", paddingTop: 24, height: "100%" }}>
+    <div style={{ background: "var(--oscuro)", borderRight: "1px solid var(--borde)", overflowY: "auto", height: "100%" }}>
       <div style={{ padding: "0 16px 16px", borderBottom: "1px solid var(--borde)", marginBottom: 8 }}>
         <Link href={`/ver/${slug}`} style={{ fontSize: 12, color: "var(--texto-suave)", textDecoration: "none" }}>
           ← {cursoTitulo}
