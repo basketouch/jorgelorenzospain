@@ -144,7 +144,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                   <a href="/login" className="btn-primary" style={{ display: "block", textAlign: "center", marginBottom: 20 }}>
                     Acceder al curso →
                   </a>
-                ) : (
+                ) : curso.en_venta ? (
                   <a
                     href={
                       curso.lemon_variant_id
@@ -156,6 +156,27 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                   >
                     Comprar — {(curso.precio / 100).toFixed(0)}€
                   </a>
+                ) : (
+                  <div style={{ marginBottom: 20 }}>
+                    <div style={{
+                      background: "var(--oscuro)", border: "1px solid var(--borde)",
+                      borderRadius: 8, padding: "16px 20px", textAlign: "center",
+                    }}>
+                      <p style={{ fontSize: 13, fontWeight: 700, color: "var(--oro)", marginBottom: 4 }}>
+                        ⏳ Apertura · Junio 2026
+                      </p>
+                      <p style={{ fontSize: 12, color: "var(--texto-suave)" }}>
+                        La venta abre por tiempo limitado al finalizar la temporada.
+                      </p>
+                    </div>
+                    <a
+                      href="https://www.skool.com/jorge-lorenzo-coach/plans"
+                      target="_blank" rel="noopener noreferrer"
+                      className="btn-primary" style={{ display: "block", textAlign: "center", marginTop: 12 }}
+                    >
+                      Acceder antes en Skool →
+                    </a>
+                  </div>
                 )}
 
                 {/* Incluye */}

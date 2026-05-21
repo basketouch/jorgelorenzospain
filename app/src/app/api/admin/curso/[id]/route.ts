@@ -22,7 +22,7 @@ export async function PATCH(
   const admin = createAdminClient();
 
   // Solo permitir campos seguros
-  const allowed = ["lemon_variant_id", "precio", "titulo", "descripcion", "activo", "portada_url"];
+  const allowed = ["lemon_variant_id", "precio", "titulo", "descripcion", "activo", "portada_url", "en_venta"];
   const patch = Object.fromEntries(Object.entries(body).filter(([k]) => allowed.includes(k)));
 
   const { data, error } = await admin

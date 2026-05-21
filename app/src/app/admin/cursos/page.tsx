@@ -49,6 +49,7 @@ export default async function AdminCursos() {
                 slug: curso.slug,
                 precio: curso.precio,
                 lemon_variant_id: curso.lemon_variant_id,
+                en_venta: curso.en_venta,
                 activo: curso.activo,
               }} />
 
