@@ -41,10 +41,18 @@ export async function POST(req: NextRequest) {
   const { data: existingUsers } = await supabase.auth.admin.listUsers();
   const existingUser = existingUsers?.users?.find((u) => u.email === customerEmail);
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jorge-lorenzo-coach.vercel.app";
+
   if (existingUser) {
     userId = existingUser.id;
+    // Usuario ya existe — mandarle magic link para que acceda directamente
+    await supabase.auth.admin.generateLink({
+      type: "magiclink",
+      email: customerEmail,
+      options: { redirectTo: `${siteUrl}/cuenta` },
+    });
   } else {
-    // Crear cuenta con contraseña temporal — el usuario deberá cambiarla
+    // Usuario nuevo — crear e invitar con magic link de bienvenida
     const tempPassword = crypto.randomBytes(16).toString("hex");
     const { data: newUser, error } = await supabase.auth.admin.createUser({
       email: customerEmail,
@@ -58,6 +66,13 @@ export async function POST(req: NextRequest) {
     }
     userId = newUser.user.id;
     // El trigger handle_new_user crea el perfil automáticamente
+
+    // Enviar magic link de acceso (el usuario no tiene contraseña asignada)
+    await supabase.auth.admin.generateLink({
+      type: "magiclink",
+      email: customerEmail,
+      options: { redirectTo: `${siteUrl}/cuenta` },
+    });
   }
 
   // Actualizar perfil si tiene nombre (usuario existente puede no tenerlo)
