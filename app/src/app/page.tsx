@@ -225,6 +225,26 @@ export default async function Home() {
               <span className="ciclo-desc">Empieza el nuevo Laboratorio</span>
             </div>
           </div>
+          {/* Imagen del Laboratorio */}
+          <div style={{ margin: "40px 0", borderRadius: 12, overflow: "hidden", position: "relative", maxHeight: 480 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://otsbpiukzftacmvmkajy.supabase.co/storage/v1/object/public/portadas/ChatGPT%20Image%2021%20may%202026,%2012_55_41.png"
+              alt="El Laboratorio del Entrenador"
+              style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+            />
+            <div style={{
+              position: "absolute", inset: 0,
+              background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)",
+              display: "flex", alignItems: "flex-end", padding: "32px 40px",
+            }}>
+              <div>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Temporada 2025/26</p>
+                <p style={{ fontSize: 28, fontWeight: 800, color: "var(--blanco)", lineHeight: 1.2 }}>El Laboratorio del Entrenador</p>
+              </div>
+            </div>
+          </div>
+
           <div className="videos-preview">
             <div className="video-card">
               <div className="video-wrapper">
