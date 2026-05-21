@@ -25,7 +25,8 @@ interface Props {
 
 export default function ModuloAccordion({ modulos, slug, completadas }: Props) {
   const completadasSet = new Set(completadas);
-  const [abiertos, setAbiertos] = useState<Set<number>>(new Set(modulos.map((m) => m.id)));
+  const ultimoModulo = modulos[modulos.length - 1];
+  const [abiertos, setAbiertos] = useState<Set<number>>(new Set(ultimoModulo ? [ultimoModulo.id] : []));
 
   function toggle(id: number) {
     setAbiertos((prev) => {
