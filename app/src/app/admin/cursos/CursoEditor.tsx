@@ -18,8 +18,9 @@ export default function CursoEditor({ curso }: Props) {
   const [guardando, setGuardando] = useState(false);
   const [ok, setOk] = useState(false);
 
+  const lemonStore = process.env.NEXT_PUBLIC_LEMON_STORE ?? "basketouch.lemonsqueezy.com";
   const checkoutUrl = variantId
-    ? `https://jorgelorenzo.lemonsqueezy.com/checkout/buy/${variantId}?checkout[custom][slug]=${curso.slug}`
+    ? `https://${lemonStore}/checkout/buy/${variantId}?checkout[custom][slug]=${curso.slug}`
     : null;
 
   async function guardar() {

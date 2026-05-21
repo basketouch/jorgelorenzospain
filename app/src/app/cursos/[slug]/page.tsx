@@ -148,7 +148,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                   <a
                     href={
                       curso.lemon_variant_id
-                        ? `https://jorgelorenzo.lemonsqueezy.com/checkout/buy/${curso.lemon_variant_id}?checkout[custom][slug]=${curso.slug}`
+                        ? `https://${process.env.NEXT_PUBLIC_LEMON_STORE}/checkout/buy/${curso.lemon_variant_id}?checkout[custom][slug]=${curso.slug}`
                         : "#"
                     }
                     target="_blank" rel="noopener noreferrer"
