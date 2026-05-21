@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase-server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
+import EditarPerfil from "./EditarPerfil";
 
 export const metadata = { title: "Mi cuenta — Jorge Lorenzo" };
 
@@ -32,12 +33,19 @@ export default async function CuentaPage() {
         <div className="container">
           <p className="section-label">Mi cuenta</p>
           <h2>Mis cursos.</h2>
-          {perfil?.nombre && (
+          {perfil?.nombre ? (
             <p style={{ fontSize: 20, fontWeight: 600, color: "var(--texto)", marginBottom: 4 }}>
               {perfil.nombre} {perfil.apellido}
             </p>
-          )}
-          <p style={{ color: "var(--texto-suave)", marginBottom: 48 }}>{user.email}</p>
+          ) : null}
+          <p style={{ color: "var(--texto-suave)", marginBottom: 8 }}>{user.email}</p>
+          <div style={{ marginBottom: 48 }}>
+            <EditarPerfil
+              userId={user.id}
+              nombreInicial={perfil?.nombre ?? ""}
+              apellidoInicial={perfil?.apellido ?? ""}
+            />
+          </div>
 
           {compras && compras.length > 0 ? (
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24 }}>
