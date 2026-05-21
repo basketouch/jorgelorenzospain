@@ -11,6 +11,8 @@ export default function LoginForm() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
   const [modo, setModo] = useState<"login" | "registro">("login");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -24,12 +26,32 @@ export default function LoginForm() {
     setLoading(true);
 
     if (modo === "login") {
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
+      const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) { setError("Email o contraseña incorrectos."); setLoading(false); return; }
+
+      // Sesión única + log de acceso (en background, no bloqueamos)
+      if (data.session?.access_token) {
+        fetch("/api/post-login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ accessToken: data.session.access_token }),
+        }).catch(() => {});
+      }
+
       router.push(redirect);
       router.refresh();
+
     } else {
-      const { error } = await supabase.auth.signUp({ email, password });
+      if (!nombre.trim() || !apellido.trim()) {
+        setError("El nombre y apellido son obligatorios.");
+        setLoading(false);
+        return;
+      }
+      const { error } = await supabase.auth.signUp({
+        email,
+        password,
+        options: { data: { nombre: nombre.trim(), apellido: apellido.trim() } },
+      });
       if (error) { setError(error.message); setLoading(false); return; }
       setEnviado(true);
     }
@@ -41,28 +63,48 @@ export default function LoginForm() {
       <div style={{ textAlign: "center", padding: "48px 0" }}>
         <p style={{ fontSize: 32 }}>📧</p>
         <h2 style={{ marginTop: 16, marginBottom: 12 }}>Revisa tu email</h2>
-        <p style={{ color: "var(--texto-suave)" }}>Te hemos enviado un enlace de confirmación a <strong style={{ color: "var(--texto)" }}>{email}</strong>.</p>
+        <p style={{ color: "var(--texto-suave)" }}>
+          Te hemos enviado un enlace de confirmación a{" "}
+          <strong style={{ color: "var(--texto)" }}>{email}</strong>.
+        </p>
       </div>
     );
   }
 
   return (
     <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+      {modo === "registro" && (
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+          <input
+            type="text" placeholder="Nombre" value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            required style={inputStyle}
+          />
+          <input
+            type="text" placeholder="Apellido" value={apellido}
+            onChange={(e) => setApellido(e.target.value)}
+            required style={inputStyle}
+          />
+        </div>
+      )}
       <input
-        type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}
+        type="email" placeholder="Email" value={email}
+        onChange={(e) => setEmail(e.target.value)}
         required style={inputStyle}
       />
       <input
-        type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)}
+        type="password" placeholder="Contraseña" value={password}
+        onChange={(e) => setPassword(e.target.value)}
         required style={inputStyle}
       />
       {error && <p style={{ color: "#e05c5c", fontSize: 14 }}>{error}</p>}
-      <button type="submit" disabled={loading} className="btn-primary" style={{ width: "100%", border: "none", cursor: "pointer" }}>
+      <button type="submit" disabled={loading} className="btn-primary"
+        style={{ width: "100%", border: "none", cursor: "pointer" }}>
         {loading ? "..." : modo === "login" ? "Entrar" : "Crear cuenta"}
       </button>
       <p style={{ textAlign: "center", fontSize: 14, color: "var(--texto-suave)" }}>
         {modo === "login" ? "¿No tienes cuenta?" : "¿Ya tienes cuenta?"}{" "}
-        <button type="button" onClick={() => setModo(modo === "login" ? "registro" : "login")}
+        <button type="button" onClick={() => { setModo(modo === "login" ? "registro" : "login"); setError(""); }}
           style={{ background: "none", border: "none", color: "var(--oro)", cursor: "pointer", fontSize: 14, fontWeight: 600 }}>
           {modo === "login" ? "Regístrate" : "Inicia sesión"}
         </button>

@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase-server";
+import { createAdminClient } from "@/lib/supabase-admin";
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import MarcarCompletada from "./MarcarCompletada";
@@ -46,6 +47,13 @@ export default async function PlayerLeccion({
     .eq("user_id", user.id)
     .eq("leccion_id", leccion.id)
     .single();
+
+  // Registrar visualización (en background, no bloquea el render)
+  createAdminClient()
+    .from("visualizaciones")
+    .insert({ user_id: user.id, leccion_id: leccion.id })
+    .then(() => {})
+    .catch(() => {});
 
   // Progreso de todas las lecciones para el sidebar
   const { data: todoProgreso } = await supabase

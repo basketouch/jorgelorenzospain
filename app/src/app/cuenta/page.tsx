@@ -9,10 +9,10 @@ export default async function CuentaPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
 
-  const { data: compras } = await supabase
-    .from("compras")
-    .select("*, cursos(slug, titulo, portada_url)")
-    .eq("user_id", user.id);
+  const [{ data: compras }, { data: perfil }] = await Promise.all([
+    supabase.from("compras").select("*, cursos(slug, titulo, portada_url)").eq("user_id", user.id),
+    supabase.from("perfiles").select("nombre, apellido").eq("id", user.id).single(),
+  ]);
 
   return (
     <>
@@ -32,6 +32,11 @@ export default async function CuentaPage() {
         <div className="container">
           <p className="section-label">Mi cuenta</p>
           <h2>Mis cursos.</h2>
+          {perfil?.nombre && (
+            <p style={{ fontSize: 20, fontWeight: 600, color: "var(--texto)", marginBottom: 4 }}>
+              {perfil.nombre} {perfil.apellido}
+            </p>
+          )}
           <p style={{ color: "var(--texto-suave)", marginBottom: 48 }}>{user.email}</p>
 
           {compras && compras.length > 0 ? (
