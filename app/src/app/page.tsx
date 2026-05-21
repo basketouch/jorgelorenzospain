@@ -35,10 +35,7 @@ export default async function Home() {
           {user ? (
             <a href="/cuenta" className="nav-cta">Mi cuenta</a>
           ) : (
-            <>
-              <a href="/login" className="nav-link">Acceder</a>
-              <a href="#niveles" className="nav-cta">Unirse</a>
-            </>
+            <a href="/login" className="nav-cta">Iniciar sesión</a>
           )}
         </div>
       </nav>
