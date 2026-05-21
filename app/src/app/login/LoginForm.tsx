@@ -13,10 +13,11 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-  const [modo, setModo] = useState<"login" | "registro">("login");
+  const [modo, setModo] = useState<"login" | "registro" | "recovery">("login");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [enviado, setEnviado] = useState(false);
+  const [verPassword, setVerPassword] = useState(false);
 
   const supabase = createClient();
 
@@ -25,11 +26,20 @@ export default function LoginForm() {
     setError("");
     setLoading(true);
 
+    if (modo === "recovery") {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/cuenta`,
+      });
+      if (error) { setError("No hemos podido enviar el email. Comprueba la dirección."); setLoading(false); return; }
+      setEnviado(true);
+      setLoading(false);
+      return;
+    }
+
     if (modo === "login") {
       const { data, error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) { setError("Email o contraseña incorrectos."); setLoading(false); return; }
 
-      // Sesión única + log de acceso (en background, no bloqueamos)
       if (data.session?.access_token) {
         fetch("/api/post-login", {
           method: "POST",
@@ -64,10 +74,49 @@ export default function LoginForm() {
         <p style={{ fontSize: 32 }}>📧</p>
         <h2 style={{ marginTop: 16, marginBottom: 12 }}>Revisa tu email</h2>
         <p style={{ color: "var(--texto-suave)" }}>
-          Te hemos enviado un enlace de confirmación a{" "}
-          <strong style={{ color: "var(--texto)" }}>{email}</strong>.
+          {modo === "recovery"
+            ? <>Te hemos enviado un enlace para restablecer tu contraseña a <strong style={{ color: "var(--texto)" }}>{email}</strong>.</>
+            : <>Te hemos enviado un enlace de confirmación a <strong style={{ color: "var(--texto)" }}>{email}</strong>.</>
+          }
         </p>
+        {modo === "recovery" && (
+          <button
+            type="button"
+            onClick={() => { setModo("login"); setEnviado(false); setError(""); }}
+            style={{ marginTop: 24, background: "none", border: "none", color: "var(--oro)", cursor: "pointer", fontSize: 14, fontWeight: 600 }}
+          >
+            ← Volver al login
+          </button>
+        )}
       </div>
+    );
+  }
+
+  // Pantalla de recuperación
+  if (modo === "recovery") {
+    return (
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+        <p style={{ fontSize: 14, color: "var(--texto-suave)", marginBottom: 4 }}>
+          Introduce tu email y te enviamos un enlace para restablecer tu contraseña.
+        </p>
+        <input
+          type="email" placeholder="Email" value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required style={inputStyle}
+        />
+        {error && <p style={{ color: "#e05c5c", fontSize: 14 }}>{error}</p>}
+        <button type="submit" disabled={loading} className="btn-primary"
+          style={{ width: "100%", border: "none", cursor: "pointer" }}>
+          {loading ? "..." : "Enviar enlace"}
+        </button>
+        <button
+          type="button"
+          onClick={() => { setModo("login"); setError(""); }}
+          style={{ background: "none", border: "none", color: "var(--texto-suave)", cursor: "pointer", fontSize: 14, textAlign: "center" }}
+        >
+          ← Volver al login
+        </button>
+      </form>
     );
   }
 
@@ -92,16 +141,49 @@ export default function LoginForm() {
         onChange={(e) => setEmail(e.target.value)}
         required style={inputStyle}
       />
-      <input
-        type="password" placeholder="Contraseña" value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required style={inputStyle}
-      />
+
+      {/* Campo contraseña con ojo */}
+      <div style={{ position: "relative" }}>
+        <input
+          type={verPassword ? "text" : "password"}
+          placeholder="Contraseña" value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required style={{ ...inputStyle, paddingRight: 44 }}
+        />
+        <button
+          type="button"
+          onClick={() => setVerPassword(!verPassword)}
+          style={{
+            position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)",
+            background: "none", border: "none", cursor: "pointer",
+            color: "var(--texto-suave)", fontSize: 18, lineHeight: 1, padding: 4,
+          }}
+          aria-label={verPassword ? "Ocultar contraseña" : "Ver contraseña"}
+        >
+          {verPassword ? "🙈" : "👁️"}
+        </button>
+      </div>
+
+      {/* Olvidé mi contraseña — solo en modo login */}
+      {modo === "login" && (
+        <div style={{ textAlign: "right", marginTop: -8 }}>
+          <button
+            type="button"
+            onClick={() => { setModo("recovery"); setError(""); }}
+            style={{ background: "none", border: "none", color: "var(--texto-suave)", cursor: "pointer", fontSize: 13 }}
+          >
+            ¿Olvidaste tu contraseña?
+          </button>
+        </div>
+      )}
+
       {error && <p style={{ color: "#e05c5c", fontSize: 14 }}>{error}</p>}
+
       <button type="submit" disabled={loading} className="btn-primary"
         style={{ width: "100%", border: "none", cursor: "pointer" }}>
         {loading ? "..." : modo === "login" ? "Entrar" : "Crear cuenta"}
       </button>
+
       <p style={{ textAlign: "center", fontSize: 14, color: "var(--texto-suave)" }}>
         {modo === "login" ? "¿No tienes cuenta?" : "¿Ya tienes cuenta?"}{" "}
         <button type="button" onClick={() => { setModo(modo === "login" ? "registro" : "login"); setError(""); }}
@@ -117,5 +199,5 @@ const inputStyle: React.CSSProperties = {
   background: "var(--card)", border: "1px solid var(--borde)",
   borderRadius: 6, padding: "12px 16px",
   color: "var(--texto)", fontSize: 15, fontFamily: "inherit",
-  outline: "none", width: "100%",
+  outline: "none", width: "100%", boxSizing: "border-box",
 };
