@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase-server";
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import ModuloAccordion from "./ModuloAccordion";
+import NavBar from "@/components/NavBar";
 
 export default async function PlayerIndex({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -31,12 +32,7 @@ export default async function PlayerIndex({ params }: { params: Promise<{ slug: 
 
   return (
     <>
-      <nav>
-        <a href="/cuenta" className="nav-logo">Jorge <span>Lorenzo</span></a>
-        <div className="nav-links">
-          <a href="/cuenta" className="nav-link">← Mis cursos</a>
-        </div>
-      </nav>
+      <NavBar logoHref="/cuenta" links={[{ label: "← Mis cursos", href: "/cuenta" }]} />
 
       <div style={{ paddingTop: 80, minHeight: "100vh" }}>
         {/* Banner del curso */}

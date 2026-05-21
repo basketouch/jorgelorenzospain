@@ -4,6 +4,7 @@ import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import MarcarCompletada from "./MarcarCompletada";
 import SidebarModulos from "./SidebarModulos";
+import { NavBarPlayer } from "@/components/NavBar";
 
 export default async function PlayerLeccion({
   params,
@@ -65,31 +66,7 @@ export default async function PlayerLeccion({
     <div style={{ display: "grid", gridTemplateRows: "56px 1fr", gridTemplateColumns: "280px 1fr", height: "100vh", overflow: "hidden" }}>
 
       {/* HEADER */}
-      <div style={{
-        gridColumn: "1 / -1",
-        background: "rgba(10,10,10,0.97)",
-        borderBottom: "1px solid var(--borde)",
-        display: "flex", alignItems: "center", justifyContent: "space-between",
-        padding: "0 20px", gap: 16,
-        backdropFilter: "blur(8px)",
-      }}>
-        {/* Logo */}
-        <a href="/cuenta" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 10, flexShrink: 0 }}>
-          <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--blanco)" }}>
-            Jorge <span style={{ color: "var(--oro)" }}>Lorenzo</span>
-          </span>
-        </a>
-
-        {/* Título del curso */}
-        <a href={`/ver/${slug}`} style={{ textDecoration: "none", flex: 1, textAlign: "center" }}>
-          <span style={{ fontSize: 13, color: "var(--texto-suave)", fontWeight: 500 }}>{curso.titulo}</span>
-        </a>
-
-        {/* Mi cuenta */}
-        <a href="/cuenta" style={{ textDecoration: "none", fontSize: 12, color: "var(--texto-suave)", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase", flexShrink: 0 }}>
-          Mi cuenta
-        </a>
-      </div>
+      <NavBarPlayer slug={slug} cursoTitulo={curso.titulo} />
 
       {/* Sidebar */}
       <SidebarModulos

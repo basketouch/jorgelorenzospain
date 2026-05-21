@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase-server";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import EditarPerfil from "./EditarPerfil";
+import NavBar from "@/components/NavBar";
 
 export const metadata = { title: "Mi cuenta — Jorge Lorenzo" };
 
@@ -17,17 +18,7 @@ export default async function CuentaPage() {
 
   return (
     <>
-      <nav>
-        <a href="/" className="nav-logo">Jorge <span>Lorenzo</span></a>
-        <div className="nav-links">
-          <a href="/cursos" className="nav-link">Cursos</a>
-          <form action="/api/logout" method="post">
-            <button type="submit" className="nav-link" style={{ background: "none", border: "none", cursor: "pointer", fontFamily: "inherit" }}>
-              Salir
-            </button>
-          </form>
-        </div>
-      </nav>
+      <NavBar links={[{ label: "Cursos", href: "/cursos" }]} mostrarSalir />
 
       <section style={{ paddingTop: 140 }}>
         <div className="container">

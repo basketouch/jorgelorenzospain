@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase-server";
 import { notFound } from "next/navigation";
 import CurriculumAccordion from "./CurriculumAccordion";
+import NavBar from "@/components/NavBar";
 
 export default async function CursoPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
@@ -31,16 +32,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
   return (
     <>
-      <nav>
-        <a href="/" className="nav-logo">Jorge <span>Lorenzo</span></a>
-        <div className="nav-links">
-          {user ? (
-            <a href="/cuenta" className="nav-link">Mi cuenta</a>
-          ) : (
-            <a href="/login" className="nav-link">Acceder</a>
-          )}
-        </div>
-      </nav>
+      <NavBar links={user ? [{ label: "Mi cuenta", href: "/cuenta" }] : [{ label: "Acceder", href: "/login" }]} />
 
       {/* HERO */}
       <div style={{ paddingTop: 64, background: "var(--oscuro)", borderBottom: "1px solid var(--borde)" }}>
