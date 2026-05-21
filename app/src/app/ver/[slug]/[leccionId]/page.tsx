@@ -78,10 +78,6 @@ export default async function PlayerLeccion({
           <span style={{ fontSize: 13, fontWeight: 800, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--blanco)" }}>
             Jorge <span style={{ color: "var(--oro)" }}>Lorenzo</span>
           </span>
-          <span style={{ width: 1, height: 16, background: "var(--borde)" }} />
-          <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--texto-suave)" }}>
-            Coach
-          </span>
         </a>
 
         {/* Título del curso */}
