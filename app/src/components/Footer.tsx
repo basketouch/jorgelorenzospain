@@ -5,12 +5,20 @@ export default function Footer() {
         <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>
           © 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto
         </p>
-        <a
-          href="/pages/aceptacion-de-terminos-y-condiciones"
-          style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none", borderBottom: "1px solid var(--borde)", paddingBottom: 1 }}
-        >
-          Términos y condiciones
-        </a>
+        <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
+          <a
+            href="/bio"
+            style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none", borderBottom: "1px solid var(--borde)", paddingBottom: 1 }}
+          >
+            Bio &amp; enlaces
+          </a>
+          <a
+            href="/pages/aceptacion-de-terminos-y-condiciones"
+            style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none", borderBottom: "1px solid var(--borde)", paddingBottom: 1 }}
+          >
+            Términos y condiciones
+          </a>
+        </div>
       </div>
     </footer>
   );

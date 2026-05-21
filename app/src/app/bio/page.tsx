@@ -224,16 +224,16 @@ export default function BioPage() {
   return (
     <>
       <div style={{
-        background: "#0F0F0F", minHeight: "100vh",
+        background: "var(--negro, #0a0a0a)", minHeight: "100vh",
         display: "flex", justifyContent: "center", alignItems: "flex-start",
         padding: "24px 16px 60px",
-        fontFamily: "system-ui, -apple-system, sans-serif",
+        fontFamily: "inherit",
       }}>
         <div style={{ width: "100%", maxWidth: 520 }}>
           {/* CARD */}
           <div style={{
-            background: "linear-gradient(180deg, #141414 0%, #0F0F0F 100%)",
-            border: "1px solid #3a3a3a",
+            background: "var(--card, #111)",
+            border: "1px solid var(--borde, #222)",
             borderRadius: 24, padding: 28,
             boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
             position: "relative",
@@ -245,7 +245,7 @@ export default function BioPage() {
               style={{
                 position: "absolute", top: 16, left: 16,
                 width: 36, height: 36, borderRadius: "50%",
-                border: "1px solid #3a3a3a", background: "rgba(26,26,26,0.9)",
+                border: "1px solid var(--borde, #222)", background: "var(--card, #111)",
                 color: "#fff", display: "flex", alignItems: "center", justifyContent: "center",
                 cursor: "pointer", transition: "all 0.2s",
               }}
@@ -277,7 +277,7 @@ export default function BioPage() {
                 alt="Jorge Lorenzo"
                 style={{
                   width: 100, height: 100, borderRadius: "50%",
-                  border: "3px solid #FF4757",
+                  border: "3px solid #c9a84c",
                   objectFit: "cover", objectPosition: "top",
                   flexShrink: 0,
                 }}
@@ -292,7 +292,7 @@ export default function BioPage() {
                   8 años en la Selección Española · 🥇 Mundial 2019 · 🥇 EuroBasket 2022<br />
                   2 JJOO, Mundiales y Eurobaskets
                 </p>
-                <p style={{ color: "#FF4757", fontSize: 12, fontWeight: 600, fontStyle: "italic", marginTop: 8 }}>
+                <p style={{ color: "#c9a84c", fontSize: 12, fontWeight: 600, fontStyle: "italic", marginTop: 8 }}>
                   IA, automatizaciones &amp; crecimiento personal
                 </p>
               </div>
@@ -309,17 +309,17 @@ export default function BioPage() {
                   style={{
                     display: "flex", alignItems: "center", gap: 14,
                     textDecoration: "none", color: "#fff",
-                    background: "#1a1a1a", border: "1px solid #3a3a3a",
+                    background: "var(--oscuro, #0d0d0d)", border: "1px solid var(--borde, #222)",
                     padding: "14px 16px", borderRadius: 14,
                     transition: "all 0.2s", position: "relative", overflow: "hidden",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "#FF4757";
+                    e.currentTarget.style.borderColor = "#c9a84c";
                     e.currentTarget.style.transform = "translateY(-2px)";
-                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(255,71,87,0.25)";
+                    e.currentTarget.style.boxShadow = "0 4px 12px rgba(201,168,76,0.25)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "#3a3a3a";
+                    e.currentTarget.style.borderColor = "var(--borde, #222)";
                     e.currentTarget.style.transform = "translateY(0)";
                     e.currentTarget.style.boxShadow = "none";
                   }}
@@ -341,8 +341,8 @@ export default function BioPage() {
                 href="mailto:info@basketouch.com"
                 style={contactIconStyle}
                 aria-label="Email"
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#FF4757"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#3a3a3a"; e.currentTarget.style.transform = "translateY(0)"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#c9a84c"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--borde, #222)"; e.currentTarget.style.transform = "translateY(0)"; }}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -354,8 +354,8 @@ export default function BioPage() {
                 target="_blank" rel="noopener noreferrer"
                 style={contactIconStyle}
                 aria-label="WhatsApp"
-                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#FF4757"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#3a3a3a"; e.currentTarget.style.transform = "translateY(0)"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#c9a84c"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--borde, #222)"; e.currentTarget.style.transform = "translateY(0)"; }}
               >
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -375,7 +375,7 @@ export default function BioPage() {
                     src={src} alt={alt}
                     style={{
                       width: "100%", borderRadius: 14,
-                      border: "1px solid #3a3a3a",
+                      border: "1px solid var(--borde, #222)",
                       objectFit: "cover", aspectRatio: "3/4",
                       objectPosition: "top",
                       display: "block",
@@ -387,8 +387,8 @@ export default function BioPage() {
             </div>
 
             {/* FOOTER */}
-            <div style={{ marginTop: 24, paddingTop: 20, borderTop: "1px solid #2a2a2a", textAlign: "center" }}>
-              <p style={{ color: "#555", fontSize: 12 }}>© {new Date().getFullYear()} Jorge Lorenzo</p>
+            <div style={{ marginTop: 24, paddingTop: 20, borderTop: "1px solid var(--borde, #222)", textAlign: "center" }}>
+              <p style={{ color: "var(--texto-suave, #888)", fontSize: 12 }}>© {new Date().getFullYear()} Jorge Lorenzo</p>
             </div>
           </div>
         </div>
@@ -409,7 +409,7 @@ export default function BioPage() {
             onClick={(e) => e.stopPropagation()}
             style={{
               width: "min(420px, 100%)",
-              background: "#191919", border: "1px solid #3a3a3a",
+              background: "var(--card, #111)", border: "1px solid var(--borde, #222)",
               borderRadius: 24, padding: "20px 16px 16px",
               boxShadow: "0 18px 45px rgba(0,0,0,0.6)",
             }}
@@ -427,13 +427,13 @@ export default function BioPage() {
                   key={key}
                   onClick={() => handleShare(key)}
                   style={{
-                    background: "#252525", border: "1px solid #3a3a3a",
+                    background: "var(--oscuro, #0d0d0d)", border: "1px solid var(--borde, #222)",
                     borderRadius: 16, padding: "14px 8px",
                     display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
                     color: "#fff", cursor: "pointer", transition: "all 0.2s",
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#FF4757"; e.currentTarget.style.transform = "translateY(-2px)"; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "#3a3a3a"; e.currentTarget.style.transform = "translateY(0)"; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = "#c9a84c"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = "var(--borde, #222)"; e.currentTarget.style.transform = "translateY(0)"; }}
                 >
                   <span style={{ width: 28, height: 28 }}>{icon}</span>
                   <span style={{ fontSize: 12, fontWeight: 500 }}>{label}</span>
@@ -456,6 +456,6 @@ export default function BioPage() {
 const contactIconStyle: React.CSSProperties = {
   display: "flex", alignItems: "center", justifyContent: "center",
   width: 48, height: 48, borderRadius: "50%",
-  background: "#1a1a1a", border: "1px solid #3a3a3a",
+  background: "var(--oscuro, #0d0d0d)", border: "1px solid var(--borde, #222)",
   textDecoration: "none", color: "#fff", transition: "all 0.2s",
 };
