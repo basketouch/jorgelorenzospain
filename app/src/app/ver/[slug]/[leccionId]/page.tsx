@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase-server";
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import MarcarCompletada from "./MarcarCompletada";
+import SidebarModulos from "./SidebarModulos";
 
 export default async function PlayerLeccion({
   params,
@@ -57,37 +58,13 @@ export default async function PlayerLeccion({
   return (
     <div style={{ display: "grid", gridTemplateColumns: "280px 1fr", minHeight: "100vh" }}>
       {/* Sidebar */}
-      <div style={{ background: "var(--oscuro)", borderRight: "1px solid var(--borde)", overflowY: "auto", paddingTop: 24 }}>
-        <div style={{ padding: "0 16px 16px", borderBottom: "1px solid var(--borde)", marginBottom: 16 }}>
-          <Link href={`/ver/${slug}`} style={{ fontSize: 12, color: "var(--texto-suave)", textDecoration: "none" }}>
-            ← {curso.titulo}
-          </Link>
-        </div>
-        {curso.modulos?.sort((a: { orden: number }, b: { orden: number }) => a.orden - b.orden).map((modulo: { id: number; titulo: string; lecciones_curso: { id: number; titulo: string; orden: number }[] }) => (
-          <div key={modulo.id} style={{ marginBottom: 8 }}>
-            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--oro)", padding: "8px 16px" }}>
-              {modulo.titulo}
-            </p>
-            {modulo.lecciones_curso.sort((a, b) => a.orden - b.orden).map((l) => {
-              const hecha = completadasIds.has(l.id);
-              const activa = l.id === leccion.id;
-              return (
-                <Link key={l.id} href={`/ver/${slug}/${l.id}`} style={{ textDecoration: "none" }}>
-                  <div style={{
-                    padding: "10px 16px", fontSize: 13, display: "flex", alignItems: "center", gap: 8,
-                    color: activa ? "var(--oro)" : "var(--texto-suave)",
-                    background: activa ? "rgba(201,168,76,0.08)" : "transparent",
-                    borderLeft: activa ? "2px solid var(--oro)" : "2px solid transparent",
-                  }}>
-                    <span style={{ flexShrink: 0, fontSize: 11 }}>{hecha ? "✅" : "⬜"}</span>
-                    <span>{l.titulo}</span>
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-        ))}
-      </div>
+      <SidebarModulos
+        modulos={curso.modulos ?? []}
+        slug={slug}
+        leccionActivaId={leccion.id}
+        completadasIds={[...completadasIds]}
+        cursoTitulo={curso.titulo}
+      />
 
       {/* Player */}
       <div style={{ overflowY: "auto" }}>
