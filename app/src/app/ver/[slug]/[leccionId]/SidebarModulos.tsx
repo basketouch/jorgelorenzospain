@@ -74,8 +74,8 @@ export default function SidebarModulos({ modulos, slug, leccionActivaId, complet
                 textAlign: "left",
               }}
             >
-              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--oro)", lineHeight: 1.4 }}>
-                {modulo.titulo}
+              <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--oro)", lineHeight: 1.4 }}>
+                Cap. {modulo.orden} — {modulo.titulo}
               </span>
               <span style={{
                 color: "var(--texto-suave)", fontSize: 12, flexShrink: 0,

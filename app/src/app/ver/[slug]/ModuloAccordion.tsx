@@ -65,7 +65,7 @@ export default function ModuloAccordion({ modulos, slug, completadas }: Props) {
               }}
             >
               <span style={{ fontSize: 13, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--oro)" }}>
-                {modulo.titulo}
+                Cap. {modulo.orden} — {modulo.titulo}
               </span>
               <span style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
                 <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>
