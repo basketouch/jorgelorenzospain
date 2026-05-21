@@ -46,6 +46,14 @@ export default async function PlayerLeccion({
     .eq("leccion_id", leccion.id)
     .single();
 
+  // Progreso de todas las lecciones para el sidebar
+  const { data: todoProgreso } = await supabase
+    .from("progreso")
+    .select("leccion_id, completada")
+    .eq("user_id", user.id);
+
+  const completadasIds = new Set(todoProgreso?.filter((p) => p.completada).map((p) => p.leccion_id) ?? []);
+
   return (
     <div style={{ display: "grid", gridTemplateColumns: "280px 1fr", minHeight: "100vh" }}>
       {/* Sidebar */}
@@ -60,18 +68,23 @@ export default async function PlayerLeccion({
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--oro)", padding: "8px 16px" }}>
               {modulo.titulo}
             </p>
-            {modulo.lecciones_curso.sort((a, b) => a.orden - b.orden).map((l) => (
-              <Link key={l.id} href={`/ver/${slug}/${l.id}`} style={{ textDecoration: "none" }}>
-                <div style={{
-                  padding: "10px 16px", fontSize: 13,
-                  color: l.id === leccion.id ? "var(--oro)" : "var(--texto-suave)",
-                  background: l.id === leccion.id ? "rgba(201,168,76,0.08)" : "transparent",
-                  borderLeft: l.id === leccion.id ? "2px solid var(--oro)" : "2px solid transparent",
-                }}>
-                  {l.titulo}
-                </div>
-              </Link>
-            ))}
+            {modulo.lecciones_curso.sort((a, b) => a.orden - b.orden).map((l) => {
+              const hecha = completadasIds.has(l.id);
+              const activa = l.id === leccion.id;
+              return (
+                <Link key={l.id} href={`/ver/${slug}/${l.id}`} style={{ textDecoration: "none" }}>
+                  <div style={{
+                    padding: "10px 16px", fontSize: 13, display: "flex", alignItems: "center", gap: 8,
+                    color: activa ? "var(--oro)" : "var(--texto-suave)",
+                    background: activa ? "rgba(201,168,76,0.08)" : "transparent",
+                    borderLeft: activa ? "2px solid var(--oro)" : "2px solid transparent",
+                  }}>
+                    <span style={{ flexShrink: 0, fontSize: 11 }}>{hecha ? "✅" : "⬜"}</span>
+                    <span>{l.titulo}</span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         ))}
       </div>

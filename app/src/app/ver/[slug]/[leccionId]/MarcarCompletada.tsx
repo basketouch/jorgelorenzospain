@@ -22,8 +22,10 @@ export default function MarcarCompletada({
   async function toggle() {
     setLoading(true);
     const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) { setLoading(false); return; }
     await supabase.from("progreso").upsert(
-      { leccion_id: leccionId, completada: !hecha },
+      { user_id: user.id, leccion_id: leccionId, completada: !hecha },
       { onConflict: "user_id,leccion_id" }
     );
     setHecha(!hecha);
