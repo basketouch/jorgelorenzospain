@@ -30,7 +30,7 @@ export default async function Home() {
       <nav>
         <a href="/" className="nav-logo">Jorge <span>Lorenzo</span></a>
         <div className="nav-links">
-          <a href="#niveles" className="nav-link">Planes</a>
+          <a href="#niveles" className="nav-link">Comunidad</a>
           <a href="/cursos/laboratorio-2526" className="nav-link">El Laboratorio</a>
           {user ? (
             <a href="/cuenta" className="nav-cta">Mi cuenta</a>

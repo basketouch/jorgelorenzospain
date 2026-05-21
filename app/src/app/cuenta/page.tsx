@@ -16,6 +16,8 @@ export default async function CuentaPage() {
     supabase.from("perfiles").select("nombre, apellido, is_admin").eq("id", user.id).single(),
   ]);
 
+  const nombre = perfil?.nombre ? `${perfil.nombre}${perfil.apellido ? ` ${perfil.apellido}` : ""}` : null;
+
   return (
     <>
       <NavBar
@@ -26,50 +28,129 @@ export default async function CuentaPage() {
         mostrarSalir
       />
 
-      <section style={{ paddingTop: 140 }}>
-        <div className="container">
-          <p className="section-label">Mi cuenta</p>
-          <h2>Mis cursos.</h2>
-          {perfil?.nombre ? (
-            <p style={{ fontSize: 20, fontWeight: 600, color: "var(--texto)", marginBottom: 4 }}>
-              {perfil.nombre} {perfil.apellido}
-            </p>
-          ) : null}
-          <p style={{ color: "var(--texto-suave)", marginBottom: 8 }}>{user.email}</p>
-          <div style={{ marginBottom: 48 }}>
+      {/* HERO PRIVADO */}
+      <div style={{
+        position: "relative", overflow: "hidden",
+        background: "var(--oscuro)", borderBottom: "1px solid var(--borde)",
+        paddingTop: 64,
+      }}>
+        {/* Imagen de fondo difuminada */}
+        <div style={{
+          position: "absolute", inset: 0, zIndex: 0,
+          backgroundImage: `url(https://otsbpiukzftacmvmkajy.supabase.co/storage/v1/object/public/portadas/ChatGPT%20Image%2021%20may%202026,%2012_55_41.png)`,
+          backgroundSize: "cover", backgroundPosition: "center top",
+          opacity: 0.12, filter: "blur(2px)",
+        }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(10,10,10,0.3), var(--oscuro))", zIndex: 1 }} />
+
+        <div className="container" style={{ position: "relative", zIndex: 2, paddingTop: 48, paddingBottom: 48 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+            {/* Avatar inicial */}
+            <div style={{
+              width: 56, height: 56, borderRadius: "50%",
+              background: "linear-gradient(135deg, var(--oro), #a07830)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              fontSize: 22, fontWeight: 800, color: "var(--negro)", flexShrink: 0,
+            }}>
+              {nombre ? nombre[0].toUpperCase() : user.email![0].toUpperCase()}
+            </div>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 4 }}>
+                Área privada
+              </p>
+              <h2 style={{ fontSize: "clamp(20px, 3vw, 32px)", marginBottom: 2 }}>
+                {nombre ? `Hola, ${perfil!.nombre}.` : "Bienvenido."}
+              </h2>
+              <p style={{ fontSize: 14, color: "var(--texto-suave)" }}>{user.email}</p>
+            </div>
+          </div>
+
+          <div style={{ marginTop: 24 }}>
             <EditarPerfil
               userId={user.id}
               nombreInicial={perfil?.nombre ?? ""}
               apellidoInicial={perfil?.apellido ?? ""}
             />
           </div>
+        </div>
+      </div>
+
+      {/* CURSOS */}
+      <section style={{ paddingTop: 48, paddingBottom: 80 }}>
+        <div className="container">
+          <p className="section-label">Mis cursos</p>
 
           {compras && compras.length > 0 ? (
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 24 }}>
               {compras.map((compra) => (
                 <Link key={compra.id} href={`/ver/${compra.cursos.slug}`} style={{ textDecoration: "none" }}>
-                  <div className="tier-card" style={{ cursor: "pointer" }}>
-                    {compra.cursos.portada_url && (
+                  <div style={{
+                    background: "var(--card)", border: "1px solid var(--borde)",
+                    borderRadius: 12, overflow: "hidden", cursor: "pointer",
+                    transition: "border-color 0.15s, transform 0.15s",
+                  }}>
+                    {compra.cursos.portada_url ? (
                       // eslint-disable-next-line @next/next/no-img-element
-                      <img src={compra.cursos.portada_url} alt={compra.cursos.titulo} style={{ width: "100%", borderRadius: 6, marginBottom: 16, aspectRatio: "16/9", objectFit: "cover" }} />
+                      <img
+                        src={compra.cursos.portada_url}
+                        alt={compra.cursos.titulo}
+                        style={{ width: "100%", aspectRatio: "16/9", objectFit: "cover", display: "block" }}
+                      />
+                    ) : (
+                      <div style={{
+                        width: "100%", aspectRatio: "16/9",
+                        background: "linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05))",
+                        display: "flex", alignItems: "center", justifyContent: "center",
+                      }}>
+                        <span style={{ fontSize: 40 }}>📚</span>
+                      </div>
                     )}
-                    <p className="tier-nombre">{compra.cursos.titulo}</p>
-                    <span className="tier-cta tier-cta-primary" style={{ display: "block", textAlign: "center", marginTop: 16 }}>Continuar →</span>
+                    <div style={{ padding: "20px 24px" }}>
+                      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 6 }}>
+                        Acceso activo
+                      </p>
+                      <p style={{ fontSize: 17, fontWeight: 700, color: "var(--blanco)", marginBottom: 16 }}>
+                        {compra.cursos.titulo}
+                      </p>
+                      <div style={{
+                        display: "inline-flex", alignItems: "center", gap: 8,
+                        background: "var(--oro)", color: "var(--negro)",
+                        padding: "9px 20px", borderRadius: 6, fontSize: 13, fontWeight: 700,
+                      }}>
+                        Continuar →
+                      </div>
+                    </div>
                   </div>
                 </Link>
               ))}
             </div>
           ) : (
-            <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: 48, textAlign: "center" }}>
-              <p style={{ fontSize: 18, color: "var(--texto-suave)", marginBottom: 24 }}>Todavía no tienes ningún curso.</p>
-              <Link href="/cursos" className="btn-primary">Ver cursos disponibles</Link>
+            <div style={{
+              background: "var(--card)", border: "1px solid var(--borde)",
+              borderRadius: 12, padding: "48px 40px", textAlign: "center",
+            }}>
+              <p style={{ fontSize: 40, marginBottom: 16 }}>📚</p>
+              <p style={{ fontSize: 18, fontWeight: 600, color: "var(--texto)", marginBottom: 8 }}>
+                Todavía no tienes ningún curso.
+              </p>
+              <p style={{ color: "var(--texto-suave)", marginBottom: 28, fontSize: 14 }}>
+                Accede al Laboratorio del Entrenador o únete a la comunidad en Skool.
+              </p>
+              <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
+                <Link href="/cursos/laboratorio-2526" className="btn-primary">Ver el Laboratorio</Link>
+                <a href="https://www.skool.com/jorge-lorenzo-coach/plans" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+                  Unirse a Skool
+                </a>
+              </div>
             </div>
           )}
         </div>
       </section>
 
-      <footer style={{ marginTop: 120 }}>
-        <p>© 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto</p>
+      <footer style={{ marginTop: 40, borderTop: "1px solid var(--borde)", padding: "32px 0" }}>
+        <div className="container">
+          <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>© 2025 Jorge Lorenzo · Comunidad de Entrenadores · Baloncesto</p>
+        </div>
       </footer>
     </>
   );
