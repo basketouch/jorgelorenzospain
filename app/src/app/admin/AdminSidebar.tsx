@@ -34,7 +34,7 @@ export default function AdminSidebar() {
       </div>
 
       {/* Nav */}
-      <nav style={{ flex: 1, padding: "16px 0" }}>
+      <div style={{ flex: 1, padding: "16px 0", display: "flex", flexDirection: "column" }}>
         {navLinks.map(({ href, label, icon }) => {
           const activo = href === "/admin" ? pathname === "/admin" : pathname.startsWith(href);
           return (
@@ -52,7 +52,7 @@ export default function AdminSidebar() {
             </a>
           );
         })}
-      </nav>
+      </div>
 
       {/* Footer */}
       <div style={{ padding: "20px 24px", borderTop: "1px solid var(--borde)", display: "flex", flexDirection: "column", gap: 10 }}>
