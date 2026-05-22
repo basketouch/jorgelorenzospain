@@ -20,7 +20,7 @@ export default async function PlayerLeccion({
 
   const { data: curso } = await supabase
     .from("cursos")
-    .select("id, titulo, modulos(id, titulo, orden, lecciones_curso(id, titulo, orden, vimeo_id, duracion))")
+    .select("id, titulo, modulos(id, titulo, orden, lecciones_curso(id, titulo, orden, video_id, duracion))")
     .eq("slug", slug)
     .single();
 
@@ -37,7 +37,7 @@ export default async function PlayerLeccion({
     ) ?? [];
 
   const idx = todasLecciones.findIndex((l: { id: number }) => l.id === parseInt(leccionId));
-  const leccion = todasLecciones[idx] as unknown as { id: number; titulo: string; vimeo_id?: string; duracion?: string } | undefined;
+  const leccion = todasLecciones[idx] as unknown as { id: number; titulo: string; video_id?: string; duracion?: string } | undefined;
   if (!leccion) notFound();
 
   const anterior = todasLecciones[idx - 1] as { id: number } | undefined;
@@ -65,10 +65,10 @@ export default async function PlayerLeccion({
 
   const playerContent = (
     <>
-      {leccion.vimeo_id ? (
+      {leccion.video_id ? (
         <div style={{ position: "relative", paddingBottom: "56.25%", background: "#000" }}>
           <iframe
-            src={`https://player.vimeo.com/video/${leccion.vimeo_id}?color=c9a84c&byline=0&portrait=0&title=0`}
+            src={`https://iframe.mediadelivery.net/embed/${process.env.NEXT_PUBLIC_BUNNY_LIBRARY_ID}/${leccion.video_id}?autoplay=false&preload=true&responsive=true&primaryColor=c9a84c`}
             style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen

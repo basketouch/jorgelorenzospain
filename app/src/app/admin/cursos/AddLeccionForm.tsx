@@ -5,7 +5,7 @@ import { useState } from "react";
 export default function AddLeccionForm({ moduloId, nextOrden }: { moduloId: number; nextOrden: number }) {
   const [abierto, setAbierto] = useState(false);
   const [titulo, setTitulo] = useState("");
-  const [vimeoId, setVimeoId] = useState("");
+  const [videoId, setVimeoId] = useState("");
   const [duracion, setDuracion] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -15,7 +15,7 @@ export default function AddLeccionForm({ moduloId, nextOrden }: { moduloId: numb
     await fetch("/api/admin/leccion", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ modulo_id: moduloId, titulo: titulo.trim(), vimeo_id: vimeoId || null, duracion: duracion || null, orden: nextOrden }),
+      body: JSON.stringify({ modulo_id: moduloId, titulo: titulo.trim(), video_id: videoId || null, duracion: duracion || null, orden: nextOrden }),
     });
     setLoading(false);
     setAbierto(false);
@@ -35,7 +35,7 @@ export default function AddLeccionForm({ moduloId, nextOrden }: { moduloId: numb
     <div style={{ marginTop: 8, display: "flex", flexDirection: "column", gap: 8 }}>
       <div style={{ display: "grid", gridTemplateColumns: "1fr 180px 100px", gap: 8 }}>
         <input value={titulo} onChange={(e) => setTitulo(e.target.value)} placeholder="Título de la lección" style={inputStyle} autoFocus />
-        <input value={vimeoId} onChange={(e) => setVimeoId(e.target.value)} placeholder="Vimeo ID" style={inputStyle} />
+        <input value={videoId} onChange={(e) => setVimeoId(e.target.value)} placeholder="Bunny Video ID" style={inputStyle} />
         <input value={duracion} onChange={(e) => setDuracion(e.target.value)} placeholder="Duración" style={inputStyle} />
       </div>
       <div style={{ display: "flex", gap: 8 }}>

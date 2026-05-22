@@ -5,7 +5,7 @@ import { useState } from "react";
 interface Leccion {
   id: number;
   titulo: string;
-  vimeo_id?: string;
+  video_id?: string;
   duracion?: string;
   es_preview: boolean;
   orden: number;
@@ -23,7 +23,7 @@ export default function LeccionEditor({ leccion }: { leccion: Leccion }) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         titulo: data.titulo,
-        vimeo_id: data.vimeo_id || null,
+        video_id: data.video_id || null,
         duracion: data.duracion || null,
         es_preview: data.es_preview,
       }),
@@ -36,11 +36,11 @@ export default function LeccionEditor({ leccion }: { leccion: Leccion }) {
     return (
       <div style={{ display: "flex", alignItems: "center", gap: 12, padding: "10px 0", borderBottom: "1px solid var(--borde)" }}>
         <span style={{ fontSize: 12, color: "var(--texto-suave)", minWidth: 24 }}>{leccion.orden}</span>
-        <span style={{ flex: 1, fontSize: 13, color: data.vimeo_id ? "var(--texto)" : "var(--texto-suave)" }}>
+        <span style={{ flex: 1, fontSize: 13, color: data.video_id ? "var(--texto)" : "var(--texto-suave)" }}>
           {data.titulo}
         </span>
-        {data.vimeo_id
-          ? <span style={{ fontSize: 11, color: "var(--oro)", border: "1px solid var(--oro)", padding: "2px 8px", borderRadius: 4 }}>▶ {data.vimeo_id}</span>
+        {data.video_id
+          ? <span style={{ fontSize: 11, color: "var(--oro)", border: "1px solid var(--oro)", padding: "2px 8px", borderRadius: 4 }}>▶ {data.video_id}</span>
           : <span style={{ fontSize: 11, color: "var(--texto-suave)", border: "1px solid var(--borde)", padding: "2px 8px", borderRadius: 4 }}>Sin vídeo</span>
         }
         {data.duracion && <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>{data.duracion}</span>}
@@ -57,8 +57,8 @@ export default function LeccionEditor({ leccion }: { leccion: Leccion }) {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 180px 100px", gap: 8 }}>
         <input value={data.titulo} onChange={(e) => setData({ ...data, titulo: e.target.value })}
           placeholder="Título" style={inputStyle} />
-        <input value={data.vimeo_id ?? ""} onChange={(e) => setData({ ...data, vimeo_id: e.target.value })}
-          placeholder="Vimeo ID" style={inputStyle} />
+        <input value={data.video_id ?? ""} onChange={(e) => setData({ ...data, video_id: e.target.value })}
+          placeholder="Bunny Video ID" style={inputStyle} />
         <input value={data.duracion ?? ""} onChange={(e) => setData({ ...data, duracion: e.target.value })}
           placeholder="Duración (14:32)" style={inputStyle} />
       </div>
