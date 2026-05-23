@@ -1,0 +1,201 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
+interface Leccion { id: number; titulo: string; duracion?: string; }
+interface Curso { id: number; slug: string; titulo: string; precio: number; lemon_variant_id: string | null; en_venta: boolean; }
+interface Modulo {
+  id: number; titulo: string; orden: number;
+  fecha_apertura?: string | null; fecha_cierre_venta?: string | null;
+  precio?: number | null; lemon_variant_id?: string | null;
+}
+
+function CuentaAtras({ fecha }: { fecha: string }) {
+  const [restante, setRestante] = useState("");
+
+  useEffect(() => {
+    const cierre = new Date(fecha);
+    function calc() {
+      const diff = cierre.getTime() - Date.now();
+      if (diff <= 0) { setRestante("Cerrado"); return; }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      setRestante(d > 0 ? `${d}d ${h}h ${m}m` : `${h}h ${m}m ${s}s`);
+    }
+    calc();
+    const t = setInterval(calc, 1000);
+    return () => clearInterval(t);
+  }, [fecha]);
+
+  return <span>{restante}</span>;
+}
+
+export default function ModuloGate({
+  modulo, lecciones, curso, lemonStore, isLoggedIn,
+}: {
+  modulo: Modulo; lecciones: Leccion[]; curso: Curso; lemonStore: string; isLoggedIn: boolean;
+}) {
+  const ahora = new Date();
+  const apertura = modulo.fecha_apertura ? new Date(modulo.fecha_apertura) : null;
+  const cierre = modulo.fecha_cierre_venta ? new Date(modulo.fecha_cierre_venta) : null;
+  const enVenta = apertura && ahora >= apertura && (!cierre || ahora <= cierre);
+  const cerrado = cierre && ahora > cierre;
+
+  return (
+    <div className="container" style={{ paddingTop: 48, paddingBottom: 100 }}>
+
+      <a href={`/cursos/${curso.slug}`} style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none", display: "inline-block", marginBottom: 24 }}>
+        ← {curso.titulo}
+      </a>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 48, alignItems: "start" }}>
+
+        {/* Izquierda — temario bloqueado */}
+        <div>
+          <p className="section-label">Módulo {String(modulo.orden).padStart(2, "0")}</p>
+          <h1 style={{ fontSize: "clamp(24px, 4vw, 38px)", marginBottom: 8 }}>{modulo.titulo}</h1>
+          <p style={{ fontSize: 14, color: "var(--texto-suave)", marginBottom: 32 }}>
+            {lecciones.length} lecciones
+          </p>
+
+          {/* Lista bloqueada */}
+          <div style={{ display: "flex", flexDirection: "column", position: "relative" }}>
+            {lecciones.map((l, i) => (
+              <div
+                key={l.id}
+                style={{
+                  display: "flex", alignItems: "center", justifyContent: "space-between",
+                  padding: "16px 0", borderBottom: "1px solid var(--borde)",
+                  gap: 16, opacity: 0.45,
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                  <span style={{ fontSize: 12, color: "var(--oro)", fontWeight: 700, minWidth: 20 }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span style={{ fontSize: 14, color: "var(--texto)" }}>{l.titulo}</span>
+                </div>
+                <span style={{ fontSize: 14, color: "var(--texto-suave)" }}>🔒</span>
+              </div>
+            ))}
+
+            {/* Overlay */}
+            <div style={{
+              position: "absolute", inset: 0,
+              background: "linear-gradient(to bottom, transparent 20%, var(--negro) 80%)",
+              pointerEvents: "none",
+            }} />
+          </div>
+        </div>
+
+        {/* Derecha — compra */}
+        <div style={{ position: "sticky", top: 100 }}>
+
+          {/* Estado del módulo */}
+          {cerrado ? (
+            <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 12, padding: 24, marginBottom: 16, textAlign: "center" }}>
+              <p style={{ fontSize: 13, color: "#888", marginBottom: 4 }}>Ventana de venta cerrada</p>
+              <p style={{ fontSize: 12, color: "var(--texto-suave)" }}>Este módulo ya no está disponible por separado.</p>
+            </div>
+          ) : enVenta && modulo.precio && modulo.lemon_variant_id ? (
+            <div style={{
+              background: "var(--card)", border: "2px solid rgba(201,168,76,0.5)",
+              borderRadius: 12, padding: 24, marginBottom: 16,
+            }}>
+              {cierre && (
+                <div style={{ marginBottom: 16, textAlign: "center" }}>
+                  <p style={{ fontSize: 11, color: "var(--texto-suave)", marginBottom: 4 }}>Cierra en</p>
+                  <p style={{ fontSize: 22, fontWeight: 800, color: "var(--oro)" }}>
+                    <CuentaAtras fecha={modulo.fecha_cierre_venta!} />
+                  </p>
+                </div>
+              )}
+              <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 4 }}>
+                <span style={{ fontSize: 38, fontWeight: 900, color: "var(--oro)", lineHeight: 1 }}>
+                  {(modulo.precio / 100).toFixed(0)}€
+                </span>
+                <span style={{ fontSize: 13, color: "var(--texto-suave)" }}>este módulo</span>
+              </div>
+              <p style={{ fontSize: 12, color: "var(--texto-suave)", marginBottom: 16, lineHeight: 1.5 }}>
+                Acceso permanente a las {lecciones.length} lecciones de este módulo.
+              </p>
+              <a
+                href={`https://${lemonStore}/checkout/buy/${modulo.lemon_variant_id}?checkout[custom][modulo_id]=${modulo.id}`}
+                target="_blank" rel="noopener noreferrer"
+                className="btn-primary"
+                style={{ display: "block", textAlign: "center", fontSize: 14, textDecoration: "none" }}
+              >
+                Comprar módulo →
+              </a>
+              {!isLoggedIn && (
+                <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 10, textAlign: "center" }}>
+                  <a href="/login" style={{ color: "var(--oro)" }}>Inicia sesión</a> si ya tienes cuenta.
+                </p>
+              )}
+            </div>
+          ) : apertura && ahora < apertura ? (
+            <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 12, padding: 24, marginBottom: 16, textAlign: "center" }}>
+              <p style={{ fontSize: 11, color: "var(--oro)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>Próximamente</p>
+              <p style={{ fontSize: 15, fontWeight: 600, marginBottom: 4 }}>
+                {apertura.toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" })}
+              </p>
+              <p style={{ fontSize: 12, color: "var(--texto-suave)" }}>Apertura de venta</p>
+            </div>
+          ) : null}
+
+          {/* Siempre — opción curso completo */}
+          <div style={{
+            background: "linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.02) 100%)",
+            border: "1px solid rgba(201,168,76,0.25)", borderRadius: 12, padding: 24,
+          }}>
+            <p style={{ fontSize: 11, color: "var(--oro)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>
+              Mejor opción
+            </p>
+            <h3 style={{ fontSize: 15, marginBottom: 8 }}>Curso completo</h3>
+            <p style={{ fontSize: 12, color: "var(--texto-suave)", lineHeight: 1.6, marginBottom: 16 }}>
+              Todos los módulos de la temporada. {!cerrado ? "50€ menos que en la web." : ""}
+            </p>
+
+            <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 12 }}>
+              <span style={{ fontSize: 26, fontWeight: 900, color: "var(--oro)" }}>297€</span>
+              <span style={{ fontSize: 12, color: "var(--texto-suave)", textDecoration: "line-through" }}>347€</span>
+            </div>
+            <a
+              href="https://www.skool.com/jorge-lorenzo-coach/plans"
+              target="_blank" rel="noopener noreferrer"
+              className="btn-primary"
+              style={{ display: "block", textAlign: "center", fontSize: 13, textDecoration: "none", marginBottom: 8 }}
+            >
+              Entrar a Skool →
+            </a>
+            <p style={{ fontSize: 11, color: "var(--texto-suave)", textAlign: "center" }}>desde $20/mes</p>
+
+            {curso.en_venta && curso.lemon_variant_id && (
+              <>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, margin: "12px 0" }}>
+                  <div style={{ flex: 1, height: 1, background: "var(--borde)" }} />
+                  <span style={{ fontSize: 11, color: "var(--texto-suave)" }}>o</span>
+                  <div style={{ flex: 1, height: 1, background: "var(--borde)" }} />
+                </div>
+                <a
+                  href={`https://${lemonStore}/checkout/buy/${curso.lemon_variant_id}?checkout[custom][slug]=${curso.slug}`}
+                  target="_blank" rel="noopener noreferrer"
+                  style={{
+                    display: "block", textAlign: "center", fontSize: 12, padding: "9px",
+                    border: "1px solid var(--borde)", borderRadius: 6,
+                    color: "var(--texto)", textDecoration: "none",
+                  }}
+                >
+                  Comprar en la web — 347€
+                </a>
+              </>
+            )}
+          </div>
+
+        </div>
+      </div>
+    </div>
+  );
+}

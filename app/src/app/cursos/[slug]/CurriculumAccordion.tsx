@@ -80,9 +80,13 @@ function ModuloRow({ modulo, slug, lemonStore }: { modulo: Modulo; slug: string;
           </span>
           <span style={{ fontSize: 14, fontWeight: 600, color: "var(--texto)" }}>{modulo.titulo}</span>
           {badge && (
-            <span style={{ fontSize: 10, fontWeight: 700, color: badge.color, border: `1px solid ${badge.color}`, padding: "2px 7px", borderRadius: 4, flexShrink: 0 }}>
-              {badge.label}
-            </span>
+            <a
+              href={`/modulos/${modulo.id}`}
+              onClick={(e) => e.stopPropagation()}
+              style={{ fontSize: 10, fontWeight: 700, color: badge.color, border: `1px solid ${badge.color}`, padding: "2px 7px", borderRadius: 4, flexShrink: 0, textDecoration: "none" }}
+            >
+              {badge.label} →
+            </a>
           )}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
