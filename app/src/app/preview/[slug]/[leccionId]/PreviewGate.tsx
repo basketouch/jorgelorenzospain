@@ -9,8 +9,6 @@ interface Leccion {
   duracion?: string;
 }
 
-const BREVO_ENDPOINT =
-  "https://1e22ccbe.sibforms.com/serve/MUIFAIn_ci491dm8pn03mxd_b-9fZEH3fsCwnRQ90taaO9VXkFSaRGdCeilLFzL5GjLwaVmLD1Fij7eC2I_P8XkHXbl9WmMkEmlBDJ5ou2udjYvpWGJ9v8v_wyoJkRoxNEhZm-OK903Ii8iyFWKZZGHLM8OWUeFluTrBilqQakEgAKd-1biT7adF-d8KOGPPEZ7uBCactPTmNYkO";
 
 export default function PreviewGate({
   leccion,
@@ -39,10 +37,11 @@ export default function PreviewGate({
     if (!email.trim()) return;
     setLoading(true);
     try {
-      const fd = new FormData();
-      fd.append("EMAIL", email.trim());
-      if (nombre.trim()) fd.append("FIRSTNAME", nombre.trim());
-      await fetch(BREVO_ENDPOINT, { method: "POST", body: fd, mode: "no-cors" });
+      await fetch("/api/preview-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), nombre: nombre.trim() }),
+      });
     } finally {
       localStorage.setItem(`preview_${leccion.id}`, "1");
       setUnlocked(true);
