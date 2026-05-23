@@ -174,22 +174,10 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                   <a href="/login" className="btn-primary" style={{ display: "block", textAlign: "center", marginBottom: 20 }}>
                     Acceder al curso →
                   </a>
-                ) : curso.en_venta ? (
-                  <a
-                    href={
-                      curso.lemon_variant_id
-                        ? `https://${process.env.NEXT_PUBLIC_LEMON_STORE}/checkout/buy/${curso.lemon_variant_id}?checkout[custom][slug]=${curso.slug}`
-                        : "#"
-                    }
-                    target="_blank" rel="noopener noreferrer"
-                    className="btn-primary" style={{ display: "block", textAlign: "center", marginBottom: 20 }}
-                  >
-                    Comprar — {(curso.precio / 100).toFixed(0)}€
-                  </a>
                 ) : (
                   <div style={{ marginBottom: 20 }}>
 
-                    {/* Opción Skool — destacada */}
+                    {/* Opción Skool — destacada (siempre visible) */}
                     <div style={{
                       background: "linear-gradient(135deg, rgba(201,168,76,0.1) 0%, rgba(201,168,76,0.03) 100%)",
                       border: "2px solid rgba(201,168,76,0.5)",
@@ -222,25 +210,36 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                       <div style={{ flex: 1, height: 1, background: "var(--borde)" }} />
                     </div>
 
-                    {/* Opción web — secundaria */}
+                    {/* Opción web */}
                     <div style={{
                       background: "var(--card)", border: "1px solid var(--borde)",
                       borderRadius: 10, padding: "16px 20px",
                       marginBottom: 10,
                     }}>
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: curso.en_venta ? 12 : 6 }}>
                         <div>
                           <span style={{ fontSize: 28, fontWeight: 900, color: "var(--blanco)", lineHeight: 1 }}>347€</span>
                           <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 3 }}>Acceso directo en la web · Pago único</p>
                         </div>
-                        <div style={{ textAlign: "right" }}>
-                          <p style={{ fontSize: 10, fontWeight: 700, color: "var(--oro)", letterSpacing: "0.15em", textTransform: "uppercase" }}>Junio 2026</p>
-                          <p style={{ fontSize: 10, color: "var(--texto-suave)", marginTop: 2 }}>Apertura limitada</p>
-                        </div>
+                        {!curso.en_venta && (
+                          <div style={{ textAlign: "right" }}>
+                            <p style={{ fontSize: 10, fontWeight: 700, color: "var(--oro)", letterSpacing: "0.15em", textTransform: "uppercase" }}>Junio 2026</p>
+                            <p style={{ fontSize: 10, color: "var(--texto-suave)", marginTop: 2 }}>Apertura limitada</p>
+                          </div>
+                        )}
                       </div>
-                      <p style={{ fontSize: 11, color: "var(--texto-suave)", lineHeight: 1.5 }}>
+                      <p style={{ fontSize: 11, color: "var(--texto-suave)", lineHeight: 1.5, marginBottom: curso.en_venta ? 12 : 0 }}>
                         Sin suscripción. Acceso permanente al curso completo en jorgelorenzo.coach.
                       </p>
+                      {curso.en_venta && curso.lemon_variant_id && (
+                        <a
+                          href={`https://${process.env.NEXT_PUBLIC_LEMON_STORE}/checkout/buy/${curso.lemon_variant_id}?checkout[custom][slug]=${curso.slug}`}
+                          target="_blank" rel="noopener noreferrer"
+                          style={{ display: "block", textAlign: "center", fontSize: 13, padding: "10px", border: "1px solid var(--borde)", borderRadius: 6, color: "var(--texto)", textDecoration: "none" }}
+                        >
+                          Comprar en la web — 347€ →
+                        </a>
+                      )}
                     </div>
 
                   </div>
