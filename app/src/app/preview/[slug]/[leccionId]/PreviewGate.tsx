@@ -2,6 +2,32 @@
 
 import { useState, useEffect } from "react";
 
+const DOMINIOS_DESECHABLES = new Set([
+  "mailinator.com","guerrillamail.com","guerrillamail.net","guerrillamail.org",
+  "tempmail.com","temp-mail.org","throwam.com","throwaway.email",
+  "yopmail.com","yopmail.fr","cool.fr.nf","jetable.fr.nf","nospam.ze.tc",
+  "trashmail.com","trashmail.me","trashmail.net","trashmail.at","trashmail.io",
+  "sharklasers.com","guerrillamailblock.com","grr.la","guerrillamail.info",
+  "spam4.me","dispostable.com","mailnull.com","spamgourmet.com","maildrop.cc",
+  "discard.email","spambox.us","mailnesia.com","mailnull.com","mt2015.com",
+  "mt2014.com","spamfree24.org","spamfree.eu","spamthisplease.com",
+  "fakeinbox.com","filzmail.com","spamgob.com","objectmail.com","obobbo.com",
+  "spamherelots.com","discardmail.com","discardmail.de","spamstack.net",
+  "crazymailing.com","spamgob.com","spamhereplease.com","spaml.de",
+  "binkmail.com","bobmail.info","chammy.info","devnullmail.com",
+  "letthemeatspam.com","mailinater.com","mailismagic.com",
+  "spaml.com","tempr.email","discard.email","cust.in",
+  "h8s.org","spamgourmet.net","spamgourmet.org","jetable.com",
+  "jetable.net","jetable.org","nomail.xl.cx","amilegit.com",
+  "imgof.com","supergreatmail.com","trbvm.com",
+]);
+
+function esDominioDesechable(email: string): boolean {
+  const partes = email.toLowerCase().split("@");
+  if (partes.length !== 2) return false;
+  return DOMINIOS_DESECHABLES.has(partes[1]);
+}
+
 interface Leccion {
   id: number;
   titulo: string;
@@ -26,6 +52,7 @@ export default function PreviewGate({
   const [nombre, setNombre] = useState("");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem(`preview_${leccion.id}`)) {
@@ -36,6 +63,11 @@ export default function PreviewGate({
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email.trim()) return;
+    if (esDominioDesechable(email)) {
+      setError("Usa tu email real para acceder al vídeo.");
+      return;
+    }
+    setError("");
     setLoading(true);
     try {
       await fetch("/api/preview-lead", {
@@ -203,7 +235,10 @@ export default function PreviewGate({
             </p>
             <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 10 }}>
               <input type="text" value={nombre} onChange={(e) => setNombre(e.target.value)} placeholder="Tu nombre" style={inputStyle} />
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Tu email" required style={inputStyle} />
+              <div>
+                <input type="email" value={email} onChange={(e) => { setEmail(e.target.value); setError(""); }} placeholder="Tu email" required style={{ ...inputStyle, borderColor: error ? "#e06" : undefined }} />
+                {error && <p style={{ fontSize: 12, color: "#e06", marginTop: 6, paddingLeft: 4 }}>{error}</p>}
+              </div>
               <button type="submit" disabled={loading} className="btn-primary"
                 style={{ padding: "13px", fontSize: 15, fontWeight: 600, border: "none", cursor: "pointer", marginTop: 4, borderRadius: 8 }}>
                 {loading ? "..." : "Ver lección gratis →"}
