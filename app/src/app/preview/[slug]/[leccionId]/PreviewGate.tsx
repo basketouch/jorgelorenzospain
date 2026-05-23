@@ -68,6 +68,44 @@ export default function PreviewGate({
           )}
         </div>
 
+        {/* CTA antes del vídeo */}
+        <div style={{
+          marginBottom: 32,
+          padding: "28px 32px",
+          background: "linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.03) 100%)",
+          border: "1px solid rgba(201,168,76,0.25)",
+          borderRadius: 12,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 32,
+          flexWrap: "wrap",
+        }}>
+          <div>
+            <p style={{ fontSize: 11, color: "var(--oro)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>
+              {cursoTitulo}
+            </p>
+            <h2 style={{ fontSize: "clamp(16px, 2vw, 20px)", marginBottom: 10 }}>
+              Esto es solo el principio.
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              {[
+                "9 capítulos · 47 lecciones",
+                "Sistemas de ataque y defensa desde la élite",
+                "Gestión, liderazgo y toma de decisiones",
+              ].map((item) => (
+                <p key={item} style={{ fontSize: 13, color: "var(--texto-suave)", display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ color: "var(--oro)" }}>→</span> {item}
+                </p>
+              ))}
+            </div>
+          </div>
+          <a href={cursoUrl} className="btn-primary"
+            style={{ fontSize: 14, padding: "12px 28px", display: "inline-block", textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0 }}>
+            Ver el curso completo →
+          </a>
+        </div>
+
         {/* Player */}
         {leccion.video_id ? (
           <div style={{ position: "relative", paddingBottom: "56.25%", background: "#000", borderRadius: 10, overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,0.6)" }}>
@@ -84,46 +122,6 @@ export default function PreviewGate({
           </div>
         )}
 
-        {/* CTA tras el vídeo */}
-        <div style={{
-          marginTop: 48,
-          padding: "36px 40px",
-          background: "linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.03) 100%)",
-          border: "1px solid rgba(201,168,76,0.25)",
-          borderRadius: 12,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          gap: 32,
-          flexWrap: "wrap",
-        }}>
-          <div>
-            <p style={{ fontSize: 11, color: "var(--oro)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>
-              {cursoTitulo}
-            </p>
-            <h2 style={{ fontSize: "clamp(18px, 2.5vw, 22px)", marginBottom: 10 }}>
-              Esto es solo el principio.
-            </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-              {[
-                "9 capítulos · 47 lecciones",
-                "Sistemas de ataque y defensa desde la élite",
-                "Gestión, liderazgo y toma de decisiones",
-              ].map((item) => (
-                <p key={item} style={{ fontSize: 13, color: "var(--texto-suave)", display: "flex", alignItems: "center", gap: 8 }}>
-                  <span style={{ color: "var(--oro)" }}>→</span> {item}
-                </p>
-              ))}
-            </div>
-          </div>
-          <a
-            href={cursoUrl}
-            className="btn-primary"
-            style={{ fontSize: 14, padding: "14px 32px", display: "inline-block", textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0 }}
-          >
-            Ver el curso completo →
-          </a>
-        </div>
       </div>
     );
   }
