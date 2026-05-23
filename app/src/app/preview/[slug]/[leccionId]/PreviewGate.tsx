@@ -9,7 +9,6 @@ interface Leccion {
   duracion?: string;
 }
 
-
 export default function PreviewGate({
   leccion,
   cursoTitulo,
@@ -49,16 +48,27 @@ export default function PreviewGate({
     }
   }
 
+  /* ── VISTA DESBLOQUEADA ── */
   if (unlocked) {
     return (
-      <div style={{ maxWidth: 900, margin: "0 auto", padding: "32px 24px" }}>
-        <p style={{ fontSize: 12, color: "var(--texto-suave)", marginBottom: 8, textTransform: "uppercase", letterSpacing: 1 }}>
-          {cursoTitulo} · Vista previa gratuita
-        </p>
-        <h1 style={{ fontSize: "clamp(20px, 3vw, 26px)", marginBottom: 24 }}>{leccion.titulo}</h1>
+      <div style={{ maxWidth: 960, margin: "0 auto", padding: "40px 24px 80px" }}>
 
+        {/* Etiqueta + título */}
+        <div style={{ marginBottom: 24 }}>
+          <span style={{ fontSize: 11, color: "var(--oro)", letterSpacing: 2, textTransform: "uppercase" }}>
+            Vista previa gratuita · {cursoTitulo}
+          </span>
+          <h1 style={{ fontSize: "clamp(22px, 3vw, 30px)", marginTop: 8, marginBottom: 0 }}>
+            {leccion.titulo}
+          </h1>
+          {leccion.duracion && (
+            <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 6 }}>{leccion.duracion}</p>
+          )}
+        </div>
+
+        {/* Player */}
         {leccion.video_id ? (
-          <div style={{ position: "relative", paddingBottom: "56.25%", background: "#000", borderRadius: 8, overflow: "hidden" }}>
+          <div style={{ position: "relative", paddingBottom: "56.25%", background: "#000", borderRadius: 10, overflow: "hidden", boxShadow: "0 8px 40px rgba(0,0,0,0.6)" }}>
             <iframe
               src={`https://iframe.mediadelivery.net/embed/${libraryId}/${leccion.video_id}?autoplay=false&preload=true&responsive=true&primaryColor=c9a84c&muted=false&loop=false`}
               style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
@@ -67,20 +77,48 @@ export default function PreviewGate({
             />
           </div>
         ) : (
-          <div style={{ aspectRatio: "16/9", background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 8 }}>
+          <div style={{ aspectRatio: "16/9", background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 10 }}>
             <p style={{ color: "var(--texto-suave)" }}>Vídeo próximamente</p>
           </div>
         )}
 
-        {leccion.duracion && (
-          <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 12 }}>{leccion.duracion}</p>
-        )}
-
-        <div style={{ marginTop: 40, padding: 24, background: "var(--card)", borderRadius: 12, border: "1px solid var(--borde)", textAlign: "center" }}>
-          <p style={{ fontSize: 15, marginBottom: 20 }}>
-            ¿Te ha gustado? Accede a todo el contenido del curso.
-          </p>
-          <a href={`/cursos/${slug}`} className="btn-primary" style={{ fontSize: 14, padding: "12px 28px", display: "inline-block", textDecoration: "none" }}>
+        {/* CTA tras el vídeo */}
+        <div style={{
+          marginTop: 48,
+          padding: "36px 40px",
+          background: "linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.03) 100%)",
+          border: "1px solid rgba(201,168,76,0.25)",
+          borderRadius: 12,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: 32,
+          flexWrap: "wrap",
+        }}>
+          <div>
+            <p style={{ fontSize: 11, color: "var(--oro)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 8 }}>
+              {cursoTitulo}
+            </p>
+            <h2 style={{ fontSize: "clamp(18px, 2.5vw, 22px)", marginBottom: 10 }}>
+              Esto es solo el principio.
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              {[
+                "9 capítulos · 47 lecciones",
+                "Sistemas de ataque y defensa desde la élite",
+                "Gestión, liderazgo y toma de decisiones",
+              ].map((item) => (
+                <p key={item} style={{ fontSize: 13, color: "var(--texto-suave)", display: "flex", alignItems: "center", gap: 8 }}>
+                  <span style={{ color: "var(--oro)" }}>→</span> {item}
+                </p>
+              ))}
+            </div>
+          </div>
+          <a
+            href={`/cursos/${slug}`}
+            className="btn-primary"
+            style={{ fontSize: 14, padding: "14px 32px", display: "inline-block", textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0 }}
+          >
             Ver el curso completo →
           </a>
         </div>
@@ -88,21 +126,46 @@ export default function PreviewGate({
     );
   }
 
+  /* ── GATE: FORMULARIO EMAIL ── */
   return (
-    <div style={{ minHeight: "80vh", display: "flex", alignItems: "center", justifyContent: "center", padding: 24 }}>
-      <div style={{ maxWidth: 440, width: "100%", textAlign: "center" }}>
-        <p style={{ fontSize: 11, color: "var(--oro)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 16 }}>
-          Vista previa gratuita
-        </p>
-        <h1 style={{ fontSize: "clamp(20px, 4vw, 28px)", marginBottom: 8 }}>{leccion.titulo}</h1>
-        <p style={{ fontSize: 14, color: "var(--texto-suave)", marginBottom: 32 }}>
-          {cursoTitulo}{leccion.duracion ? ` · ${leccion.duracion}` : ""}
-        </p>
+    <div style={{ minHeight: "85vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "40px 24px" }}>
+      <div style={{ maxWidth: 480, width: "100%" }}>
 
-        <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 12, padding: 32 }}>
-          <p style={{ fontSize: 15, color: "var(--texto)", marginBottom: 24 }}>
-            Déjanos tu email y ve esta lección gratis.
+        {/* Credencial */}
+        <div style={{ textAlign: "center", marginBottom: 32 }}>
+          <div style={{
+            display: "inline-flex", alignItems: "center", gap: 10,
+            background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.2)",
+            borderRadius: 100, padding: "6px 16px", marginBottom: 24,
+          }}>
+            <span style={{ fontSize: 12, color: "var(--oro)" }}>🏆 2× Campeón del Mundo · 2× JJOO</span>
+          </div>
+
+          <p style={{ fontSize: 11, color: "var(--texto-suave)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 12 }}>
+            {cursoTitulo}
           </p>
+          <h1 style={{ fontSize: "clamp(22px, 4vw, 32px)", lineHeight: 1.2, marginBottom: 12 }}>
+            {leccion.titulo}
+          </h1>
+          {leccion.duracion && (
+            <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>{leccion.duracion}</p>
+          )}
+        </div>
+
+        {/* Card formulario */}
+        <div style={{
+          background: "var(--card)",
+          border: "1px solid var(--borde)",
+          borderRadius: 14,
+          padding: "32px 28px",
+        }}>
+          <p style={{ fontSize: 16, fontWeight: 600, marginBottom: 6, textAlign: "center" }}>
+            Ve esta lección gratis
+          </p>
+          <p style={{ fontSize: 13, color: "var(--texto-suave)", textAlign: "center", marginBottom: 24 }}>
+            Déjanos tu email y accede al vídeo al instante.
+          </p>
+
           <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             <input
               type="text"
@@ -123,15 +186,19 @@ export default function PreviewGate({
               type="submit"
               disabled={loading}
               className="btn-primary"
-              style={{ padding: "12px", fontSize: 14, border: "none", cursor: "pointer", marginTop: 4 }}
+              style={{ padding: "13px", fontSize: 15, fontWeight: 600, border: "none", cursor: "pointer", marginTop: 4, borderRadius: 8 }}
             >
               {loading ? "..." : "Ver lección gratis →"}
             </button>
           </form>
-          <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 16 }}>
-            Sin spam. Baja cuando quieras.
-          </p>
+
+          <div style={{ marginTop: 20, paddingTop: 20, borderTop: "1px solid var(--borde)", display: "flex", justifyContent: "center", gap: 24 }}>
+            {["Sin spam", "Baja cuando quieras", "Gratis"].map((item) => (
+              <span key={item} style={{ fontSize: 11, color: "var(--texto-suave)" }}>✓ {item}</span>
+            ))}
+          </div>
         </div>
+
       </div>
     </div>
   );
@@ -141,7 +208,7 @@ const inputStyle: React.CSSProperties = {
   background: "var(--negro)",
   border: "1px solid var(--borde)",
   borderRadius: 8,
-  padding: "12px 16px",
+  padding: "13px 16px",
   color: "var(--texto)",
   fontSize: 14,
   fontFamily: "inherit",
