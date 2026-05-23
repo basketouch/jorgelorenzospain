@@ -57,16 +57,18 @@ export default function LeccionEditor({ leccion }: { leccion: Leccion }) {
       <div style={{ display: "grid", gridTemplateColumns: "1fr 180px 100px", gap: 8 }}>
         <input value={data.titulo} onChange={(e) => setData({ ...data, titulo: e.target.value })}
           placeholder="Título" style={inputStyle} />
-        <input value={data.video_id ?? ""} onChange={(e) => setData({ ...data, video_id: e.target.value })}
-          placeholder="Bunny Video ID" style={inputStyle} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          <input value={data.video_id ?? ""} onChange={(e) => setData({ ...data, video_id: e.target.value })}
+            placeholder="Bunny Video ID" style={inputStyle} />
+          <label style={{ display: "flex", gap: 6, alignItems: "center", fontSize: 12, color: "var(--texto-suave)", cursor: "pointer", paddingLeft: 4 }}>
+            <input type="checkbox" checked={data.es_preview} onChange={(e) => setData({ ...data, es_preview: e.target.checked })} />
+            Preview gratuito
+          </label>
+        </div>
         <input value={data.duracion ?? ""} onChange={(e) => setData({ ...data, duracion: e.target.value })}
           placeholder="Duración (14:32)" style={inputStyle} />
       </div>
-      <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
-        <label style={{ display: "flex", gap: 6, alignItems: "center", fontSize: 13, color: "var(--texto-suave)", cursor: "pointer" }}>
-          <input type="checkbox" checked={data.es_preview} onChange={(e) => setData({ ...data, es_preview: e.target.checked })} />
-          Preview gratuito
-        </label>
+      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
         <button onClick={guardar} disabled={loading} className="btn-primary" style={{ fontSize: 12, padding: "6px 16px", border: "none", cursor: "pointer" }}>
           {loading ? "..." : "Guardar"}
         </button>

@@ -20,16 +20,13 @@ export default async function PlayerLeccion({
 
   const { data: curso } = await supabase
     .from("cursos")
-    .select("id, titulo, modulos(id, titulo, orden, lecciones_curso(id, titulo, orden, video_id, duracion))")
+    .select("id, titulo, modulos(id, titulo, orden, lecciones_curso(id, titulo, orden, video_id, duracion, es_preview))")
     .eq("slug", slug)
     .single();
 
   if (!curso) notFound();
 
-  const { data: acceso } = await supabase.rpc("tiene_acceso", { p_curso_id: curso.id });
-  if (!acceso) redirect(`/cursos/${slug}`);
-
-  // Aplanar todas las lecciones en orden
+  // Aplanar primero para identificar la lección antes de verificar acceso
   const todasLecciones = curso.modulos
     ?.sort((a: { orden: number }, b: { orden: number }) => a.orden - b.orden)
     .flatMap((m: { lecciones_curso: { id: number; orden: number }[] }) =>
@@ -37,8 +34,11 @@ export default async function PlayerLeccion({
     ) ?? [];
 
   const idx = todasLecciones.findIndex((l: { id: number }) => l.id === parseInt(leccionId));
-  const leccion = todasLecciones[idx] as unknown as { id: number; titulo: string; video_id?: string; duracion?: string } | undefined;
+  const leccion = todasLecciones[idx] as unknown as { id: number; titulo: string; video_id?: string; duracion?: string; es_preview: boolean } | undefined;
   if (!leccion) notFound();
+
+  const { data: acceso } = await supabase.rpc("tiene_acceso", { p_curso_id: curso.id });
+  if (!acceso && !leccion.es_preview) redirect(`/cursos/${slug}`);
 
   const anterior = todasLecciones[idx - 1] as { id: number } | undefined;
   const siguiente = todasLecciones[idx + 1] as { id: number } | undefined;
@@ -68,7 +68,7 @@ export default async function PlayerLeccion({
       {leccion.video_id ? (
         <div style={{ position: "relative", paddingBottom: "56.25%", background: "#000" }}>
           <iframe
-            src={`https://iframe.mediadelivery.net/embed/${process.env.NEXT_PUBLIC_BUNNY_LIBRARY_ID}/${leccion.video_id}?autoplay=false&preload=true&responsive=true&primaryColor=c9a84c`}
+            src={`https://iframe.mediadelivery.net/embed/${process.env.NEXT_PUBLIC_BUNNY_LIBRARY_ID}/${leccion.video_id}?autoplay=false&preload=true&responsive=true&primaryColor=c9a84c&muted=false&loop=false&captions=false`}
             style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", border: 0 }}
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
