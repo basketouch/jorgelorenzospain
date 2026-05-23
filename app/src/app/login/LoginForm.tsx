@@ -63,6 +63,14 @@ export default function LoginForm() {
         options: { data: { nombre: nombre.trim(), apellido: apellido.trim() } },
       });
       if (error) { setError(error.message); setLoading(false); return; }
+
+      // Enviar a Brevo
+      fetch("/api/preview-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), nombre: nombre.trim(), apellido: apellido.trim() }),
+      }).catch(() => {});
+
       setEnviado(true);
     }
     setLoading(false);

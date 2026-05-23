@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, nombre } = await req.json();
+    const { email, nombre, apellido } = await req.json();
 
     if (!email?.trim()) {
       return NextResponse.json({ error: "Email requerido" }, { status: 400 });
@@ -16,7 +16,10 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         email: email.trim(),
-        attributes: { FIRSTNAME: nombre?.trim() ?? "" },
+        attributes: {
+          FIRSTNAME: nombre?.trim() ?? "",
+          ...(apellido?.trim() ? { LASTNAME: apellido.trim() } : {}),
+        },
         listIds: [35],
         updateEnabled: true,
       }),
