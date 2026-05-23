@@ -212,7 +212,7 @@ export default function PreviewGate({
               </button>
             </form>
             <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid var(--borde)", display: "flex", justifyContent: "center", gap: 20 }}>
-              {["Sin spam", "Baja cuando quieras", "Gratis"].map((item) => (
+              {["Sin spam", "Gratis"].map((item) => (
                 <span key={item} style={{ fontSize: 11, color: "var(--texto-suave)" }}>✓ {item}</span>
               ))}
             </div>
