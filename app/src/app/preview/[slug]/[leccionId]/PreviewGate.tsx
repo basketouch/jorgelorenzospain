@@ -139,28 +139,47 @@ export default function PreviewGate({
       }} />
 
       {/* Layout: foto + form */}
-      <div style={{ position: "relative", zIndex: 1, display: "flex", alignItems: "center", gap: 48, maxWidth: 880, width: "100%", flexWrap: "wrap", justifyContent: "center" }}>
+      <div style={{
+        position: "relative", zIndex: 1,
+        display: "grid",
+        gridTemplateColumns: "minmax(0,1fr) minmax(0,1fr)",
+        gap: 64,
+        maxWidth: 960,
+        width: "100%",
+        alignItems: "center",
+      }}
+        className="preview-grid"
+      >
 
         {/* Foto copa */}
-        <div style={{ flexShrink: 0, textAlign: "center" }}>
+        <div style={{ textAlign: "center" }}>
           <img
             src="https://otsbpiukzftacmvmkajy.supabase.co/storage/v1/object/public/portadas/Con%20la%20copa.jpg"
-            alt="Campeón de Europa"
-            style={{ width: 260, height: 340, objectFit: "cover", borderRadius: 12, boxShadow: "0 12px 48px rgba(0,0,0,0.6)", display: "block" }}
+            alt="Jorge Lorenzo — Campeón de Europa"
+            style={{
+              width: "100%",
+              maxWidth: 380,
+              aspectRatio: "3/4",
+              objectFit: "cover",
+              borderRadius: 14,
+              boxShadow: "0 20px 64px rgba(0,0,0,0.7)",
+              display: "block",
+              margin: "0 auto",
+            }}
           />
-          <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 10, letterSpacing: 1, textTransform: "uppercase" }}>
+          <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 14, letterSpacing: 1.5, textTransform: "uppercase" }}>
             Campeón de Europa · Berlín 2022
           </p>
         </div>
 
         {/* Columna derecha */}
-        <div style={{ maxWidth: 400, width: "100%" }}>
+        <div>
 
           {/* Credencial */}
           <div style={{
             display: "inline-flex", alignItems: "center", gap: 8,
             background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.2)",
-            borderRadius: 100, padding: "6px 16px", marginBottom: 20,
+            borderRadius: 100, padding: "6px 18px", marginBottom: 24,
           }}>
             <span style={{ fontSize: 12, color: "var(--oro)" }}>🏆 Campeón del Mundo · Campeón de Europa</span>
           </div>
@@ -168,11 +187,11 @@ export default function PreviewGate({
           <p style={{ fontSize: 11, color: "var(--texto-suave)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 10 }}>
             {cursoTitulo}
           </p>
-          <h1 style={{ fontSize: "clamp(20px, 3.5vw, 28px)", lineHeight: 1.25, marginBottom: 12 }}>
+          <h1 style={{ fontSize: "clamp(22px, 3vw, 30px)", lineHeight: 1.2, marginBottom: 10 }}>
             {leccion.titulo}
           </h1>
           {leccion.duracion && (
-            <p style={{ fontSize: 13, color: "var(--texto-suave)", marginBottom: 28 }}>{leccion.duracion}</p>
+            <p style={{ fontSize: 13, color: "var(--texto-suave)", marginBottom: 32 }}>{leccion.duracion}</p>
           )}
 
           {/* Card formulario */}
@@ -198,6 +217,15 @@ export default function PreviewGate({
 
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 680px) {
+          .preview-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

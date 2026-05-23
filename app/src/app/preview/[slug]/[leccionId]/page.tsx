@@ -1,23 +1,20 @@
 import { createAdminClient } from "@/lib/supabase-admin";
 import { notFound, redirect } from "next/navigation";
+import { Metadata } from "next";
 import Link from "next/link";
 import PreviewGate from "./PreviewGate";
 
-export default async function PreviewLeccion({
-  params,
-}: {
-  params: Promise<{ slug: string; leccionId: string }>;
-}) {
-  const { slug, leccionId } = await params;
-  const admin = createAdminClient();
+type Params = { slug: string; leccionId: string };
 
+async function getLeccion(slug: string, leccionId: string) {
+  const admin = createAdminClient();
   const { data: curso } = await admin
     .from("cursos")
     .select("id, titulo, modulos(id, titulo, orden, lecciones_curso(id, titulo, orden, video_id, duracion, es_preview))")
     .eq("slug", slug)
     .single();
 
-  if (!curso) notFound();
+  if (!curso) return null;
 
   const todasLecciones = (curso.modulos as { orden: number; lecciones_curso: { id: number; orden: number }[] }[])
     ?.sort((a, b) => a.orden - b.orden)
@@ -27,6 +24,53 @@ export default async function PreviewLeccion({
     | { id: number; titulo: string; video_id?: string; duracion?: string; es_preview: boolean }
     | undefined;
 
+  return { curso, leccion };
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
+  const { slug, leccionId } = await params;
+  const result = await getLeccion(slug, leccionId);
+  if (!result || !result.leccion?.es_preview) return { title: "Vista previa gratuita — Jorge Lorenzo" };
+
+  const { curso, leccion } = result;
+  const title = `${leccion!.titulo} — Lección gratuita · Jorge Lorenzo`;
+  const description = `Accede gratis a esta lección de "${curso.titulo}". Contenido de élite de la Selección Española de baloncesto por Jorge Lorenzo, Campeón del Mundo y de Europa.`;
+  const image = "https://otsbpiukzftacmvmkajy.supabase.co/storage/v1/object/public/portadas/Con%20la%20copa.jpg";
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: image, width: 800, height: 1000, alt: "Jorge Lorenzo — Campeón de Europa" }],
+      type: "website",
+      siteName: "Jorge Lorenzo",
+      locale: "es_ES",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
+  };
+}
+
+export default async function PreviewLeccion({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
+  const { slug, leccionId } = await params;
+  const result = await getLeccion(slug, leccionId);
+
+  if (!result || !result.curso) notFound();
+  const { curso, leccion } = result;
   if (!leccion) notFound();
   if (!leccion.es_preview) redirect(`/cursos/${slug}`);
 
