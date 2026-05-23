@@ -142,7 +142,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
               {/* Temario */}
               <div>
                 <p className="section-label">Temario completo</p>
-                <CurriculumAccordion modulos={modulos} />
+                <CurriculumAccordion modulos={modulos} slug={slug} />
               </div>
             </div>
 

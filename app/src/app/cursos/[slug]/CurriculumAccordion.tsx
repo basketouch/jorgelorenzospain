@@ -16,7 +16,7 @@ interface Modulo {
   lecciones_curso: Leccion[];
 }
 
-export default function CurriculumAccordion({ modulos }: { modulos: Modulo[] }) {
+export default function CurriculumAccordion({ modulos, slug }: { modulos: Modulo[]; slug: string }) {
   const [abiertos, setAbiertos] = useState<Set<number>>(new Set([modulos[0]?.id]));
 
   function toggle(id: number) {
@@ -60,21 +60,33 @@ export default function CurriculumAccordion({ modulos }: { modulos: Modulo[] }) 
 
             {abierto && (
               <div style={{ borderTop: "1px solid var(--borde)" }}>
-                {lecciones.map((leccion, i) => (
-                  <div key={leccion.id} style={{
-                    padding: "12px 20px 12px 52px", display: "flex", alignItems: "center",
-                    justifyContent: "space-between",
-                    borderBottom: i < lecciones.length - 1 ? "1px solid var(--borde)" : "none",
-                  }}>
-                    <span style={{ fontSize: 13, color: "var(--texto-suave)" }}>{leccion.titulo}</span>
-                    <div style={{ display: "flex", gap: 10, alignItems: "center", flexShrink: 0 }}>
-                      {leccion.duracion && <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>{leccion.duracion}</span>}
-                      {leccion.es_preview && (
-                        <span style={{ fontSize: 11, color: "var(--oro)", border: "1px solid var(--oro)", padding: "2px 8px", borderRadius: 4 }}>Preview</span>
-                      )}
+                {lecciones.map((leccion, i) => {
+                  const previewUrl = `/preview/${slug}/${leccion.id}`;
+                  const row = (
+                    <div style={{
+                      padding: "12px 20px 12px 52px", display: "flex", alignItems: "center",
+                      justifyContent: "space-between",
+                      borderBottom: i < lecciones.length - 1 ? "1px solid var(--borde)" : "none",
+                      textDecoration: "none",
+                      ...(leccion.es_preview ? { cursor: "pointer" } : {}),
+                    }}>
+                      <span style={{ fontSize: 13, color: leccion.es_preview ? "var(--texto)" : "var(--texto-suave)" }}>{leccion.titulo}</span>
+                      <div style={{ display: "flex", gap: 10, alignItems: "center", flexShrink: 0 }}>
+                        {leccion.duracion && <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>{leccion.duracion}</span>}
+                        {leccion.es_preview && (
+                          <span style={{ fontSize: 11, color: "var(--oro)", border: "1px solid var(--oro)", padding: "2px 8px", borderRadius: 4 }}>▶ Preview</span>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                  return leccion.es_preview ? (
+                    <a key={leccion.id} href={previewUrl} style={{ display: "block", textDecoration: "none" }}>
+                      {row}
+                    </a>
+                  ) : (
+                    <div key={leccion.id}>{row}</div>
+                  );
+                })}
               </div>
             )}
           </div>
