@@ -2,6 +2,7 @@ import { requireAdmin } from "@/lib/admin-guard";
 import { notFound } from "next/navigation";
 import AccesoToggle from "../AccesoToggle";
 import AccesoModuloToggle from "./AccesoModuloToggle";
+import EliminarUsuario from "./EliminarUsuario";
 
 function formatFecha(iso?: string) {
   if (!iso) return "—";
@@ -55,10 +56,11 @@ export default async function UsuarioPerfil({ params }: { params: Promise<{ user
           }}>
             {(perfil.nombre?.[0] ?? "?").toUpperCase()}
           </div>
-          <div>
+          <div style={{ flex: 1 }}>
             <h2 style={{ marginBottom: 4 }}>{perfil.nombre} {perfil.apellido}</h2>
             <p style={{ color: "var(--texto-suave)", fontSize: 14 }}>{user?.email ?? "—"}</p>
           </div>
+          <EliminarUsuario userId={userId} nombre={`${perfil.nombre} ${perfil.apellido}`} />
         </div>
       </div>
 

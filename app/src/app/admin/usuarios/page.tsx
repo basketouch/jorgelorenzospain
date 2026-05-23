@@ -41,7 +41,19 @@ export default async function AdminUsuarios() {
     <>
       <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Admin</p>
       <h2 style={{ marginBottom: 8 }}>Usuarios</h2>
-      <p style={{ color: "var(--texto-suave)", marginBottom: 32 }}>{perfiles.length} alumnos registrados</p>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 32 }}>
+        <p style={{ color: "var(--texto-suave)" }}>{perfiles.length} alumnos registrados</p>
+        <a
+          href="/api/admin/export-usuarios"
+          style={{
+            fontSize: 12, fontWeight: 600, padding: "7px 16px", borderRadius: 6,
+            border: "1px solid var(--borde)", color: "var(--texto-suave)",
+            textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 6,
+          }}
+        >
+          ↓ Exportar CSV
+        </a>
+      </div>
 
       <div style={{ overflowX: "auto" }}>
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
