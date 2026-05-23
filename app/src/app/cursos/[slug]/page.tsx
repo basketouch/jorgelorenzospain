@@ -211,7 +211,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                         <div style={{ width: 1, background: "var(--borde)" }} />
                         <div>
                           <p style={{ fontSize: 22, fontWeight: 800, color: "var(--oro)" }}>297€</p>
-                          <p style={{ fontSize: 10, color: "var(--texto-suave)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Miembros Skool</p>
+                          <p style={{ fontSize: 10, color: "var(--texto-suave)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Cualquier nivel Skool</p>
                         </div>
                       </div>
                     </div>
@@ -220,7 +220,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                       target="_blank" rel="noopener noreferrer"
                       className="btn-primary" style={{ display: "block", textAlign: "center" }}
                     >
-                      Acceder antes en Skool — desde $45/mes →
+                      Acceder antes en Skool — desde $20/mes →
                     </a>
                   </div>
                 )}

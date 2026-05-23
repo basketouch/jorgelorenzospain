@@ -153,6 +153,7 @@ export default async function Home() {
                 <li>Jueves: sistema ofensivo o defensivo</li>
                 <li>Sábado: ATO — situaciones que deciden partidos</li>
                 <li>Preguntas — resuelve tus dudas en la comunidad</li>
+                <li>Archivo completo Lab. 25/26 disponible por 297€</li>
               </ul>
               <a href="https://www.skool.com/jorge-lorenzo-coach/plans" target="_blank" rel="noopener noreferrer" className="tier-cta tier-cta-secondary">Entrar en Standard</a>
             </div>
@@ -167,8 +168,9 @@ export default async function Home() {
                 <li>Todo lo anterior del plan Standard</li>
                 <li>El Laboratorio del Entrenador — programa mensual</li>
                 <li>Mínimo 3 vídeos + charla al mes: técnica, táctica y gestión</li>
-                <li>Acceso al mes en curso y al anterior</li>
+                <li>Últimos 2 meses del Laboratorio incluidos</li>
                 <li>Preguntas con atención prioritaria</li>
+                <li>Archivo completo Lab. 25/26 disponible por 297€</li>
               </ul>
               <a href="https://www.skool.com/jorge-lorenzo-coach/plans" target="_blank" rel="noopener noreferrer" className="tier-cta tier-cta-primary">Entrar en Premium</a>
             </div>
@@ -320,14 +322,14 @@ export default async function Home() {
                 {/* Comunidad */}
                 <div style={{ background: "var(--negro)", border: "2px solid var(--oro)", borderRadius: 10, padding: 24, position: "relative" }}>
                   <div style={{ position: "absolute", top: -12, left: 20, background: "var(--oro)", color: "var(--negro)", fontSize: 10, fontWeight: 800, padding: "3px 10px", borderRadius: 4, letterSpacing: "0.1em", textTransform: "uppercase" }}>Mejor opción</div>
-                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--texto-suave)", marginBottom: 8 }}>Miembro Premium · Skool</p>
+                  <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--texto-suave)", marginBottom: 8 }}>Miembro Skool · Cualquier nivel</p>
                   <div className="laboratorio-precio" style={{ color: "var(--oro)" }}>297€</div>
                   <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 8, lineHeight: 1.5 }}>
-                    Precio exclusivo para miembros Premium<br />+ comunidad activa toda la temporada
+                    Precio exclusivo para miembros<br />+ comunidad activa toda la temporada
                   </p>
                   <div style={{ marginTop: 12, padding: "8px 12px", background: "rgba(201,168,76,0.08)", borderRadius: 6 }}>
                     <p style={{ fontSize: 11, color: "var(--oro)" }}>
-                      Si ya eres Premium ($45/mes), el archivo completo cuesta 297€ — 50€ menos que en la web.
+                      Cualquier nivel de Skool (desde $20/mes) da acceso al archivo completo por 297€ — 50€ menos que en la web.
                     </p>
                   </div>
                 </div>
