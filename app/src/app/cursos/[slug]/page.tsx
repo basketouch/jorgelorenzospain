@@ -187,41 +187,61 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
                   </a>
                 ) : (
                   <div style={{ marginBottom: 20 }}>
-                    {/* Bloque apertura */}
+
+                    {/* Opción Skool — destacada */}
                     <div style={{
-                      background: "linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.04) 100%)",
-                      border: "1px solid rgba(201,168,76,0.4)",
-                      borderRadius: 10, padding: "20px 20px 16px", textAlign: "center",
-                      marginBottom: 12,
+                      background: "linear-gradient(135deg, rgba(201,168,76,0.1) 0%, rgba(201,168,76,0.03) 100%)",
+                      border: "2px solid rgba(201,168,76,0.5)",
+                      borderRadius: 10, padding: "20px",
+                      marginBottom: 10, position: "relative",
                     }}>
-                      <p style={{ fontSize: 10, fontWeight: 800, letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 10 }}>
-                        Próxima apertura
+                      <div style={{ position: "absolute", top: -11, left: 16, background: "var(--oro)", color: "var(--negro)", fontSize: 10, fontWeight: 800, padding: "2px 10px", borderRadius: 4, letterSpacing: "0.1em", textTransform: "uppercase" }}>
+                        Mejor precio
+                      </div>
+                      <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 4 }}>
+                        <span style={{ fontSize: 38, fontWeight: 900, color: "var(--oro)", lineHeight: 1 }}>297€</span>
+                        <span style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "line-through" }}>347€</span>
+                      </div>
+                      <p style={{ fontSize: 12, color: "var(--texto-suave)", marginBottom: 14, lineHeight: 1.5 }}>
+                        Acceso completo · Pago único · Solo para miembros de la comunidad Skool
                       </p>
-                      <p style={{ fontSize: 36, fontWeight: 900, color: "var(--blanco)", lineHeight: 1, marginBottom: 4 }}>
-                        Junio 2026
-                      </p>
-                      <p style={{ fontSize: 12, color: "var(--texto-suave)", marginBottom: 14 }}>
-                        Ventana de venta limitada · No estará disponible de forma permanente
-                      </p>
-                      <div style={{ display: "flex", justifyContent: "center", gap: 24 }}>
+                      <a
+                        href="https://www.skool.com/jorge-lorenzo-coach/plans"
+                        target="_blank" rel="noopener noreferrer"
+                        className="btn-primary" style={{ display: "block", textAlign: "center", fontSize: 14 }}
+                      >
+                        Entrar a la comunidad — desde $20/mes →
+                      </a>
+                    </div>
+
+                    {/* Separador */}
+                    <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+                      <div style={{ flex: 1, height: 1, background: "var(--borde)" }} />
+                      <span style={{ fontSize: 11, color: "var(--texto-suave)" }}>o</span>
+                      <div style={{ flex: 1, height: 1, background: "var(--borde)" }} />
+                    </div>
+
+                    {/* Opción web — secundaria */}
+                    <div style={{
+                      background: "var(--card)", border: "1px solid var(--borde)",
+                      borderRadius: 10, padding: "16px 20px",
+                      marginBottom: 10,
+                    }}>
+                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 6 }}>
                         <div>
-                          <p style={{ fontSize: 22, fontWeight: 800, color: "var(--blanco)" }}>347€</p>
-                          <p style={{ fontSize: 10, color: "var(--texto-suave)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Web</p>
+                          <span style={{ fontSize: 28, fontWeight: 900, color: "var(--blanco)", lineHeight: 1 }}>347€</span>
+                          <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 3 }}>Acceso directo en la web · Pago único</p>
                         </div>
-                        <div style={{ width: 1, background: "var(--borde)" }} />
-                        <div>
-                          <p style={{ fontSize: 22, fontWeight: 800, color: "var(--oro)" }}>297€</p>
-                          <p style={{ fontSize: 10, color: "var(--texto-suave)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Cualquier nivel Skool</p>
+                        <div style={{ textAlign: "right" }}>
+                          <p style={{ fontSize: 10, fontWeight: 700, color: "var(--oro)", letterSpacing: "0.15em", textTransform: "uppercase" }}>Junio 2026</p>
+                          <p style={{ fontSize: 10, color: "var(--texto-suave)", marginTop: 2 }}>Apertura limitada</p>
                         </div>
                       </div>
+                      <p style={{ fontSize: 11, color: "var(--texto-suave)", lineHeight: 1.5 }}>
+                        Sin suscripción. Acceso permanente al curso completo en jorgelorenzo.coach.
+                      </p>
                     </div>
-                    <a
-                      href="https://www.skool.com/jorge-lorenzo-coach/plans"
-                      target="_blank" rel="noopener noreferrer"
-                      className="btn-primary" style={{ display: "block", textAlign: "center" }}
-                    >
-                      Acceder antes en Skool — desde $20/mes →
-                    </a>
+
                   </div>
                 )}
 
