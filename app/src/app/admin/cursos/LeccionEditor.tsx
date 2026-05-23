@@ -68,26 +68,26 @@ export default function LeccionEditor({ leccion, cursoSlug }: { leccion: Leccion
   }
 
   return (
-    <div style={{ padding: "12px 0", borderBottom: "1px solid var(--borde)", display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 180px", gap: 8 }}>
+    <div style={{ padding: "12px 0", borderBottom: "1px solid var(--borde)" }}>
+      <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
         <input value={data.titulo} onChange={(e) => setData({ ...data, titulo: e.target.value })}
-          placeholder="Título" style={inputStyle} />
-        <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+          placeholder="Título" style={{ ...inputStyle, width: 220, flexShrink: 0 }} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 5, flexShrink: 0 }}>
           <input value={data.video_id ?? ""} onChange={(e) => setData({ ...data, video_id: e.target.value })}
-            placeholder="Bunny Video ID" style={inputStyle} />
-          <label style={{ display: "flex", gap: 6, alignItems: "center", fontSize: 12, color: "var(--texto-suave)", cursor: "pointer", paddingLeft: 4 }}>
+            placeholder="Bunny Video ID" style={{ ...inputStyle, width: 160 }} />
+          <label style={{ display: "flex", gap: 5, alignItems: "center", fontSize: 11, color: "var(--texto-suave)", cursor: "pointer", paddingLeft: 2 }}>
             <input type="checkbox" checked={data.es_preview} onChange={(e) => setData({ ...data, es_preview: e.target.checked })} />
             Preview gratuito
           </label>
         </div>
-      </div>
-      <div style={{ display: "flex", gap: 8, alignItems: "center", justifyContent: "flex-end" }}>
-        <button onClick={() => setEditando(false)} style={{ fontSize: 12, color: "var(--texto-suave)", background: "none", border: "none", cursor: "pointer" }}>
-          Cancelar
-        </button>
-        <button onClick={guardar} disabled={loading} className="btn-primary" style={{ fontSize: 12, padding: "6px 16px", border: "none", cursor: "pointer" }}>
-          {loading ? "..." : "Guardar"}
-        </button>
+        <div style={{ display: "flex", gap: 6, alignItems: "center", marginLeft: "auto", paddingTop: 2 }}>
+          <button onClick={() => setEditando(false)} style={{ fontSize: 12, color: "var(--texto-suave)", background: "none", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
+            Cancelar
+          </button>
+          <button onClick={guardar} disabled={loading} className="btn-primary" style={{ fontSize: 12, padding: "6px 14px", border: "none", cursor: "pointer", whiteSpace: "nowrap" }}>
+            {loading ? "..." : "Guardar"}
+          </button>
+        </div>
       </div>
     </div>
   );
