@@ -38,7 +38,19 @@ export default async function PlayerLeccion({
   if (!leccion) notFound();
 
   const { data: acceso } = await supabase.rpc("tiene_acceso", { p_curso_id: curso.id });
-  if (!acceso && !leccion.es_preview) redirect(`/cursos/${slug}`);
+
+  let tieneAccesoModulo = false;
+  if (!acceso && !leccion.es_preview) {
+    // Buscar el módulo al que pertenece esta lección
+    const moduloDeLeccion = curso.modulos?.find((m: { lecciones_curso: { id: number }[] }) =>
+      m.lecciones_curso.some((l) => l.id === parseInt(leccionId))
+    );
+    if (moduloDeLeccion) {
+      const { data } = await supabase.rpc("tiene_acceso_modulo", { p_modulo_id: moduloDeLeccion.id });
+      tieneAccesoModulo = !!data;
+    }
+    if (!tieneAccesoModulo) redirect(`/cursos/${slug}`);
+  }
 
   const anterior = todasLecciones[idx - 1] as { id: number } | undefined;
   const siguiente = todasLecciones[idx + 1] as { id: number } | undefined;
