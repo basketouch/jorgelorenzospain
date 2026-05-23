@@ -22,6 +22,13 @@ export default function ModuloEditor({ modulo }: { modulo: Modulo }) {
   const [data, setData] = useState(modulo);
   const [loading, setLoading] = useState(false);
   const [guardado, setGuardado] = useState(false);
+  const [copiado, setCopiado] = useState(false);
+
+  function copiarUrl() {
+    navigator.clipboard.writeText(`${window.location.origin}/modulos/${modulo.id}`);
+    setCopiado(true);
+    setTimeout(() => setCopiado(false), 2000);
+  }
 
   async function guardar() {
     setLoading(true);
@@ -70,6 +77,9 @@ export default function ModuloEditor({ modulo }: { modulo: Modulo }) {
           </span>
         )}
         {data.precio ? <span style={{ fontSize: 11, color: "var(--texto-suave)" }}>{(data.precio / 100).toFixed(0)}€</span> : null}
+        <button onClick={copiarUrl} style={{ fontSize: 11, color: copiado ? "#4a9" : "var(--oro)", background: "none", border: `1px solid ${copiado ? "#4a9" : "var(--oro)"}`, borderRadius: 4, padding: "2px 10px", cursor: "pointer" }}>
+          {copiado ? "✓ Copiado" : "🔗 Copiar URL"}
+        </button>
       </div>
 
       {abierto && (
