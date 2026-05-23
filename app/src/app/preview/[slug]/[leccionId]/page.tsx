@@ -75,8 +75,7 @@ export default async function PreviewLeccion({
   if (!leccion.es_preview) redirect(`/cursos/${slug}`);
 
   const libraryId = process.env.NEXT_PUBLIC_BUNNY_LIBRARY_ID ?? "";
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jorgelorenzo.coach";
-  const cursoUrl = `${siteUrl}/cursos/${slug}`;
+  const cursoUrl = `/cursos/${slug}`;
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--negro)", color: "var(--texto)" }}>
