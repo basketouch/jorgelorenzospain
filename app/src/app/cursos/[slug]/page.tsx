@@ -2,6 +2,7 @@ import { createClient } from "@/lib/supabase-server";
 import Footer from "@/components/Footer";
 import { notFound } from "next/navigation";
 import CurriculumAccordion from "./CurriculumAccordion";
+import FaqAccordion from "./FaqAccordion";
 import NavBar from "@/components/NavBar";
 
 export default async function CursoPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -269,42 +270,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
         <div className="container" style={{ maxWidth: 720 }}>
           <p className="section-label" style={{ marginBottom: 8 }}>Preguntas frecuentes</p>
           <h2 style={{ fontSize: "clamp(24px, 3.5vw, 36px)", marginBottom: 48 }}>Lo que más nos preguntan.</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-            {[
-              {
-                q: "¿Cuál es la diferencia entre comprarlo en la web o acceder por Skool?",
-                a: "Si lo compras en la web (347€), accedes al curso completo aquí, en jorgelorenzo.coach, y lo ves las veces que quieras sin ningún tipo de suscripción. Si entras en Skool, además del curso tienes la comunidad activa de entrenadores, el contenido semanal y la interacción directa. El precio del archivo en Skool es 297€ — 50€ menos.",
-              },
-              {
-                q: "¿Necesito ser miembro Premium de Skool para comprar el curso a 297€?",
-                a: "No. Cualquier nivel de la comunidad Skool — desde el plan Standard ($20/mes) — te da acceso a comprar el archivo completo del Laboratorio 25/26 por 297€. El plan Sistema ($45/mes) incluye además los dos meses en curso del Laboratorio.",
-              },
-              {
-                q: "¿Qué incluye exactamente el plan Sistema ($45/mes)?",
-                a: "El plan Sistema incluye todo lo del plan Standard más el Laboratorio del Entrenador: mínimo 3 vídeos al mes de técnica, táctica y gestión, y acceso a los dos últimos meses publicados. Si quieres el archivo completo de toda la temporada, está disponible por 297€.",
-              },
-              {
-                q: "¿Cuándo se abre la venta del curso en la web?",
-                a: "La apertura está prevista para junio de 2026. Será una ventana de venta limitada — no estará disponible de forma permanente. Si quieres acceso antes y al mejor precio, la forma más directa es entrar en la comunidad Skool.",
-              },
-              {
-                q: "¿El acceso es permanente?",
-                a: "Sí. Tanto si compras en la web como si lo adquieres dentro de Skool, el acceso al archivo del Laboratorio 25/26 es permanente. No caduca.",
-              },
-              {
-                q: "¿Puedo cancelar la suscripción a Skool y seguir viendo el curso?",
-                a: "Si cancelas tu suscripción a Skool, pierdes el acceso a la comunidad y al contenido mensual. El archivo del Laboratorio que hayas comprado por separado (297€) depende de las condiciones de Skool en el momento de la compra. Si prefieres un acceso totalmente independiente sin suscripción, la opción de la web (347€) es la más adecuada.",
-              },
-            ].map(({ q, a }, i, arr) => (
-              <div key={q} style={{
-                padding: "28px 0",
-                borderBottom: i < arr.length - 1 ? "1px solid var(--borde)" : "none",
-              }}>
-                <p style={{ fontSize: 16, fontWeight: 700, color: "var(--blanco)", marginBottom: 10 }}>{q}</p>
-                <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>{a}</p>
-              </div>
-            ))}
-          </div>
+          <FaqAccordion />
 
           <div style={{ marginTop: 56, padding: "28px 32px", background: "rgba(201,168,76,0.06)", border: "1px solid rgba(201,168,76,0.2)", borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 24, flexWrap: "wrap" }}>
             <div>
