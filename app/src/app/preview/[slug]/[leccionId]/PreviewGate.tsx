@@ -138,6 +138,7 @@ export default function PreviewGate({
         backgroundImage: "url(https://otsbpiukzftacmvmkajy.supabase.co/storage/v1/object/public/portadas/Court.png)",
         backgroundSize: "cover", backgroundPosition: "center",
         opacity: 0.12,
+        pointerEvents: "none",
       }} />
 
       {/* Layout: foto + form */}
