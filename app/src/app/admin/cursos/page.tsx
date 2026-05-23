@@ -66,7 +66,7 @@ export default async function AdminCursos() {
 
                       <div>
                         {lecciones.map((leccion) => (
-                          <LeccionEditor key={leccion.id} leccion={leccion} />
+                          <LeccionEditor key={leccion.id} leccion={leccion} cursoSlug={curso.slug} />
                         ))}
                       </div>
 

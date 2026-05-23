@@ -11,10 +11,18 @@ interface Leccion {
   orden: number;
 }
 
-export default function LeccionEditor({ leccion }: { leccion: Leccion }) {
+export default function LeccionEditor({ leccion, cursoSlug }: { leccion: Leccion; cursoSlug: string }) {
   const [editando, setEditando] = useState(false);
   const [data, setData] = useState(leccion);
   const [loading, setLoading] = useState(false);
+  const [copiado, setCopiado] = useState(false);
+
+  function copiarUrlPreview() {
+    const url = `${window.location.origin}/preview/${cursoSlug}/${leccion.id}`;
+    navigator.clipboard.writeText(url);
+    setCopiado(true);
+    setTimeout(() => setCopiado(false), 2000);
+  }
 
   async function guardar() {
     setLoading(true);
@@ -44,7 +52,14 @@ export default function LeccionEditor({ leccion }: { leccion: Leccion }) {
           : <span style={{ fontSize: 11, color: "var(--texto-suave)", border: "1px solid var(--borde)", padding: "2px 8px", borderRadius: 4 }}>Sin vídeo</span>
         }
         {data.duracion && <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>{data.duracion}</span>}
-        {data.es_preview && <span style={{ fontSize: 11, color: "#4a9", border: "1px solid #4a9", padding: "2px 8px", borderRadius: 4 }}>Preview</span>}
+        {data.es_preview && (
+          <span style={{ fontSize: 11, color: "#4a9", border: "1px solid #4a9", padding: "2px 8px", borderRadius: 4 }}>Preview</span>
+        )}
+        {data.es_preview && (
+          <button onClick={copiarUrlPreview} style={{ fontSize: 11, color: copiado ? "#4a9" : "var(--oro)", background: "none", border: `1px solid ${copiado ? "#4a9" : "var(--oro)"}`, borderRadius: 4, padding: "2px 10px", cursor: "pointer" }}>
+            {copiado ? "✓ Copiado" : "🔗 Copiar URL"}
+          </button>
+        )}
         <button onClick={() => setEditando(true)} style={{ fontSize: 12, color: "var(--texto-suave)", background: "none", border: "1px solid var(--borde)", borderRadius: 4, padding: "4px 10px", cursor: "pointer" }}>
           Editar
         </button>
@@ -54,7 +69,7 @@ export default function LeccionEditor({ leccion }: { leccion: Leccion }) {
 
   return (
     <div style={{ padding: "12px 0", borderBottom: "1px solid var(--borde)", display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 180px 100px", gap: 8 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 180px", gap: 8 }}>
         <input value={data.titulo} onChange={(e) => setData({ ...data, titulo: e.target.value })}
           placeholder="Título" style={inputStyle} />
         <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
@@ -65,15 +80,13 @@ export default function LeccionEditor({ leccion }: { leccion: Leccion }) {
             Preview gratuito
           </label>
         </div>
-        <input value={data.duracion ?? ""} onChange={(e) => setData({ ...data, duracion: e.target.value })}
-          placeholder="Duración (14:32)" style={inputStyle} />
       </div>
-      <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-        <button onClick={guardar} disabled={loading} className="btn-primary" style={{ fontSize: 12, padding: "6px 16px", border: "none", cursor: "pointer" }}>
-          {loading ? "..." : "Guardar"}
-        </button>
+      <div style={{ display: "flex", gap: 8, alignItems: "center", justifyContent: "flex-end" }}>
         <button onClick={() => setEditando(false)} style={{ fontSize: 12, color: "var(--texto-suave)", background: "none", border: "none", cursor: "pointer" }}>
           Cancelar
+        </button>
+        <button onClick={guardar} disabled={loading} className="btn-primary" style={{ fontSize: 12, padding: "6px 16px", border: "none", cursor: "pointer" }}>
+          {loading ? "..." : "Guardar"}
         </button>
       </div>
     </div>
