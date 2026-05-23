@@ -75,6 +75,8 @@ export default async function PreviewLeccion({
   if (!leccion.es_preview) redirect(`/cursos/${slug}`);
 
   const libraryId = process.env.NEXT_PUBLIC_BUNNY_LIBRARY_ID ?? "";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jorgelorenzo.coach";
+  const cursoUrl = `${siteUrl}/cursos/${slug}`;
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--negro)", color: "var(--texto)" }}>
@@ -83,15 +85,16 @@ export default async function PreviewLeccion({
           <span style={{ fontWeight: 700, fontSize: 15, color: "var(--texto)" }}>JORGE </span>
           <span style={{ fontWeight: 700, fontSize: 15, color: "var(--oro)" }}>LORENZO</span>
         </Link>
-        <Link href={`/cursos/${slug}`} style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>
+        <a href={cursoUrl} style={{ fontSize: 13, color: "var(--oro)", textDecoration: "none", border: "1px solid rgba(201,168,76,0.3)", borderRadius: 6, padding: "6px 14px" }}>
           Ver el curso →
-        </Link>
+        </a>
       </header>
 
       <PreviewGate
         leccion={leccion}
         cursoTitulo={curso.titulo}
         slug={slug}
+        cursoUrl={cursoUrl}
         libraryId={libraryId}
       />
     </div>

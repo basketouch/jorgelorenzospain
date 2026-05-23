@@ -13,11 +13,13 @@ export default function PreviewGate({
   leccion,
   cursoTitulo,
   slug,
+  cursoUrl,
   libraryId,
 }: {
   leccion: Leccion;
   cursoTitulo: string;
   slug: string;
+  cursoUrl: string;
   libraryId: string;
 }) {
   const [unlocked, setUnlocked] = useState(false);
@@ -115,7 +117,7 @@ export default function PreviewGate({
             </div>
           </div>
           <a
-            href={`/cursos/${slug}`}
+            href={cursoUrl}
             className="btn-primary"
             style={{ fontSize: 14, padding: "14px 32px", display: "inline-block", textDecoration: "none", whiteSpace: "nowrap", flexShrink: 0 }}
           >
