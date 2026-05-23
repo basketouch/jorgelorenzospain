@@ -3,6 +3,7 @@ import LeccionEditor from "./LeccionEditor";
 import AddLeccionForm from "./AddLeccionForm";
 import AddModuloForm from "./AddModuloForm";
 import CursoEditor from "./CursoEditor";
+import ModuloEditor from "./ModuloEditor";
 
 export default async function AdminCursos() {
   const { admin } = await requireAdmin();
@@ -71,6 +72,15 @@ export default async function AdminCursos() {
                       </div>
 
                       <AddLeccionForm moduloId={modulo.id} nextOrden={lecciones.length + 1} />
+                      <ModuloEditor modulo={{
+                        id: modulo.id,
+                        titulo: modulo.titulo,
+                        orden: modulo.orden,
+                        fecha_apertura: modulo.fecha_apertura,
+                        fecha_cierre_venta: modulo.fecha_cierre_venta,
+                        precio: modulo.precio,
+                        lemon_variant_id: modulo.lemon_variant_id,
+                      }} />
                     </div>
                   );
                 })}

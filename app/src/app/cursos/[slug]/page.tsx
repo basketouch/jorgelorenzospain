@@ -11,7 +11,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
   const { data: curso } = await supabase
     .from("cursos")
-    .select("*, modulos(*, lecciones_curso(*))")
+    .select("*, modulos(id, titulo, orden, fecha_apertura, fecha_cierre_venta, precio, lemon_variant_id, lecciones_curso(id, titulo, duracion, es_preview, orden))")
     .eq("slug", slug)
     .eq("activo", true)
     .single();
@@ -142,7 +142,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
               {/* Temario */}
               <div>
                 <p className="section-label">Temario completo</p>
-                <CurriculumAccordion modulos={modulos} slug={slug} />
+                <CurriculumAccordion modulos={modulos} slug={slug} lemonStore={process.env.NEXT_PUBLIC_LEMON_STORE ?? ""} />
               </div>
             </div>
 

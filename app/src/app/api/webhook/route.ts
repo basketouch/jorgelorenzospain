@@ -25,8 +25,9 @@ export async function POST(req: NextRequest) {
   const customerEmail = order?.user_email as string | undefined;
   const customerName = (order?.user_name as string | undefined) ?? "";
   const productSlug = payload.meta?.custom_data?.slug as string | undefined;
+  const moduloId = payload.meta?.custom_data?.modulo_id as number | undefined;
 
-  if (!customerEmail || !productSlug) {
+  if (!customerEmail || (!productSlug && !moduloId)) {
     return NextResponse.json({ error: "Missing data" }, { status: 400 });
   }
 
@@ -82,7 +83,16 @@ export async function POST(req: NextRequest) {
       .eq("id", userId);
   }
 
-  // Buscar curso por slug
+  // Compra de módulo individual
+  if (moduloId) {
+    await supabase.from("accesos_modulo").upsert(
+      { user_id: userId, modulo_id: moduloId },
+      { onConflict: "user_id,modulo_id" }
+    );
+    return NextResponse.json({ ok: true });
+  }
+
+  // Compra de curso completo
   const { data: curso } = await supabase
     .from("cursos")
     .select("id")
@@ -93,7 +103,6 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Curso no encontrado" }, { status: 404 });
   }
 
-  // Registrar compra
   await supabase.from("compras").upsert(
     { user_id: userId, curso_id: curso.id, lemon_order_id: String(orderId) },
     { onConflict: "lemon_order_id" }
