@@ -84,6 +84,28 @@ export default async function UsuarioPerfil({ params }: { params: Promise<{ user
           ))}
         </div>
 
+        {/* Pagos */}
+        <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: 24 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>
+            Pagos
+          </p>
+          {compras && compras.length > 0 ? compras.filter((c) => cursos?.some((cur) => cur.id === c.curso_id)).map((c) => (
+            <div key={c.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: "1px solid var(--borde)" }}>
+              <div>
+                <p style={{ fontSize: 13, color: "var(--texto)", fontWeight: 600 }}>
+                  {cursos?.find((cur) => cur.id === c.curso_id)?.titulo ?? "—"}
+                </p>
+                <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 2 }}>
+                  {c.lemon_order_id?.startsWith("admin-") ? "Acceso manual" : `Orden: ${c.lemon_order_id}`}
+                </p>
+              </div>
+              <span style={{ fontSize: 12, color: "var(--texto-suave)", flexShrink: 0 }}>{formatFecha(c.created_at)}</span>
+            </div>
+          )) : (
+            <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>Sin pagos registrados.</p>
+          )}
+        </div>
+
         {/* Acceso a cursos + historial — una card por curso */}
         {cursos?.map((curso) => {
           const comprasCurso = compras?.filter((c) => c.curso_id === curso.id) ?? [];
