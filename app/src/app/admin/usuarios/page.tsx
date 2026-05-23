@@ -59,8 +59,10 @@ export default async function AdminUsuarios() {
 
               return (
                 <tr key={p.id} style={{ borderBottom: "1px solid var(--borde)" }}>
-                  <td style={{ padding: "14px 16px", color: "var(--texto)", fontWeight: 600, whiteSpace: "nowrap" }}>
-                    {p.nombre || "—"} {p.apellido}
+                  <td style={{ padding: "14px 16px", fontWeight: 600, whiteSpace: "nowrap" }}>
+                    <a href={`/admin/usuarios/${p.id}`} style={{ color: "var(--texto)", textDecoration: "none" }}>
+                      {p.nombre || "—"} {p.apellido} →
+                    </a>
                   </td>
                   <td style={{ padding: "14px 16px", color: "var(--texto-suave)", whiteSpace: "nowrap" }}>
                     {emailMap.get(p.id) ?? "—"}
