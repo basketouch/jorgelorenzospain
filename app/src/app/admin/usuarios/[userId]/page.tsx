@@ -25,7 +25,7 @@ export default async function UsuarioPerfil({ params }: { params: Promise<{ user
   ] = await Promise.all([
     admin.from("perfiles").select("*").eq("id", userId).single(),
     admin.auth.admin.getUserById(userId),
-    admin.from("cursos").select("id, slug, titulo").eq("activo", true),
+    admin.from("cursos").select("id, slug, titulo, activo").order("id"),
     admin.from("modulos").select("id, titulo, orden, curso_id").order("orden"),
     admin.from("compras").select("*").eq("user_id", userId).order("created_at", { ascending: false }),
     admin.from("accesos_modulo").select("modulo_id").eq("user_id", userId),
@@ -84,59 +84,66 @@ export default async function UsuarioPerfil({ params }: { params: Promise<{ user
           ))}
         </div>
 
-        {/* Compras */}
-        <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: 24 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>
-            Historial de compras
-          </p>
-          {compras && compras.length > 0 ? compras.map((c) => (
-            <div key={c.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: "1px solid var(--borde)" }}>
-              <div>
-                <p style={{ fontSize: 13, color: "var(--texto)", fontWeight: 600 }}>
-                  {cursos?.find((cur) => cur.id === c.curso_id)?.titulo ?? "Curso"}
-                </p>
-                <p style={{ fontSize: 11, color: "var(--texto-suave)", marginTop: 2 }}>
-                  {c.lemon_order_id?.startsWith("admin-") ? "Acceso manual" : `Orden: ${c.lemon_order_id}`}
-                </p>
-              </div>
-              <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>{formatFecha(c.created_at)}</span>
-            </div>
-          )) : (
-            <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>Sin compras registradas.</p>
-          )}
-        </div>
+        {/* Acceso a cursos + historial — una card por curso */}
+        {cursos?.map((curso) => {
+          const comprasCurso = compras?.filter((c) => c.curso_id === curso.id) ?? [];
+          const tieneAcceso = comprasCurso.length > 0;
+          const modulosCurso = modulos?.filter((m) => m.curso_id === curso.id) ?? [];
 
-        {/* Acceso a cursos */}
-        <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: 24 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>
-            Acceso a cursos
-          </p>
-          {cursos?.map((curso) => {
-            const tieneAcceso = compras?.some((c) => c.curso_id === curso.id) ?? false;
-            return (
-              <div key={curso.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "12px 0", borderBottom: "1px solid var(--borde)" }}>
-                <span style={{ fontSize: 13, color: "var(--texto)" }}>{curso.titulo}</span>
+          return (
+            <div key={curso.id} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: 24, gridColumn: "1 / -1" }}>
+              {/* Cabecera curso */}
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 20 }}>
+                <div>
+                  <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 4 }}>
+                    {curso.activo ? "Curso activo" : "Próximo curso"}
+                  </p>
+                  <h3 style={{ fontSize: 15, fontWeight: 700 }}>{curso.titulo}</h3>
+                </div>
                 <AccesoToggle userId={userId} cursoId={curso.id} cursoSlug={curso.slug} tieneAcceso={tieneAcceso} />
               </div>
-            );
-          })}
-        </div>
 
-        {/* Acceso por módulo */}
-        <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: 24 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>
-            Acceso por módulo
-          </p>
-          {modulos?.map((m) => (
-            <div key={m.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 0", borderBottom: "1px solid var(--borde)" }}>
-              <span style={{ fontSize: 13, color: "var(--texto-suave)" }}>
-                <span style={{ color: "var(--oro)", fontWeight: 700, marginRight: 8 }}>{String(m.orden).padStart(2, "0")}.</span>
-                {m.titulo}
-              </span>
-              <AccesoModuloToggle userId={userId} moduloId={m.id} tieneAcceso={accesoModuloIds.has(m.id)} />
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+
+                {/* Historial de compras del curso */}
+                <div>
+                  <p style={{ fontSize: 11, color: "var(--texto-suave)", fontWeight: 600, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                    Historial de compras
+                  </p>
+                  {comprasCurso.length > 0 ? comprasCurso.map((c) => (
+                    <div key={c.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", borderBottom: "1px solid var(--borde)" }}>
+                      <p style={{ fontSize: 12, color: "var(--texto-suave)" }}>
+                        {c.lemon_order_id?.startsWith("admin-") ? "Acceso manual" : `Orden: ${c.lemon_order_id}`}
+                      </p>
+                      <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>{formatFecha(c.created_at)}</span>
+                    </div>
+                  )) : (
+                    <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>Sin compras.</p>
+                  )}
+                </div>
+
+                {/* Módulos del curso */}
+                <div>
+                  <p style={{ fontSize: 11, color: "var(--texto-suave)", fontWeight: 600, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                    Acceso por módulo
+                  </p>
+                  {modulosCurso.length > 0 ? modulosCurso.map((m) => (
+                    <div key={m.id} style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "8px 0", borderBottom: "1px solid var(--borde)" }}>
+                      <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>
+                        <span style={{ color: "var(--oro)", fontWeight: 700, marginRight: 6 }}>{String(m.orden).padStart(2, "0")}.</span>
+                        {m.titulo}
+                      </span>
+                      <AccesoModuloToggle userId={userId} moduloId={m.id} tieneAcceso={accesoModuloIds.has(m.id)} />
+                    </div>
+                  )) : (
+                    <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>Sin módulos.</p>
+                  )}
+                </div>
+
+              </div>
             </div>
-          ))}
-        </div>
+          );
+        })}
 
       </div>
     </>
