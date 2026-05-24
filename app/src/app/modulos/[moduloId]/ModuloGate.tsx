@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-interface Leccion { id: number; titulo: string; duracion?: string; }
+interface Leccion { id: number; titulo: string; duracion?: string; es_preview: boolean; }
 interface Curso { id: number; slug: string; titulo: string; precio: number; lemon_variant_id: string | null; en_venta: boolean; }
 interface Modulo {
   id: number; titulo: string; orden: number;
@@ -86,15 +86,36 @@ export default function ModuloGate({
             {lecciones.length} lecciones
           </p>
 
-          {/* Lista bloqueada */}
+          {/* Lista — preview desbloqueado, resto bloqueado */}
           <div style={{ display: "flex", flexDirection: "column", position: "relative" }}>
-            {lecciones.map((l, i) => (
+            {lecciones.map((l, i) => l.es_preview ? (
+              <a
+                key={l.id}
+                href={`/preview/${curso.slug}/${l.id}`}
+                style={{
+                  display: "flex", alignItems: "center", justifyContent: "space-between",
+                  padding: "16px 0", borderBottom: "1px solid var(--borde)",
+                  textDecoration: "none", gap: 16,
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+                  <span style={{ fontSize: 12, color: "var(--oro)", fontWeight: 700, minWidth: 20 }}>
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span style={{ fontSize: 14, color: "var(--texto)" }}>{l.titulo}</span>
+                </div>
+                <div style={{ display: "flex", gap: 10, alignItems: "center", flexShrink: 0 }}>
+                  {l.duracion && <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>{l.duracion}</span>}
+                  <span style={{ fontSize: 11, color: "var(--oro)", border: "1px solid var(--oro)", padding: "2px 8px", borderRadius: 4 }}>▶ Gratis</span>
+                </div>
+              </a>
+            ) : (
               <div
                 key={l.id}
                 style={{
                   display: "flex", alignItems: "center", justifyContent: "space-between",
                   padding: "16px 0", borderBottom: "1px solid var(--borde)",
-                  gap: 16, opacity: 0.45,
+                  gap: 16, opacity: 0.4,
                 }}
               >
                 <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
