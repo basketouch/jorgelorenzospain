@@ -1,4 +1,3 @@
-import EmailCaptura from "./EmailCaptura";
 
 export const metadata = {
   title: "Próximamente — Jorge Lorenzo Coach",
@@ -65,31 +64,8 @@ export default function EnConstruccion() {
             Estamos migrando a una nueva plataforma con un formato más completo:
             contenido mensual, comunidad activa y acceso modular a toda la temporada.
           </p>
-          <p style={{ fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 48, maxWidth: 480, margin: "0 auto 48px" }}>
-            Si ya eres parte de la comunidad en{" "}
-            <a href="https://www.skool.com/jorge-lorenzo-coach" target="_blank" rel="noopener noreferrer"
-              style={{ color: "var(--oro)", textDecoration: "none", fontWeight: 600 }}>
-              Skool
-            </a>
-            , sigues teniendo acceso a todo.
-          </p>
-
-          {/* Formulario */}
-          <div style={{
-            background: "var(--card)", border: "1px solid var(--borde)",
-            borderRadius: 16, padding: "36px 40px", maxWidth: 480, margin: "0 auto",
-          }}>
-            <p style={{ fontSize: 16, fontWeight: 700, marginBottom: 6 }}>
-              Avísame cuando abra
-            </p>
-            <p style={{ fontSize: 13, color: "var(--texto-suave)", marginBottom: 24 }}>
-              Déjanos tu email y serás el primero en saberlo.
-            </p>
-            <EmailCaptura />
-          </div>
-
           {/* Skool link */}
-          <p style={{ marginTop: 32, fontSize: 13, color: "var(--texto-suave)" }}>
+          <p style={{ marginTop: 8, fontSize: 13, color: "var(--texto-suave)" }}>
             ¿Ya eres entrenador del Lab?{" "}
             <a href="https://www.skool.com/jorge-lorenzo-coach" target="_blank" rel="noopener noreferrer"
               style={{ color: "var(--oro)", textDecoration: "none", fontWeight: 600 }}>
