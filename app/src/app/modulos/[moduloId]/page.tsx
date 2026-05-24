@@ -26,6 +26,7 @@ export default async function ModuloPage({ params }: { params: Promise<{ moduloI
     id: number; slug: string; titulo: string;
     precio: number; lemon_variant_id: string | null; en_venta: boolean;
   };
+  const moduloData = modulo as typeof modulo & { portada_url?: string | null };
   const lecciones = [...(modulo.lecciones_curso ?? [])].sort((a: { orden: number }, b: { orden: number }) => a.orden - b.orden);
 
   // Comprobar acceso
@@ -52,14 +53,14 @@ export default async function ModuloPage({ params }: { params: Promise<{ moduloI
       <div style={{ paddingTop: 64 }}>
         {tieneAcceso ? (
           <ModuloAcceso
-            modulo={modulo}
+            modulo={{ ...moduloData, portada_url: moduloData.portada_url }}
             lecciones={lecciones}
             curso={curso}
             lemonStore={lemonStore}
           />
         ) : (
           <ModuloGate
-            modulo={modulo}
+            modulo={{ ...moduloData, portada_url: moduloData.portada_url }}
             lecciones={lecciones}
             curso={curso}
             lemonStore={lemonStore}

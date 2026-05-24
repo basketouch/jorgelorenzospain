@@ -17,6 +17,7 @@ interface Modulo {
   fecha_cierre_venta?: string | null;
   precio?: number | null;
   lemon_variant_id?: string | null;
+  portada_url?: string | null;
   lecciones_curso: Leccion[];
 }
 
@@ -75,9 +76,13 @@ function ModuloRow({ modulo, slug, lemonStore }: { modulo: Modulo; slug: string;
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 12, flex: 1 }}>
-          <span style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", minWidth: 20 }}>
-            {String(modulo.orden).padStart(2, "0")}
-          </span>
+          {modulo.portada_url ? (
+            <img src={modulo.portada_url} alt={modulo.titulo} style={{ width: 40, height: 28, objectFit: "cover", borderRadius: 4, flexShrink: 0 }} />
+          ) : (
+            <span style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", minWidth: 20 }}>
+              {String(modulo.orden).padStart(2, "0")}
+            </span>
+          )}
           <span style={{ fontSize: 14, fontWeight: 600, color: "var(--texto)" }}>{modulo.titulo}</span>
           {badge && (
             <a

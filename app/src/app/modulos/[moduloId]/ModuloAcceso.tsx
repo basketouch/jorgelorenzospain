@@ -2,7 +2,7 @@ import Footer from "@/components/Footer";
 
 interface Leccion { id: number; titulo: string; duracion?: string; es_preview: boolean; orden: number; }
 interface Curso { id: number; slug: string; titulo: string; precio: number; lemon_variant_id: string | null; en_venta: boolean; }
-interface Modulo { id: number; titulo: string; orden: number; }
+interface Modulo { id: number; titulo: string; orden: number; portada_url?: string | null; }
 
 export default function ModuloAcceso({
   modulo, lecciones, curso, lemonStore,
@@ -17,14 +17,36 @@ export default function ModuloAcceso({
         ← {curso.titulo}
       </a>
 
+      {/* Hero portada */}
+      {modulo.portada_url && (
+        <div style={{ marginBottom: 48, borderRadius: 12, overflow: "hidden", maxHeight: 340, position: "relative" }}>
+          <img
+            src={modulo.portada_url}
+            alt={modulo.titulo}
+            style={{ width: "100%", objectFit: "cover", display: "block", maxHeight: 340 }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)" }} />
+          <div style={{ position: "absolute", bottom: 28, left: 32 }}>
+            <p style={{ fontSize: 11, color: "rgba(255,255,255,0.6)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 6 }}>
+              Módulo {String(modulo.orden).padStart(2, "0")}
+            </p>
+            <h1 style={{ fontSize: "clamp(22px, 3.5vw, 36px)", color: "#fff", margin: 0 }}>{modulo.titulo}</h1>
+          </div>
+        </div>
+      )}
+
       <div style={{ display: "grid", gridTemplateColumns: "1fr 300px", gap: 48, alignItems: "start" }}>
 
         {/* Lecciones */}
         <div>
-          <p className="section-label">Módulo {String(modulo.orden).padStart(2, "0")}</p>
-          <h1 style={{ fontSize: "clamp(24px, 4vw, 38px)", marginBottom: 32 }}>{modulo.titulo}</h1>
+          {!modulo.portada_url && (
+            <>
+              <p className="section-label">Módulo {String(modulo.orden).padStart(2, "0")}</p>
+              <h1 style={{ fontSize: "clamp(24px, 4vw, 38px)", marginBottom: 32 }}>{modulo.titulo}</h1>
+            </>
+          )}
 
-          <div style={{ display: "flex", flexDirection: "column" }}>
+          <div style={{ display: "flex", flexDirection: "column", marginTop: modulo.portada_url ? 0 : 0 }}>
             {lecciones.map((l, i) => (
               <a
                 key={l.id}

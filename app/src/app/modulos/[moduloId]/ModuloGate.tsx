@@ -8,6 +8,7 @@ interface Modulo {
   id: number; titulo: string; orden: number;
   fecha_apertura?: string | null; fecha_cierre_venta?: string | null;
   precio?: number | null; lemon_variant_id?: string | null;
+  portada_url?: string | null;
 }
 
 function CuentaAtras({ fecha }: { fecha: string }) {
@@ -50,12 +51,37 @@ export default function ModuloGate({
         ← {curso.titulo}
       </a>
 
+      {/* Hero portada */}
+      {modulo.portada_url && (
+        <div style={{ marginBottom: 48, borderRadius: 12, overflow: "hidden", maxHeight: 340, position: "relative" }}>
+          <img
+            src={modulo.portada_url}
+            alt={modulo.titulo}
+            style={{ width: "100%", objectFit: "cover", display: "block", maxHeight: 340, filter: "brightness(0.6)" }}
+          />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)" }} />
+          <div style={{ position: "absolute", bottom: 28, left: 32 }}>
+            <p style={{ fontSize: 11, color: "rgba(255,255,255,0.6)", letterSpacing: 2, textTransform: "uppercase", marginBottom: 6 }}>
+              Módulo {String(modulo.orden).padStart(2, "0")}
+            </p>
+            <h1 style={{ fontSize: "clamp(22px, 3.5vw, 36px)", color: "#fff", margin: 0 }}>{modulo.titulo}</h1>
+          </div>
+          <div style={{ position: "absolute", top: 20, right: 20, background: "rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.2)", borderRadius: 6, padding: "6px 14px" }}>
+            <span style={{ fontSize: 13, color: "rgba(255,255,255,0.7)" }}>🔒 Contenido bloqueado</span>
+          </div>
+        </div>
+      )}
+
       <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 48, alignItems: "start" }}>
 
         {/* Izquierda — temario bloqueado */}
         <div>
-          <p className="section-label">Módulo {String(modulo.orden).padStart(2, "0")}</p>
-          <h1 style={{ fontSize: "clamp(24px, 4vw, 38px)", marginBottom: 8 }}>{modulo.titulo}</h1>
+          {!modulo.portada_url && (
+            <>
+              <p className="section-label">Módulo {String(modulo.orden).padStart(2, "0")}</p>
+              <h1 style={{ fontSize: "clamp(24px, 4vw, 38px)", marginBottom: 8 }}>{modulo.titulo}</h1>
+            </>
+          )}
           <p style={{ fontSize: 14, color: "var(--texto-suave)", marginBottom: 32 }}>
             {lecciones.length} lecciones
           </p>

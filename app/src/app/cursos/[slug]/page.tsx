@@ -11,7 +11,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
   const { data: curso } = await supabase
     .from("cursos")
-    .select("*, modulos(id, titulo, orden, fecha_apertura, fecha_cierre_venta, precio, lemon_variant_id, lecciones_curso(id, titulo, duracion, es_preview, orden))")
+    .select("*, modulos(id, titulo, orden, fecha_apertura, fecha_cierre_venta, precio, lemon_variant_id, portada_url, lecciones_curso(id, titulo, duracion, es_preview, orden))")
     .eq("slug", slug)
     .eq("activo", true)
     .single();
