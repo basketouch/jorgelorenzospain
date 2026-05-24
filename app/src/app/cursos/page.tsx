@@ -1,6 +1,7 @@
 import { createClient } from "@/lib/supabase-server";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import CuentaAtrasVenta from "@/components/CuentaAtrasVenta";
 
 export const metadata = { title: "Cursos — Jorge Lorenzo" };
 
@@ -67,6 +68,9 @@ export default async function CursosPage() {
                     <p style={{ fontSize: 10, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--texto-suave)", marginBottom: 6 }}>Módulo individual</p>
                     <p className="tier-nombre">{modulo.titulo}</p>
                     <div className="tier-precio" style={{ marginTop: 16 }}>{modulo.precio ? (modulo.precio / 100).toFixed(0) : "—"}€</div>
+                    {modulo.fecha_cierre_venta && (
+                      <CuentaAtrasVenta fecha={modulo.fecha_cierre_venta} />
+                    )}
                     <span className="tier-cta tier-cta-primary" style={{ display: "block", textAlign: "center", marginTop: 16 }}>Ver módulo</span>
                   </div>
                 </Link>
