@@ -9,7 +9,7 @@ interface Modulo {
   orden: number;
   fecha_apertura?: string | null;
   fecha_cierre_venta?: string | null;
-  cursos: { titulo: string } | null;
+  cursos: { titulo: string } | { titulo: string }[] | null;
 }
 
 export default function CampanaEditor({ modulos }: { modulos: Modulo[] }) {
