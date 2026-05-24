@@ -22,46 +22,62 @@ export default function PlayerLayout({ sidebar, player, header }: Props) {
     }}>
       {/* HEADER */}
       <div style={{ gridColumn: "1 / -1", display: "flex", alignItems: "center" }}>
-        {/* Botón toggle */}
-        <button
-          onClick={() => setSidebarAbierto(!sidebarAbierto)}
-          title={sidebarAbierto ? "Ocultar temario" : "Ver temario"}
-          style={{
-            height: "100%",
-            width: 44,
-            flexShrink: 0,
-            background: "none",
-            border: "none",
-            borderRight: "1px solid var(--borde)",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: "var(--texto-suave)",
-            fontSize: 16,
-            transition: "color 0.2s",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "var(--oro)")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "var(--texto-suave)")}
-        >
-          {sidebarAbierto ? "◀" : "▶"}
-        </button>
         <div style={{ flex: 1, height: "100%" }}>
           {header}
         </div>
       </div>
 
-      {/* SIDEBAR */}
-      <div style={{
-        overflow: "hidden",
-        transition: "opacity 0.2s",
-        opacity: sidebarAbierto ? 1 : 0,
-      }}>
+      {/* SIDEBAR + toggle */}
+      <div style={{ position: "relative", overflow: "hidden", transition: "opacity 0.2s", opacity: sidebarAbierto ? 1 : 0 }}>
         {sidebar}
+
+        {/* Tab toggle pegado al borde derecho del sidebar */}
+        <button
+          onClick={() => setSidebarAbierto(false)}
+          title="Ocultar temario"
+          style={{
+            position: "absolute", top: "50%", right: 0,
+            transform: "translateY(-50%)",
+            width: 18, height: 56,
+            background: "var(--borde)",
+            border: "none",
+            borderRadius: "4px 0 0 4px",
+            cursor: "pointer",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            color: "var(--texto-suave)", fontSize: 10,
+            zIndex: 10,
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.background = "var(--oro)")}
+          onMouseLeave={(e) => (e.currentTarget.style.background = "var(--borde)")}
+        >
+          ‹
+        </button>
       </div>
 
-      {/* PLAYER */}
-      <div style={{ overflowY: "auto", height: "100%" }}>
+      {/* PLAYER + tab para abrir sidebar cuando está cerrado */}
+      <div style={{ overflowY: "auto", height: "100%", position: "relative" }}>
+        {!sidebarAbierto && (
+          <button
+            onClick={() => setSidebarAbierto(true)}
+            title="Ver temario"
+            style={{
+              position: "absolute", top: "50%", left: 0,
+              transform: "translateY(-50%)",
+              width: 18, height: 56,
+              background: "var(--borde)",
+              border: "none",
+              borderRadius: "0 4px 4px 0",
+              cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              color: "var(--texto-suave)", fontSize: 10,
+              zIndex: 10,
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = "var(--oro)")}
+            onMouseLeave={(e) => (e.currentTarget.style.background = "var(--borde)")}
+          >
+            ›
+          </button>
+        )}
         {player}
       </div>
     </div>
