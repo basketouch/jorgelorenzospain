@@ -62,7 +62,7 @@ export default function EnConstruccion() {
           {/* Descripción */}
           <p style={{ fontSize: "clamp(15px, 2vw, 18px)", color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 16, maxWidth: 520, margin: "0 auto 16px" }}>
             Estamos migrando a una nueva plataforma con un formato más completo:
-            contenido mensual, comunidad activa y acceso modular a toda la temporada.
+            contenido mensual, comunidad activa y mucho más...
           </p>
           {/* Skool link */}
           <p style={{ marginTop: 8, fontSize: 13, color: "var(--texto-suave)" }}>
