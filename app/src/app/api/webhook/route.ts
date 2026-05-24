@@ -43,7 +43,7 @@ export async function POST(req: NextRequest) {
   const { data: existingUsers } = await supabase.auth.admin.listUsers();
   const existingUser = existingUsers?.users?.find((u) => u.email === customerEmail);
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jorge-lorenzo-coach.vercel.app";
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://jorgelorenzo.coach";
 
   if (existingUser) {
     userId = existingUser.id;

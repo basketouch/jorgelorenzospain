@@ -37,7 +37,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: "Jorge Lorenzo",
               jobTitle: "Entrenador de Baloncesto",
               description: "Campeón del Mundo 2019 y de Europa 2022. Entrenador ayudante de la Selección Española Absoluta 2017-2025.",
-              url: "https://jorge-lorenzo-coach.vercel.app/",
+              url: "https://jorgelorenzo.coach/",
               sameAs: ["https://www.skool.com/jorge-lorenzo-coach", "https://newsletter.jorgelorenzo.coach/"],
             }),
           }}
