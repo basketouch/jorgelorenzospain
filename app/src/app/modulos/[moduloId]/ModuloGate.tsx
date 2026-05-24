@@ -47,8 +47,8 @@ export default function ModuloGate({
   return (
     <div className="container" style={{ paddingTop: 48, paddingBottom: 100 }}>
 
-      <a href={`/cursos/${curso.slug}`} style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none", display: "inline-block", marginBottom: 24 }}>
-        ← {curso.titulo}
+      <a href="/cursos" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none", display: "inline-block", marginBottom: 24 }}>
+        ← Cursos
       </a>
 
       {/* Hero portada */}
