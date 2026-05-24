@@ -25,7 +25,8 @@ export async function POST(req: NextRequest) {
   const customerEmail = order?.user_email as string | undefined;
   const customerName = (order?.user_name as string | undefined) ?? "";
   const productSlug = payload.meta?.custom_data?.slug as string | undefined;
-  const moduloId = payload.meta?.custom_data?.modulo_id as number | undefined;
+  const moduloIdRaw = payload.meta?.custom_data?.modulo_id;
+  const moduloId = moduloIdRaw ? parseInt(String(moduloIdRaw)) : undefined;
 
   if (!customerEmail || (!productSlug && !moduloId)) {
     return NextResponse.json({ error: "Missing data" }, { status: 400 });

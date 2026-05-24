@@ -38,7 +38,7 @@ export default function ModuloEditor({ modulo }: { modulo: Modulo }) {
       body: JSON.stringify({
         fecha_apertura: data.fecha_apertura || null,
         fecha_cierre_venta: data.fecha_cierre_venta || null,
-        precio: data.precio ? Math.round(Number(data.precio) * 100) : 0,
+        precio: data.precio ?? 0,
         lemon_variant_id: data.lemon_variant_id || null,
       }),
     });
