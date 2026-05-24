@@ -7,7 +7,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
   const { admin } = await requireAdmin();
   const body = await req.json();
 
-  const allowed = ["asunto", "contenido", "activa"];
+  const allowed = ["asunto", "contenido", "activa", "lista_brevo_id"];
   const update = Object.fromEntries(Object.entries(body).filter(([k]) => allowed.includes(k)));
 
   const { error } = await admin
