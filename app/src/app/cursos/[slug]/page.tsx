@@ -38,7 +38,7 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
       {/* HERO */}
       <div style={{ paddingTop: 64, background: "var(--oscuro)", borderBottom: "1px solid var(--borde)" }}>
-        <div className="container" style={{ paddingTop: 60, paddingBottom: 60 }}>
+        <div className="container" style={{ maxWidth: 1140, paddingTop: 60, paddingBottom: 60 }}>
           <a href="/cursos" style={{ color: "var(--texto-suave)", fontSize: 13, textDecoration: "none", display: "inline-block", marginBottom: 24 }}>
             ← Todos los cursos
           </a>
@@ -67,8 +67,8 @@ export default async function CursoPage({ params }: { params: Promise<{ slug: st
 
       {/* CONTENIDO */}
       <section style={{ paddingTop: 60, paddingBottom: 120 }}>
-        <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 320px", gap: 48, alignItems: "start" }}>
+        <div className="container" style={{ maxWidth: 1140 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", gap: 64, alignItems: "start" }}>
 
             {/* IZQUIERDA */}
             <div>
