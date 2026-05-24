@@ -23,14 +23,21 @@ function getMeses(campanas: Campana[]) {
     const d = new Date(c.enviar_en);
     meses.add(`${d.getFullYear()}-${d.getMonth()}`);
   }
-  return Array.from(meses).sort().slice(0, 3); // máx 3 meses
+  return Array.from(meses).sort().slice(0, 3);
 }
 
-export default function CalendarioEnvios({ campanas }: { campanas: Campana[] }) {
+export default function CalendarioEnvios({
+  campanas,
+  selectedKey,
+  onSelectDia,
+}: {
+  campanas: Campana[];
+  selectedKey?: string | null;
+  onSelectDia?: (key: string, ids: string[]) => void;
+}) {
   const pendientes = campanas.filter(c => !c.enviada);
   const meses = getMeses(pendientes);
 
-  // Agrupar campañas por día "YYYY-MM-DD"
   const porDia = new Map<string, Campana[]>();
   for (const c of pendientes) {
     const d = new Date(c.enviar_en);
@@ -43,19 +50,39 @@ export default function CalendarioEnvios({ campanas }: { campanas: Campana[] }) 
     <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
       {meses.map((mesKey) => {
         const [year, month] = mesKey.split("-").map(Number);
-        return <MesCalendario key={mesKey} year={year} month={month} porDia={porDia} />;
+        return (
+          <MesCalendario
+            key={mesKey}
+            year={year}
+            month={month}
+            porDia={porDia}
+            selectedKey={selectedKey}
+            onSelectDia={onSelectDia}
+          />
+        );
       })}
     </div>
   );
 }
 
-function MesCalendario({ year, month, porDia }: { year: number; month: number; porDia: Map<string, Campana[]> }) {
+function MesCalendario({
+  year,
+  month,
+  porDia,
+  selectedKey,
+  onSelectDia,
+}: {
+  year: number;
+  month: number;
+  porDia: Map<string, Campana[]>;
+  selectedKey?: string | null;
+  onSelectDia?: (key: string, ids: string[]) => void;
+}) {
   const nombreMes = new Date(year, month, 1).toLocaleDateString("es-ES", { month: "long", year: "numeric" });
-  const primerDia = new Date(year, month, 1).getDay(); // 0=dom
+  const primerDia = new Date(year, month, 1).getDay();
   const diasEnMes = new Date(year, month + 1, 0).getDate();
   const hoy = new Date();
 
-  // Ajustar para lunes como primer día
   const offset = primerDia === 0 ? 6 : primerDia - 1;
   const celdas = Array(offset).fill(null).concat(Array.from({ length: diasEnMes }, (_, i) => i + 1));
   while (celdas.length % 7 !== 0) celdas.push(null);
@@ -83,18 +110,40 @@ function MesCalendario({ year, month, porDia }: { year: number; month: number; p
           const key = `${year}-${String(month + 1).padStart(2, "0")}-${String(dia).padStart(2, "0")}`;
           const cams = porDia.get(key) ?? [];
           const esHoy = hoy.getFullYear() === year && hoy.getMonth() === month && hoy.getDate() === dia;
+          const esSeleccionado = selectedKey === key;
+          const tieneCampanas = cams.length > 0;
 
           return (
-            <div key={i} title={cams.map(c => c.asunto).join("\n")} style={{
-              textAlign: "center", padding: "4px 2px", borderRadius: 4,
-              background: esHoy ? "rgba(201,168,76,0.1)" : "transparent",
-              border: esHoy ? "1px solid rgba(201,168,76,0.3)" : "1px solid transparent",
-              cursor: cams.length ? "pointer" : "default",
-            }}>
-              <span style={{ fontSize: 11, color: esHoy ? "var(--oro)" : "var(--texto-suave)", fontWeight: esHoy ? 700 : 400 }}>
+            <div
+              key={i}
+              title={cams.map(c => c.asunto).join("\n")}
+              onClick={() => tieneCampanas && onSelectDia?.(key, cams.map(c => c.id))}
+              style={{
+                textAlign: "center",
+                padding: "4px 2px",
+                borderRadius: 4,
+                background: esSeleccionado
+                  ? "rgba(201,168,76,0.2)"
+                  : esHoy
+                    ? "rgba(201,168,76,0.08)"
+                    : "transparent",
+                border: esSeleccionado
+                  ? "1px solid var(--oro)"
+                  : esHoy
+                    ? "1px solid rgba(201,168,76,0.3)"
+                    : "1px solid transparent",
+                cursor: tieneCampanas ? "pointer" : "default",
+                transition: "background 0.12s, border-color 0.12s",
+              }}
+            >
+              <span style={{
+                fontSize: 11,
+                color: esSeleccionado ? "var(--oro)" : esHoy ? "var(--oro)" : "var(--texto-suave)",
+                fontWeight: esSeleccionado || esHoy ? 700 : 400,
+              }}>
                 {dia}
               </span>
-              {/* Puntos de campañas */}
+
               {cams.length > 0 && (
                 <div style={{ display: "flex", justifyContent: "center", gap: 2, marginTop: 2 }}>
                   {cams.slice(0, 3).map((c, j) => (

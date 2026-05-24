@@ -44,10 +44,11 @@ export default function CampanaFormClient({ campana }: { campana: Record<string,
 
   async function verPreview() {
     setPreviewing(true);
+    const modulo = campana.modulos as Record<string, unknown> | null;
     const res = await fetch("/api/admin/campanas/preview", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ asunto, contenido }),
+      body: JSON.stringify({ asunto, contenido, portada_url: modulo?.portada_url ?? null }),
     });
     const html = await res.text();
     setPreviewHtml(html);
