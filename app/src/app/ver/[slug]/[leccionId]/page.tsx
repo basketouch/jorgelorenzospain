@@ -39,9 +39,11 @@ export default async function PlayerLeccion({
 
   const { data: acceso } = await supabase.rpc("tiene_acceso", { p_curso_id: curso.id });
 
+  // Módulos con acceso individual
+  let modulosAccesibles: number[] = [];
   let tieneAccesoModulo = false;
+
   if (!acceso && !leccion.es_preview) {
-    // Buscar el módulo al que pertenece esta lección
     const moduloDeLeccion = curso.modulos?.find((m: { lecciones_curso: { id: number }[] }) =>
       m.lecciones_curso.some((l) => l.id === parseInt(leccionId))
     );
@@ -50,6 +52,16 @@ export default async function PlayerLeccion({
       tieneAccesoModulo = !!data;
     }
     if (!tieneAccesoModulo) redirect(`/cursos/${slug}`);
+
+    // Obtener todos los módulos accesibles individualmente para el sidebar
+    const todosModulos = curso.modulos ?? [];
+    const checks = await Promise.all(
+      todosModulos.map(async (m: { id: number }) => {
+        const { data } = await supabase.rpc("tiene_acceso_modulo", { p_modulo_id: m.id });
+        return data ? m.id : null;
+      })
+    );
+    modulosAccesibles = checks.filter((id): id is number => id !== null);
   }
 
   const anterior = todasLecciones[idx - 1] as { id: number } | undefined;
@@ -117,6 +129,7 @@ export default async function PlayerLeccion({
           leccionActivaId={leccion.id}
           completadasIds={[...completadasIds]}
           cursoTitulo={curso.titulo}
+          modulosAccesibles={modulosAccesibles.length > 0 ? modulosAccesibles : undefined}
         />
       }
       player={playerContent}
