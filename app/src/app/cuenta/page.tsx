@@ -1,4 +1,5 @@
 import { createClient } from "@/lib/supabase-server";
+import { createAdminClient } from "@/lib/supabase-admin";
 import Footer from "@/components/Footer";
 import { redirect } from "next/navigation";
 import Link from "next/link";
@@ -12,10 +13,11 @@ export default async function CuentaPage() {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/login");
 
+  const admin = createAdminClient();
   const [{ data: compras }, { data: perfil }, { data: accesoModulos }] = await Promise.all([
     supabase.from("compras").select("*, cursos(slug, titulo, portada_url)").eq("user_id", user.id),
     supabase.from("perfiles").select("nombre, apellido, is_admin").eq("id", user.id).single(),
-    supabase.from("accesos_modulo").select("modulo_id, modulos(id, titulo, portada_url, cursos(slug))").eq("user_id", user.id),
+    admin.from("accesos_modulo").select("modulo_id, modulos(id, titulo, portada_url, cursos(slug))").eq("user_id", user.id),
   ]);
 
   const nombre = perfil?.nombre ? `${perfil.nombre}${perfil.apellido ? ` ${perfil.apellido}` : ""}` : null;
