@@ -153,9 +153,8 @@ export default function ModuloGate({
             }}>
               {cierre && (
                 <div style={{ marginBottom: 16, textAlign: "center" }}>
-                  <p style={{ fontSize: 11, color: "var(--texto-suave)", marginBottom: 4 }}>Cierra en</p>
-                  <p style={{ fontSize: 22, fontWeight: 800, color: "var(--oro)" }}>
-                    <CuentaAtras fecha={modulo.fecha_cierre_venta!} />
+                  <p style={{ fontSize: 18, fontWeight: 800, color: "var(--oro)" }}>
+                    🔥 Solo quedan <CuentaAtras fecha={modulo.fecha_cierre_venta!} />
                   </p>
                 </div>
               )}
