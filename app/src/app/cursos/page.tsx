@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase-server";
+import { createAdminClient } from "@/lib/supabase-admin";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import CuentaAtrasVenta from "@/components/CuentaAtrasVenta";
@@ -6,12 +6,12 @@ import CuentaAtrasVenta from "@/components/CuentaAtrasVenta";
 export const metadata = { title: "Cursos — Jorge Lorenzo" };
 
 export default async function CursosPage() {
-  const supabase = await createClient();
+  const admin = createAdminClient();
   const ahora = new Date().toISOString();
 
   const [{ data: cursos }, { data: modulosEnVenta }] = await Promise.all([
-    supabase.from("cursos").select("*").eq("activo", true).order("created_at"),
-    supabase.from("modulos")
+    admin.from("cursos").select("*").eq("activo", true).order("created_at"),
+    admin.from("modulos")
       .select("id, titulo, portada_url, precio, fecha_apertura, fecha_cierre_venta, lemon_variant_id, cursos(slug)")
       .lte("fecha_apertura", ahora)
       .or(`fecha_cierre_venta.is.null,fecha_cierre_venta.gte.${ahora}`),
