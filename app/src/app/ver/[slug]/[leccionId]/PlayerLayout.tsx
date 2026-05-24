@@ -31,17 +31,16 @@ export default function PlayerLayout({ sidebar, player, header }: Props) {
       <div style={{ position: "relative", overflow: "hidden", transition: "opacity 0.2s", opacity: sidebarAbierto ? 1 : 0 }}>
         {sidebar}
 
-        {/* Tab toggle pegado al borde derecho del sidebar */}
+        {/* Tab toggle pegado al borde derecho del sidebar, alineado con el header */}
         <button
           onClick={() => setSidebarAbierto(false)}
           title="Ocultar temario"
           style={{
-            position: "absolute", top: "50%", right: 0,
-            transform: "translateY(-50%)",
-            width: 18, height: 56,
+            position: "absolute", top: 0, right: 0,
+            width: 18, height: 48,
             background: "var(--borde)",
             border: "none",
-            borderRadius: "4px 0 0 4px",
+            borderRadius: "0 0 0 4px",
             cursor: "pointer",
             display: "flex", alignItems: "center", justifyContent: "center",
             color: "var(--texto-suave)", fontSize: 10,
@@ -61,12 +60,11 @@ export default function PlayerLayout({ sidebar, player, header }: Props) {
             onClick={() => setSidebarAbierto(true)}
             title="Ver temario"
             style={{
-              position: "absolute", top: "50%", left: 0,
-              transform: "translateY(-50%)",
-              width: 18, height: 56,
+              position: "absolute", top: 0, left: 0,
+              width: 18, height: 48,
               background: "var(--borde)",
               border: "none",
-              borderRadius: "0 4px 4px 0",
+              borderRadius: "0 0 4px 0",
               cursor: "pointer",
               display: "flex", alignItems: "center", justifyContent: "center",
               color: "var(--texto-suave)", fontSize: 10,
