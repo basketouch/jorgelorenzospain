@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
-interface BrevoLista { id: number; name: string; totalSubscribers: number; }
+interface BrevoLista { id: number; name: string; totalSubscribers?: number; uniqueSubscribers?: number; }
 
 export default function CampanaFormClient({ campana }: { campana: Record<string, unknown> }) {
   const [asunto, setAsunto] = useState(campana.asunto as string);
@@ -89,9 +89,14 @@ export default function CampanaFormClient({ campana }: { campana: Record<string,
               style={{ background: "var(--negro)", border: "1px solid var(--borde)", borderRadius: 6, padding: "7px 10px", color: "var(--texto)", fontSize: 12, fontFamily: "inherit" }}
             >
               {listas.length === 0 && <option value={listaId}>Lista #{listaId}</option>}
-              {listas.map(l => (
-                <option key={l.id} value={l.id}>{l.name} ({l.totalSubscribers})</option>
-              ))}
+              {listas.map(l => {
+                const count = l.uniqueSubscribers ?? l.totalSubscribers;
+                return (
+                  <option key={l.id} value={l.id}>
+                    #{l.id} — {l.name}{count ? ` (${count})` : ""}
+                  </option>
+                );
+              })}
             </select>
           </div>
 
