@@ -49,8 +49,8 @@ export default function SidebarModulos({ modulos, slug, leccionActivaId, complet
   return (
     <div style={{ background: "var(--oscuro)", borderRight: "1px solid var(--borde)", overflowY: "auto", height: "100%", display: "flex", flexDirection: "column" }}>
       <div style={{ padding: "0 16px 16px", borderBottom: "1px solid var(--borde)", marginBottom: 8 }}>
-        <Link href={`/cursos/${slug}`} style={{ fontSize: 12, color: "var(--texto-suave)", textDecoration: "none" }}>
-          ← {cursoTitulo}
+        <Link href={accesoCompleto ? `/ver/${slug}` : "/cuenta"} style={{ fontSize: 12, color: "var(--texto-suave)", textDecoration: "none" }}>
+          ← {accesoCompleto ? cursoTitulo : "Mi cuenta"}
         </Link>
       </div>
 

@@ -11,8 +11,8 @@ export default function ModuloAcceso({
     <div className="container" style={{ paddingTop: 48, paddingBottom: 100, maxWidth: 720 }}>
 
       {/* Breadcrumb */}
-      <a href={`/cursos/${curso.slug}`} style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none", display: "inline-block", marginBottom: 24 }}>
-        ← {curso.titulo}
+      <a href="/cuenta" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none", display: "inline-block", marginBottom: 24 }}>
+        ← Mi cuenta
       </a>
 
       {/* Hero portada */}
@@ -38,6 +38,21 @@ export default function ModuloAcceso({
           <p className="section-label">Módulo {String(modulo.orden).padStart(2, "0")}</p>
           <h1 style={{ fontSize: "clamp(24px, 4vw, 38px)", marginBottom: 32 }}>{modulo.titulo}</h1>
         </>
+      )}
+
+      {/* Botón Play principal */}
+      {lecciones[0] && (
+        <a
+          href={`/ver/${curso.slug}/${lecciones[0].id}`}
+          style={{
+            display: "inline-flex", alignItems: "center", gap: 10,
+            background: "var(--oro)", color: "var(--negro)",
+            padding: "14px 28px", borderRadius: 8, fontSize: 15, fontWeight: 700,
+            textDecoration: "none", marginBottom: 40,
+          }}
+        >
+          ▶ Empezar módulo
+        </a>
       )}
 
       {/* Lecciones */}
