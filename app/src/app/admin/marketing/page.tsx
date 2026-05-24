@@ -1,12 +1,13 @@
 import { createAdminClient } from "@/lib/supabase-admin";
 import CampanaEditor from "./CampanaEditor";
 import CampanaFormClient from "./CampanaFormClient";
+import CalendarioEnvios from "./CalendarioEnvios";
 
 export default async function MarketingPage() {
   const admin = createAdminClient();
 
   const [{ data: campanas }, { data: modulos }] = await Promise.all([
-    admin.from("campanas_programadas").select("*, modulos(titulo, orden)").order("enviar_en"),
+    admin.from("campanas_programadas").select("*, modulos(titulo, orden, portada_url)").order("enviar_en"),
     admin.from("modulos").select("id, titulo, orden, fecha_apertura, fecha_cierre_venta, cursos(titulo)").order("orden"),
   ]);
 
@@ -39,11 +40,21 @@ export default async function MarketingPage() {
         <CampanaEditor modulos={modulos ?? []} />
       </div>
 
-      {/* Calendario de envíos */}
+      {/* Calendario visual */}
       {pendientes.length > 0 && (
         <div style={{ marginBottom: 40 }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--texto-suave)", marginBottom: 16 }}>
             Calendario de envíos
+          </p>
+          <CalendarioEnvios campanas={pendientes} />
+        </div>
+      )}
+
+      {/* Timeline de envíos */}
+      {pendientes.length > 0 && (
+        <div style={{ marginBottom: 40 }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--texto-suave)", marginBottom: 16 }}>
+            Próximos envíos
           </p>
           <div style={{ position: "relative", paddingLeft: 24 }}>
             {/* Línea vertical */}
