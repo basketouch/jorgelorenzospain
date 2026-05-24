@@ -46,6 +46,7 @@ export default async function MarketingPage() {
         </div>
       ) : (
         Array.from(porModulo.entries()).map(([moduloId, cams]) => {
+          if (!cams || cams.length === 0) return null;
           const modulo = cams[0].modulos as unknown as { titulo: string; orden: number };
           return (
             <div key={moduloId} style={{ marginBottom: 32 }}>
