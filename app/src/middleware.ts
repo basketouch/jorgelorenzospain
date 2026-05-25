@@ -8,6 +8,9 @@ const BYPASS_PATHS = [
   "/favicon",
   "/login",
   "/api/logout",
+  "/auth/",
+  "/nueva-contrasena",
+  "/cursos",
 ];
 
 export async function middleware(req: NextRequest) {
