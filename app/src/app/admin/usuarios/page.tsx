@@ -19,7 +19,7 @@ export default async function AdminUsuarios() {
     admin.from("accesos").select("user_id, created_at").in("user_id", userIds).order("created_at", { ascending: false }),
     admin.from("compras").select("user_id, curso_id, lemon_order_id").in("user_id", userIds),
     admin.from("progreso").select("user_id, completada").in("user_id", userIds),
-    admin.auth.admin.listUsers(),
+    admin.auth.admin.listUsers({ perPage: 1000 }),
   ]);
 
   const emailMap = new Map(authUsers?.users?.map((u) => [u.id, u.email]) ?? []);
