@@ -1,5 +1,5 @@
 import { requireAdmin } from "@/lib/admin-guard";
-import LeccionEditor from "./LeccionEditor";
+import LeccionesOrdenables from "./LeccionesOrdenables";
 import AddLeccionForm from "./AddLeccionForm";
 import AddModuloForm from "./AddModuloForm";
 import CursoEditor from "./CursoEditor";
@@ -65,11 +65,7 @@ export default async function AdminCursos() {
                         Cap. {modulo.orden} — {modulo.titulo}
                       </p>
 
-                      <div>
-                        {lecciones.map((leccion) => (
-                          <LeccionEditor key={leccion.id} leccion={leccion} cursoSlug={curso.slug} />
-                        ))}
-                      </div>
+                      <LeccionesOrdenables lecciones={lecciones} cursoSlug={curso.slug} />
 
                       <AddLeccionForm moduloId={modulo.id} nextOrden={lecciones.length + 1} />
                       <ModuloEditor modulo={{
