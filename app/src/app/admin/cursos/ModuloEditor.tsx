@@ -14,7 +14,10 @@ interface Modulo {
 
 function toInputDate(iso?: string | null) {
   if (!iso) return "";
-  return new Date(iso).toISOString().slice(0, 16); // "YYYY-MM-DDTHH:mm"
+  const d = new Date(iso);
+  // Formatear en hora LOCAL del navegador (no UTC) para que el input datetime-local muestre bien
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
 }
 
 export default function ModuloEditor({ modulo }: { modulo: Modulo }) {
