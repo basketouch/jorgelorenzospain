@@ -33,11 +33,11 @@ export default async function CursosPage() {
           <h2>Cursos de Jorge Lorenzo.</h2>
           <p className="lead">Formación en profundidad sobre técnica, táctica y gestión de equipo.</p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 24, marginTop: 48 }}>
+          <div className="scroll-x" style={{ display: "flex", gap: 24, marginTop: 48, scrollSnapType: "x mandatory", paddingBottom: 8 }}>
             {/* Cursos completos */}
             {cursos?.map((curso) => (
-              <Link key={curso.id} href={`/cursos/${curso.slug}`} style={{ textDecoration: "none" }}>
-                <div className="tier-card" style={{ cursor: "pointer" }}>
+              <Link key={curso.id} href={`/cursos/${curso.slug}`} style={{ textDecoration: "none", flexShrink: 0, width: "calc((100% - 48px) / 3)", minWidth: 260, scrollSnapAlign: "start" }}>
+                <div className="tier-card" style={{ cursor: "pointer", height: "100%" }}>
                   {curso.portada_url && (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img src={curso.portada_url} alt={curso.titulo} style={{ width: "100%", borderRadius: 6, marginBottom: 16, aspectRatio: "16/9", objectFit: "cover" }} />
@@ -55,8 +55,8 @@ export default async function CursosPage() {
               const curso = modulo.cursos as unknown as { slug: string };
               const lemonStore = process.env.NEXT_PUBLIC_LEMON_STORE ?? "";
               return (
-                <Link key={`mod-${modulo.id}`} href={`/modulos/${modulo.id}`} style={{ textDecoration: "none" }}>
-                  <div className="tier-card" style={{ cursor: "pointer", position: "relative" }}>
+                <Link key={`mod-${modulo.id}`} href={`/modulos/${modulo.id}`} style={{ textDecoration: "none", flexShrink: 0, width: "calc((100% - 48px) / 3)", minWidth: 260, scrollSnapAlign: "start" }}>
+                  <div className="tier-card" style={{ cursor: "pointer", position: "relative", height: "100%" }}>
                     {/* Badge "En venta" */}
                     <div style={{ position: "absolute", top: 12, right: 12, background: "var(--oro)", color: "var(--negro)", fontSize: 10, fontWeight: 800, padding: "3px 8px", borderRadius: 4, letterSpacing: "0.08em", textTransform: "uppercase", zIndex: 1 }}>
                       En venta

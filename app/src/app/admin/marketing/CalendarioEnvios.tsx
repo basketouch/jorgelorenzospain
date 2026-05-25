@@ -23,7 +23,12 @@ function getMeses(campanas: Campana[]) {
     const d = new Date(c.enviar_en);
     meses.add(`${d.getFullYear()}-${d.getMonth()}`);
   }
-  return Array.from(meses).sort().slice(0, 3);
+  // Ordenar por año y mes numérico (no alfabético, para evitar bug con mes >= 10)
+  return Array.from(meses).sort((a, b) => {
+    const [ay, am] = a.split("-").map(Number);
+    const [by, bm] = b.split("-").map(Number);
+    return ay !== by ? ay - by : am - bm;
+  });
 }
 
 export default function CalendarioEnvios({
