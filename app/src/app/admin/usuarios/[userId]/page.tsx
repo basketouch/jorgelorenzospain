@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import AccesoToggle from "../AccesoToggle";
 import AccesoModuloToggle from "./AccesoModuloToggle";
 import EliminarUsuario from "./EliminarUsuario";
+import EnviarEmailUsuario from "./EnviarEmailUsuario";
 
 function formatFecha(iso?: string) {
   if (!iso) return "—";
@@ -60,7 +61,15 @@ export default async function UsuarioPerfil({ params }: { params: Promise<{ user
             <h2 style={{ marginBottom: 4 }}>{perfil.nombre} {perfil.apellido}</h2>
             <p style={{ color: "var(--texto-suave)", fontSize: 14 }}>{user?.email ?? "—"}</p>
           </div>
-          <EliminarUsuario userId={userId} nombre={`${perfil.nombre} ${perfil.apellido}`} />
+          <div style={{ display: "flex", gap: 10 }}>
+            {user?.email && (
+              <EnviarEmailUsuario
+                email={user.email}
+                nombre={`${perfil.nombre} ${perfil.apellido ?? ""}`.trim()}
+              />
+            )}
+            <EliminarUsuario userId={userId} nombre={`${perfil.nombre} ${perfil.apellido}`} />
+          </div>
         </div>
       </div>
 
