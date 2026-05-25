@@ -16,27 +16,36 @@ export default async function UsuarioPerfil({ params }: { params: Promise<{ user
 
   const [
     { data: perfil },
-    { data: authUser },
     { data: cursos },
     { data: modulos },
     { data: compras },
     { data: accesoModulos },
     { data: progreso },
     { data: accesos },
+    authRes,
   ] = await Promise.all([
     admin.from("perfiles").select("*").eq("id", userId).single(),
-    admin.auth.admin.getUserById(userId),
     admin.from("cursos").select("id, slug, titulo, activo").order("id"),
     admin.from("modulos").select("id, titulo, orden, curso_id").order("orden"),
     admin.from("compras").select("*").eq("user_id", userId).order("created_at", { ascending: false }),
     admin.from("accesos_modulo").select("modulo_id").eq("user_id", userId),
     admin.from("progreso").select("leccion_id, completada").eq("user_id", userId),
     admin.from("accesos").select("created_at").eq("user_id", userId).order("created_at", { ascending: false }).limit(1),
+    fetch(
+      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/admin/users/${userId}`,
+      {
+        headers: {
+          apikey: process.env.SUPABASE_SERVICE_ROLE_KEY!,
+          Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY!}`,
+        },
+        cache: "no-store",
+      }
+    ).then(r => r.ok ? r.json() : null).catch(() => null),
   ]);
 
   if (!perfil) notFound();
 
-  const user = authUser.user;
+  const user = authRes as { email?: string; created_at?: string } | null;
   const completadas = progreso?.filter((p) => p.completada).length ?? 0;
   const total = progreso?.length ?? 0;
   const accesoModuloIds = new Set(accesoModulos?.map((a) => a.modulo_id) ?? []);
