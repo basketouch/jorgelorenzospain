@@ -33,8 +33,10 @@ export default function SidebarModulos({ modulos, slug, leccionActivaId, complet
   const moduloActivo = modulos.find((m) =>
     m.lecciones_curso.some((l) => l.id === leccionActivaId)
   );
+  const sortedModulos = [...modulos].sort((a, b) => a.orden - b.orden);
+  const defaultAbierto = moduloActivo?.id ?? sortedModulos[0]?.id;
   const [abiertos, setAbiertos] = useState<Set<number>>(
-    new Set(moduloActivo ? [moduloActivo.id] : [])
+    new Set(defaultAbierto ? [defaultAbierto] : [])
   );
 
   function toggle(id: number) {

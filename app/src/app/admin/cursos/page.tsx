@@ -2,6 +2,7 @@ import { requireAdmin } from "@/lib/admin-guard";
 import LeccionesOrdenables from "./LeccionesOrdenables";
 import AddLeccionForm from "./AddLeccionForm";
 import AddModuloForm from "./AddModuloForm";
+import AddCursoForm from "./AddCursoForm";
 import CursoEditor from "./CursoEditor";
 import ModuloEditor from "./ModuloEditor";
 
@@ -15,8 +16,13 @@ export default async function AdminCursos() {
 
   return (
     <>
-      <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Admin</p>
-      <h2 style={{ marginBottom: 40 }}>Contenido</h2>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 40 }}>
+        <div>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Admin</p>
+          <h2>Contenido</h2>
+        </div>
+        <AddCursoForm />
+      </div>
 
       <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
         {cursos?.map((curso) => {
@@ -30,7 +36,6 @@ export default async function AdminCursos() {
                   <h3 style={{ fontSize: 20, color: "var(--blanco)", marginBottom: 4 }}>{curso.titulo}</h3>
                   <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>
                     slug: <code style={{ color: "var(--oro)" }}>{curso.slug}</code> ·{" "}
-                    {(curso.precio / 100).toFixed(0)}€ ·{" "}
                     {modulos.length} módulos
                   </p>
                 </div>
@@ -44,14 +49,28 @@ export default async function AdminCursos() {
                 </span>
               </div>
 
-              {/* Lemon Squeezy */}
+              {/* Editor completo del curso */}
               <CursoEditor curso={{
                 id: curso.id,
                 slug: curso.slug,
+                titulo: curso.titulo,
+                descripcion: curso.descripcion,
                 precio: curso.precio,
                 lemon_variant_id: curso.lemon_variant_id,
                 en_venta: curso.en_venta,
                 activo: curso.activo,
+                portada_url: curso.portada_url,
+                descripcion_larga: curso.descripcion_larga,
+                duracion_texto: curso.duracion_texto,
+                para_quien: curso.para_quien,
+                lo_que_trabajamos: curso.lo_que_trabajamos,
+                videos_preview: curso.videos_preview,
+                skool_precio: curso.skool_precio,
+                skool_precio_original: curso.skool_precio_original,
+                skool_url: curso.skool_url,
+                web_precio: curso.web_precio,
+                web_precio_original: curso.web_precio_original,
+                fecha_apertura_texto: curso.fecha_apertura_texto,
               }} />
 
               {/* Módulos */}
