@@ -88,8 +88,11 @@ export default async function AdminUsuarios() {
                       {p.nombre || "—"} {p.apellido} →
                     </a>
                   </td>
-                  <td style={{ padding: "14px 16px", color: "var(--texto-suave)", whiteSpace: "nowrap" }}>
-                    {emailMap.get(p.id) ?? "—"}
+                  <td style={{ padding: "14px 16px", whiteSpace: "nowrap" }}>
+                    {emailMap.get(p.id)
+                      ? <span style={{ color: "var(--texto-suave)" }}>{emailMap.get(p.id)}</span>
+                      : <span style={{ fontSize: 11, color: "#e06", border: "1px solid #e0666655", borderRadius: 4, padding: "2px 8px" }}>sin cuenta auth</span>
+                    }
                   </td>
                   <td style={{ padding: "14px 16px", color: "var(--texto-suave)", whiteSpace: "nowrap" }}>
                     {formatFecha(ultimoAccesoMap.get(p.id))}

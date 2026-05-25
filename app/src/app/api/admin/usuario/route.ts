@@ -17,6 +17,15 @@ export async function POST(req: NextRequest) {
   });
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
+
+  // Crear fila en perfiles para que aparezca en el panel admin
+  await admin.from("perfiles").upsert({
+    id: data.user.id,
+    nombre: nombre.trim(),
+    apellido: apellido?.trim() ?? "",
+    is_admin: false,
+  });
+
   return NextResponse.json({ ok: true, userId: data.user.id });
 }
 
