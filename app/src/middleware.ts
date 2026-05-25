@@ -11,6 +11,7 @@ const BYPASS_PATHS = [
   "/auth/",
   "/nueva-contrasena",
   "/cursos",
+  "/stages",
 ];
 
 export async function middleware(req: NextRequest) {
