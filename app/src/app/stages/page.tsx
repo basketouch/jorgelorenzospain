@@ -3,6 +3,26 @@ export const metadata = {
   description: "Bring your college basketball program to Spain for elite training, matches against top-tier European competition, and unforgettable cultural experiences.",
 };
 
+function CTAButton() {
+  return (
+    <a href="mailto:coach@jorgelorenzospain.com?subject=Pre-Season%20Tours%20Inquiry" style={{
+      display: "inline-block",
+      background: "var(--oro)",
+      color: "var(--negro)",
+      padding: "14px 40px",
+      borderRadius: 4,
+      textDecoration: "none",
+      fontWeight: 700,
+      fontSize: 14,
+      transition: "all 0.2s",
+      border: "2px solid var(--oro)",
+      cursor: "pointer",
+    }}>
+      Request Your Custom Program
+    </a>
+  );
+}
+
 export default function Stages() {
   return (
     <div style={{
@@ -117,28 +137,7 @@ export default function Stages() {
           <p style={{ color: "var(--texto-suave)", marginBottom: 32, lineHeight: 1.7 }}>
             Whether you're looking for a pre-season conditioning camp, competitive matches, or specialized coaching clinics, we'll create a custom experience for your team.
           </p>
-          <a href="mailto:coach@jorgelorenzospain.com?subject=Pre-Season%20Tours%20Inquiry" style={{
-            display: "inline-block",
-            background: "var(--oro)",
-            color: "var(--negro)",
-            padding: "14px 40px",
-            borderRadius: 4,
-            textDecoration: "none",
-            fontWeight: 700,
-            fontSize: 14,
-            transition: "all 0.2s",
-            border: "2px solid var(--oro)",
-            cursor: "pointer",
-          }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.opacity = "0.9";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.opacity = "1";
-            }}
-          >
-            Request Your Custom Program
-          </a>
+          <CTAButton />
         </div>
       </section>
 
