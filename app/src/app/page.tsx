@@ -16,36 +16,41 @@ export default function Home() {
 
       {/* HERO */}
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "120px 40px 80px", position: "relative", overflow: "hidden", marginTop: 0 }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-          <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>World Champion Coach</p>
-          <h1 style={{ fontSize: "clamp(42px, 7vw, 80px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
-            World Champion.<br />
-            <span style={{ color: "var(--oro)" }}>European Champion.</span>
-          </h1>
-          <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 48, maxWidth: 560, marginLeft: "auto", marginRight: "auto", lineHeight: 1.7 }}>
-            Almost a decade with Spain's National Team. Two World Championships. Two Olympic Games. Professional coaching at the highest level. Now bringing elite training to your college program.
-          </p>
-          <a href="/stages" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
-            Explore Pre-Season Tours
-          </a>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20, marginTop: 60, paddingTop: 48, borderTop: "1px solid var(--borde)" }}>
-              {[
-                { icon: "🥇", title: "World Champion", sub: "Beijing 2019" },
-                { icon: "🥇", title: "European Champion", sub: "Berlin 2022" },
-                { icon: "🏅", title: "Olympic Games 2021 · 2024", sub: "Tokyo · Paris" },
-                { icon: "🏅", title: "World Championship 2023 · Eurobasket 2025", sub: "Jakarta · Cyprus" },
-                { icon: "🏅", title: "Youth National Teams", sub: "U15/U16 Spain · 2015–2018" },
-                { icon: "🏀", title: "Academy Director · 2021/22", sub: "Clube 1º de Agosto · Angola" },
-                { icon: "🏀", title: "Assistant Coach · 2024/25", sub: "Palencia Baloncesto · 1ª FEB" },
-                { icon: "📋", title: "25 Years Coaching", sub: "Youth Development & Elite Level" },
-              ].map((item, i) => (
-                <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: "var(--texto-suave)" }}>
-                  <span style={{ fontSize: 20, flexShrink: 0, marginTop: 1 }}>{item.icon}</span>
-                  <span><strong style={{ color: "var(--texto)", display: "block", marginBottom: 2 }}>{item.title}</strong>{item.sub}</span>
-                </div>
-              ))}
-            </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+          <div>
+            <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>World Champion Coach</p>
+            <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
+              World Champion.<br />
+              <span style={{ color: "var(--oro)" }}>European Champion.</span>
+            </h1>
+            <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 48, lineHeight: 1.7 }}>
+              Almost a decade with Spain's National Team. Two World Championships. Two Olympic Games. Professional coaching at the highest level. Now bringing elite training to your college program.
+            </p>
+            <a href="/stages" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
+              Explore Pre-Season Tours
+            </a>
           </div>
+          <div style={{ position: "relative" }}>
+            <img src="/fotos/Mundial Oro 19.png" alt="World Champion 2019 Beijing" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20, marginTop: 60, paddingTop: 48, borderTop: "1px solid var(--borde)" }}>
+            {[
+              { icon: "🥇", title: "World Champion", sub: "Beijing 2019" },
+              { icon: "🥇", title: "European Champion", sub: "Berlin 2022" },
+              { icon: "🏅", title: "Olympic Games 2021 · 2024", sub: "Tokyo · Paris" },
+              { icon: "🏅", title: "World Championship 2023 · Eurobasket 2025", sub: "Jakarta · Cyprus" },
+              { icon: "🏅", title: "Youth National Teams", sub: "U15/U16 Spain · 2015–2018" },
+              { icon: "🏀", title: "Academy Director · 2021/22", sub: "Clube 1º de Agosto · Angola" },
+              { icon: "🏀", title: "Assistant Coach · 2024/25", sub: "Palencia Baloncesto · 1ª FEB" },
+              { icon: "📋", title: "25 Years Coaching", sub: "Youth Development & Elite Level" },
+            ].map((item, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: "var(--texto-suave)" }}>
+                <span style={{ fontSize: 20, flexShrink: 0, marginTop: 1 }}>{item.icon}</span>
+                <span><strong style={{ color: "var(--texto)", display: "block", marginBottom: 2 }}>{item.title}</strong>{item.sub}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* COLLABORATORS SECTION */}
