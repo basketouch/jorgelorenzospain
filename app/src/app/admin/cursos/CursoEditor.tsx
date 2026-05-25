@@ -30,6 +30,7 @@ interface CursoData {
 }
 
 export default function CursoEditor({ curso }: { curso: CursoData }) {
+  const [abierto, setAbierto] = useState(false);
   const [tab, setTab] = useState<"info" | "venta" | "pagina">("info");
   const [guardando, setGuardando] = useState(false);
   const [ok, setOk] = useState(false);
@@ -107,20 +108,38 @@ export default function CursoEditor({ curso }: { curso: CursoData }) {
 
   return (
     <div style={{ background: "rgba(201,168,76,0.04)", border: "1px solid rgba(201,168,76,0.2)", borderRadius: 8, marginBottom: 20 }}>
-      {/* Tabs */}
-      <div style={{ display: "flex", borderBottom: "1px solid rgba(201,168,76,0.2)" }}>
-        {(["info", "venta", "pagina"] as const).map(t => (
-          <button key={t} onClick={() => setTab(t)}
-            style={{
-              fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
-              padding: "10px 16px", background: "none", border: "none", cursor: "pointer",
-              color: tab === t ? "var(--oro)" : "var(--texto-suave)",
-              borderBottom: tab === t ? "2px solid var(--oro)" : "2px solid transparent",
-            }}>
-            {t === "info" ? "⚙ Info" : t === "venta" ? "💳 Venta" : "📄 Página"}
-          </button>
-        ))}
-      </div>
+      {/* Cabecera colapsable */}
+      <button
+        onClick={() => setAbierto(v => !v)}
+        style={{
+          width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between",
+          padding: "10px 16px", background: "none", border: "none", cursor: "pointer", textAlign: "left",
+        }}
+      >
+        <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--oro)" }}>
+          ⚙ Editar curso
+        </span>
+        <span style={{ color: "var(--texto-suave)", fontSize: 12, transition: "transform 0.2s", display: "inline-block", transform: abierto ? "rotate(180deg)" : "rotate(0deg)" }}>▾</span>
+      </button>
+
+      {!abierto && <div style={{ height: 1, background: "rgba(201,168,76,0.15)" }} />}
+
+      {abierto && (
+        <>
+          {/* Tabs */}
+          <div style={{ display: "flex", borderTop: "1px solid rgba(201,168,76,0.2)", borderBottom: "1px solid rgba(201,168,76,0.2)" }}>
+            {(["info", "venta", "pagina"] as const).map(t => (
+              <button key={t} onClick={() => setTab(t)}
+                style={{
+                  fontSize: 11, fontWeight: 700, letterSpacing: "0.1em", textTransform: "uppercase",
+                  padding: "10px 16px", background: "none", border: "none", cursor: "pointer",
+                  color: tab === t ? "var(--oro)" : "var(--texto-suave)",
+                  borderBottom: tab === t ? "2px solid var(--oro)" : "2px solid transparent",
+                }}>
+                {t === "info" ? "⚙ Info" : t === "venta" ? "💳 Venta" : "📄 Página"}
+              </button>
+            ))}
+          </div>
 
       <div style={{ padding: 16 }}>
         {/* ---- TAB INFO ---- */}
@@ -259,6 +278,8 @@ export default function CursoEditor({ curso }: { curso: CursoData }) {
           {error && <span style={{ fontSize: 12, color: "#e06" }}>{error}</span>}
         </div>
       </div>
+        </>
+      )}
     </div>
   );
 }
