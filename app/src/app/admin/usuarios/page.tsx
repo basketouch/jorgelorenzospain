@@ -1,16 +1,13 @@
 import { requireAdmin } from "@/lib/admin-guard";
-import AccesoToggle from "./AccesoToggle";
 import CrearUsuario from "./CrearUsuario";
+import QuickEmailBtn from "./QuickEmailBtn";
 
 export default async function AdminUsuarios() {
   const { admin } = await requireAdmin();
 
-  const [{ data: perfiles }, { data: cursos }] = await Promise.all([
-    admin.from("perfiles").select("id, nombre, apellido, is_admin").eq("is_admin", false),
-    admin.from("cursos").select("id, slug, titulo").eq("activo", true),
-  ]);
+  const { data: perfiles } = await admin.from("perfiles").select("id, nombre, apellido, is_admin").eq("is_admin", false);
 
-  if (!perfiles || !cursos) return <p>Error cargando datos.</p>;
+  if (!perfiles) return <p>Error cargando datos.</p>;
 
   // Para cada usuario: último acceso, compras y progreso
   const userIds = perfiles.map((p) => p.id);
@@ -71,7 +68,7 @@ export default async function AdminUsuarios() {
         <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 13 }}>
           <thead>
             <tr style={{ borderBottom: "1px solid var(--borde)" }}>
-              {["Nombre", "Email", "Último acceso", "Lecciones", ...cursos.map(c => c.titulo)].map((h) => (
+              {["Nombre", "Email", "Último acceso", "Lecciones", ""].map((h) => (
                 <th key={h} style={{ padding: "10px 16px", textAlign: "left", fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--texto-suave)", whiteSpace: "nowrap" }}>{h}</th>
               ))}
             </tr>
@@ -100,19 +97,14 @@ export default async function AdminUsuarios() {
                   <td style={{ padding: "14px 16px", color: "var(--texto-suave)", whiteSpace: "nowrap" }}>
                     {completadas}/{total}
                   </td>
-                  {cursos.map((curso) => {
-                    const tieneAcceso = compras?.some((c) => c.user_id === p.id && c.curso_id === curso.id) ?? false;
-                    return (
-                      <td key={curso.id} style={{ padding: "14px 16px" }}>
-                        <AccesoToggle
-                          userId={p.id}
-                          cursoId={curso.id}
-                          cursoSlug={curso.slug}
-                          tieneAcceso={tieneAcceso}
-                        />
-                      </td>
-                    );
-                  })}
+                  <td style={{ padding: "14px 16px" }}>
+                    {emailMap.get(p.id) ? (
+                      <QuickEmailBtn
+                        email={emailMap.get(p.id)!}
+                        nombre={`${p.nombre ?? ""} ${p.apellido ?? ""}`.trim()}
+                      />
+                    ) : null}
+                  </td>
                 </tr>
               );
             })}
