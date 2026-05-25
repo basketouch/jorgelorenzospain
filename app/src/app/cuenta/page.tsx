@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import EditarPerfil from "./EditarPerfil";
+import CambiarContrasena from "./CambiarContrasena";
 import NavBar from "@/components/NavBar";
 
 export const metadata = { title: "Mi cuenta — Jorge Lorenzo" };
@@ -69,12 +70,13 @@ export default async function CuentaPage() {
             </div>
           </div>
 
-          <div style={{ marginTop: 24 }}>
+          <div style={{ marginTop: 24, display: "flex", flexDirection: "column", gap: 8 }}>
             <EditarPerfil
               userId={user.id}
               nombreInicial={perfil?.nombre ?? ""}
               apellidoInicial={perfil?.apellido ?? ""}
             />
+            <CambiarContrasena />
           </div>
         </div>
       </div>

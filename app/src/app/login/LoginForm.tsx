@@ -28,7 +28,7 @@ export default function LoginForm() {
 
     if (modo === "recovery") {
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/cuenta`,
+        redirectTo: `${window.location.origin}/auth/callback?next=/nueva-contrasena`,
       });
       if (error) { setError("No hemos podido enviar el email. Comprueba la dirección."); setLoading(false); return; }
       setEnviado(true);
