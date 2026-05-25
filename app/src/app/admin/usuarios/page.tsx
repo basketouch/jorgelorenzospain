@@ -15,14 +15,25 @@ export default async function AdminUsuarios() {
   // Para cada usuario: último acceso, compras y progreso
   const userIds = perfiles.map((p) => p.id);
 
-  const [{ data: accesos }, { data: compras }, { data: progresos }, { data: authUsers }] = await Promise.all([
+  const [{ data: accesos }, { data: compras }, { data: progresos }, authRes] = await Promise.all([
     admin.from("accesos").select("user_id, created_at").in("user_id", userIds).order("created_at", { ascending: false }),
     admin.from("compras").select("user_id, curso_id, lemon_order_id").in("user_id", userIds),
     admin.from("progreso").select("user_id, completada").in("user_id", userIds),
-    admin.auth.admin.listUsers({ perPage: 1000 }),
+    fetch(
+      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/auth/v1/admin/users?per_page=1000`,
+      {
+        headers: {
+          apikey: process.env.SUPABASE_SERVICE_ROLE_KEY!,
+          Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY!}`,
+        },
+        cache: "no-store",
+      }
+    ).then(r => r.json()).catch(() => ({ users: [] })),
   ]);
 
-  const emailMap = new Map(authUsers?.users?.map((u) => [u.id, u.email]) ?? []);
+  const emailMap = new Map<string, string>(
+    (authRes?.users ?? []).map((u: { id: string; email: string }) => [u.id, u.email])
+  );
 
   const ultimoAccesoMap = new Map<string, string>();
   accesos?.forEach((a) => {
