@@ -25,9 +25,13 @@ export default function Stages() {
             Train in Spain.<br />
             <span style={{ color: "var(--oro)" }}>At the highest level.</span>
           </h1>
-          <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 48, maxWidth: 560, marginLeft: "auto", marginRight: "auto", lineHeight: 1.7 }}>
-            Full-service training camps for college basketball programs. Elite facilities, competitive scrimmages, premium accommodation, and the coaching experience of a World Champion who has competed on the world's biggest stages.
+          <p style={{ fontSize: 18, color: "var(--texto-suave)", maxWidth: 580, marginLeft: "auto", marginRight: "auto", lineHeight: 1.7, marginBottom: 48 }}>
+            Full-service training camps for basketball teams and colleges. Elite facilities, competitive scrimmages, premium accommodation, and the experience of someone who has competed on the world's biggest stages.
           </p>
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap", justifyContent: "center", marginBottom: 60 }}>
+            <a href="#contacto" style={{ display: "inline-flex", alignItems: "center", fontSize: 14, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", background: "var(--oro)", color: "var(--negro)", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>Request a quote →</a>
+            <a href="#instalaciones" style={{ display: "inline-flex", alignItems: "center", gap: 8, fontSize: 14, color: "var(--texto-suave)", textDecoration: "none", padding: "16px 0", borderBottom: "1px solid var(--borde)" }}>View facilities ↓</a>
+          </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20, marginTop: 60, paddingTop: 48, borderTop: "1px solid var(--borde)" }}>
             {[
               { icon: "🏀", title: "3 Elite Venues", sub: "Málaga · Madrid · Valencia" },
@@ -77,7 +81,7 @@ export default function Stages() {
       </section>
 
       {/* THREE VENUES */}
-      <section style={{ padding: "96px 40px", position: "relative" }}>
+      <section id="instalaciones" style={{ padding: "96px 40px", position: "relative" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Where we train</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 60 }}>Three venues. Three elite experiences.</h2>
@@ -135,21 +139,22 @@ export default function Stages() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section style={{ padding: "96px 40px", position: "relative" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <section style={{ padding: "96px 40px", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Experience matters</p>
-              <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Not a travel agent.<br />A basketball coach.</h2>
-              <p style={{ fontSize: 16, color: "var(--texto-suave)", lineHeight: 1.8, marginBottom: 24 }}>Jorge Lorenzo is not selling trips. He designs training camps with the same mindset as a EuroBasket preparation: clear objectives, right opponents, top facilities, and an experience that impacts your team's game.</p>
-              <p style={{ fontSize: 16, color: "var(--texto-suave)", lineHeight: 1.8 }}>Every stage is planned for genuine improvement, not tourism.</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Why choose us</p>
+              <h2 style={{ fontSize: "clamp(26px, 3.5vw, 40px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Experience on the world's biggest stages.</h2>
+              <p style={{ fontSize: 16, color: "var(--texto-suave)", lineHeight: 1.8, marginBottom: 24 }}>Jorge Lorenzo is not a travel agent. He is a basketball coach with 25 years at the elite level who uses that network and knowledge to design training camps that genuinely impact your team's game.</p>
+              <p style={{ fontSize: 16, color: "var(--texto-suave)", lineHeight: 1.8 }}>Every stage is planned with the same mindset as a EuroBasket preparation: clear objectives, right opponents, top-level facilities, and an experience the team will remember.</p>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
               {[
                 { icon: "🥇", title: "2× World Champion", sub: "Spanish National Team · FIBA" },
                 { icon: "🥇", title: "2× Olympic Medalist", sub: "Tokyo 2021 · Paris 2024" },
-                { icon: "🏅", title: "EuroBasket & World Cups", sub: "Berlin 2022 · Jakarta 2023 · Cyprus 2025" },
-                { icon: "🏀", title: "25 Years Coaching", sub: "Elite level experience" },
+                { icon: "🏅", title: "EuroBasket · World Cups", sub: "Berlin 2022 · Jakarta 2023 · Cyprus 2025" },
+                { icon: "🏀", title: "Academy Director", sub: "Clube 1º de Agosto · Angola" },
+                { icon: "📋", title: "25 Years Coaching", sub: "Elite level experience" },
               ].map((cred, i) => (
                 <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", padding: "14px 16px", background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8 }}>
                   <span style={{ fontSize: 22, flexShrink: 0 }}>{cred.icon}</span>
@@ -164,20 +169,60 @@ export default function Stages() {
         </div>
       </section>
 
-      {/* CONTACT CTA */}
-      <section style={{ padding: "96px 40px", position: "relative", background: "var(--card)", textAlign: "center" }}>
+      {/* CONTACT FORM */}
+      <section id="contacto" style={{ padding: "96px 40px", position: "relative", borderTop: "1px solid var(--borde)" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Get in touch</p>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Tell us about your team.</h2>
-          <p style={{ fontSize: 18, color: "var(--texto-suave)", marginBottom: 40, lineHeight: 1.7 }}>
-            Every camp is different. Contact us and we'll send you a tailored proposal within 48 hours.
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Get in touch</p>
+          <h2 style={{ fontSize: "clamp(26px, 3.5vw, 40px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 12 }}>Tell us about your project.</h2>
+          <p style={{ fontSize: 16, color: "var(--texto-suave)", marginBottom: 48, lineHeight: 1.7 }}>
+            Every camp is different. Fill in the form and we will send you a tailored proposal within 48 hours.
           </p>
-          <a href="mailto:coach@jorgelorenzospain.com?subject=Pre-Season%20Tours%20Inquiry" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
-            Request Your Quote
-          </a>
+          <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 12, padding: "40px" }}>
+            <form style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+                <div>
+                  <label style={{ fontSize: 12, color: "var(--texto-suave)", display: "block", marginBottom: 6, fontWeight: 600, letterSpacing: "0.05em" }}>Full name *</label>
+                  <input required placeholder="John Smith" style={{ width: "100%", background: "var(--oscuro)", border: "1px solid var(--borde)", borderRadius: 6, padding: "10px 14px", color: "var(--texto)", fontSize: 14, fontFamily: "inherit", outline: "none", boxSizing: "border-box" }} />
+                </div>
+                <div>
+                  <label style={{ fontSize: 12, color: "var(--texto-suave)", display: "block", marginBottom: 6, fontWeight: 600, letterSpacing: "0.05em" }}>Email *</label>
+                  <input required type="email" placeholder="you@email.com" style={{ width: "100%", background: "var(--oscuro)", border: "1px solid var(--borde)", borderRadius: 6, padding: "10px 14px", color: "var(--texto)", fontSize: 14, fontFamily: "inherit", outline: "none", boxSizing: "border-box" }} />
+                </div>
+                <div>
+                  <label style={{ fontSize: 12, color: "var(--texto-suave)", display: "block", marginBottom: 6, fontWeight: 600, letterSpacing: "0.05em" }}>College / Team *</label>
+                  <input required placeholder="State University" style={{ width: "100%", background: "var(--oscuro)", border: "1px solid var(--borde)", borderRadius: 6, padding: "10px 14px", color: "var(--texto)", fontSize: 14, fontFamily: "inherit", outline: "none", boxSizing: "border-box" }} />
+                </div>
+                <div>
+                  <label style={{ fontSize: 12, color: "var(--texto-suave)", display: "block", marginBottom: 6, fontWeight: 600, letterSpacing: "0.05em" }}>State / Country *</label>
+                  <input required placeholder="California, Texas, etc…" style={{ width: "100%", background: "var(--oscuro)", border: "1px solid var(--borde)", borderRadius: 6, padding: "10px 14px", color: "var(--texto)", fontSize: 14, fontFamily: "inherit", outline: "none", boxSizing: "border-box" }} />
+                </div>
+                <div>
+                  <label style={{ fontSize: 12, color: "var(--texto-suave)", display: "block", marginBottom: 6, fontWeight: 600, letterSpacing: "0.05em" }}>Number of players</label>
+                  <select style={{ width: "100%", background: "var(--oscuro)", border: "1px solid var(--borde)", borderRadius: 6, padding: "10px 14px", color: "var(--texto)", fontSize: 14, fontFamily: "inherit", outline: "none", boxSizing: "border-box" }}>
+                    <option value="">Select…</option>
+                    <option value="Fewer than 10">Fewer than 10</option>
+                    <option value="10 – 15">10 – 15</option>
+                    <option value="16 – 20">16 – 20</option>
+                    <option value="More than 20">More than 20</option>
+                  </select>
+                </div>
+                <div>
+                  <label style={{ fontSize: 12, color: "var(--texto-suave)", display: "block", marginBottom: 6, fontWeight: 600, letterSpacing: "0.05em" }}>Approximate dates</label>
+                  <input placeholder="June 2025, 10 days" style={{ width: "100%", background: "var(--oscuro)", border: "1px solid var(--borde)", borderRadius: 6, padding: "10px 14px", color: "var(--texto)", fontSize: 14, fontFamily: "inherit", outline: "none", boxSizing: "border-box" }} />
+                </div>
+              </div>
+              <div>
+                <label style={{ fontSize: 12, color: "var(--texto-suave)", display: "block", marginBottom: 6, fontWeight: 600, letterSpacing: "0.05em" }}>Tell us more about your project</label>
+                <textarea placeholder="Team category, camp objectives, preferred venue, additional services needed…" rows={5} style={{ width: "100%", background: "var(--oscuro)", border: "1px solid var(--borde)", borderRadius: 6, padding: "10px 14px", color: "var(--texto)", fontSize: 14, fontFamily: "inherit", outline: "none", boxSizing: "border-box", resize: "vertical", lineHeight: 1.6 }}></textarea>
+              </div>
+              <div>
+                <button type="submit" style={{ fontSize: 14, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", background: "var(--oro)", color: "var(--negro)", padding: "16px 36px", borderRadius: 4, border: "none", cursor: "pointer", transition: "all 0.2s" }}>Send enquiry →</button>
+              </div>
+            </form>
+          </div>
           <div style={{ marginTop: 40, display: "flex", gap: 32, justifyContent: "center", flexWrap: "wrap" }}>
             <a href="mailto:coach@jorgelorenzospain.com" style={{ fontSize: 14, color: "var(--texto-suave)", textDecoration: "none" }}>✉ coach@jorgelorenzospain.com</a>
-            <a href="tel:+34666136257" style={{ fontSize: 14, color: "var(--texto-suave)", textDecoration: "none" }}>📞 +34 666 136 257</a>
+            <a href="tel:+14155555555" style={{ fontSize: 14, color: "var(--texto-suave)", textDecoration: "none" }}>📞 +1 (415) 555-5555</a>
           </div>
         </div>
       </section>
