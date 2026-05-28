@@ -80,6 +80,8 @@ export default function Home() {
               { src: "/fotos/Con Pau Gasol.png", label: "With Pau Gasol" },
               { src: "/fotos/Con Ricky Rubio.png", label: "With Ricky Rubio" },
               { src: "/fotos/Con Santi Aldama.png", label: "With Santi Aldama" },
+              { src: "/fotos/China_1.png", label: "FIBA China Coaching Clinic · Jinhua 2026" },
+              { src: "/fotos/China_2.png", label: "600 Coaches · 2nd Edition Workshop" },
             ].map((foto, i) => (
               <div key={i}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -87,6 +89,47 @@ export default function Home() {
                 <p style={{ fontSize: 13, color: "var(--texto-suave)", textAlign: "center" }}>{foto.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CHINA CLINIC SECTION */}
+      <section style={{ padding: "96px 40px", position: "relative" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center" }}>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>International Impact</p>
+              <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Training coaches worldwide.</h2>
+              <p style={{ fontSize: 17, color: "var(--texto-suave)", marginBottom: 32, lineHeight: 1.7 }}>
+                2nd Edition FIBA China Coaching Clinic Workshop. Hosted in Jinhua, March 2026. Training 600 international coaches on elite basketball strategies and player development.
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ fontSize: 20, flexShrink: 0 }}>🌍</span>
+                  <div>
+                    <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto)", margin: "0 0 4px" }}>Location</p>
+                    <p style={{ fontSize: 13, color: "var(--texto-suave)", margin: 0 }}>Jinhua, China</p>
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ fontSize: 20, flexShrink: 0 }}>📅</span>
+                  <div>
+                    <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto)", margin: "0 0 4px" }}>Date</p>
+                    <p style={{ fontSize: 13, color: "var(--texto-suave)", margin: 0 }}>March 2026</p>
+                  </div>
+                </div>
+                <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ fontSize: 20, flexShrink: 0 }}>👥</span>
+                  <div>
+                    <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto)", margin: "0 0 4px" }}>Coaches Trained</p>
+                    <p style={{ fontSize: 13, color: "var(--texto-suave)", margin: 0 }}>600 International Coaches</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{ position: "relative" }}>
+              <img src="/fotos/China_DrawSports.png" alt="DrawSports on 9-meter screen" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
+            </div>
           </div>
         </div>
       </section>
