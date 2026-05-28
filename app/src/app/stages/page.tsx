@@ -65,28 +65,91 @@ export default function Stages() {
 
       {/* TWO VENUES */}
       <section id="instalaciones" style={{ padding: "clamp(48px, 8vw, 80px) clamp(20px, 5vw, 40px)", position: "relative" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Elite venues</p>
-          <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48 }}>Two elite training locations.</h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 64 }}>
-            {[
-              { icon: "☀️", city: "Málaga · Fuengirola", name: "Higuerón Training Center", desc: "Modern facility with professional courts, premium accommodation at Hilton Higuerón. 15 min from airport, Costa del Sol beaches nearby.", images: ["/fotos/malaga/498523588-AVL13gvl05Hpx9Wp.avif", "/fotos/malaga/7.2_1-1200x800-AMqlagB7REi8BDqO.avif"] },
-              { icon: "🏛️", city: "Madrid", name: "Colegio Ideo", desc: "Premier training facility in the heart of Madrid with first-class amenities. Close to airport, city center, and cultural attractions.", images: ["/fotos/madrid/ideo/ideo_1.jpg", "/fotos/madrid/ideo/pabellon_1.png"] },
-            ].map((venue, i) => (
-              <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
-                <div style={{ order: i === 1 ? 1 : 0 }}>
-                  <p style={{ fontSize: 24, marginBottom: 8 }}>{venue.icon}</p>
-                  <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>{venue.city}</p>
-                  <h3 style={{ fontSize: 20, fontWeight: 800, color: "var(--blanco)", marginBottom: 16 }}>{venue.name}</h3>
-                  <p style={{ fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.7 }}>{venue.desc}</p>
+          <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48 }}>World-class facilities. Professional infrastructure.</h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: 80 }}>
+
+            {/* MÁLAGA */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "flex-start" }}>
+              <div>
+                <p style={{ fontSize: 24, marginBottom: 8 }}>☀️</p>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Málaga · Fuengirola</p>
+                <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--blanco)", marginBottom: 20 }}>Higuerón Training Center</h3>
+
+                <div style={{ marginBottom: 24 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Facility Highlights</p>
+                  <ul style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.8, paddingLeft: 0, listStyle: "none" }}>
+                    <li style={{ marginBottom: 6 }}>✓ 4 professional basketball courts (FIBA standards)</li>
+                    <li style={{ marginBottom: 6 }}>✓ Olympic-size training center with lighting systems</li>
+                    <li style={{ marginBottom: 6 }}>✓ Strength & conditioning facilities</li>
+                    <li style={{ marginBottom: 6 }}>✓ Video analysis room for tactical reviews</li>
+                    <li style={{ marginBottom: 6 }}>✓ Sports medicine & physiotherapy services</li>
+                  </ul>
                 </div>
-                <div style={{ order: i === 1 ? 0 : 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                  {venue.images.map((img, j) => (
-                    <img key={j} src={img} alt={`${venue.name} facility`} style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                  ))}
+
+                <div style={{ marginBottom: 24 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Accommodation</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>5-star Hilton Higuerón resort with ocean views. Private rooms or twin configurations. All meals included in your package. Beachfront access for optional activities.</p>
+                </div>
+
+                <div style={{ marginBottom: 24 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Location & Logistics</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Only 15 minutes from Málaga-Costa del Sol International Airport. Direct highway access. Beachfront location on the Mediterranean. Easy access to local transportation and cultural attractions.</p>
+                </div>
+
+                <div>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Competition</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Play against professional Spanish league teams and university programs. Competitive scrimmages scheduled throughout your stay. International teams experience.</p>
                 </div>
               </div>
-            ))}
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                <img src="/fotos/malaga/498523588-AVL13gvl05Hpx9Wp.avif" alt="Higuerón Training Center court" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                <img src="/fotos/malaga/7.2_1-1200x800-AMqlagB7REi8BDqO.avif" alt="Higuerón facility" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+              </div>
+            </div>
+
+            {/* MADRID */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "flex-start" }}>
+              <div style={{ order: 1 }}>
+                <p style={{ fontSize: 24, marginBottom: 8 }}>🏛️</p>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Madrid</p>
+                <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--blanco)", marginBottom: 20 }}>Colegio Ideo</h3>
+
+                <div style={{ marginBottom: 24 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Facility Highlights</p>
+                  <ul style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.8, paddingLeft: 0, listStyle: "none" }}>
+                    <li style={{ marginBottom: 6 }}>✓ 2 professional-grade basketball courts (FIBA certified)</li>
+                    <li style={{ marginBottom: 6 }}>✓ Modern gymnasium with multi-sport facilities</li>
+                    <li style={{ marginBottom: 6 }}>✓ Advanced strength training center</li>
+                    <li style={{ marginBottom: 6 }}>✓ Nutrition & sports science center</li>
+                    <li style={{ marginBottom: 6 }}>✓ On-site medical staff and physiotherapy clinic</li>
+                  </ul>
+                </div>
+
+                <div style={{ marginBottom: 24 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Accommodation</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Luxury hotel partner accommodations in central Madrid. Private rooms with all amenities. Buffet and à la carte dining options. 24-hour access to training facilities.</p>
+                </div>
+
+                <div style={{ marginBottom: 24 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Location & Logistics</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Located in the heart of Madrid, Spain's capital. 20 minutes from Barajas International Airport. Direct access to metro system. Walking distance to world-class museums, restaurants, and cultural venues.</p>
+                </div>
+
+                <div>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Competition</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Compete against Madrid's elite teams including professional ACB league players. World-class competition designed to prepare your team for elite tournament play.</p>
+                </div>
+              </div>
+
+              <div style={{ order: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                <img src="/fotos/madrid/ideo/ideo_1.jpg" alt="Colegio Ideo gymnasium" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                <img src="/fotos/madrid/ideo/pabellon_1.png" alt="Colegio Ideo facility" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
