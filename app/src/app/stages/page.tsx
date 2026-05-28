@@ -7,11 +7,11 @@ export default function Stages() {
   return (
     <>
       {/* NAV */}
-      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(10,10,10,0.92)", backdropFilter: "blur(8px)", borderBottom: "1px solid var(--borde)", padding: "16px 40px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(10,10,10,0.92)", backdropFilter: "blur(8px)", borderBottom: "1px solid var(--borde)", padding: "16px clamp(20px, 5vw, 40px)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <a href="/" style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--blanco)", textDecoration: "none" }}>
           Jorge <span style={{ color: "var(--oro)" }}>Lorenzo</span>
         </a>
-        <div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "clamp(16px, 4vw, 32px)", alignItems: "center" }}>
           <a href="/drawsports" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>DrawSports</a>
           <a href="/stages" style={{ fontSize: 13, color: "var(--oro)", fontWeight: 600, textDecoration: "none" }}>Pre-Season Tours</a>
           <a href="/" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>← Home</a>
@@ -19,7 +19,7 @@ export default function Stages() {
       </nav>
 
       {/* HERO */}
-      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "120px 40px 80px", position: "relative", overflow: "hidden" }}>
+      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(100px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 60% 40%, rgba(201,168,76,0.07) 0%, transparent 65%)", pointerEvents: "none" }}></div>
         <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
           <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>Pre-Season Tours · Elite Basketball Training</p>
@@ -51,7 +51,7 @@ export default function Stages() {
       </section>
 
       {/* FULL SERVICE */}
-      <section style={{ padding: "96px 40px", position: "relative", background: "var(--oscuro)" }}>
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>What's included</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Everything taken care of.</h2>
@@ -83,34 +83,46 @@ export default function Stages() {
       </section>
 
       {/* THREE VENUES */}
-      <section id="instalaciones" style={{ padding: "96px 40px", position: "relative" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+      <section id="instalaciones" style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Where we train</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 60 }}>Three venues. Three elite experiences.</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: 80 }}>
             {[
-              { icon: "☀️", city: "Málaga · Fuengirola", name: "Higuerón Training Center", hotel: "Hilton Higuerón Hotel", desc: "Andalusia's most modern facility with professional hardwood courts, state-of-the-art equipment and direct access to the Costa del Sol.", points: ["25 min from Marbella · 15 min from airport", "5★ hotel 3 minutes away with spa & pool", "Costa del Sol beaches 10 minutes away"] },
-              { icon: "🏛️", city: "Madrid", name: "José Antonio Paraíso Center", hotel: "Hotel Asset Torrejón", desc: "Professional facilities 25 minutes from central Madrid and 10 minutes from Adolfo Suárez airport. Prime access to Europe's basketball capital.", points: ["10 min from Madrid-Barajas airport", "Tour of Santiago Bernabéu & Gran Vía", "Hotel with restaurant, gym and sauna"] },
-              { icon: "🏟️", city: "Valencia", name: "L'Alqueria del Basket", hotel: "Hotel Valencia City Centre", desc: "Official home of Valencia Basket and a European basketball landmark. 13 simultaneous courts for groups of any size.", points: ["14 min from Valencia city centre", "13 courts for simultaneous training", "A benchmark facility in European basketball"] },
+              { icon: "☀️", city: "Málaga · Fuengirola", name: "Higuerón Training Center", hotel: "Hilton Higuerón Hotel", desc: "Andalusia's most modern facility with professional hardwood courts, state-of-the-art equipment and direct access to the Costa del Sol.", points: ["25 min from Marbella · 15 min from airport", "5★ hotel 3 minutes away with spa & pool", "Costa del Sol beaches 10 minutes away"], images: ["/fotos/malaga/498523588-AVL13gvl05Hpx9Wp.avif", "/fotos/malaga/7.2_1-1200x800-AMqlagB7REi8BDqO.avif"] },
+              { icon: "🏛️", city: "Madrid", name: "José Antonio Paraíso Center", hotel: "Hotel Asset Torrejón", desc: "Professional facilities 25 minutes from central Madrid and 10 minutes from Adolfo Suárez airport. Prime access to Europe's basketball capital.", points: ["10 min from Madrid-Barajas airport", "Tour of Santiago Bernabéu & Gran Vía", "Hotel with restaurant, gym and sauna"], images: [] },
+              { icon: "🏟️", city: "Valencia", name: "L'Alqueria del Basket", hotel: "Hotel Valencia City Centre", desc: "Official home of Valencia Basket and a European basketball landmark. 13 simultaneous courts for groups of any size.", points: ["14 min from Valencia city centre", "13 courts for simultaneous training", "A benchmark facility in European basketball"], images: ["/fotos/malaga/theembassytc-imagen_025-Yleq2KaPNQi0kj6j.avif", "/fotos/malaga/theembassytc-imagen_030-m7V58X7reXT2N2pY.avif"] },
             ].map((venue, i) => (
-              <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
-                <div style={{ order: i === 1 ? 1 : 0 }}>
-                  <p style={{ fontSize: 28, marginBottom: 8 }}>{venue.icon}</p>
-                  <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>{venue.city}</p>
-                  <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--blanco)", marginBottom: 4 }}>{venue.name}</h3>
-                  <p style={{ fontSize: 14, color: "var(--texto-suave)", marginBottom: 20 }}>🏨 {venue.hotel}</p>
-                  <p style={{ fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 24 }}>{venue.desc}</p>
-                  <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
-                    {venue.points.map((pt, j) => (
-                      <li key={j} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--texto-suave)" }}>
-                        <span style={{ color: "var(--oro)", flexShrink: 0 }}>→</span> {pt}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div style={{ order: i === 1 ? 0 : 1, background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 12, aspectRatio: "4/3", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 8 }}>
-                  <span style={{ fontSize: 56 }}>{venue.icon}</span>
-                  <p style={{ fontSize: 13, color: "var(--texto-suave)", textAlign: "center" }}>{venue.city}</p>
+              <div key={i} style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "flex-start" }}>
+                  <div style={{ order: i === 1 ? 1 : 0 }}>
+                    <p style={{ fontSize: 28, marginBottom: 8 }}>{venue.icon}</p>
+                    <p style={{ fontSize: 12, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>{venue.city}</p>
+                    <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--blanco)", marginBottom: 4 }}>{venue.name}</h3>
+                    <p style={{ fontSize: 14, color: "var(--texto-suave)", marginBottom: 20 }}>🏨 {venue.hotel}</p>
+                    <p style={{ fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 24 }}>{venue.desc}</p>
+                    <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: 10 }}>
+                      {venue.points.map((pt, j) => (
+                        <li key={j} style={{ display: "flex", gap: 10, fontSize: 14, color: "var(--texto-suave)" }}>
+                          <span style={{ color: "var(--oro)", flexShrink: 0 }}>→</span> {pt}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div style={{ order: i === 1 ? 0 : 1 }}>
+                    {venue.images.length > 0 ? (
+                      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, height: "100%" }}>
+                        {venue.images.map((img, j) => (
+                          <img key={j} src={img} alt={`${venue.name} facility`} style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                        ))}
+                      </div>
+                    ) : (
+                      <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 12, aspectRatio: "4/3", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 8 }}>
+                        <span style={{ fontSize: 56 }}>{venue.icon}</span>
+                        <p style={{ fontSize: 13, color: "var(--texto-suave)", textAlign: "center" }}>{venue.city}</p>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
@@ -119,7 +131,7 @@ export default function Stages() {
       </section>
 
       {/* TRAINED ALONGSIDE GLOBAL ELITE */}
-      <section id="achievements" style={{ padding: "96px 40px", position: "relative", background: "var(--oscuro)" }}>
+      <section id="achievements" style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Elite Experience</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 16 }}>Trained alongside global elite.</h2>
@@ -140,8 +152,70 @@ export default function Stages() {
         </div>
       </section>
 
+      {/* COMPETING TEAMS */}
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Competition Caliber</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 60 }}>Face world-class opponents.</h2>
+          <p style={{ fontSize: 16, color: "var(--texto-suave)", maxWidth: 600, marginBottom: 60, lineHeight: 1.7 }}>Your team will compete against international squads and professional-level basketball programs. Every match is a learning opportunity at the highest competitive level.</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24 }}>
+            {[
+              { src: "/fotos/equipos/Filipinos_1.avif", label: "International Squads" },
+              { src: "/fotos/equipos/Filipinos_1_1.avif", label: "Professional Teams" },
+              { src: "/fotos/equipos/Filipinos_2.avif", label: "Elite Competition" },
+            ].map((foto, i) => (
+              <div key={i}>
+                <img src={foto.src} alt={foto.label} style={{ width: "100%", borderRadius: 12, border: "1px solid var(--borde)", display: "block", marginBottom: 12, aspectRatio: "4/3", objectFit: "cover" }} />
+                <p style={{ fontSize: 13, color: "var(--texto-suave)", textAlign: "center", fontWeight: 600 }}>{foto.label}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LOGISTICS & COACHING STAFF */}
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Logistics & Support</p>
+              <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Seamless logistics. Expert support.</h2>
+              <p style={{ fontSize: 16, color: "var(--texto-suave)", lineHeight: 1.8, marginBottom: 32 }}>From airport transfers to daily transportation, we handle every logistical detail. Your coaching staff focuses 100% on player development while our team manages everything else.</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8, padding: "16px 20px", display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ fontSize: 24, flexShrink: 0 }}>✈️</span>
+                  <div>
+                    <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto)", marginBottom: 4 }}>Airport transfers</p>
+                    <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>Pick-up and drop-off to all venues</p>
+                  </div>
+                </div>
+                <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8, padding: "16px 20px", display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ fontSize: 24, flexShrink: 0 }}>🚌</span>
+                  <div>
+                    <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto)", marginBottom: 4 }}>Daily transportation</p>
+                    <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>Hotel to facilities and all activities</p>
+                  </div>
+                </div>
+                <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8, padding: "16px 20px", display: "flex", gap: 12, alignItems: "flex-start" }}>
+                  <span style={{ fontSize: 24, flexShrink: 0 }}>🏨</span>
+                  <div>
+                    <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto)", marginBottom: 4 }}>Accommodation coordination</p>
+                    <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>5-star hotels with breakfast included</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <img src="/fotos/transporte/transporte.jpg" alt="Transportation & Logistics" style={{ width: "100%", borderRadius: 12, border: "1px solid var(--borde)", display: "block", gridColumn: "1 / 2" }} />
+              <img src="/fotos/transporte/transporte_2.jpg" alt="Professional Transportation" style={{ width: "100%", borderRadius: 12, border: "1px solid var(--borde)", display: "block", gridColumn: "2 / 3" }} />
+              <img src="/fotos/colaborador/Luis_Guil.avif" alt="Coaching Staff" style={{ width: "100%", borderRadius: 12, border: "1px solid var(--borde)", display: "block", gridColumn: "1 / -1", aspectRatio: "2/1", objectFit: "cover" }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* WHY CHOOSE US */}
-      <section style={{ padding: "96px 40px", position: "relative", background: "var(--oscuro)" }}>
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
             <div>
@@ -172,7 +246,7 @@ export default function Stages() {
       </section>
 
       {/* CONTACT FORM */}
-      <section id="contacto" style={{ padding: "96px 40px", position: "relative", borderTop: "1px solid var(--borde)" }}>
+      <section id="contacto" style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", borderTop: "1px solid var(--borde)" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Get in touch</p>
           <h2 style={{ fontSize: "clamp(26px, 3.5vw, 40px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 12 }}>Tell us about your project.</h2>
@@ -230,7 +304,7 @@ export default function Stages() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ borderTop: "1px solid var(--borde)", padding: "32px 40px", textAlign: "center" }}>
+      <footer style={{ borderTop: "1px solid var(--borde)", padding: "clamp(24px, 5vw, 32px) clamp(20px, 5vw, 40px)", textAlign: "center" }}>
         <p style={{ fontSize: 13, color: "var(--texto-suave)", marginBottom: 16 }}>
           © {new Date().getFullYear()} Jorge Lorenzo · World Champion Coach
         </p>
