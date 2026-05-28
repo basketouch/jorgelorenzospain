@@ -97,8 +97,8 @@ export default function DrawSports() {
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {[
               { icon: "🥇", title: "2× World Champion", sub: "Beijing 2019 · Berlin 2022" },
-              { icon: "🥇", title: "2× Olympic Games", sub: "Tokyo 2021 · Paris 2024" },
-              { icon: "📋", title: "25 years coaching", sub: "Elite level experience" },
+              { icon: "🏀", title: "2× Olympic Games", sub: "Tokyo 2021 · Paris 2024" },
+              { icon: "🏀", title: "25 years coaching", sub: "Elite level experience" },
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", padding: "14px 16px", background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8 }}>
                 <span style={{ fontSize: 22, flexShrink: 0 }}>{item.icon}</span>
