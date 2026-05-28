@@ -101,27 +101,21 @@ export default function Home() {
               <p style={{ fontSize: 17, color: "var(--texto-suave)", marginBottom: 32, lineHeight: 1.7 }}>
                 2nd Edition FIBA China Coaching Clinic Workshop. Hosted in Jinhua, March 2026. Training 600 international coaches on elite basketball strategies and player development.
               </p>
-              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                  <span style={{ fontSize: 20, flexShrink: 0 }}>🌍</span>
-                  <div>
-                    <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto)", margin: "0 0 4px" }}>Location</p>
-                    <p style={{ fontSize: 13, color: "var(--texto-suave)", margin: 0 }}>Jinhua, China</p>
-                  </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, marginTop: 24 }}>
+                <div style={{ textAlign: "center" }}>
+                  <p style={{ fontSize: 28, margin: "0 0 8px" }}>🌍</p>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 6px" }}>Location</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", margin: 0, lineHeight: 1.4 }}>Jinhua, China</p>
                 </div>
-                <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                  <span style={{ fontSize: 20, flexShrink: 0 }}>📅</span>
-                  <div>
-                    <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto)", margin: "0 0 4px" }}>Date</p>
-                    <p style={{ fontSize: 13, color: "var(--texto-suave)", margin: 0 }}>March 2026</p>
-                  </div>
+                <div style={{ textAlign: "center" }}>
+                  <p style={{ fontSize: 28, margin: "0 0 8px" }}>📅</p>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 6px" }}>Date</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", margin: 0, lineHeight: 1.4 }}>March 2026</p>
                 </div>
-                <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-                  <span style={{ fontSize: 20, flexShrink: 0 }}>👥</span>
-                  <div>
-                    <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto)", margin: "0 0 4px" }}>Coaches Trained</p>
-                    <p style={{ fontSize: 13, color: "var(--texto-suave)", margin: 0 }}>600 International Coaches</p>
-                  </div>
+                <div style={{ textAlign: "center" }}>
+                  <p style={{ fontSize: 28, margin: "0 0 8px" }}>👥</p>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 6px" }}>Coaches Trained</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", margin: 0, lineHeight: 1.4 }}>600 Chinese Coaches</p>
                 </div>
               </div>
             </div>
