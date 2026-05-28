@@ -46,7 +46,7 @@ export default function DrawSports() {
 
       {/* THE PROBLEM */}
       <section style={{ padding: "96px 40px", position: "relative", background: "var(--oscuro)" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Problem</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Your assistants lose hours tagging videos alone.</h2>
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Players wait days to see analysis. By then, the moment is forgotten. Feedback should be instant, on the court, while they feel the mistake.</p>
@@ -142,15 +142,18 @@ export default function DrawSports() {
 
       {/* WHY ME */}
       <section style={{ padding: "96px 40px", position: "relative", background: "var(--oscuro)" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Why This Matters</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Instant feedback = 3x faster learning.</h2>
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>I spent 7 years with Spain's National Team. We used video feedback at the highest level. But this way — live, on the court — changed everything.</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
             {[
-              { icon: "🥇", title: "2× World Champion", sub: "Beijing 2019 · Berlin 2022" },
-              { icon: "🏀", title: "2× Olympic Games", sub: "Tokyo 2021 · Paris 2024" },
-              { icon: "🏀", title: "25 years coaching", sub: "Elite level experience" },
+              { icon: "🥇", title: "2019 Mundial", sub: "Medalla de Oro" },
+              { icon: "🏀", title: "2021 JJOO", sub: "Tokyo" },
+              { icon: "🥇", title: "2022 Eurobasket", sub: "Medalla de Oro" },
+              { icon: "🏀", title: "2023 Mundial", sub: "Jakarta" },
+              { icon: "🏀", title: "2024 JJOO", sub: "Paris" },
+              { icon: "🏀", title: "2025 Eurobasket", sub: "Cyprus" },
             ].map((item, i) => (
               <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", padding: "14px 16px", background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8 }}>
                 <span style={{ fontSize: 22, flexShrink: 0 }}>{item.icon}</span>
