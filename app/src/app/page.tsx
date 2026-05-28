@@ -49,12 +49,12 @@ export default function Home() {
             {[
               { icon: "🥇", title: "World Champion", sub: "Beijing 2019" },
               { icon: "🥇", title: "European Champion", sub: "Berlin 2022" },
-              { icon: "🏅", title: "Olympic Games 2021 · 2024", sub: "Tokyo · Paris" },
-              { icon: "🏅", title: "World Championship 2023 · Eurobasket 2025", sub: "Jakarta · Cyprus" },
-              { icon: "🏅", title: "Youth National Teams", sub: "U15/U16 Spain · 2015–2018" },
+              { icon: "🏀", title: "Olympic Games 2021 · 2024", sub: "Tokyo · Paris" },
+              { icon: "🏀", title: "World Championship 2023 · Eurobasket 2025", sub: "Jakarta · Cyprus" },
+              { icon: "🏀", title: "Youth National Teams", sub: "U15/U16 Spain · 2015–2018" },
               { icon: "🏀", title: "Academy Director · 2021/22", sub: "Clube 1º de Agosto · Angola" },
               { icon: "🏀", title: "Assistant Coach · 2024/25", sub: "Palencia Baloncesto · 1ª FEB" },
-              { icon: "📋", title: "25 Years Coaching", sub: "Youth Development & Elite Level" },
+              { icon: "🏀", title: "25 Years Coaching", sub: "Youth Development & Elite Level" },
             ].map((item, i) => (
               <div key={i}>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}>
