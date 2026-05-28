@@ -7,7 +7,7 @@ export default function Home() {
         <a href="/" style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--blanco)", textDecoration: "none" }}>
           Jorge <span style={{ color: "var(--oro)" }}>Lorenzo</span>
         </a>
-        <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "clamp(16px, 4vw, 32px)", alignItems: "center" }}>
           <a href="/drawsports" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>DrawSports</a>
           <a href="/stages" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>Pre-Season Tours</a>
           <a href="#achievements" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>Achievements</a>
@@ -16,8 +16,8 @@ export default function Home() {
       </nav>
 
       {/* HERO */}
-      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "120px 40px 80px", position: "relative", overflow: "hidden", marginTop: 0 }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(100px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden", marginTop: 0 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px, 8vw, 60px)", alignItems: "center", maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div>
             <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>World Champion Coach</p>
             <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
@@ -27,7 +27,7 @@ export default function Home() {
             <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 48, lineHeight: 1.7 }}>
               Almost a decade with Spain's National Team. Two World Championships. Two Olympic Games. Professional coaching at the highest level. Now bringing elite training to your college program.
             </p>
-            <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+            <div style={{ display: "flex", gap: "clamp(8px, 2vw, 16px)", alignItems: "center" }}>
               <a href="/drawsports" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
                 DrawSports · iPad
               </a>
@@ -43,9 +43,9 @@ export default function Home() {
       </section>
 
       {/* ACHIEVEMENTS */}
-      <section style={{ padding: "80px 40px", position: "relative", borderTop: "1px solid var(--borde)", borderBottom: "1px solid var(--borde)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
+      <section style={{ padding: "clamp(60px, 10vw, 80px) clamp(20px, 5vw, 40px)", position: "relative", borderTop: "1px solid var(--borde)", borderBottom: "1px solid var(--borde)" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "clamp(16px, 4vw, 32px)" }}>
             {[
               { icon: "🥇", title: "World Champion", sub: "Beijing 2019" },
               { icon: "🥇", title: "European Champion", sub: "Berlin 2022" },
@@ -69,15 +69,15 @@ export default function Home() {
       </section>
 
       {/* COLLABORATORS SECTION */}
-      <section id="achievements" style={{ padding: "96px 40px", position: "relative" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section id="achievements" style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Elite Experience</p>
               <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Trained alongside global elite.</h2>
               <p style={{ fontSize: 17, color: "var(--texto-suave)", marginBottom: 32, lineHeight: 1.7 }}>Experience comes from nearly a decade in Spain's National Team, working with world-class players and coaching staff. That knowledge is now available for your program.</p>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(12px, 3vw, 24px)" }}>
               {[
                 { src: "/fotos/Con Scariolo.png", label: "With Sergio Scariolo" },
                 { src: "/fotos/Con Pau Gasol.png", label: "With Pau Gasol" },
@@ -96,8 +96,8 @@ export default function Home() {
       </section>
 
       {/* CHINA CLINIC SECTION */}
-      <section style={{ padding: "96px 40px", position: "relative" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>International Impact</p>
@@ -105,7 +105,7 @@ export default function Home() {
               <p style={{ fontSize: 17, color: "var(--texto-suave)", marginBottom: 32, lineHeight: 1.7 }}>
                 2nd Edition FIBA China Coaching Clinic Workshop. Hosted in Jinhua, March 2026. Training 600 international coaches on elite basketball strategies and player development.
               </p>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 24, marginTop: 24 }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(12px, 3vw, 24px)", marginTop: 24 }}>
                 <div style={{ textAlign: "center" }}>
                   <p style={{ fontSize: 28, margin: "0 0 8px" }}>🌍</p>
                   <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", margin: "0 0 6px" }}>Location</p>
@@ -123,7 +123,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(12px, 3vw, 24px)" }}>
               {[
                 { src: "/fotos/China_1.JPG", label: "FIBA China Coaching Clinic Workshop" },
                 { src: "/fotos/China_2.JPG", label: "Training 600 Chinese Coaches" },
@@ -140,7 +140,7 @@ export default function Home() {
       </section>
 
       {/* FINAL CTA */}
-      <section style={{ padding: "96px 40px", position: "relative", background: "var(--card)", textAlign: "center" }}>
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Elevate Your Program</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Ready to transform your team?</h2>

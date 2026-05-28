@@ -19,8 +19,8 @@ export default function DrawSports() {
       </nav>
 
       {/* HERO */}
-      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "120px 40px 80px", position: "relative", overflow: "hidden", marginTop: 0 }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", maxWidth: 1200, margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(100px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden", marginTop: 0 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px, 8vw, 60px)", alignItems: "center", maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div>
             <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · iPad Coaching Tool</p>
             <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
@@ -45,17 +45,17 @@ export default function DrawSports() {
       </section>
 
       {/* THE PROBLEM */}
-      <section style={{ padding: "96px 40px", position: "relative", background: "var(--oscuro)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Problem</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Your assistants lose hours tagging videos alone.</h2>
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Players wait days to see analysis. By then, the moment is forgotten. Feedback should be instant, on the court, while they feel the mistake.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(12px, 3vw, 24px)" }}>
             {[
               { icon: "⏱️", title: "Hours of tagging", desc: "Your assistant spends 3-4 hours on a single game. Alone." },
               { icon: "📱", title: "Slow workflow", desc: "Tag, export, review later. The learning moment is gone." },
             ].map((item, i) => (
-              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: "24px 28px", display: "flex", gap: 16, alignItems: "flex-start" }}>
+              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: "24px 28px", display: "flex", gap: "clamp(8px, 2vw, 16px)", alignItems: "flex-start" }}>
                 <span style={{ fontSize: 32, flexShrink: 0 }}>{item.icon}</span>
                 <div>
                   <p style={{ fontSize: 15, fontWeight: 700, color: "var(--texto)", marginBottom: 8 }}>{item.title}</p>
@@ -68,14 +68,14 @@ export default function DrawSports() {
       </section>
 
       {/* THE SOLUTION */}
-      <section style={{ padding: "96px 40px", position: "relative" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Solution</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Tag live. Annotate instantly. Coach in real-time.</h2>
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Project on the court. Write notes while the video plays. Players see their mistake immediately. Learning happens at that moment.</p>
 
           {/* Quick benefits */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 80 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(8px, 2vw, 16px)", marginBottom: 80 }}>
             {[
               { icon: "📺", text: "Project iPad on court" },
               { icon: "✍️", text: "Write live annotations" },
@@ -91,7 +91,7 @@ export default function DrawSports() {
           {/* iPad Screenshots Gallery */}
           <div style={{ marginBottom: 80 }}>
             <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>Designed for iPad</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(12px, 3vw, 24px)" }}>
               {[
                 { src: "/fotos/DrawSports_Screenshot1.png", alt: "DrawSports iPad app - Video analysis interface" },
                 { src: "/fotos/DrawSports_Screenshot2.png", alt: "DrawSports iPad app - Tactical annotation tools" },
@@ -107,7 +107,7 @@ export default function DrawSports() {
 
           {/* Detailed Features */}
           <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>Powerful Features Built for Coaches</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 32 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "clamp(16px, 4vw, 32px)" }}>
             {[
               {
                 icon: "⚡️",
@@ -141,12 +141,12 @@ export default function DrawSports() {
       </section>
 
       {/* WHY ME */}
-      <section style={{ padding: "96px 40px", position: "relative", background: "var(--oscuro)" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Why This Matters</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Instant feedback = 3x faster learning.</h2>
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>I spent 7 years with Spain's National Team. We used video feedback at the highest level. But this way — live, on the court — changed everything.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(8px, 2vw, 16px)" }}>
             {[
               { icon: "🥇", title: "2019 Mundial", sub: "Medalla de Oro" },
               { icon: "🏀", title: "2021 JJOO", sub: "Tokyo" },
@@ -168,7 +168,7 @@ export default function DrawSports() {
       </section>
 
       {/* CTA FINAL */}
-      <section style={{ padding: "96px 40px", position: "relative", background: "var(--card)", textAlign: "center" }}>
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Ready to coach differently?</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>7 days free. On your iPad.</h2>

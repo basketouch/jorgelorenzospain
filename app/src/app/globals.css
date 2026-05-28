@@ -242,6 +242,51 @@ footer { border-top: 1px solid var(--borde); padding: 32px 24px; text-align: cen
 .scroll-x { overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none; }
 .scroll-x::-webkit-scrollbar { display: none; }
 
+/* Responsive section padding */
+.section-responsive {
+  padding: clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px);
+}
+
+.hero-responsive {
+  padding: clamp(100px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px);
+}
+
+/* Grid responsive utilities */
+.grid-2col-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(16px, 4vw, 32px);
+}
+
+.grid-2col-fixed {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 4vw, 32px);
+}
+
+.grid-3col-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: clamp(16px, 4vw, 24px);
+}
+
+.grid-4col-responsive {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: clamp(16px, 4vw, 32px);
+}
+
+@media (max-width: 768px) {
+  .grid-2col-fixed {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-grid-responsive {
+    grid-template-columns: 1fr;
+    gap: clamp(32px, 8vw, 60px);
+  }
+}
+
 @media (max-width: 720px) {
   .nav-logo { font-size: 13px; }
   .nav-cta { font-size: 12px; padding: 8px 14px; }
