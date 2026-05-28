@@ -34,7 +34,13 @@ export default function Home() {
           <div style={{ position: "relative" }}>
             <img src="/fotos/Mundial Oro 19.png" alt="World Champion 2019 Beijing" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32, marginTop: 60, paddingTop: 48, borderTop: "1px solid var(--borde)" }}>
+        </div>
+      </section>
+
+      {/* ACHIEVEMENTS */}
+      <section style={{ padding: "80px 40px", position: "relative" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32, paddingTop: 48, borderTop: "1px solid var(--borde)" }}>
             {[
               { icon: "🥇", title: "World Champion", sub: "Beijing 2019" },
               { icon: "🥇", title: "European Champion", sub: "Berlin 2022" },
