@@ -146,7 +146,7 @@ export default function DrawSports() {
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Why This Matters</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Instant feedback = 3x faster learning.</h2>
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>I spent 7 years with Spain's National Team. We used video feedback at the highest level. But this way — live, on the court — changed everything.</p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
             {[
               { icon: "🥇", title: "2019 Mundial", sub: "Medalla de Oro" },
               { icon: "🏀", title: "2021 JJOO", sub: "Tokyo" },
