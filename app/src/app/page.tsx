@@ -34,7 +34,7 @@ export default function Home() {
           <div style={{ position: "relative" }}>
             <img src="/fotos/Mundial Oro 19.png" alt="World Champion 2019 Beijing" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20, marginTop: 60, paddingTop: 48, borderTop: "1px solid var(--borde)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 24, marginTop: 60, paddingTop: 48, borderTop: "1px solid var(--borde)" }}>
             {[
               { icon: "🥇", title: "World Champion", sub: "Beijing 2019" },
               { icon: "🥇", title: "European Champion", sub: "Berlin 2022" },
@@ -45,9 +45,12 @@ export default function Home() {
               { icon: "🏀", title: "Assistant Coach · 2024/25", sub: "Palencia Baloncesto · 1ª FEB" },
               { icon: "📋", title: "25 Years Coaching", sub: "Youth Development & Elite Level" },
             ].map((item, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontSize: 13, color: "var(--texto-suave)" }}>
-                <span style={{ fontSize: 20, flexShrink: 0, marginTop: 1 }}>{item.icon}</span>
-                <span><strong style={{ color: "var(--texto)", display: "block", marginBottom: 2 }}>{item.title}</strong>{item.sub}</span>
+              <div key={i} style={{ display: "flex", alignItems: "flex-start", gap: 12, fontSize: 13, color: "var(--texto-suave)", padding: "12px 0" }}>
+                <span style={{ fontSize: 20, flexShrink: 0, marginTop: 2 }}>{item.icon}</span>
+                <div style={{ flex: 1 }}>
+                  <strong style={{ color: "var(--texto)", display: "block", marginBottom: 4 }}>{item.title}</strong>
+                  <span style={{ fontSize: 12, color: "var(--texto-suave)" }}>{item.sub}</span>
+                </div>
               </div>
             ))}
           </div>
