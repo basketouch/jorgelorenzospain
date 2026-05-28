@@ -29,7 +29,7 @@ export default function Home() {
             </p>
             <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
               <a href="/drawsports" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
-                Try DrawSports
+                DrawSports · iPad
               </a>
               <a href="/stages" style={{ display: "inline-block", background: "transparent", color: "var(--oro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, border: "2px solid var(--oro)", transition: "all 0.2s", cursor: "pointer" }}>
                 Pre-Season Tours
