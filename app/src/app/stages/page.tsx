@@ -178,21 +178,26 @@ export default function Stages() {
 
 
       {/* WHY CHOOSE US */}
-      <section style={{ padding: "clamp(40px, 6vw, 64px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Why choose us</p>
-          <h2 style={{ fontSize: "clamp(22px, 3.5vw, 36px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 20 }}>World Champion experience.</h2>
-          <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 600, margin: "0 auto 32px", lineHeight: 1.7 }}>Every camp is designed like EuroBasket preparation: clear objectives, elite opponents, world-class facilities. Your team gets the experience of someone who has won at the highest level.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12, maxWidth: 600, margin: "0 auto" }}>
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: 64 }}>
+            <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Why choose us</p>
+            <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>World Champion experience.</h2>
+            <p style={{ fontSize: 16, color: "var(--texto-suave)", maxWidth: 700, margin: "0 auto", lineHeight: 1.8 }}>Every camp is designed like EuroBasket preparation: clear objectives, elite opponents, world-class facilities. Your team gets the experience of someone who has won at the highest level.</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
             {[
-              { icon: "🥇", title: "World Champion 2019" },
-              { icon: "🥇", title: "European Champion 2022" },
-              { icon: "🏀", title: "Olympic Games 2×" },
-              { icon: "🌍", title: "25 Years Coaching" },
+              { icon: "🥇", title: "World Champion", sub: "Beijing 2019" },
+              { icon: "🥇", title: "European Champion", sub: "Berlin 2022" },
+              { icon: "🏀", title: "Olympic Games", sub: "Tokyo & Paris" },
+              { icon: "🌍", title: "25 Years", sub: "Elite Coaching" },
             ].map((item, i) => (
-              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8, padding: "12px 16px", textAlign: "center" }}>
-                <p style={{ fontSize: 20, marginBottom: 6 }}>{item.icon}</p>
-                <p style={{ fontSize: 13, fontWeight: 600, color: "var(--texto)" }}>{item.title}</p>
+              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 12, padding: "32px 24px", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
+                <p style={{ fontSize: 40, margin: 0, lineHeight: 1 }}>{item.icon}</p>
+                <div>
+                  <p style={{ fontSize: 15, fontWeight: 700, color: "var(--texto)", margin: "0 0 4px" }}>{item.title}</p>
+                  <p style={{ fontSize: 13, color: "var(--texto-suave)", margin: 0 }}>{item.sub}</p>
+                </div>
               </div>
             ))}
           </div>
