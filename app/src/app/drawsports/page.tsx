@@ -69,11 +69,13 @@ export default function DrawSports() {
 
       {/* THE SOLUTION */}
       <section style={{ padding: "96px 40px", position: "relative" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Solution</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Tag live. Annotate instantly. Coach in real-time.</h2>
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Project on the court. Write notes while the video plays. Players see their mistake immediately. Learning happens at that moment.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16 }}>
+
+          {/* Quick benefits */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 80 }}>
             {[
               { icon: "📺", text: "Project iPad on court" },
               { icon: "✍️", text: "Write live annotations" },
@@ -82,6 +84,56 @@ export default function DrawSports() {
               <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: "20px 24px", display: "flex", gap: 14, alignItems: "flex-start" }}>
                 <span style={{ fontSize: 24, flexShrink: 0 }}>{item.icon}</span>
                 <span style={{ fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.5 }}>{item.text}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* iPad Screenshots Gallery */}
+          <div style={{ marginBottom: 80 }}>
+            <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>Designed for iPad</h3>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
+              {[
+                { src: "/fotos/DrawSports_Screenshot1.png", alt: "DrawSports iPad app - Video analysis interface" },
+                { src: "/fotos/DrawSports_Screenshot2.png", alt: "DrawSports iPad app - Tactical annotation tools" },
+                { src: "/fotos/DrawSports_Screenshot3.png", alt: "DrawSports iPad app - Timeline and playback controls" },
+              ].map((img, i) => (
+                <div key={i} style={{ borderRadius: 12, border: "1px solid var(--borde)", overflow: "hidden" }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={img.src} alt={img.alt} style={{ width: "100%", display: "block" }} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Detailed Features */}
+          <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>Powerful Features Built for Coaches</h3>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 32 }}>
+            {[
+              {
+                icon: "⚡️",
+                title: "Fast Video Analysis",
+                desc: "Import from iCloud, Drive or USB and start in seconds. Mark clips while you watch the game—every action automatically becomes a highlight. Smart history lets you resume work where you left off without wasting time searching."
+              },
+              {
+                icon: "❄️",
+                title: "Freeze Frame Effect",
+                desc: "Don't just draw—explain. Use the magnifier for details or create a Freeze Frame: pause the image, draw tactical corrections, and decide exactly how long that pause lasts. Turn video into a lesson."
+              },
+              {
+                icon: "📋",
+                title: "Pro Tactical Whiteboard",
+                desc: "Design plays and concepts without needing video. Switch between Notebook Mode for quick notes or Official Court templates to give your explanations real-court context."
+              },
+              {
+                icon: "🚀",
+                title: "Project & Share",
+                desc: "In the video room: connect to TV and keep full control (speed, frame-by-frame). Need to send it? Export clips or full sequences, choose whether to include audio or drawings, and share instantly via WhatsApp or AirDrop."
+              },
+            ].map((feature, i) => (
+              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: 32 }}>
+                <span style={{ fontSize: 32, marginBottom: 12, display: "block" }}>{feature.icon}</span>
+                <h4 style={{ fontSize: 16, fontWeight: 700, color: "var(--blanco)", marginBottom: 12 }}>{feature.title}</h4>
+                <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.6 }}>{feature.desc}</p>
               </div>
             ))}
           </div>
