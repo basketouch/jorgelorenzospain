@@ -185,9 +185,9 @@ export default function Stages() {
           <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 600, margin: "0 auto 32px", lineHeight: 1.7 }}>Every camp is designed like EuroBasket preparation: clear objectives, elite opponents, world-class facilities. Your team gets the experience of someone who has won at the highest level.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12, maxWidth: 600, margin: "0 auto" }}>
             {[
-              { icon: "🥇", title: "2× World Champion" },
-              { icon: "🥇", title: "2× Olympic Medalist" },
-              { icon: "🏀", title: "EuroBasket Winner" },
+              { icon: "🥇", title: "World Champion 2019" },
+              { icon: "🥇", title: "European Champion 2022" },
+              { icon: "🏀", title: "Olympic Games 2×" },
               { icon: "🌍", title: "25 Years Coaching" },
             ].map((item, i) => (
               <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8, padding: "12px 16px", textAlign: "center" }}>
