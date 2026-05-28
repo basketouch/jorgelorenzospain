@@ -80,8 +80,8 @@ export default function Home() {
               { src: "/fotos/Con Pau Gasol.png", label: "With Pau Gasol" },
               { src: "/fotos/Con Ricky Rubio.png", label: "With Ricky Rubio" },
               { src: "/fotos/Con Santi Aldama.png", label: "With Santi Aldama" },
-              { src: "/fotos/China_1.png", label: "FIBA China Coaching Clinic · Jinhua 2026" },
-              { src: "/fotos/China_2.png", label: "600 Coaches · 2nd Edition Workshop" },
+              { src: "/fotos/China_1.JPG", label: "FIBA China Coaching Clinic · Jinhua 2026" },
+              { src: "/fotos/China_2.JPG", label: "600 Coaches · 2nd Edition Workshop" },
             ].map((foto, i) => (
               <div key={i}>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -128,7 +128,7 @@ export default function Home() {
               </div>
             </div>
             <div style={{ position: "relative" }}>
-              <img src="/fotos/China_DrawSports.png" alt="DrawSports on 9-meter screen" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
+              <img src="/fotos/China_DrawSports.JPG" alt="DrawSports on 9-meter screen" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
             </div>
           </div>
         </div>
