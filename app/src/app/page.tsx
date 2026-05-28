@@ -125,7 +125,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
               {[
                 { src: "/fotos/China_1.JPG", label: "FIBA China Coaching Clinic Workshop" },
                 { src: "/fotos/China_2.JPG", label: "Training 600 International Coaches" },
