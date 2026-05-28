@@ -11,9 +11,11 @@ export default function Stages() {
         <a href="/" style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--blanco)", textDecoration: "none" }}>
           Jorge <span style={{ color: "var(--oro)" }}>Lorenzo</span>
         </a>
-        <a href="/" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>
-          ← Back to home
-        </a>
+        <div style={{ display: "flex", gap: "32px", alignItems: "center" }}>
+          <a href="/drawsports" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>DrawSports</a>
+          <a href="/stages" style={{ fontSize: 13, color: "var(--oro)", fontWeight: 600, textDecoration: "none" }}>Pre-Season Tours</a>
+          <a href="/" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>← Home</a>
+        </div>
       </nav>
 
       {/* HERO */}

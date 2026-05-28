@@ -8,8 +8,9 @@ export default function Home() {
           Jorge <span style={{ color: "var(--oro)" }}>Lorenzo</span>
         </a>
         <div style={{ display: "flex", gap: 32, alignItems: "center" }}>
-          <a href="#achievements" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>Achievements</a>
+          <a href="/drawsports" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>DrawSports</a>
           <a href="/stages" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>Pre-Season Tours</a>
+          <a href="#achievements" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>Achievements</a>
           <a href="mailto:coach@jorgelorenzospain.com?subject=Coaching%20Inquiry" style={{ fontSize: 13, fontWeight: 700, background: "var(--oro)", color: "var(--negro)", padding: "10px 20px", borderRadius: 4, textDecoration: "none" }}>Contact</a>
         </div>
       </nav>
