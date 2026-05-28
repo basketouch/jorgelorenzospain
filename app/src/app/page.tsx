@@ -38,9 +38,9 @@ export default function Home() {
       </section>
 
       {/* ACHIEVEMENTS */}
-      <section style={{ padding: "80px 40px", position: "relative" }}>
+      <section style={{ padding: "80px 40px", position: "relative", borderTop: "1px solid var(--borde)", borderBottom: "1px solid var(--borde)" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32, paddingTop: 48, borderTop: "1px solid var(--borde)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 32 }}>
             {[
               { icon: "🥇", title: "World Champion", sub: "Beijing 2019" },
               { icon: "🥇", title: "European Champion", sub: "Berlin 2022" },
