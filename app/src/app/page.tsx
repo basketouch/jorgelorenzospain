@@ -27,9 +27,14 @@ export default function Home() {
             <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 48, lineHeight: 1.7 }}>
               Almost a decade with Spain's National Team. Two World Championships. Two Olympic Games. Professional coaching at the highest level. Now bringing elite training to your college program.
             </p>
-            <a href="/stages" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
-              Explore Pre-Season Tours
-            </a>
+            <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+              <a href="/drawsports" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
+                Try DrawSports
+              </a>
+              <a href="/stages" style={{ display: "inline-block", background: "transparent", color: "var(--oro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, border: "2px solid var(--oro)", transition: "all 0.2s", cursor: "pointer" }}>
+                Pre-Season Tours
+              </a>
+            </div>
           </div>
           <div style={{ position: "relative" }}>
             <img src="/fotos/Mundial Oro 19.png" alt="World Champion 2019 Beijing" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
