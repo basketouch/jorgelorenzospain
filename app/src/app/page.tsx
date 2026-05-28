@@ -122,7 +122,7 @@ export default function Home() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
               {[
                 { src: "/fotos/China_1.JPG", label: "FIBA China Coaching Clinic Workshop" },
-                { src: "/fotos/China_2.JPG", label: "Training 600 International Coaches" },
+                { src: "/fotos/China_2.JPG", label: "Training 600 Chinese Coaches" },
               ].map((foto, i) => (
                 <div key={i}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
