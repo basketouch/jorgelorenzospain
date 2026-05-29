@@ -38,7 +38,7 @@ export default function Stages() {
           </div>
           <div style={{ position: "relative" }}>
             <img src="/fotos/equipos/Filipinos_1.avif" alt="Elite basketball competition" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
-            <p style={{ fontSize: 13, color: "var(--texto-suave)", textAlign: "center", marginTop: 12, fontStyle: "italic" }}>Ateneo de Manila University Training Camp 2025</p>
+            <p style={{ fontSize: 13, color: "var(--texto-suave)", textAlign: "center", marginTop: 12, fontStyle: "italic" }}>Philippine Ateneo University Training Camp 2025</p>
           </div>
         </div>
       </section>
