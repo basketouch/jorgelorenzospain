@@ -249,8 +249,21 @@ export default function Stages() {
           <div style={{ textAlign: "center", marginBottom: 64 }}>
             <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Why choose us</p>
             <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>World Champion experience.</h2>
-            <p style={{ fontSize: 16, color: "var(--texto-suave)", maxWidth: 700, margin: "0 auto", lineHeight: 1.8 }}>Every camp is designed like EuroBasket preparation: clear objectives, elite opponents, world-class facilities. Your team gets the experience of someone who has won at the highest level.</p>
+            <p style={{ fontSize: 16, color: "var(--texto-suave)", maxWidth: 700, margin: "0 auto 48px", lineHeight: 1.8 }}>Every camp is designed like EuroBasket preparation: clear objectives, elite opponents, world-class facilities. Your team gets the experience of coaches who have won at the highest level.</p>
           </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 64 }}>
+            {[
+              { src: "/fotos/entrenadores/Seleccion.jpg", alt: "Spain national team coaching" },
+              { src: "/fotos/entrenadores/Palencia.jpg", alt: "Professional coaching staff" },
+              { src: "/fotos/entrenadores/Eurobasket.jpg", alt: "EuroBasket championship" },
+            ].map((item, i) => (
+              <div key={i} style={{ borderRadius: 12, overflow: "hidden", border: "2px solid var(--oro)" }}>
+                <img src={item.src} alt={item.alt} style={{ width: "100%", height: "auto", display: "block", aspectRatio: "4/3", objectFit: "cover" }} />
+              </div>
+            ))}
+          </div>
+
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
             {[
               { icon: "🥇", title: "World Champion", sub: "Beijing 2019" },
