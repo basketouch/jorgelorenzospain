@@ -183,13 +183,12 @@ export default function Stages() {
         </div>
       </section>
 
-      {/* ELITE COACH EXPERIENCE */}
+      {/* ELITE COACHES EXPERIENCE */}
       <section id="achievements" style={{ padding: "clamp(40px, 6vw, 64px) clamp(20px, 5vw, 40px)", position: "relative" }}>
         <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Coaching expertise</p>
-          <h2 style={{ fontSize: "clamp(22px, 3.5vw, 36px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 12 }}>World Champion coach. Elite experience.</h2>
-          <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 600, margin: "0 auto 12px", lineHeight: 1.7 }}>Jorge Lorenzo: 25 years coaching elite basketball. Two World Championships, Olympic Games, EuroBasket. Proven expertise with world-class players and elite coaching staff.</p>
-          <p style={{ fontSize: 14, color: "var(--oro)", maxWidth: 600, margin: "0 auto 36px", lineHeight: 1.6, fontWeight: 500 }}>With professional program designer Luis Guil ensuring flexibility, customization, and seamless program delivery.</p>
+          <h2 style={{ fontSize: "clamp(22px, 3.5vw, 36px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 12 }}>World Champion coaches. Elite experience.</h2>
+          <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 600, margin: "0 auto 12px", lineHeight: 1.7 }}>Our coaching team combines world-class expertise: Jorge Lorenzo with 25 years of elite basketball coaching, Two World Championships, Olympic Games, and EuroBasket experience working with world-class players.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
             {[
               { src: "/fotos/Con Scariolo.png", label: "Sergio Scariolo" },
@@ -206,7 +205,7 @@ export default function Stages() {
         </div>
       </section>
 
-      {/* LUIS GUIL - PROGRAM DESIGNER */}
+      {/* LUIS GUIL - ASSISTANT COACH */}
       <section style={{ padding: "clamp(48px, 8vw, 80px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
@@ -214,19 +213,20 @@ export default function Stages() {
               <img src="/fotos/colaboradores/Luis_Guil.avif" alt="Luis Guil" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
             </div>
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Program design</p>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Coaching team</p>
               <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 20 }}>Luis Guil</h2>
-              <p style={{ fontSize: 15, fontWeight: 600, color: "var(--texto-suave)", marginBottom: 24 }}>Professional Program Designer & Logistics Coordinator</p>
+              <p style={{ fontSize: 15, fontWeight: 600, color: "var(--texto-suave)", marginBottom: 8 }}>Assistant Coach · Real Madrid</p>
+              <p style={{ fontSize: 14, color: "var(--oro)", marginBottom: 24, lineHeight: 1.6 }}>Co-architect of our coaching program, working alongside Jorge Lorenzo to bring world-class basketball development to your team.</p>
 
               <div style={{ marginBottom: 28 }}>
-                <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--oro)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>Core Expertise</h3>
+                <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--oro)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>Coaching Focus</h3>
                 <ul style={{ listStyle: "none", paddingLeft: 0 }}>
                   {[
-                    "Program customization & flexibility for all team sizes & budgets",
-                    "Complete logistics coordination (travel, accommodation, transportation)",
-                    "Scheduling optimization for training, matches, and cultural activities",
-                    "Professional team support & on-site management (24/7 availability)",
-                    "Stakeholder communication & administrative excellence",
+                    "Offensive & defensive system implementation",
+                    "Player development & individual skill coaching",
+                    "Program flexibility & customization for each team",
+                    "On-court tactical excellence & game management",
+                    "Professional team environment & daily operations",
                   ].map((item, i) => (
                     <li key={i} style={{ paddingBottom: 10, color: "var(--texto-suave)", fontSize: 14, lineHeight: 1.6 }}>✓ {item}</li>
                   ))}
@@ -234,8 +234,8 @@ export default function Stages() {
               </div>
 
               <div>
-                <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--oro)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>Why Luis Guil?</h3>
-                <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Luis brings professional experience managing complex international programs. His attention to detail ensures every team has a seamless, stress-free experience—from arrival to departure. He's the reason your college program will be fully supported and customized to your exact needs.</p>
+                <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--oro)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>The Connection</h3>
+                <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Luis works directly with Jorge Lorenzo to ensure every aspect of your camp—from coaching philosophy to logistics to player development—is seamlessly executed. Together, they deliver the complete world-class basketball experience your team deserves.</p>
               </div>
             </div>
           </div>
