@@ -51,13 +51,15 @@ export default function Stages() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
             {[
               { icon: "✈️", text: "Airport transfers & daily transportation" },
-              { icon: "🏨", text: "5-star accommodation & all meals" },
-              { icon: "🏀", text: "Scrimmages vs elite local teams" },
-              { icon: "🎭", text: "Cultural activities & sightseeing" },
+              { icon: "🏨", text: "Premium accommodation & all meals" },
+              { icon: "🏀", text: "2–3 matches vs Spanish teams" },
+              { icon: "📸", text: "Professional photographer & video" },
+              { icon: "🎓", text: "Elite coaching & training clinics" },
+              { icon: "🎭", text: "Cultural immersion & city tours" },
             ].map((item, i) => (
-              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: "16px 20px", display: "flex", gap: 12, alignItems: "flex-start" }}>
-                <span style={{ fontSize: 22, flexShrink: 0 }}>{item.icon}</span>
-                <span style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.5 }}>{item.text}</span>
+              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: "20px", display: "flex", gap: 16, alignItems: "flex-start" }}>
+                <div style={{ fontSize: 32, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", width: 50, height: 50, background: "rgba(201,168,76,0.08)", borderRadius: 8 }}>{item.icon}</div>
+                <span style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.5, paddingTop: 8 }}>{item.text}</span>
               </div>
             ))}
           </div>
@@ -102,7 +104,7 @@ export default function Stages() {
 
                 <div>
                   <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Competition</p>
-                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Play against professional Spanish league teams and university programs. Competitive scrimmages scheduled throughout your stay. International teams experience.</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>2–3 matches vs Spanish professional and university teams. Elite-level competition designed to challenge your program. International tournament-style experience.</p>
                 </div>
               </div>
 
@@ -134,7 +136,7 @@ export default function Stages() {
 
                 <div style={{ marginBottom: 24 }}>
                   <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Accommodation</p>
-                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Luxury hotel partner accommodations in central Madrid. Private rooms with all amenities. Buffet and à la carte dining options. 24-hour access to training facilities.</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Ideo Residence Madrid—modern, purpose-built facility for student-athletes. Individual rooms with en-suite bathrooms. 400+ capacity with dedicated dining, gym, cinema, and recreational areas. Walking distance to central Madrid attractions.</p>
                 </div>
 
                 <div style={{ marginBottom: 24 }}>
@@ -160,12 +162,34 @@ export default function Stages() {
         </div>
       </section>
 
+      {/* MADRID CULTURAL EXPERIENCES */}
+      <section style={{ padding: "clamp(48px, 8vw, 80px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Madrid experience</p>
+          <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 12 }}>Real Madrid & Cultural Immersion</h2>
+          <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 800, marginBottom: 36, lineHeight: 1.7 }}>Beyond the court—experience the heart of Spanish basketball and culture. Visit the legendary Santiago Bernabéu, explore world-class museums, historic landmarks, and world-class dining that make Madrid unforgettable.</p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+            <div>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 16 }}>Real Madrid Stadium</h3>
+              <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 16 }}>Tour the iconic Santiago Bernabéu stadium—home to one of the world's elite basketball programs. Experience the atmosphere where professional teams compete at the highest level.</p>
+              <img src="https://images.unsplash.com/photo-1552667466-07d71e725e34?w=500&h=400&fit=crop" alt="Santiago Bernabéu Stadium" style={{ width: "100%", borderRadius: 12, border: "1px solid var(--borde)", marginBottom: 12 }} />
+            </div>
+            <div>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 16 }}>Madrid City Tour</h3>
+              <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 16 }}>Discover iconic landmarks: Plaza Mayor, Gran Vía, Palacio Real, Catedral de la Almudena, Templo de Debot, and Preciados shopping district. Full-day guided tour included with optional activities.</p>
+              <img src="https://images.unsplash.com/photo-1570552886376-1b2e5c7a1a2f?w=500&h=400&fit=crop" alt="Madrid City Landmarks" style={{ width: "100%", borderRadius: 12, border: "1px solid var(--borde)", marginBottom: 12 }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ELITE COACH EXPERIENCE */}
-      <section id="achievements" style={{ padding: "clamp(40px, 6vw, 64px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+      <section id="achievements" style={{ padding: "clamp(40px, 6vw, 64px) clamp(20px, 5vw, 40px)", position: "relative" }}>
         <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Coaching expertise</p>
           <h2 style={{ fontSize: "clamp(22px, 3.5vw, 36px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 12 }}>World Champion coach. Elite experience.</h2>
-          <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 600, margin: "0 auto 36px", lineHeight: 1.7 }}>25 years coaching elite basketball. Two World Championships, Olympic Games, EuroBasket. Working with world-class players and elite coaching staff.</p>
+          <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 600, margin: "0 auto 12px", lineHeight: 1.7 }}>Jorge Lorenzo: 25 years coaching elite basketball. Two World Championships, Olympic Games, EuroBasket. Proven expertise with world-class players and elite coaching staff.</p>
+          <p style={{ fontSize: 14, color: "var(--oro)", maxWidth: 600, margin: "0 auto 36px", lineHeight: 1.6, fontWeight: 500 }}>With professional program designer Luis Guil ensuring flexibility, customization, and seamless program delivery.</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
             {[
               { src: "/fotos/Con Scariolo.png", label: "Sergio Scariolo" },
@@ -206,6 +230,49 @@ export default function Stages() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INCLUSIONS & EXCLUSIONS */}
+      <section style={{ padding: "clamp(48px, 8vw, 80px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: 900, margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>What to expect</p>
+          <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 40 }}>What's Included & What's Not</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
+            <div>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 20 }}>Included in Your Package</h3>
+              <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+                {[
+                  "Professional coaching from Jorge Lorenzo",
+                  "World-class training facilities",
+                  "2–3 matches vs Spanish teams",
+                  "Premium accommodation (Ideo Residence or Hilton Higuerón)",
+                  "All meals during your stay",
+                  "Airport transfers & daily transportation",
+                  "Insurance & 24/7 staff support",
+                  "Professional photographer for team coverage",
+                  "Cultural activities & Madrid city tour (Madrid venue)",
+                ].map((item, i) => (
+                  <li key={i} style={{ paddingBottom: 12, color: "var(--texto-suave)", fontSize: 14, lineHeight: 1.6 }}>✓ {item}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 20 }}>Not Included</h3>
+              <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+                {[
+                  "Flight tickets (we recommend major carriers)",
+                  "Visa fees (check EU entry requirements)",
+                  "Travel insurance (optional but recommended)",
+                  "Personal spending money",
+                  "Equipment rental (bring your own gear)",
+                ].map((item, i) => (
+                  <li key={i} style={{ paddingBottom: 12, color: "var(--texto-suave)", fontSize: 14, lineHeight: 1.6 }}>— {item}</li>
+                ))}
+              </ul>
+              <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 20, paddingTop: 20, borderTop: "1px solid var(--borde)", fontStyle: "italic" }}>Custom packages available. Contact us to discuss your specific needs.</p>
+            </div>
           </div>
         </div>
       </section>
