@@ -194,7 +194,7 @@ export default function Stages() {
                     <li style={{ marginBottom: 6 }}>✓ Modern gymnasium with multi-sport facilities</li>
                     <li style={{ marginBottom: 6 }}>✓ Advanced strength training center</li>
                     <li style={{ marginBottom: 6 }}>✓ Video analysis room for tactical reviews</li>
-                    <li style={{ marginBottom: 6 }}>✓ Outdoor training courts and fields</li>
+                    <li style={{ marginBottom: 6 }}>Swimming pool</li>
                     <li style={{ marginBottom: 6 }}>✓ Meeting rooms and classroom facilities</li>
                   </ul>
                 </div>
