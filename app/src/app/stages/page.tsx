@@ -193,8 +193,9 @@ export default function Stages() {
                     <li style={{ marginBottom: 6 }}>✓ 2 professional-grade basketball courts (FIBA certified)</li>
                     <li style={{ marginBottom: 6 }}>✓ Modern gymnasium with multi-sport facilities</li>
                     <li style={{ marginBottom: 6 }}>✓ Advanced strength training center</li>
-                    <li style={{ marginBottom: 6 }}>✓ Nutrition & sports science center</li>
-                    <li style={{ marginBottom: 6 }}>✓ On-site medical staff and physiotherapy clinic</li>
+                    <li style={{ marginBottom: 6 }}>✓ Video analysis room for tactical reviews</li>
+                    <li style={{ marginBottom: 6 }}>✓ Outdoor training courts and fields</li>
+                    <li style={{ marginBottom: 6 }}>✓ Meeting rooms and classroom facilities</li>
                   </ul>
                 </div>
 
