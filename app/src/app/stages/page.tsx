@@ -9,12 +9,117 @@ export default function Stages() {
 
   return (
     <>
+      <style>{`
+        @media (max-width: 768px) {
+          /* Hero grid: 2 columns → 1 column */
+          [data-hero-grid] {
+            grid-template-columns: 1fr !important;
+          }
+
+          /* Hero grid reorder on mobile */
+          [data-hero-grid] > div:nth-child(2) {
+            order: -1;
+          }
+
+          /* Full service grid: 2 columns → 1 column */
+          [data-service-grid] {
+            grid-template-columns: 1fr !important;
+          }
+
+          /* Venue grids: 2 columns → 1 column */
+          [data-venue-grid] {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+
+          /* Venue grid reorder: image on top */
+          [data-venue-grid] > div:nth-child(2) {
+            order: -1;
+          }
+
+          /* Venue 2x2 image grids → 2x2 maintained */
+          [data-venue-images] {
+            grid-template-columns: 1fr 1fr !important;
+          }
+
+          /* Madrid experiences grid: 2 columns → 1 column */
+          [data-madrid-grid] {
+            grid-template-columns: 1fr !important;
+          }
+
+          /* Elite coaches grid: 4 columns → 2 columns */
+          [data-coaches-grid] {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 16px !important;
+          }
+
+          /* Luis Guil section: 2 columns → 1 column */
+          [data-luis-grid] {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+
+          /* Luis Guil: image on top */
+          [data-luis-grid] > div:nth-child(1) {
+            order: -1;
+          }
+
+          /* Why Choose Us photo grid: 3 columns → 2 columns */
+          [data-why-photos] {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+
+          /* Why Choose Us cards: 4 columns → 2 columns */
+          [data-why-cards] {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 16px !important;
+          }
+
+          /* Inclusions/Exclusions: 2 columns → 1 column */
+          [data-inclusions-grid] {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+
+          /* Contact form fields: 2 columns → 1 column */
+          [data-form-grid] {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+          }
+
+          /* Nav responsive */
+          [data-nav-links] {
+            gap: 12px !important;
+            font-size: 11px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          /* Extra small screens - reduce padding more aggressively */
+          [data-coaches-grid] {
+            grid-template-columns: 1fr !important;
+          }
+
+          [data-why-photos] {
+            grid-template-columns: 1fr !important;
+          }
+
+          [data-why-cards] {
+            grid-template-columns: 1fr !important;
+          }
+
+          /* Hero text smaller */
+          [data-hero-title] {
+            font-size: clamp(28px, 6vw, 72px) !important;
+          }
+        }
+      `}</style>
       {/* NAV */}
       <nav style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 100, background: "rgba(10,10,10,0.92)", backdropFilter: "blur(8px)", borderBottom: "1px solid var(--borde)", padding: "16px clamp(20px, 5vw, 40px)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <a href="/" style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--blanco)", textDecoration: "none" }}>
           Jorge <span style={{ color: "var(--oro)" }}>Lorenzo</span>
         </a>
-        <div style={{ display: "flex", gap: "clamp(16px, 4vw, 32px)", alignItems: "center" }}>
+        <div data-nav-links style={{ display: "flex", gap: "clamp(16px, 4vw, 32px)", alignItems: "center" }}>
           <a href="/drawsports" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>DrawSports</a>
           <a href="/stages" style={{ fontSize: 13, color: "var(--oro)", fontWeight: 600, textDecoration: "none" }}>Pre-Season Tours</a>
           <a href="/" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>← Home</a>
@@ -24,7 +129,7 @@ export default function Stages() {
       {/* HERO */}
       <section style={{ minHeight: "90vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(100px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(40px, 8vw, 60px)", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at 60% 40%, rgba(201,168,76,0.07) 0%, transparent 65%)", pointerEvents: "none" }}></div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px, 8vw, 60px)", alignItems: "center", maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1 }}>
+        <div data-hero-grid style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px, 8vw, 60px)", alignItems: "center", maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div>
             <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>Pre-Season Tours · Elite Basketball</p>
             <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
@@ -48,7 +153,7 @@ export default function Stages() {
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>What's included</p>
           <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 20 }}>Everything taken care of.</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
+          <div data-service-grid style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 16 }}>
             {[
               { icon: "✈️", text: "Airport transfers & daily transportation" },
               { icon: "🏨", text: "Premium accommodation & all meals" },
@@ -75,7 +180,7 @@ export default function Stages() {
           <div style={{ display: "flex", flexDirection: "column", gap: 80 }}>
 
             {/* MADRID */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "flex-start" }}>
+            <div data-venue-grid style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "flex-start" }}>
               <div style={{ order: 1 }}>
                 <p style={{ fontSize: 24, marginBottom: 8 }}>🏛️</p>
                 <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Madrid</p>
@@ -108,7 +213,7 @@ export default function Stages() {
                 </div>
               </div>
 
-              <div style={{ order: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <div data-venue-images style={{ order: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <img src="/fotos/madrid/ideo/ideo_1.jpg" alt="Colegio Ideo gymnasium" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
                 <img src="/fotos/madrid/ideo/pabellon_1.png" alt="Colegio Ideo facility" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
                 <img src="/fotos/madrid/ideo/ideo_2.jpg" alt="Colegio Ideo facility 2" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
@@ -117,7 +222,7 @@ export default function Stages() {
             </div>
 
             {/* MÁLAGA */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "flex-start" }}>
+            <div data-venue-grid style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "flex-start" }}>
               <div>
                 <p style={{ fontSize: 24, marginBottom: 8 }}>☀️</p>
                 <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Málaga · Fuengirola</p>
@@ -150,7 +255,7 @@ export default function Stages() {
                 </div>
               </div>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+              <div data-venue-images style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <img src="/fotos/malaga/498523588-AVL13gvl05Hpx9Wp.avif" alt="Higuerón Training Center court" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
                 <img src="/fotos/malaga/7.2_1-1200x800-AMqlagB7REi8BDqO.avif" alt="Higuerón facility" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
                 <img src="/fotos/malaga/theembassytc-imagen_030-m7V58X7reXT2N2pY.avif" alt="Higuerón accommodation" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
@@ -168,7 +273,7 @@ export default function Stages() {
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Madrid experience</p>
           <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 12 }}>Real Madrid & Cultural Immersion</h2>
           <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 800, marginBottom: 36, lineHeight: 1.7 }}>Beyond the court—experience the heart of Spanish basketball and culture. Visit the legendary Santiago Bernabéu, explore world-class museums, historic landmarks, and world-class dining that make Madrid unforgettable.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+          <div data-madrid-grid style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
             <div>
               <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 16 }}>Real Madrid Stadium</h3>
               <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 16 }}>Tour the iconic Santiago Bernabéu stadium—home to one of the world's elite basketball programs. Experience the atmosphere where professional teams compete at the highest level.</p>
@@ -189,7 +294,7 @@ export default function Stages() {
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Coaching expertise</p>
           <h2 style={{ fontSize: "clamp(22px, 3.5vw, 36px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 12 }}>World Champion coaches. Elite experience.</h2>
           <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 700, margin: "0 auto 24px", lineHeight: 1.7 }}>Our coaching team combines world-class expertise: Jorge Lorenzo with 25 years of elite basketball coaching, Two World Championships, Olympic Games, and EuroBasket experience working with world-class players.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
+          <div data-coaches-grid style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
             {[
               { src: "/fotos/Con Scariolo.png", label: "Sergio Scariolo" },
               { src: "/fotos/Con Pau Gasol.png", label: "Pau Gasol" },
@@ -208,7 +313,7 @@ export default function Stages() {
       {/* LUIS GUIL - ASSISTANT COACH */}
       <section style={{ padding: "clamp(48px, 8vw, 80px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: 1000, margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
+          <div data-luis-grid style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
             <div>
               <img src="/fotos/colaboradores/Luis_Guil.avif" alt="Luis Guil" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
             </div>
@@ -236,7 +341,7 @@ export default function Stages() {
             <p style={{ fontSize: 16, color: "var(--texto-suave)", maxWidth: 700, margin: "0 auto 48px", lineHeight: 1.8 }}>Every camp is designed like EuroBasket preparation: clear objectives, elite opponents, world-class facilities. Your team gets the experience of coaches who have won at the highest level.</p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 64 }}>
+          <div data-why-photos style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 16, marginBottom: 64 }}>
             {[
               { src: "/fotos/entrenadores/Seleccion.jpg", alt: "Spain national team coaching" },
               { src: "/fotos/entrenadores/Palencia.jpg", alt: "Professional coaching staff" },
@@ -248,7 +353,7 @@ export default function Stages() {
             ))}
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
+          <div data-why-cards style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
             {[
               { icon: "🥇", title: "World Champion", sub: "Beijing 2019" },
               { icon: "🥇", title: "European Champion", sub: "Berlin 2022" },
@@ -271,7 +376,7 @@ export default function Stages() {
       <section style={{ padding: "clamp(48px, 8vw, 80px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
           <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 40 }}>What's Included & What's Not</h2>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
+          <div data-inclusions-grid style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
             <div>
               <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 20 }}>Included in Your Package</h3>
               <ul style={{ listStyle: "none", paddingLeft: 0 }}>
@@ -316,7 +421,7 @@ export default function Stages() {
           </p>
           <div style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 12, padding: "40px" }}>
             <form style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+              <div data-form-grid style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
                 <div>
                   <label style={{ fontSize: 12, color: "var(--texto-suave)", display: "block", marginBottom: 6, fontWeight: 600, letterSpacing: "0.05em" }}>Full name *</label>
                   <input required placeholder="John Smith" style={{ width: "100%", background: "var(--oscuro)", border: "1px solid var(--borde)", borderRadius: 6, padding: "10px 14px", color: "var(--texto)", fontSize: 14, fontFamily: "inherit", outline: "none", boxSizing: "border-box" }} />
