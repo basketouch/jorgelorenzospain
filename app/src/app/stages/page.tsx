@@ -216,19 +216,14 @@ export default function Stages() {
 
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div data-venue-images style={{ order: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                  <img src="/fotos/madrid/ideo/ideo_1.jpg" alt="Colegio Ideo gymnasium" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                  <img src="/fotos/madrid/ideo/pabellon_1.png" alt="Colegio Ideo facility" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                  <img src="/fotos/madrid/ideo/ideo_2.jpg" alt="Colegio Ideo facility 2" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                  <img src="/fotos/madrid/ideo/Pabellon.jpg" alt="Colegio Ideo facility 3" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/madrid/ideo/gym.jpg" alt="Fitness center" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/madrid/ideo/comedor.jpg" alt="Dining area" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/madrid/ideo/habitacion.jpg" alt="Student room" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/madrid/ideo/piscina.jpg" alt="Swimming pool" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
                 </div>
                 <PhotoGallery
                   title="Colegio Ideo"
                   photos={[
-                    { src: "/fotos/madrid/ideo/ideo_1.jpg", alt: "Colegio Ideo gymnasium" },
-                    { src: "/fotos/madrid/ideo/pabellon_1.png", alt: "Colegio Ideo court" },
-                    { src: "/fotos/madrid/ideo/ideo_2.jpg", alt: "Colegio Ideo facility" },
-                    { src: "/fotos/madrid/ideo/pabellon_2.png", alt: "Colegio Ideo training court" },
-                    { src: "/fotos/madrid/ideo/Pabellon.jpg", alt: "Colegio Ideo gymnasium" },
                     { src: "/fotos/madrid/ideo/gym.jpg", alt: "Fitness center" },
                     { src: "/fotos/madrid/ideo/comedor.jpg", alt: "Dining area" },
                     { src: "/fotos/madrid/ideo/habitacion.jpg", alt: "Student room" },
