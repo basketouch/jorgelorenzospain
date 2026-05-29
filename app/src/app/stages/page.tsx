@@ -1,4 +1,4 @@
-import HeroCarousel from './components/HeroCarousel';
+import HeroCarousel from '../components/HeroCarousel';
 
 export const metadata = {
   title: "Pre-Season Tours — Jorge Lorenzo Coach",
