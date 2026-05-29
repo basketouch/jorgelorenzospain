@@ -172,12 +172,12 @@ export default function Stages() {
             <div>
               <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 16 }}>Real Madrid Stadium</h3>
               <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 16 }}>Tour the iconic Santiago Bernabéu stadium—home to one of the world's elite basketball programs. Experience the atmosphere where professional teams compete at the highest level.</p>
-              <img src="https://images.unsplash.com/photo-1552667466-07d71e725e34?w=500&h=400&fit=crop" alt="Santiago Bernabéu Stadium" style={{ width: "100%", borderRadius: 12, border: "1px solid var(--borde)", marginBottom: 12 }} />
+              <div style={{ width: "100%", height: 250, borderRadius: 12, border: "1px solid var(--borde)", marginBottom: 12, background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48 }}>🏟️</div>
             </div>
             <div>
               <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 16 }}>Madrid City Tour</h3>
               <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 16 }}>Discover iconic landmarks: Plaza Mayor, Gran Vía, Palacio Real, Catedral de la Almudena, Templo de Debot, and Preciados shopping district. Full-day guided tour included with optional activities.</p>
-              <img src="https://images.unsplash.com/photo-1570552886376-1b2e5c7a1a2f?w=500&h=400&fit=crop" alt="Madrid City Landmarks" style={{ width: "100%", borderRadius: 12, border: "1px solid var(--borde)", marginBottom: 12 }} />
+              <div style={{ width: "100%", height: 250, borderRadius: 12, border: "1px solid var(--borde)", marginBottom: 12, background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 48 }}>🏛️</div>
             </div>
           </div>
         </div>
@@ -202,6 +202,42 @@ export default function Stages() {
                 <p style={{ fontSize: 12, color: "var(--texto-suave)" }}>{foto.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LUIS GUIL - PROGRAM DESIGNER */}
+      <section style={{ padding: "clamp(48px, 8vw, 80px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: 1000, margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }}>
+            <div>
+              <img src="/fotos/colaboradores/Luis_Guil.avif" alt="Luis Guil" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
+            </div>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Program design</p>
+              <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 20 }}>Luis Guil</h2>
+              <p style={{ fontSize: 15, fontWeight: 600, color: "var(--texto-suave)", marginBottom: 24 }}>Professional Program Designer & Logistics Coordinator</p>
+
+              <div style={{ marginBottom: 28 }}>
+                <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--oro)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>Core Expertise</h3>
+                <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+                  {[
+                    "Program customization & flexibility for all team sizes & budgets",
+                    "Complete logistics coordination (travel, accommodation, transportation)",
+                    "Scheduling optimization for training, matches, and cultural activities",
+                    "Professional team support & on-site management (24/7 availability)",
+                    "Stakeholder communication & administrative excellence",
+                  ].map((item, i) => (
+                    <li key={i} style={{ paddingBottom: 10, color: "var(--texto-suave)", fontSize: 14, lineHeight: 1.6 }}>✓ {item}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--oro)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>Why Luis Guil?</h3>
+                <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Luis brings professional experience managing complex international programs. His attention to detail ensures every team has a seamless, stress-free experience—from arrival to departure. He's the reason your college program will be fully supported and customized to your exact needs.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
