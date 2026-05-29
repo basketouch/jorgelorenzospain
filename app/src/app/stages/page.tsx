@@ -68,7 +68,8 @@ export default function Stages() {
       <section id="instalaciones" style={{ padding: "clamp(48px, 8vw, 80px) clamp(20px, 5vw, 40px)", position: "relative" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Elite venues</p>
-          <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48 }}>World-class facilities. Professional infrastructure.</h2>
+          <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>World-class facilities. Professional infrastructure.</h2>
+          <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 800, marginBottom: 48, lineHeight: 1.7 }}>These are our flagship locations, but not your only options. We customize every program to your team's needs and budget—different venues, accommodation levels, and training schedules available. Let us design the perfect fit for your college program.</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 80 }}>
 
             {/* MÁLAGA */}
