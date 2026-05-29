@@ -227,7 +227,8 @@ export default function Stages() {
                     { src: "/fotos/madrid/ideo/ideo_1.jpg", alt: "Colegio Ideo gymnasium" },
                     { src: "/fotos/madrid/ideo/pabellon_1.png", alt: "Colegio Ideo facility" },
                     { src: "/fotos/madrid/ideo/ideo_2.jpg", alt: "Colegio Ideo facility 2" },
-                    { src: "/fotos/madrid/ideo/Pabellon.jpg", alt: "Colegio Ideo facility 3" },
+                    { src: "/fotos/madrid/ideo/pabellon_2.png", alt: "Colegio Ideo training court" },
+                    { src: "/fotos/madrid/ideo/Pabellon.jpg", alt: "Colegio Ideo facility" },
                   ]}
                 />
               </div>
