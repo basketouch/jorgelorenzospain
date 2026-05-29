@@ -74,48 +74,6 @@ export default function Stages() {
           <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 800, marginBottom: 48, lineHeight: 1.7 }}>These are our flagship locations, but not your only options. We customize every program to your team's needs and budget—different venues, accommodation levels, and training schedules available. Let us design the perfect fit for your college program.</p>
           <div style={{ display: "flex", flexDirection: "column", gap: 80 }}>
 
-            {/* MÁLAGA */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "flex-start" }}>
-              <div>
-                <p style={{ fontSize: 24, marginBottom: 8 }}>☀️</p>
-                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Málaga · Fuengirola</p>
-                <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--blanco)", marginBottom: 20 }}>Higuerón Training Center</h3>
-
-                <div style={{ marginBottom: 24 }}>
-                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Facility Highlights</p>
-                  <ul style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.8, paddingLeft: 0, listStyle: "none" }}>
-                    <li style={{ marginBottom: 6 }}>✓ 4 professional basketball courts (FIBA standards)</li>
-                    <li style={{ marginBottom: 6 }}>✓ Olympic-size training center with lighting systems</li>
-                    <li style={{ marginBottom: 6 }}>✓ Strength & conditioning facilities</li>
-                    <li style={{ marginBottom: 6 }}>✓ Video analysis room for tactical reviews</li>
-                    <li style={{ marginBottom: 6 }}>✓ Sports medicine & physiotherapy services</li>
-                  </ul>
-                </div>
-
-                <div style={{ marginBottom: 24 }}>
-                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Accommodation</p>
-                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>5-star Hilton Higuerón resort with ocean views. Private rooms or twin configurations. All meals included in your package. Beachfront access for optional activities.</p>
-                </div>
-
-                <div style={{ marginBottom: 24 }}>
-                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Location & Logistics</p>
-                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Only 15 minutes from Málaga-Costa del Sol International Airport. Direct highway access. Beachfront location on the Mediterranean. Easy access to local transportation and cultural attractions.</p>
-                </div>
-
-                <div>
-                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Competition</p>
-                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>2–3 matches vs Spanish professional and university teams. Elite-level competition designed to challenge your program. International tournament-style experience.</p>
-                </div>
-              </div>
-
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                <img src="/fotos/malaga/498523588-AVL13gvl05Hpx9Wp.avif" alt="Higuerón Training Center court" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                <img src="/fotos/malaga/7.2_1-1200x800-AMqlagB7REi8BDqO.avif" alt="Higuerón facility" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                <img src="/fotos/malaga/theembassytc-imagen_030-m7V58X7reXT2N2pY.avif" alt="Higuerón accommodation" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                <img src="/fotos/malaga/theembassytc-imagen_025-Yleq2KaPNQi0kj6j.avif" alt="Higuerón amenities" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-              </div>
-            </div>
-
             {/* MADRID */}
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "flex-start" }}>
               <div style={{ order: 1 }}>
@@ -155,6 +113,48 @@ export default function Stages() {
                 <img src="/fotos/madrid/ideo/pabellon_1.png" alt="Colegio Ideo facility" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
                 <img src="/fotos/madrid/ideo/ideo_2.jpg" alt="Colegio Ideo facility 2" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
                 <img src="/fotos/madrid/ideo/Pabellon.jpg" alt="Colegio Ideo facility 3" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+              </div>
+            </div>
+
+            {/* MÁLAGA */}
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "flex-start" }}>
+              <div>
+                <p style={{ fontSize: 24, marginBottom: 8 }}>☀️</p>
+                <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 8 }}>Málaga · Fuengirola</p>
+                <h3 style={{ fontSize: 22, fontWeight: 800, color: "var(--blanco)", marginBottom: 20 }}>Higuerón Training Center</h3>
+
+                <div style={{ marginBottom: 24 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Facility Highlights</p>
+                  <ul style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.8, paddingLeft: 0, listStyle: "none" }}>
+                    <li style={{ marginBottom: 6 }}>✓ 4 professional basketball courts (FIBA standards)</li>
+                    <li style={{ marginBottom: 6 }}>✓ Olympic-size training center with lighting systems</li>
+                    <li style={{ marginBottom: 6 }}>✓ Strength & conditioning facilities</li>
+                    <li style={{ marginBottom: 6 }}>✓ Video analysis room for tactical reviews</li>
+                    <li style={{ marginBottom: 6 }}>✓ Sports medicine & physiotherapy services</li>
+                  </ul>
+                </div>
+
+                <div style={{ marginBottom: 24 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Accommodation</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>5-star Hilton Higuerón resort with ocean views. Private rooms or twin configurations. All meals included in your package. Beachfront access for optional activities.</p>
+                </div>
+
+                <div style={{ marginBottom: 24 }}>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Location & Logistics</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>Only 15 minutes from Málaga-Costa del Sol International Airport. Direct highway access. Beachfront location on the Mediterranean. Easy access to local transportation and cultural attractions.</p>
+                </div>
+
+                <div>
+                  <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Competition</p>
+                  <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7 }}>2–3 matches vs Spanish professional and university teams. Elite-level competition designed to challenge your program. International tournament-style experience.</p>
+                </div>
+              </div>
+
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+                <img src="/fotos/malaga/498523588-AVL13gvl05Hpx9Wp.avif" alt="Higuerón Training Center court" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                <img src="/fotos/malaga/7.2_1-1200x800-AMqlagB7REi8BDqO.avif" alt="Higuerón facility" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                <img src="/fotos/malaga/theembassytc-imagen_030-m7V58X7reXT2N2pY.avif" alt="Higuerón accommodation" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                <img src="/fotos/malaga/theembassytc-imagen_025-Yleq2KaPNQi0kj6j.avif" alt="Higuerón amenities" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
               </div>
             </div>
 
