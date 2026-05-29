@@ -359,7 +359,7 @@ export default function Stages() {
           </div>
           <div style={{ marginTop: 40, display: "flex", gap: 32, justifyContent: "center", flexWrap: "wrap" }}>
             <a href="mailto:coach@jorgelorenzospain.com" style={{ fontSize: 14, color: "var(--texto-suave)", textDecoration: "none" }}>✉ coach@jorgelorenzospain.com</a>
-            <a href="tel:+14155555555" style={{ fontSize: 14, color: "var(--texto-suave)", textDecoration: "none" }}>📞 +1 (415) 555-5555</a>
+            <a href="tel:+34666136257" style={{ fontSize: 14, color: "var(--texto-suave)", textDecoration: "none" }}>📞 +34 666 136 257</a>
           </div>
         </div>
       </section>
