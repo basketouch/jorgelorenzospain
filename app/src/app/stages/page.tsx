@@ -185,11 +185,11 @@ export default function Stages() {
 
       {/* ELITE COACHES EXPERIENCE */}
       <section id="achievements" style={{ padding: "clamp(40px, 6vw, 64px) clamp(20px, 5vw, 40px)", position: "relative" }}>
-        <div style={{ maxWidth: 900, margin: "0 auto", textAlign: "center" }}>
+        <div style={{ maxWidth: 1100, margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Coaching expertise</p>
           <h2 style={{ fontSize: "clamp(22px, 3.5vw, 36px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 12 }}>World Champion coaches. Elite experience.</h2>
-          <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 600, margin: "0 auto 12px", lineHeight: 1.7 }}>Our coaching team combines world-class expertise: Jorge Lorenzo with 25 years of elite basketball coaching, Two World Championships, Olympic Games, and EuroBasket experience working with world-class players.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 12 }}>
+          <p style={{ fontSize: 15, color: "var(--texto-suave)", maxWidth: 700, margin: "0 auto 24px", lineHeight: 1.7 }}>Our coaching team combines world-class expertise: Jorge Lorenzo with 25 years of elite basketball coaching, Two World Championships, Olympic Games, and EuroBasket experience working with world-class players.</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 20 }}>
             {[
               { src: "/fotos/Con Scariolo.png", label: "Sergio Scariolo" },
               { src: "/fotos/Con Pau Gasol.png", label: "Pau Gasol" },
@@ -197,7 +197,7 @@ export default function Stages() {
               { src: "/fotos/Con Santi Aldama.png", label: "Santi Aldama" },
             ].map((foto, i) => (
               <div key={i}>
-                <img src={foto.src} alt={foto.label} style={{ width: "100%", borderRadius: 8, border: "1px solid var(--borde)", display: "block", marginBottom: 8 }} />
+                <img src={foto.src} alt={foto.label} style={{ width: "100%", height: "auto", borderRadius: 8, border: "1px solid var(--borde)", display: "block", marginBottom: 12, aspectRatio: "1/1", objectFit: "cover" }} />
                 <p style={{ fontSize: 12, color: "var(--texto-suave)" }}>{foto.label}</p>
               </div>
             ))}

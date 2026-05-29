@@ -36,50 +36,6 @@ export default function HeroCarousel() {
             />
           ))}
         </div>
-        <button
-          onClick={prevSlide}
-          style={{
-            position: "absolute",
-            left: 16,
-            top: "50%",
-            transform: "translateY(-50%)",
-            background: "rgba(0,0,0,0.6)",
-            border: "none",
-            color: "var(--oro)",
-            fontSize: 24,
-            padding: "8px 12px",
-            borderRadius: 4,
-            cursor: "pointer",
-            zIndex: 10,
-            transition: "all 0.2s",
-          }}
-          onMouseOver={(e) => e.target.style.background = "rgba(0,0,0,0.9)"}
-          onMouseOut={(e) => e.target.style.background = "rgba(0,0,0,0.6)"}
-        >
-          ←
-        </button>
-        <button
-          onClick={nextSlide}
-          style={{
-            position: "absolute",
-            right: 16,
-            top: "50%",
-            transform: "translateY(-50%)",
-            background: "rgba(0,0,0,0.6)",
-            border: "none",
-            color: "var(--oro)",
-            fontSize: 24,
-            padding: "8px 12px",
-            borderRadius: 4,
-            cursor: "pointer",
-            zIndex: 10,
-            transition: "all 0.2s",
-          }}
-          onMouseOver={(e) => e.target.style.background = "rgba(0,0,0,0.9)"}
-          onMouseOut={(e) => e.target.style.background = "rgba(0,0,0,0.6)"}
-        >
-          →
-        </button>
         <div style={{ position: "absolute", bottom: 12, left: "50%", transform: "translateX(-50%)", display: "flex", gap: 8, zIndex: 10 }}>
           {slides.map((_, index) => (
             <button
