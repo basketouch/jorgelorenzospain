@@ -282,8 +282,6 @@ export default function Stages() {
                   "All meals during your stay",
                   "Airport transfers & daily transportation",
                   "Insurance & 24/7 staff support",
-                  "Professional photographer for team coverage",
-                  "Cultural activities & Madrid city tour (Madrid venue)",
                 ].map((item, i) => (
                   <li key={i} style={{ paddingBottom: 12, color: "var(--texto-suave)", fontSize: 14, lineHeight: 1.6 }}>✓ {item}</li>
                 ))}
