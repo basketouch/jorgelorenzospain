@@ -213,25 +213,9 @@ export default function Stages() {
               <img src="/fotos/colaboradores/Luis_Guil.avif" alt="Luis Guil" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
             </div>
             <div>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Coaching team</p>
               <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 20 }}>Luis Guil</h2>
               <p style={{ fontSize: 15, fontWeight: 600, color: "var(--texto-suave)", marginBottom: 8 }}>Assistant Coach · Real Madrid</p>
               <p style={{ fontSize: 14, color: "var(--oro)", marginBottom: 24, lineHeight: 1.6 }}>Co-architect of our coaching program, working alongside Jorge Lorenzo to bring world-class basketball development to your team.</p>
-
-              <div style={{ marginBottom: 28 }}>
-                <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--oro)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>Coaching Focus</h3>
-                <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-                  {[
-                    "Offensive & defensive system implementation",
-                    "Player development & individual skill coaching",
-                    "Program flexibility & customization for each team",
-                    "On-court tactical excellence & game management",
-                    "Professional team environment & daily operations",
-                  ].map((item, i) => (
-                    <li key={i} style={{ paddingBottom: 10, color: "var(--texto-suave)", fontSize: 14, lineHeight: 1.6 }}>✓ {item}</li>
-                  ))}
-                </ul>
-              </div>
 
               <div>
                 <h3 style={{ fontSize: 14, fontWeight: 700, color: "var(--oro)", marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.08em" }}>The Connection</h3>
@@ -286,14 +270,12 @@ export default function Stages() {
       {/* INCLUSIONS & EXCLUSIONS */}
       <section style={{ padding: "clamp(48px, 8vw, 80px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: 900, margin: "0 auto" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>What to expect</p>
           <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 40 }}>What's Included & What's Not</h2>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40 }}>
             <div>
               <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 20 }}>Included in Your Package</h3>
               <ul style={{ listStyle: "none", paddingLeft: 0 }}>
                 {[
-                  "Professional coaching from Jorge Lorenzo",
                   "World-class training facilities",
                   "2–3 matches vs Spanish teams",
                   "Premium accommodation (Ideo Residence or Hilton Higuerón)",
