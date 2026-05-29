@@ -36,7 +36,7 @@ export default function PhotoGallery({ title, photos }) {
           e.target.style.color = "var(--oro)";
         }}
       >
-        Ver más fotos ({photos.length}) →
+        View more photos ({photos.length}) →
       </button>
 
       {isOpen && (
