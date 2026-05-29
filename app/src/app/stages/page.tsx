@@ -216,10 +216,10 @@ export default function Stages() {
 
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div data-venue-images style={{ order: 0, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                  <img src="/fotos/madrid/ideo/p_pista.webp" alt="Colegio Ideo court" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                  <img src="/fotos/madrid/ideo/p_pista 2.jpg" alt="Colegio Ideo court 2" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                  <img src="/fotos/madrid/ideo/p_piscina.jpg" alt="Colegio Ideo pool" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                  <img src="/fotos/madrid/ideo/p_ideo exterior.jpg" alt="Colegio Ideo exterior" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/madrid/ideo/p1_pista 2.jpg" alt="Colegio Ideo court" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/madrid/ideo/p2_piscina.jpg" alt="Colegio Ideo pool" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/madrid/ideo/p3_ideo exterior.jpg" alt="Colegio Ideo exterior" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/madrid/ideo/p4_habitacion.jpg" alt="Student room" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
                 </div>
                 <PhotoGallery
                   title="Colegio Ideo"
