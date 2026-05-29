@@ -172,12 +172,12 @@ export default function Stages() {
             <div>
               <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 16 }}>Real Madrid Stadium</h3>
               <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 16 }}>Tour the iconic Santiago Bernabéu stadium—home to one of the world's elite basketball programs. Experience the atmosphere where professional teams compete at the highest level.</p>
-              <img src="/fotos/madrid/santiago_bernabeu.jpg" alt="Santiago Bernabéu stadium" style={{ width: "100%", height: 250, borderRadius: 12, border: "1px solid var(--borde)", marginBottom: 12, objectFit: "cover", display: "block" }} />
+              <img src="/fotos/madrid/bernabeu.webp" alt="Santiago Bernabéu stadium" style={{ width: "100%", height: 250, borderRadius: 12, border: "1px solid var(--borde)", marginBottom: 12, objectFit: "cover", display: "block" }} />
             </div>
             <div>
               <h3 style={{ fontSize: 18, fontWeight: 700, color: "var(--oro)", marginBottom: 16 }}>Madrid City Tour</h3>
               <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 16 }}>Discover iconic landmarks: Plaza Mayor, Gran Vía, Palacio Real, Catedral de la Almudena, Templo de Debot, and Preciados shopping district. Full-day guided tour included with optional activities.</p>
-              <img src="/fotos/madrid/madrid_city.jpg" alt="Madrid city landmarks" style={{ width: "100%", height: 250, borderRadius: 12, border: "1px solid var(--borde)", marginBottom: 12, objectFit: "cover", display: "block" }} />
+              <img src="/fotos/madrid/plaza_mayor.jpg" alt="Plaza Mayor Madrid" style={{ width: "100%", height: 250, borderRadius: 12, border: "1px solid var(--borde)", marginBottom: 12, objectFit: "cover", display: "block" }} />
             </div>
           </div>
         </div>
