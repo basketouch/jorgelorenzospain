@@ -6,8 +6,8 @@ export default function HeroCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slides = [
     { src: "/fotos/carrusel/Filipinos 1.avif", alt: "Ateneo Filipinas Training Camp", caption: "Ateneo Filipinas Training Camp 2025 — Madrid | Elite University Basketball" },
-    { src: "/fotos/carrusel/Filipinos 1.1.avif", alt: "San Beda Red Lions Training Camp", caption: "San Beda Red Lions Training Camp 2025 — Málaga | 24× NCAA Championship Legacy" },
-    { src: "/fotos/carrusel/Filipinos 2.avif", alt: "Ateneo Team Leadership", caption: "Ateneo Elite Coaching & Leadership — Madrid 2025 | 12× UAAP National Champions" },
+    { src: "/fotos/carrusel/Filipinos 2.avif", alt: "San Beda Red Lions Training Camp", caption: "San Beda Red Lions Training Camp 2025 — Málaga | 24× NCAA Championship Legacy" },
+    { src: "/fotos/carrusel/Filipinos 1.1.avif", alt: "Ateneo Team Leadership", caption: "Ateneo Elite Coaching & Leadership — Madrid 2025 | 12× UAAP National Champions" },
   ];
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
