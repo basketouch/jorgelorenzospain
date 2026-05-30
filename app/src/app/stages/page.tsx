@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "Elite Basketball Training Camps in Spain",
     description: "Transform your team with world-class training camps led by World Champions Jorge Lorenzo & Luis Guil. Madrid & Málaga venues. Professional coaching, elite competition, premium accommodation.",
-    image: "/fotos/carrusel/Filipinos 1.avif",
+    image: "https://www.jorgelorenzospain.com/fotos/carrusel/preview-stages.avif",
     type: "website",
     url: "https://www.jorgelorenzospain.com/stages",
   },
@@ -15,7 +15,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Elite Basketball Training Camps in Spain",
     description: "Transform your team with world-class training camps led by World Champions Jorge Lorenzo & Luis Guil. Madrid & Málaga venues.",
-    image: "/fotos/carrusel/Filipinos 1.avif",
+    image: "https://www.jorgelorenzospain.com/fotos/carrusel/preview-stages.avif",
   },
 };
 
