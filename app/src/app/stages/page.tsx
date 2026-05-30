@@ -138,7 +138,7 @@ export default function Stages() {
               <span style={{ color: "var(--oro)" }}>Elite level.</span>
             </h1>
             <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 500, lineHeight: 1.7, marginBottom: 40 }}>
-              Over 7 years with Spain's National Team. <span style={{ color: "var(--oro)", fontWeight: 600 }}>World Champion 2019 & EuroBasket Champion 2022</span>. Two Olympic Games. Two World Championships. Designed and managed by <span style={{ color: "var(--oro)", fontWeight: 600 }}>Jorge Lorenzo and Luis Guil</span>. Elite facilities, elite competition, world-class coaching.
+              Over 7 years with Spain's National Team. <span style={{ color: "var(--oro)", fontWeight: 600 }}>World Champion 2019 & EuroBasket Champion 2022</span>. Elite basketball coaching expertise—delivered through world-class training camps, innovative digital performance platforms, and strategic consulting for professional teams, universities, and elite programs worldwide.
             </p>
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 40 }}>
               <a href="#contacto" style={{ display: "inline-flex", alignItems: "center", fontSize: 14, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", background: "var(--oro)", color: "var(--negro)", textDecoration: "none", padding: "14px 32px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>Request quote →</a>
