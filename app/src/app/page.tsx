@@ -10,7 +10,6 @@ export default function Home() {
         <div style={{ display: "flex", gap: "clamp(16px, 4vw, 32px)", alignItems: "center" }}>
           <a href="/drawsports" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>DrawSports</a>
           <a href="/stages" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>Pre-Season Tours</a>
-          <a href="#achievements" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>Achievements</a>
           <a href="mailto:coach@jorgelorenzospain.com?subject=Coaching%20Inquiry" style={{ fontSize: 13, fontWeight: 700, background: "var(--oro)", color: "var(--negro)", padding: "10px 20px", borderRadius: 4, textDecoration: "none" }}>Contact</a>
         </div>
       </nav>
@@ -75,7 +74,7 @@ export default function Home() {
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Elite Experience</p>
               <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Trained alongside global elite.</h2>
-              <p style={{ fontSize: 17, color: "var(--texto-suave)", marginBottom: 32, lineHeight: 1.7 }}>Experience comes from nearly a decade in Spain's National Team, working with world-class players and coaching staff. That knowledge is now available for your program.</p>
+              <p style={{ fontSize: 17, color: "var(--texto-suave)", marginBottom: 32, lineHeight: 1.7 }}>International basketball experience beyond Spain—as Director of 1º de Agosto Basketball Academy in Angola. I've worked with elite international players, built championship-level coaching systems, and developed programs that create lasting impact. That championship mindset, international perspective, and technical expertise is now available through personalized training camps, advanced performance analytics (DrawSports), and strategic consulting designed for teams ready to compete at the elite level.</p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(12px, 3vw, 24px)" }}>
               {[
