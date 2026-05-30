@@ -349,7 +349,7 @@ export default function Stages() {
             </div>
             <div>
               <h2 style={{ fontSize: "clamp(24px, 3.5vw, 38px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 20 }}>Luis Guil</h2>
-              <p style={{ fontSize: 15, fontWeight: 600, color: "var(--texto-suave)", marginBottom: 8 }}>World Champion 2019 & EuroBasket Champion 2022 · Assistant Coach, Real Madrid</p>
+              <p style={{ fontSize: 15, fontWeight: 600, color: "var(--oro)", marginBottom: 8 }}>World Champion 2019 & EuroBasket Champion 2022 · Assistant Coach, Real Madrid</p>
               <p style={{ fontSize: 14, color: "var(--texto-suave)", marginBottom: 24, lineHeight: 1.6 }}>Luis and I are World Champions and EuroBasket Champions—we built this program together. As an international head coach in Spain, Venezuela, and Japan, and strategic advisor in Indonesia and Japan, Luis has coached elite players including Pau & Marc Gasol, Ricky Rubio, and other high-level athletes. He's also delivered multiple medals with Spain's U-18 National Team. Together, we deliver championship-level basketball development.</p>
             </div>
           </div>
