@@ -78,10 +78,10 @@ export default function Home() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(12px, 3vw, 24px)" }}>
               {[
-                { src: "/fotos/Con Scariolo.png", label: "With Sergio Scariolo" },
-                { src: "/fotos/Con Pau Gasol.png", label: "With Pau Gasol" },
-                { src: "/fotos/Con Ricky Rubio.png", label: "With Ricky Rubio" },
-                { src: "/fotos/Con Santi Aldama.png", label: "With Santi Aldama" },
+                { src: "/fotos/Con Scariolo.png", label: "Sergio Scariolo | Spain's Master Coach" },
+                { src: "/fotos/Con Pau Gasol.png", label: "Pau Gasol | Olympic & NBA Champion" },
+                { src: "/fotos/Con Ricky Rubio.png", label: "Ricky Rubio | International Elite Star" },
+                { src: "/fotos/Con Santi Aldama.png", label: "Santi Aldama | Next Generation Talent" },
               ].map((foto, i) => (
                 <div key={i}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
