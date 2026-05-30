@@ -273,18 +273,21 @@ export default function Stages() {
 
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div data-venue-images style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-                  <img src="/fotos/malaga/498523588-AVL13gvl05Hpx9Wp.avif" alt="Higuerón Training Center court" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                  <img src="/fotos/malaga/7.2_1-1200x800-AMqlagB7REi8BDqO.avif" alt="Higuerón facility" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                  <img src="/fotos/malaga/theembassytc-imagen_030-m7V58X7reXT2N2pY.avif" alt="Higuerón accommodation" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
-                  <img src="/fotos/malaga/theembassytc-imagen_025-Yleq2KaPNQi0kj6j.avif" alt="Higuerón amenities" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/malaga/p_The-Embassy-fachada.jpg" alt="The Embassy Higueron facade" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/malaga/p_balones.webp" alt="Basketball court" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/malaga/p_habitacion.avif" alt="Room accommodation" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
+                  <img src="/fotos/malaga/p_higueron.avif" alt="Higueron Training Center" style={{ width: "100%", height: "auto", borderRadius: 12, border: "1px solid var(--borde)", display: "block", aspectRatio: "1/1", objectFit: "cover" }} />
                 </div>
                 <PhotoGallery
                   title="Higuerón Training Center"
                   photos={[
-                    { src: "/fotos/malaga/498523588-AVL13gvl05Hpx9Wp.avif", alt: "Higuerón Training Center court" },
-                    { src: "/fotos/malaga/7.2_1-1200x800-AMqlagB7REi8BDqO.avif", alt: "Higuerón facility" },
-                    { src: "/fotos/malaga/theembassytc-imagen_030-m7V58X7reXT2N2pY.avif", alt: "Higuerón accommodation" },
-                    { src: "/fotos/malaga/theembassytc-imagen_025-Yleq2KaPNQi0kj6j.avif", alt: "Higuerón amenities" },
+                    { src: "/fotos/malaga/exterior.jpg", alt: "Exterior view" },
+                    { src: "/fotos/malaga/higueron infinity.avif", alt: "Infinity pool" },
+                    { src: "/fotos/malaga/higueron infinty 2.avif", alt: "Pool area" },
+                    { src: "/fotos/malaga/nba players.jpg", alt: "NBA players" },
+                    { src: "/fotos/malaga/pistas.jpg", alt: "Training courts" },
+                    { src: "/fotos/malaga/sabonis.jpg", alt: "Sabonis" },
+                    { src: "/fotos/malaga/vistas.jpg", alt: "Views" },
                   ]}
                 />
               </div>
