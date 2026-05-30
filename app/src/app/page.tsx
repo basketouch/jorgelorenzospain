@@ -24,7 +24,7 @@ export default function Home() {
               <span style={{ color: "var(--oro)" }}>European Champion.</span>
             </h1>
             <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 48, lineHeight: 1.7 }}>
-              Almost a decade with Spain's National Team. Two World Championships. Two Olympic Games. Professional coaching at the highest level. Now bringing elite training to your college program.
+              Over 7 years with Spain's National Team. <span style={{ color: "var(--oro)", fontWeight: 600 }}>World Champion 2019 & EuroBasket Champion 2022</span>. Elite basketball coaching expertise—delivered through world-class training camps, innovative digital performance platforms, and strategic consulting for professional teams, universities, and elite programs worldwide.
             </p>
             <div style={{ display: "flex", gap: "clamp(8px, 2vw, 16px)", alignItems: "center" }}>
               <a href="/drawsports" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
