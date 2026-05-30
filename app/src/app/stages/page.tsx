@@ -247,7 +247,7 @@ export default function Stages() {
                 <div style={{ marginBottom: 24 }}>
                   <p style={{ fontSize: 12, fontWeight: 700, color: "var(--oro)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 8 }}>Facility Highlights</p>
                   <ul style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.8, paddingLeft: 0, listStyle: "none" }}>
-                    <li style={{ marginBottom: 6 }}>✓ 4 professional basketball courts (FIBA standards)</li>
+                    <li style={{ marginBottom: 6 }}>✓ 2 professional basketball courts (FIBA standards)</li>
                     <li style={{ marginBottom: 6 }}>✓ Olympic-size training center with lighting systems</li>
                     <li style={{ marginBottom: 6 }}>✓ Strength & conditioning facilities</li>
                     <li style={{ marginBottom: 6 }}>✓ Video analysis room for tactical reviews</li>
