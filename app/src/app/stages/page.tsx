@@ -282,7 +282,7 @@ export default function Stages() {
                   title="Higuerón Training Center"
                   photos={[
                     { src: "/fotos/malaga/exterior.jpg", alt: "Exterior view" },
-                    { src: "/fotos/malaga/higueron infinity.avif", alt: "Infinity pool" },
+                    { src: "/fotos/malaga/fisrt class.webp", alt: "First class lounge" },
                     { src: "/fotos/malaga/higueron infinty 2.avif", alt: "Pool area" },
                     { src: "/fotos/malaga/nba players.jpg", alt: "NBA players" },
                     { src: "/fotos/malaga/pistas.jpg", alt: "Training courts" },
