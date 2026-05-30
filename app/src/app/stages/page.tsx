@@ -4,6 +4,19 @@ import PhotoGallery from '../components/PhotoGallery';
 export const metadata = {
   title: "Pre-Season Tours — Jorge Lorenzo Coach",
   description: "Elite training camps for college basketball in Spain. World Champion coaching, professional competition, 5-star accommodation, and unforgettable cultural experiences.",
+  openGraph: {
+    title: "Elite Basketball Training Camps in Spain",
+    description: "Transform your team with world-class training camps led by World Champions Jorge Lorenzo & Luis Guil. Madrid & Málaga venues. Professional coaching, elite competition, premium accommodation.",
+    image: "/fotos/carrusel/Filipinos 1.avif",
+    type: "website",
+    url: "https://www.jorgelorenzospain.com/stages",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Elite Basketball Training Camps in Spain",
+    description: "Transform your team with world-class training camps led by World Champions Jorge Lorenzo & Luis Guil. Madrid & Málaga venues.",
+    image: "/fotos/carrusel/Filipinos 1.avif",
+  },
 };
 
 export default function Stages() {
