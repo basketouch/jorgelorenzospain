@@ -187,7 +187,8 @@ export default function DrawSports() {
                 title: "Intuitive and Powerful",
                 quote: "Intuitive and easy-to-use program. Now it's much faster to work with games. The ability to draw on the video while watching it is extremely useful. The price is reasonable for all the features and capabilities it offers. High-quality app.",
                 author: "JLombi",
-                role: "Coach",
+                role: "Head Coach · Estudiantes Madrid / Zentro Basket Madrid",
+                bio: "Experienced coach with extensive history developing elite basketball programs in Madrid.",
                 rating: 5
               },
               {
@@ -215,7 +216,8 @@ export default function DrawSports() {
                 <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 20, flex: 1 }}>{review.quote}</p>
                 <div style={{ borderTop: "1px solid var(--borde)", paddingTop: 16 }}>
                   <p style={{ fontSize: 14, fontWeight: 600, color: "var(--blanco)", margin: "0 0 4px" }}>{review.author}</p>
-                  <p style={{ fontSize: 12, color: "var(--oro)", margin: 0 }}>{review.role}</p>
+                  <p style={{ fontSize: 12, color: "var(--oro)", margin: "0 0 8px", fontWeight: 600 }}>{review.role}</p>
+                  {review.bio && <p style={{ fontSize: 12, color: "var(--texto-suave)", margin: 0, lineHeight: 1.5 }}>{review.bio}</p>}
                 </div>
               </div>
             ))}
