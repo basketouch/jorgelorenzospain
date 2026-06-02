@@ -101,7 +101,6 @@ export default function DrawSports() {
                 { title: "Analysis & Tagging", id: "1159776689", hash: "4b7ca7c141", desc: "Tag plays while watching. Every action becomes a highlight instantly." },
                 { title: "Frame-by-Frame Control", id: "1160262048", hash: "dda5a1df1f", desc: "Precision seeking and detailed frame control for tactical analysis." },
                 { title: "Tactical Whiteboard", id: "1197447116", hash: "9c71db1b78", desc: "Design plays and tactical concepts without needing video." },
-                { title: "Real Team in Action", id: "1197649501", hash: "ec4200d43b", desc: "Professional team using DrawSports in match conditions. Real-time coaching in action." },
                 { title: "Projection Mode", id: "1159775747", hash: "629fa00f4f", desc: "Project to TV with full control. Coach from the bench." },
               ].map((video, i) => (
                 <div key={i} style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--borde)" }}>
@@ -241,6 +240,27 @@ export default function DrawSports() {
           <p style={{ fontSize: 12, color: "var(--texto-suave)", marginTop: 16 }}>
             Available on App Store (iPad only)
           </p>
+        </div>
+      </section>
+
+      {/* TEAMS IN ACTION */}
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Teams in Action</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48, textAlign: "center" }}>Professional teams using DrawSports.</h2>
+
+          <div style={{ maxWidth: 800, margin: "0 auto", borderRadius: 12, overflow: "hidden", border: "2px solid var(--oro)" }}>
+            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
+              <iframe
+                src="https://player.vimeo.com/video/1197649501?h=ec4200d43b&badge=0&autopause=0&player_id=0&app_id=58479"
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="Professional team using DrawSports"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
