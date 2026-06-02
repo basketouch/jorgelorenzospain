@@ -189,7 +189,8 @@ export default function DrawSports() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center", background: "linear-gradient(135deg, rgba(255,183,0,0.1) 0%, rgba(255,183,0,0.05) 100%)", borderRadius: 16, padding: "48px", border: "2px solid var(--oro)" }}>
             <div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/fotos/scariolo-champions.jpg" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block" }} />
+              <img src="/fotos/scariolo-champions.jpg" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block", marginBottom: 12 }} />
+              <p style={{ fontSize: 12, color: "var(--texto-suave)", textAlign: "center", fontStyle: "italic" }}>Jorge Lorenzo (creator of DrawSports) with Sergio Scariolo — Eurobasket 2022 Champions, Berlin</p>
             </div>
             <div>
               <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Elite Coaching Authority</p>
