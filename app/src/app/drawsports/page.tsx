@@ -226,40 +226,6 @@ export default function DrawSports() {
         </div>
       </section>
 
-      {/* PLANS FOR TEAMS */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
-        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Plans for Teams & Clubs</p>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 60, textAlign: "center" }}>Equip your entire coaching staff.</h2>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "clamp(20px, 3vw, 32px)", marginBottom: 60 }}>
-            {[
-              { licenses: "1 License", price: "€89.99", period: "/year", desc: "Perfect for individual coaches" },
-              { licenses: "3 Licenses", price: "€285", period: "/year", desc: "Assistant coaches & video staff", highlight: true },
-              { licenses: "5 Licenses", price: "€450", period: "/year", desc: "Full coaching staff" },
-            ].map((plan, i) => (
-              <div key={i} style={{ background: plan.highlight ? "linear-gradient(135deg, rgba(255,183,0,0.2) 0%, rgba(255,183,0,0.1) 100%)" : "var(--card)", border: plan.highlight ? "2px solid var(--oro)" : "1px solid var(--borde)", borderRadius: 12, padding: "32px", display: "flex", flexDirection: "column", position: "relative" }}>
-                {plan.highlight && <div style={{ position: "absolute", top: -12, left: "50%", transform: "translateX(-50%)", background: "var(--oro)", color: "var(--negro)", padding: "4px 12px", borderRadius: 4, fontSize: 11, fontWeight: 700, letterSpacing: "0.1em" }}>MOST POPULAR</div>}
-                <h3 style={{ fontSize: 20, fontWeight: 800, color: "var(--blanco)", marginBottom: 8 }}>{plan.licenses}</h3>
-                <div style={{ marginBottom: 16 }}>
-                  <span style={{ fontSize: "clamp(28px, 4vw, 36px)", fontWeight: 800, color: "var(--oro)" }}>{plan.price}</span>
-                  <span style={{ fontSize: 14, color: "var(--texto-suave)" }}>{plan.period}</span>
-                </div>
-                <p style={{ fontSize: 14, color: "var(--texto-suave)", marginBottom: 24, flex: 1 }}>{plan.desc}</p>
-                <p style={{ fontSize: 13, color: "var(--texto-suave)", borderTop: "1px solid var(--borde)", paddingTop: 16 }}>Each user gets their own account, projects & history</p>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ textAlign: "center", marginBottom: 40 }}>
-            <p style={{ fontSize: 16, color: "var(--texto-suave)", marginBottom: 20 }}>Need more licenses or custom billing for your organization?</p>
-            <a href="https://drawsports.app/pro/planes/en/index.html" style={{ display: "inline-block", background: "transparent", color: "var(--oro)", fontSize: 15, fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "12px 28px", border: "2px solid var(--oro)", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
-              View All Plans
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* CTA FINAL */}
       <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
@@ -275,6 +241,16 @@ export default function DrawSports() {
             Available on App Store (iPad only)
           </p>
         </div>
+      </section>
+
+      {/* TEAM PLANS LINK */}
+      <section style={{ padding: "32px 40px", textAlign: "center", borderTop: "1px solid var(--borde)", borderBottom: "1px solid var(--borde)" }}>
+        <p style={{ fontSize: 13, color: "var(--texto-suave)", marginBottom: 8 }}>
+          Looking to equip your coaching staff?
+        </p>
+        <a href="https://drawsports.app/pro/planes/en/index.html" style={{ fontSize: 13, color: "var(--oro)", fontWeight: 600, textDecoration: "none" }}>
+          View team plans →
+        </a>
       </section>
 
       {/* FOOTER */}
