@@ -22,13 +22,13 @@ export default function DrawSports() {
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(100px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden", marginTop: 0 }}>
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px, 8vw, 60px)", alignItems: "center", maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div>
-            <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · iPad Coaching Tool</p>
+            <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · Real-Time Coaching</p>
             <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
-              How I teach<br />
-              <span style={{ color: "var(--oro)" }}>basketball now.</span>
+              Coach in real-time.<br />
+              <span style={{ color: "var(--oro)" }}>On the court.</span>
             </h1>
             <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 48, lineHeight: 1.7 }}>
-              7 years with Spain's National Team. World Champion. Europe Champion. This is the tool that changed how I give feedback to players on the court.
+              Stop waiting for the video room. Instant feedback, instant learning. Tag, annotate, and teach while players feel the moment—used by World Champion coaches across elite programs.
             </p>
             <a href="https://apps.apple.com/es/app/drawsports/id6756434573" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
               Download on App Store
@@ -47,13 +47,13 @@ export default function DrawSports() {
       {/* THE PROBLEM */}
       <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Problem</p>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Your assistants lose hours tagging videos alone.</h2>
-          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Players wait days to see analysis. By then, the moment is forgotten. Feedback should be instant, on the court, while they feel the mistake.</p>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Challenge</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Feedback after practice = players forget the moment.</h2>
+          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Traditional coaching waits for the video room. Players move on. The feeling of the mistake fades. Learning slows. What if you could teach while they're still in that moment?</p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(12px, 3vw, 24px)" }}>
             {[
-              { icon: "⏱️", title: "Hours of tagging", desc: "Your assistant spends 3-4 hours on a single game. Alone." },
-              { icon: "📱", title: "Slow workflow", desc: "Tag, export, review later. The learning moment is gone." },
+              { icon: "⏰", title: "Delayed feedback", desc: "Players wait days to see what they did wrong. The learning moment is lost." },
+              { icon: "📺", title: "Room-bound coaching", desc: "Feedback happens in the video room, far from the court where they played." },
             ].map((item, i) => (
               <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: "24px 28px", display: "flex", gap: "clamp(8px, 2vw, 16px)", alignItems: "flex-start" }}>
                 <span style={{ fontSize: 32, flexShrink: 0 }}>{item.icon}</span>
@@ -71,8 +71,8 @@ export default function DrawSports() {
       <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Solution</p>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Tag live. Annotate instantly. Coach in real-time.</h2>
-          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Project on the court. Write notes while the video plays. Players see their mistake immediately. Learning happens at that moment.</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Real-time feedback. On the court. Right now.</h2>
+          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Bring your iPad to the court. Tag plays instantly. Draw tactical corrections while they watch. Players see, learn, and improve—in that moment. No waiting. No forgetting.</p>
 
           {/* Quick benefits */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(8px, 2vw, 16px)", marginBottom: 80 }}>
@@ -140,12 +140,12 @@ export default function DrawSports() {
         </div>
       </section>
 
-      {/* WHY ME */}
+      {/* WHY THIS MATTERS */}
       <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Why This Matters</p>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Instant feedback = 3x faster learning.</h2>
-          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>I spent 7 years with Spain's National Team. We used video feedback at the highest level. But this way — live, on the court — changed everything.</p>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Why This Works</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Feedback in the moment = real learning.</h2>
+          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Players learn fastest when they feel the mistake, see the correction, and practice the fix immediately. That's how elite teams train. Now every coach can coach that way.</p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(8px, 2vw, 16px)" }}>
             {[
               { icon: "🥇", title: "2019 Mundial", sub: "Medalla de Oro" },
