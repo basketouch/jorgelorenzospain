@@ -202,7 +202,8 @@ export default function DrawSports() {
                 title: "All in One Place",
                 quote: "An excellent app for studying the game at any level. Built for a coach's daily workflow who uses video as a coaching tool. Tag, organize, draw, and share in one place—fast, intuitive, and professional.",
                 author: "Joan Rubio",
-                role: "Coach",
+                role: "Analytical Coach · Uni Girona (Liga Femenina Endesa · EuroLeague)",
+                bio: "30+ years of basketball coaching expertise in Catalonia. Specializes in converting data into actionable basketball intelligence for elite competition.",
                 rating: 5
               },
             ].map((review, i) => (
