@@ -38,8 +38,15 @@ export default function DrawSports() {
             </p>
           </div>
           <div style={{ position: "relative" }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/fotos/China_DrawSports.JPG" alt="DrawSports on 9-meter screen" style={{ width: "100%", borderRadius: 12, border: "2px solid var(--oro)", display: "block" }} />
+            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", borderRadius: 12, border: "2px solid var(--oro)" }}>
+              <iframe
+                src="https://player.vimeo.com/video/1159775747?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", borderRadius: 12 }}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                title="DrawSports - Universal Import"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -88,9 +95,38 @@ export default function DrawSports() {
             ))}
           </div>
 
+          {/* SEE IT IN ACTION - VIDEOS */}
+          <div style={{ marginBottom: 100 }}>
+            <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>See It In Action</h3>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
+              {[
+                { title: "Analysis & Tagging", vimeo: "1159776689/4b7ca7c141", desc: "Tag plays while watching. Every action becomes a highlight instantly." },
+                { title: "Frame-by-Frame Control", vimeo: "1160262048/dda5a1df1f", desc: "Precision seeking and detailed frame control for tactical analysis." },
+                { title: "Tactical Whiteboard", vimeo: "1197447116", desc: "Design plays and tactical concepts without needing video." },
+                { title: "Projection Mode", vimeo: "1159775747/629fa00f4f", desc: "Project to TV with full control. Coach from the bench." },
+              ].map((video, i) => (
+                <div key={i} style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--borde)" }}>
+                  <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
+                    <iframe
+                      src={`https://player.vimeo.com/video/${video.vimeo}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                      frameBorder="0"
+                      allow="autoplay; fullscreen; picture-in-picture"
+                      title={video.title}
+                    />
+                  </div>
+                  <div style={{ padding: "16px", background: "var(--card)", borderTop: "1px solid var(--borde)" }}>
+                    <h4 style={{ fontSize: 14, fontWeight: 700, color: "var(--blanco)", marginBottom: 6 }}>{video.title}</h4>
+                    <p style={{ fontSize: 13, color: "var(--texto-suave)", lineHeight: 1.5 }}>{video.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* iPad Screenshots Gallery */}
           <div style={{ marginBottom: 80 }}>
-            <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>Designed for iPad</h3>
+            <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>Interface Design</h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(12px, 3vw, 24px)" }}>
               {[
                 { src: "/fotos/DrawSports_Screenshot1.png", alt: "DrawSports iPad app - Video analysis interface" },
