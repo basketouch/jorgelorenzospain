@@ -186,7 +186,7 @@ export default function DrawSports() {
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Players learn fastest when they feel the mistake, see the correction, and practice the fix immediately. That's how elite teams train. Now every coach can coach that way.</p>
 
           {/* SERGIO SCARIOLO TESTIMONIAL */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center", marginBottom: 80, background: "linear-gradient(135deg, rgba(255,183,0,0.1) 0%, rgba(255,183,0,0.05) 100%)", borderRadius: 16, padding: "48px", border: "2px solid var(--oro)" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center", background: "linear-gradient(135deg, rgba(255,183,0,0.1) 0%, rgba(255,183,0,0.05) 100%)", borderRadius: 16, padding: "48px", border: "2px solid var(--oro)" }}>
             <div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/fotos/scariolo-champions.jpg" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block" }} />
@@ -202,26 +202,6 @@ export default function DrawSports() {
                 <p style={{ fontSize: 12, color: "var(--oro)", fontWeight: 600 }}>Eurobasket 2022 Champion · Spain National Team Head Coach</p>
               </div>
             </div>
-          </div>
-
-          {/* CHAMPIONSHIPS GRID */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(8px, 2vw, 16px)" }}>
-            {[
-              { icon: "🥇", title: "2019 Mundial", sub: "Medalla de Oro" },
-              { icon: "🏀", title: "2021 JJOO", sub: "Tokyo" },
-              { icon: "🥇", title: "2022 Eurobasket", sub: "Medalla de Oro" },
-              { icon: "🏀", title: "2023 Mundial", sub: "Jakarta" },
-              { icon: "🏀", title: "2024 JJOO", sub: "Paris" },
-              { icon: "🏀", title: "2025 Eurobasket", sub: "Cyprus" },
-            ].map((item, i) => (
-              <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", padding: "14px 16px", background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 8 }}>
-                <span style={{ fontSize: 22, flexShrink: 0 }}>{item.icon}</span>
-                <div>
-                  <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto)", marginBottom: 2 }}>{item.title}</p>
-                  <p style={{ fontSize: 12, color: "var(--texto-suave)" }}>{item.sub}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
