@@ -24,7 +24,7 @@ export default function DrawSports() {
           <div>
             <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · Real-Time Coaching</p>
             <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
-              Coach in real-time.<br />
+              You coach in real-time.<br />
               <span style={{ color: "var(--oro)" }}>On the court.</span>
             </h1>
             <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 40, lineHeight: 1.7, fontStyle: "italic" }}>
@@ -76,15 +76,15 @@ export default function DrawSports() {
       <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Solution</p>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Real-time feedback. On the court. Right now.</h2>
-          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Bring your iPad to the court. Tag plays instantly. Draw tactical corrections while they watch. Players see, learn, and improve—in that moment. No waiting. No forgetting.</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>You deliver real-time feedback. On the court. Right now.</h2>
+          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Bring your iPad to the court. You tag plays instantly. You draw tactical corrections while they watch. Players see, learn, and improve—in that moment. No waiting. No forgetting.</p>
 
           {/* Quick benefits */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(8px, 2vw, 16px)", marginBottom: 80 }}>
             {[
               { icon: "📺", text: "Project iPad on court" },
               { icon: "✍️", text: "Write live annotations" },
-              { icon: "⚡", text: "Instant feedback to players" },
+              { icon: "⚡", text: "Deliver instant feedback to players" },
             ].map((item, i) => (
               <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: "20px 24px", display: "flex", gap: 14, alignItems: "flex-start" }}>
                 <span style={{ fontSize: 24, flexShrink: 0 }}>{item.icon}</span>
@@ -146,8 +146,8 @@ export default function DrawSports() {
             {[
               {
                 icon: "⚡️",
-                title: "Fast Video Analysis",
-                desc: "Import from iCloud, Drive or USB and start in seconds. Mark clips while you watch the game—every action automatically becomes a highlight. Smart history lets you resume work where you left off without wasting time searching."
+                title: "Analyze Video Instantly",
+                desc: "Import from iCloud, Drive or USB and start in seconds. You tag plays while you watch the game—every action you mark becomes a highlight. Smart history lets you resume work where you left off without wasting time searching."
               },
               {
                 icon: "❄️",
