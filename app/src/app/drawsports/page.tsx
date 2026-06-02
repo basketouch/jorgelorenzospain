@@ -101,6 +101,7 @@ export default function DrawSports() {
                 { title: "Analysis & Tagging", id: "1159776689", hash: "4b7ca7c141", desc: "Tag plays while watching. Every action becomes a highlight instantly." },
                 { title: "Frame-by-Frame Control", id: "1160262048", hash: "dda5a1df1f", desc: "Precision seeking and detailed frame control for tactical analysis." },
                 { title: "Tactical Whiteboard", id: "1197447116", hash: "9c71db1b78", desc: "Design plays and tactical concepts without needing video." },
+                { title: "Real Team in Action", id: "1197649501", hash: "ec4200d43b", desc: "Professional team using DrawSports in match conditions. Real-time coaching in action." },
                 { title: "Projection Mode", id: "1159775747", hash: "629fa00f4f", desc: "Project to TV with full control. Coach from the bench." },
               ].map((video, i) => (
                 <div key={i} style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--borde)" }}>
