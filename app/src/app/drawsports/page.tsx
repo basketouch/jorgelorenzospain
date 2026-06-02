@@ -178,12 +178,33 @@ export default function DrawSports() {
         </div>
       </section>
 
-      {/* WHY THIS MATTERS */}
+      {/* WHY THIS WORKS */}
       <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Why This Works</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Feedback in the moment = real learning.</h2>
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Players learn fastest when they feel the mistake, see the correction, and practice the fix immediately. That's how elite teams train. Now every coach can coach that way.</p>
+
+          {/* SERGIO SCARIOLO TESTIMONIAL */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center", marginBottom: 80, background: "linear-gradient(135deg, rgba(255,183,0,0.1) 0%, rgba(255,183,0,0.05) 100%)", borderRadius: 16, padding: "48px", border: "2px solid var(--oro)" }}>
+            <div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/fotos/scariolo-champions.jpg" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block" }} />
+            </div>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Elite Coaching Authority</p>
+              <h3 style={{ fontSize: "clamp(24px, 3vw, 32px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 20 }}>Sergio Scariolo</h3>
+              <p style={{ fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.8, marginBottom: 24, fontStyle: "italic" }}>
+                "The ultimate tool for elite tactical delivery. At the highest level of European basketball, my focus is on strategic precision and instant communication, not manual editing. DrawSports allows me to take the analysis from my staff and transform it into sharp, actionable visual cues for the players. Whether in the locker room or mid-game on the iPad, the ability to draw and overlay concepts on video makes teaching complex tactics seamless. Professional, intuitive, and built for winning environments."
+              </p>
+              <div>
+                <p style={{ fontSize: 13, fontWeight: 700, color: "var(--blanco)", margin: "0 0 4px" }}>Sergio Scariolo</p>
+                <p style={{ fontSize: 12, color: "var(--oro)", fontWeight: 600 }}>Eurobasket 2022 Champion · Spain National Team Head Coach</p>
+              </div>
+            </div>
+          </div>
+
+          {/* CHAMPIONSHIPS GRID */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(8px, 2vw, 16px)" }}>
             {[
               { icon: "🥇", title: "2019 Mundial", sub: "Medalla de Oro" },
