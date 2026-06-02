@@ -27,9 +27,13 @@ export default function DrawSports() {
               Coach in real-time.<br />
               <span style={{ color: "var(--oro)" }}>On the court.</span>
             </h1>
-            <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 48, lineHeight: 1.7 }}>
-              Stop waiting for the video room. Instant feedback, instant learning. Tag, annotate, and teach while players feel the moment—used by World Champion coaches across elite programs.
+            <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 40, lineHeight: 1.7, fontStyle: "italic" }}>
+              "The ultimate tool for elite tactical delivery. Whether in the locker room or mid-game on the iPad, the ability to draw and overlay concepts on video makes teaching complex tactics seamless. Professional, intuitive, and built for winning environments."
             </p>
+            <div style={{ marginBottom: 40 }}>
+              <p style={{ fontSize: 13, fontWeight: 700, color: "var(--blanco)", margin: "0 0 4px" }}>Sergio Scariolo</p>
+              <p style={{ fontSize: 12, color: "var(--oro)", fontWeight: 600 }}>Eurobasket 2022 Champion · Spain National Team Head Coach</p>
+            </div>
             <a href="https://apps.apple.com/es/app/drawsports/id6756434573" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
               Download on App Store
             </a>
@@ -38,16 +42,8 @@ export default function DrawSports() {
             </p>
           </div>
           <div style={{ position: "relative" }}>
-            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", borderRadius: 12, border: "2px solid var(--oro)" }}>
-              <iframe
-                src="https://player.vimeo.com/video/1159775747?h=629fa00f4f&badge=0&autopause=0&player_id=0&app_id=58479"
-                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", borderRadius: 12 }}
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                title="DrawSports - Universal Import"
-              />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/fotos/scariolo-hero.jpg" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block" }} />
           </div>
         </div>
       </section>
@@ -80,27 +76,7 @@ export default function DrawSports() {
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Solution</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Real-time feedback. On the court. Right now.</h2>
-          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 80, lineHeight: 1.7 }}>Bring your iPad to the court. Tag plays instantly. Draw tactical corrections while they watch. Players see, learn, and improve—in that moment. No waiting. No forgetting.</p>
-
-          {/* SERGIO SCARIOLO TESTIMONIAL */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center", marginBottom: 80, background: "linear-gradient(135deg, rgba(255,183,0,0.1) 0%, rgba(255,183,0,0.05) 100%)", borderRadius: 16, padding: "48px", border: "2px solid var(--oro)" }}>
-            <div>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/fotos/scariolo-champions.jpg" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block", marginBottom: 12 }} />
-              <p style={{ fontSize: 12, color: "var(--texto-suave)", textAlign: "center", fontStyle: "italic" }}>Jorge Lorenzo (creator of DrawSports) with Sergio Scariolo — Eurobasket 2022 Champions, Berlin</p>
-            </div>
-            <div>
-              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Elite Coaching Authority</p>
-              <h3 style={{ fontSize: "clamp(24px, 3vw, 32px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 20 }}>Sergio Scariolo</h3>
-              <p style={{ fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.8, marginBottom: 24, fontStyle: "italic" }}>
-                "The ultimate tool for elite tactical delivery. At the highest level of European basketball, my focus is on strategic precision and instant communication, not manual editing. DrawSports allows me to take the analysis from my staff and transform it into sharp, actionable visual cues for the players. Whether in the locker room or mid-game on the iPad, the ability to draw and overlay concepts on video makes teaching complex tactics seamless. Professional, intuitive, and built for winning environments."
-              </p>
-              <div>
-                <p style={{ fontSize: 13, fontWeight: 700, color: "var(--blanco)", margin: "0 0 4px" }}>Sergio Scariolo</p>
-                <p style={{ fontSize: 12, color: "var(--oro)", fontWeight: 600 }}>Eurobasket 2022 Champion · Spain National Team Head Coach</p>
-              </div>
-            </div>
-          </div>
+          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Bring your iPad to the court. Tag plays instantly. Draw tactical corrections while they watch. Players see, learn, and improve—in that moment. No waiting. No forgetting.</p>
 
           {/* Quick benefits */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(8px, 2vw, 16px)", marginBottom: 80 }}>
@@ -195,15 +171,6 @@ export default function DrawSports() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* WHY THIS WORKS */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
-        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Why This Works</p>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Feedback in the moment = real learning.</h2>
-          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Players learn fastest when they feel the mistake, see the correction, and practice the fix immediately. That's how elite teams train. Now every coach can coach that way.</p>
         </div>
       </section>
 
