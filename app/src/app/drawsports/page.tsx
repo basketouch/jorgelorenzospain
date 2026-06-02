@@ -43,7 +43,8 @@ export default function DrawSports() {
           </div>
           <div style={{ position: "relative" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/fotos/header-hero.png" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block" }} />
+            <img src="/fotos/header-hero.png" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block", marginBottom: 12 }} />
+            <p style={{ fontSize: 12, color: "var(--texto-suave)", textAlign: "center", fontStyle: "italic" }}>Jorge Lorenzo (creator of DrawSports) with Sergio Scariolo — Eurobasket 2022 Champions</p>
           </div>
         </div>
       </section>
