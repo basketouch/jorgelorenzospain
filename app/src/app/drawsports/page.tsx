@@ -203,6 +203,54 @@ export default function DrawSports() {
         </div>
       </section>
 
+      {/* WHAT COACHES SAY */}
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>What Coaches Say</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 60, textAlign: "center" }}>Trusted by coaches worldwide.</h2>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))", gap: "clamp(20px, 3vw, 32px)" }}>
+            {[
+              {
+                title: "Intuitive and Powerful",
+                quote: "Intuitive and easy-to-use program. Now it's much faster to work with games. The ability to draw on the video while watching it is extremely useful. The price is reasonable for all the features and capabilities it offers. High-quality app.",
+                author: "JLombi",
+                role: "Coach",
+                rating: 5
+              },
+              {
+                title: "Perfect for Daily Coaching",
+                quote: "DrawSports is an easy and intuitive tool for cutting video clips and annotating them, plus it has a whiteboard function. It makes teaching tactical and technical concepts visually to your players simple—just an iPad needed.",
+                author: "José Antonio López Hervella",
+                role: "Basketball Coach",
+                rating: 5
+              },
+              {
+                title: "All in One Place",
+                quote: "An excellent app for studying the game at any level. Built for a coach's daily workflow who uses video as a coaching tool. Tag, organize, draw, and share in one place—fast, intuitive, and professional.",
+                author: "Joan Rubio",
+                role: "Coach",
+                rating: 5
+              },
+            ].map((review, i) => (
+              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 12, padding: "32px", display: "flex", flexDirection: "column" }}>
+                <div style={{ display: "flex", gap: 4, marginBottom: 16 }}>
+                  {[...Array(review.rating)].map((_, idx) => (
+                    <span key={idx} style={{ fontSize: 16, color: "var(--oro)" }}>★</span>
+                  ))}
+                </div>
+                <h4 style={{ fontSize: 16, fontWeight: 700, color: "var(--blanco)", marginBottom: 12 }}>{review.title}</h4>
+                <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.7, marginBottom: 20, flex: 1 }}>{review.quote}</p>
+                <div style={{ borderTop: "1px solid var(--borde)", paddingTop: 16 }}>
+                  <p style={{ fontSize: 14, fontWeight: 600, color: "var(--blanco)", margin: "0 0 4px" }}>{review.author}</p>
+                  <p style={{ fontSize: 12, color: "var(--oro)", margin: 0 }}>{review.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA FINAL */}
       <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
