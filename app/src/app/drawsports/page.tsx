@@ -249,7 +249,7 @@ export default function DrawSports() {
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Teams in Action</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48, textAlign: "center" }}>Professional teams using DrawSports.</h2>
 
-          <div style={{ maxWidth: 500, margin: "0 auto", borderRadius: 12, overflow: "hidden" }}>
+          <div style={{ width: "100%", borderRadius: 12, overflow: "hidden" }}>
             <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
               <iframe
                 src="https://player.vimeo.com/video/1197649501?h=ec4200d43b&badge=0&autopause=0&player_id=0&app_id=58479"
