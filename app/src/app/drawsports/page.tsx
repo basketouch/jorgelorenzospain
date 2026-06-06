@@ -68,8 +68,11 @@ export default function DrawSports() {
               <a href="https://apps.apple.com/es/app/drawsports/id6756434573" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer", marginBottom: 16 }}>
                 Download on App Store
               </a>
-              <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>
-                iPad only • 7 days free
+              <p style={{ fontSize: 13, color: "var(--texto-suave)", marginBottom: 8 }}>
+                7 days free • $99.99/year • Cancel anytime
+              </p>
+              <p style={{ fontSize: 12, color: "var(--texto-suave)" }}>
+                iPad only
               </p>
               <a href="#teams-in-action" style={{ display: "inline-block", marginTop: 24, fontSize: 13, color: "var(--oro)", textDecoration: "none", fontWeight: 600 }}>
                 Teams using DrawSports →
@@ -196,6 +199,27 @@ export default function DrawSports() {
                 <span style={{ fontSize: 32, marginBottom: 12, display: "block" }}>{feature.icon}</span>
                 <h4 style={{ fontSize: 16, fontWeight: 700, color: "var(--blanco)", marginBottom: 12 }}>{feature.title}</h4>
                 <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.6 }}>{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY IPAD */}
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Design Choice</p>
+          <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24, textAlign: "center" }}>Why iPad only?</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gap: "clamp(24px, 4vw, 32px)", maxWidth: 900, margin: "0 auto" }}>
+            {[
+              { icon: "⚡", title: "Faster", desc: "iPad performance handles real-time drawing without lag. Instant feedback, zero delay." },
+              { icon: "📱", title: "Portable", desc: "Take it sideline, courtside, locker room. Works anywhere. Lightweight, quick startup." },
+              { icon: "🎯", title: "Intuitive", desc: "iPad's touch interface designed for annotation. Natural drawing. No learning curve." },
+            ].map((item, i) => (
+              <div key={i} style={{ textAlign: "center" }}>
+                <p style={{ fontSize: 36, marginBottom: 12 }}>{item.icon}</p>
+                <h4 style={{ fontSize: 16, fontWeight: 700, color: "var(--blanco)", marginBottom: 8 }}>{item.title}</h4>
+                <p style={{ fontSize: 13, color: "var(--texto-suave)", lineHeight: 1.6 }}>{item.desc}</p>
               </div>
             ))}
           </div>
