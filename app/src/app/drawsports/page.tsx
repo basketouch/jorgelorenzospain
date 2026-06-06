@@ -128,26 +128,40 @@ export default function DrawSports() {
             <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>See It In Action</h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
               {[
-                { title: "Analysis & Tagging", id: "1159776689", hash: "4b7ca7c141", desc: "Tag plays while watching. Every action becomes a highlight instantly." },
-                { title: "Frame-by-Frame Control", id: "1160262048", hash: "dda5a1df1f", desc: "Precision seeking and detailed frame control for tactical analysis." },
-                { title: "Tactical Whiteboard", id: "1197447116", hash: "9c71db1b78", desc: "Design plays and tactical concepts without needing video." },
-                { title: "Projection Mode", id: "1159775747", hash: "629fa00f4f", desc: "Project to TV with full control. Coach from the bench." },
-              ].map((video, i) => (
+                { title: "Projection Mode", id: "1159775747", hash: "629fa00f4f", desc: "Universal Import. Project to TV with full control. Coach from the bench.", type: "video" },
+                { title: "Analysis & Tagging", id: "1159776689", hash: "4b7ca7c141", desc: "Tag plays while watching. Every action becomes a highlight instantly.", type: "video" },
+                { title: "Frame-by-Frame Control", id: "1160262048", hash: "dda5a1df1f", desc: "Precision seeking and detailed frame control for tactical analysis.", type: "video" },
+                { title: "Projection Mode", id: "1159775747", hash: "629fa00f4f", desc: "Project and share. Full control on TV with live annotations.", type: "video" },
+                { title: "Export Media", desc: "Coming Soon", type: "coming-soon" },
+                { title: "Tactical Whiteboard", id: "1197447116", hash: "9c71db1b78", desc: "Design plays and tactical concepts without needing video.", type: "video" },
+                { title: "Advanced Features", desc: "Coming Soon", type: "coming-soon" },
+              ].map((item, i) => (
                 <div key={i} style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--borde)" }}>
-                  <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
-                    <iframe
-                      src={`https://player.vimeo.com/video/${video.id}?h=${video.hash}&badge=0&autopause=0&player_id=0&app_id=58479`}
-                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                      frameBorder="0"
-                      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      title={video.title}
-                    />
-                  </div>
-                  <div style={{ padding: "16px", background: "var(--card)", borderTop: "1px solid var(--borde)" }}>
-                    <h4 style={{ fontSize: 14, fontWeight: 700, color: "var(--blanco)", marginBottom: 6 }}>{video.title}</h4>
-                    <p style={{ fontSize: 13, color: "var(--texto-suave)", lineHeight: 1.5 }}>{video.desc}</p>
-                  </div>
+                  {item.type === "video" ? (
+                    <>
+                      <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
+                        <iframe
+                          src={`https://player.vimeo.com/video/${item.id}?h=${item.hash}&badge=0&autopause=0&player_id=0&app_id=58479`}
+                          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                          frameBorder="0"
+                          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                          referrerPolicy="strict-origin-when-cross-origin"
+                          title={item.title}
+                        />
+                      </div>
+                      <div style={{ padding: "16px", background: "var(--card)", borderTop: "1px solid var(--borde)" }}>
+                        <h4 style={{ fontSize: 14, fontWeight: 700, color: "var(--blanco)", marginBottom: 6 }}>{item.title}</h4>
+                        <p style={{ fontSize: 13, color: "var(--texto-suave)", lineHeight: 1.5 }}>{item.desc}</p>
+                      </div>
+                    </>
+                  ) : (
+                    <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "20px" }}>
+                        <p style={{ fontSize: 32, marginBottom: 12 }}>🎬</p>
+                        <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto-suave)" }}>Coming Soon</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>
