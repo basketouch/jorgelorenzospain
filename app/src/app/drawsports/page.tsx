@@ -128,13 +128,12 @@ export default function DrawSports() {
             <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>See It In Action</h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
               {[
-                { title: "Projection Mode", id: "1159775747", hash: "629fa00f4f", desc: "Universal Import. Project to TV with full control. Coach from the bench.", type: "video" },
+                { title: "Universal Import", id: "1159775747", hash: "629fa00f4f", desc: "Import from iCloud, Drive, or USB. Start analyzing instantly.", type: "video" },
                 { title: "Analysis & Tagging", id: "1159776689", hash: "4b7ca7c141", desc: "Tag plays while watching. Every action becomes a highlight instantly.", type: "video" },
                 { title: "Frame-by-Frame Control", id: "1160262048", hash: "dda5a1df1f", desc: "Precision seeking and detailed frame control for tactical analysis.", type: "video" },
-                { title: "Projection Mode", id: "1159775747", hash: "629fa00f4f", desc: "Project and share. Full control on TV with live annotations.", type: "video" },
+                { title: "Projection Mode", desc: "Coming Soon", type: "coming-soon" },
                 { title: "Export Media", desc: "Coming Soon", type: "coming-soon" },
                 { title: "Tactical Whiteboard", id: "1197447116", hash: "9c71db1b78", desc: "Design plays and tactical concepts without needing video.", type: "video" },
-                { title: "Advanced Features", desc: "Coming Soon", type: "coming-soon" },
               ].map((item, i) => (
                 <div key={i} style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--borde)" }}>
                   {item.type === "video" ? (
