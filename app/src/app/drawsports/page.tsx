@@ -168,40 +168,6 @@ export default function DrawSports() {
               ))}
             </div>
           </div>
-
-
-          {/* Detailed Features */}
-          <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>Powerful Features Built for Coaches</h3>
-          <div className="features-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "clamp(16px, 4vw, 32px)" }}>
-            {[
-              {
-                icon: "⚡️",
-                title: "Analyze Video Instantly",
-                desc: "Import from iCloud, Drive or USB and start in seconds. You tag plays while you watch the game—every action you mark becomes a highlight. Smart history lets you resume work where you left off without wasting time searching."
-              },
-              {
-                icon: "❄️",
-                title: "Freeze Frame Effect",
-                desc: "Don't just draw—explain. Use the magnifier for details or create a Freeze Frame: pause the image, draw tactical corrections, and decide exactly how long that pause lasts. Turn video into a lesson."
-              },
-              {
-                icon: "📋",
-                title: "Pro Tactical Whiteboard",
-                desc: "Design plays and concepts without needing video. Switch between Notebook Mode for quick notes or Official Court templates to give your explanations real-court context."
-              },
-              {
-                icon: "🚀",
-                title: "Project & Share",
-                desc: "In the video room: connect to TV and keep full control (speed, frame-by-frame). Need to send it? Export clips or full sequences, choose whether to include audio or drawings, and share instantly via WhatsApp or AirDrop."
-              },
-            ].map((feature, i) => (
-              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: 32 }}>
-                <span style={{ fontSize: 32, marginBottom: 12, display: "block" }}>{feature.icon}</span>
-                <h4 style={{ fontSize: 16, fontWeight: 700, color: "var(--blanco)", marginBottom: 12 }}>{feature.title}</h4>
-                <p style={{ fontSize: 14, color: "var(--texto-suave)", lineHeight: 1.6 }}>{feature.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
