@@ -31,10 +31,10 @@ export default function DrawSports() {
       <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(100px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden", marginTop: 0 }}>
         <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px, 8vw, 60px)", alignItems: "center", maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1 }}>
           <div>
-            <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · Real-Time Coaching</p>
+            <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · iPad Coaching Tool</p>
             <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
-              You coach in real-time.<br />
-              <span style={{ color: "var(--oro)" }}>On the court.</span>
+              Draw on live video.<br />
+              <span style={{ color: "var(--oro)" }}>Teach instantly.</span>
             </h1>
             <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 40, lineHeight: 1.7, fontStyle: "italic" }}>
               "The ultimate tool for elite tactical delivery. Whether in the locker room or mid-game on the iPad, the ability to draw and overlay concepts on video makes teaching complex tactics seamless. Professional, intuitive, and built for winning environments."
