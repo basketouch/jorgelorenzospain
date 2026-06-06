@@ -38,10 +38,48 @@ export default function DrawSports() {
             </h1>
           </div>
 
-          {/* iPad Screenshot */}
+          {/* iPad Screenshots Carousel */}
           <div style={{ width: "100%", maxWidth: 900, marginBottom: 80 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/fotos/DrawSports_Screenshot2.png" alt="DrawSports iPad app - Tactical annotation tools" style={{ width: "100%", borderRadius: 12, border: "1px solid var(--borde)", display: "block" }} />
+            {(() => {
+              const [currentSlide, setCurrentSlide] = require('react').useState(0);
+              const screenshots = [
+                { src: "/fotos/DrawSports_Screenshot1.png", alt: "DrawSports iPad app - Video analysis interface" },
+                { src: "/fotos/DrawSports_Screenshot2.png", alt: "DrawSports iPad app - Tactical annotation tools" },
+                { src: "/fotos/DrawSports_Screenshot3.png", alt: "DrawSports iPad app - Timeline and playback controls" },
+              ];
+
+              return (
+                <div style={{ position: "relative" }}>
+                  <div style={{ position: "relative", overflow: "hidden", borderRadius: 12, border: "1px solid var(--borde)" }}>
+                    {screenshots.map((screenshot, index) => (
+                      <div key={index} style={{ display: index === currentSlide ? "block" : "none" }}>
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img src={screenshot.src} alt={screenshot.alt} style={{ width: "100%", borderRadius: 12, display: "block" }} />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Navigation Dots */}
+                  <div style={{ display: "flex", gap: 8, justifyContent: "center", marginTop: 16 }}>
+                    {screenshots.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        style={{
+                          width: 8,
+                          height: 8,
+                          borderRadius: "50%",
+                          border: "none",
+                          background: index === currentSlide ? "var(--oro)" : "rgba(255,255,255,0.3)",
+                          cursor: "pointer",
+                          transition: "all 0.2s",
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
           </div>
         </div>
       </section>
@@ -152,22 +190,6 @@ export default function DrawSports() {
             </div>
           </div>
 
-          {/* iPad Screenshots Gallery */}
-          <div style={{ marginBottom: 80 }}>
-            <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>Interface Design</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(12px, 3vw, 24px)" }}>
-              {[
-                { src: "/fotos/DrawSports_Screenshot1.png", alt: "DrawSports iPad app - Video analysis interface" },
-                { src: "/fotos/DrawSports_Screenshot2.png", alt: "DrawSports iPad app - Tactical annotation tools" },
-                { src: "/fotos/DrawSports_Screenshot3.png", alt: "DrawSports iPad app - Timeline and playback controls" },
-              ].map((img, i) => (
-                <div key={i} style={{ borderRadius: 12, border: "1px solid var(--borde)", overflow: "hidden" }}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={img.src} alt={img.alt} style={{ width: "100%", display: "block" }} />
-                </div>
-              ))}
-            </div>
-          </div>
 
           {/* Detailed Features */}
           <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>Powerful Features Built for Coaches</h3>
