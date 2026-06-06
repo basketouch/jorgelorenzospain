@@ -27,36 +27,53 @@ export default function DrawSports() {
         </div>
       </nav>
 
-      {/* HERO */}
-      <section style={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(100px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden", marginTop: 0 }}>
-        <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(32px, 8vw, 60px)", alignItems: "center", maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1 }}>
-          <div>
+      {/* HERO - iPad Product Showcase */}
+      <section style={{ minHeight: "auto", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(80px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden", marginTop: 0 }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+          <div style={{ textAlign: "center", marginBottom: 60, maxWidth: 700 }}>
             <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · iPad Coaching Tool</p>
             <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
               Draw on live video.<br />
               <span style={{ color: "var(--oro)" }}>Teach instantly.</span>
             </h1>
-            <p style={{ fontSize: "clamp(16px, 2vw, 20px)", color: "var(--texto-suave)", marginBottom: 40, lineHeight: 1.7, fontStyle: "italic" }}>
-              "The ultimate tool for elite tactical delivery. Whether in the locker room or mid-game on the iPad, the ability to draw and overlay concepts on video makes teaching complex tactics seamless. Professional, intuitive, and built for winning environments."
-            </p>
-            <div style={{ marginBottom: 40 }}>
-              <p style={{ fontSize: 13, fontWeight: 700, color: "var(--blanco)", margin: "0 0 4px" }}>Sergio Scariolo</p>
-              <p style={{ fontSize: 12, color: "var(--oro)", fontWeight: 600 }}>Eurobasket 2022 Champion · Spain National Team Head Coach</p>
-            </div>
-            <a href="https://apps.apple.com/es/app/drawsports/id6756434573" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer" }}>
-              Download on App Store
-            </a>
-            <p style={{ fontSize: 13, color: "var(--texto-suave)", marginTop: 16 }}>
-              iPad only • 7 days free
-            </p>
-            <a href="#teams-in-action" style={{ display: "inline-block", marginTop: 24, fontSize: 13, color: "var(--oro)", textDecoration: "none", fontWeight: 600 }}>
-              Teams using DrawSports →
-            </a>
           </div>
-          <div style={{ position: "relative" }}>
+
+          {/* iPad Screenshot */}
+          <div style={{ width: "100%", maxWidth: 900, marginBottom: 80 }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/fotos/header-hero.png" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block", marginBottom: 12 }} />
-            <p style={{ fontSize: 12, color: "var(--texto-suave)", textAlign: "center", fontStyle: "italic" }}>Jorge Lorenzo (creator of DrawSports) with Sergio Scariolo — Eurobasket 2022 Champions</p>
+            <img src="/fotos/DrawSports_Screenshot2.png" alt="DrawSports iPad app - Tactical annotation tools" style={{ width: "100%", borderRadius: 12, border: "1px solid var(--borde)", display: "block" }} />
+          </div>
+        </div>
+      </section>
+
+      {/* HERO - Scariolo Credibility */}
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center" }}>
+            <div>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/fotos/header-hero.png" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block", marginBottom: 12 }} />
+              <p style={{ fontSize: 12, color: "var(--texto-suave)", textAlign: "center", fontStyle: "italic" }}>Jorge Lorenzo (creator of DrawSports) with Sergio Scariolo — Eurobasket 2022 Champions</p>
+            </div>
+            <div>
+              <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 12 }}>Why Elite Coaches Choose DrawSports</p>
+              <p style={{ fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.8, marginBottom: 24, fontStyle: "italic" }}>
+                "The ultimate tool for elite tactical delivery. Whether in the locker room or mid-game on the iPad, the ability to draw and overlay concepts on video makes teaching complex tactics seamless. Professional, intuitive, and built for winning environments."
+              </p>
+              <div style={{ marginBottom: 40 }}>
+                <p style={{ fontSize: 13, fontWeight: 700, color: "var(--blanco)", margin: "0 0 4px" }}>Sergio Scariolo</p>
+                <p style={{ fontSize: 12, color: "var(--oro)", fontWeight: 600 }}>Eurobasket 2022 Champion · Spain National Team Head Coach</p>
+              </div>
+              <a href="https://apps.apple.com/es/app/drawsports/id6756434573" style={{ display: "inline-block", background: "var(--oro)", color: "var(--negro)", fontSize: 15, fontWeight: 800, letterSpacing: "0.04em", textTransform: "uppercase", textDecoration: "none", padding: "16px 36px", borderRadius: 4, transition: "all 0.2s", cursor: "pointer", marginBottom: 16 }}>
+                Download on App Store
+              </a>
+              <p style={{ fontSize: 13, color: "var(--texto-suave)" }}>
+                iPad only • 7 days free
+              </p>
+              <a href="#teams-in-action" style={{ display: "inline-block", marginTop: 24, fontSize: 13, color: "var(--oro)", textDecoration: "none", fontWeight: 600 }}>
+                Teams using DrawSports →
+              </a>
+            </div>
           </div>
         </div>
       </section>
