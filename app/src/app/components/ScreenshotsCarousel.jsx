@@ -12,7 +12,7 @@ export default function ScreenshotsCarousel() {
 
   return (
     <div style={{ position: "relative" }}>
-      <div style={{ position: "relative", overflow: "hidden", borderRadius: 12, border: "1px solid var(--borde)" }}>
+      <div style={{ position: "relative", overflow: "hidden", borderRadius: 12 }}>
         {screenshots.map((screenshot, index) => (
           <div key={index} style={{ display: index === currentSlide ? "block" : "none" }}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
