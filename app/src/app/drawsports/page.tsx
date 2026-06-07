@@ -1,11 +1,16 @@
+'use client';
+
+import { useState } from 'react';
 import ScreenshotsCarousel from '../components/ScreenshotsCarousel';
 
-export const metadata = {
+// Export metadata separately - this file is now a client component
+// Note: metadata is handled in layout.tsx instead
   title: "DrawSports — Coaching Tool by Jorge Lorenzo",
   description: "iPad app for instant video analysis. Tag live, annotate in real-time, give feedback on the court. Used by World Champion coach Jorge Lorenzo.",
 };
 
 export default function DrawSports() {
+  const [expandedVideos, setExpandedVideos] = useState(false);
   // Hero video configuration
   const heroVideo = { id: "1199173148", hash: "a85260fd78" };
 
@@ -25,6 +30,18 @@ export default function DrawSports() {
 
           /* Show only first testimonial on mobile */
           .testimonials-grid > div:nth-child(n+2) { display: none !important; }
+
+          /* Show only first video on mobile, hide others by default */
+          .videos-grid > div:nth-child(n+2) { display: none !important; }
+          .videos-grid.expanded > div { display: block !important; }
+
+          /* Show More button visible only on mobile */
+          .show-more-btn { display: block !important; }
+        }
+
+        @media (min-width: 769px) {
+          /* Hide Show More button on desktop */
+          .show-more-btn { display: none !important; }
         }
       `}</style>
 
@@ -161,10 +178,10 @@ export default function DrawSports() {
       </section>
 
       {/* SEE IT IN ACTION - VIDEOS */}
-      <section className="hide-mobile" style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>See It In Action</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
+          <div className={`videos-grid ${expandedVideos ? 'expanded' : ''}`} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
             {[
               { title: "Universal Import", id: "1159775747", hash: "629fa00f4f", desc: "Import from iCloud, Drive, or USB. Start analyzing instantly.", type: "video" },
               { title: "Analysis & Tagging", id: "1159776689", hash: "4b7ca7c141", desc: "Tag plays while watching. Every action becomes a highlight instantly.", type: "video" },
@@ -201,6 +218,30 @@ export default function DrawSports() {
                 )}
               </div>
             ))}
+          </div>
+
+          {/* Show More button - Mobile only */}
+          <div style={{ display: "flex", justifyContent: "center", marginTop: 48 }}>
+            <button
+              onClick={() => setExpandedVideos(!expandedVideos)}
+              className="show-more-btn"
+              style={{
+                display: expandedVideos ? 'none' : 'block',
+                background: "var(--oro)",
+                color: "var(--negro)",
+                fontSize: 15,
+                fontWeight: 800,
+                letterSpacing: "0.04em",
+                textTransform: "uppercase",
+                border: "none",
+                padding: "16px 36px",
+                borderRadius: 4,
+                cursor: "pointer",
+                transition: "all 0.2s"
+              }}
+            >
+              Show More Videos
+            </button>
           </div>
         </div>
       </section>
