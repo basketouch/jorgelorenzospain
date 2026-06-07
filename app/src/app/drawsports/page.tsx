@@ -40,9 +40,18 @@ export default function DrawSports() {
             </h1>
           </div>
 
-          {/* iPad Screenshots Carousel */}
-          <div style={{ width: "100%", maxWidth: 900, marginBottom: 80 }}>
-            <ScreenshotsCarousel />
+          {/* Workflow Video */}
+          <div style={{ width: "100%", maxWidth: 900, marginBottom: 80, borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)" }}>
+            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
+              <iframe
+                src="https://player.vimeo.com/video/1199173148?h=a85260fd78&badge=0&autopause=0&player_id=0&app_id=58479&rel=0"
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="DrawSports Coaching Analysis Workflow"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -82,31 +91,6 @@ export default function DrawSports() {
         </div>
       </section>
 
-      {/* YOUR WORKFLOW */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
-        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Your Workflow</p>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48, textAlign: "center" }}>Upload. Project. Draw.</h2>
-
-          <div style={{ width: "100%", maxWidth: 900, margin: "0 auto", borderRadius: 12, overflow: "hidden", marginBottom: 60, boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)" }}>
-            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
-              <iframe
-                src="https://player.vimeo.com/video/1199173148?h=a85260fd78&badge=0&autopause=0&player_id=0&app_id=58479&rel=0"
-                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                title="DrawSports Coaching Analysis Workflow"
-              />
-            </div>
-          </div>
-
-          <p style={{ fontSize: 15, color: "var(--texto-suave)", textAlign: "center", maxWidth: 700, margin: "0 auto", lineHeight: 1.8 }}>
-            Film your game or practice. Edit in your office. Upload to the cloud. Download to iPad. Project and draw tactics in real-time on the court. Your post-game analysis, instantly actionable.
-          </p>
-        </div>
-      </section>
-
       {/* THE PROBLEM */}
       <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
@@ -126,6 +110,41 @@ export default function DrawSports() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* THE SOLUTION */}
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Solution</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>You deliver real-time feedback. On the court. Right now.</h2>
+          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Bring your iPad to the court. You tag plays instantly. You draw tactical corrections while they watch. Players see, learn, and improve—in that moment. No waiting. No forgetting.</p>
+
+          {/* Quick benefits */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(8px, 2vw, 16px)", marginBottom: 80 }}>
+            {[
+              { icon: "📺", text: "Project iPad on court" },
+              { icon: "✍️", text: "Write live annotations" },
+              { icon: "⚡", text: "Deliver instant feedback to players" },
+            ].map((item, i) => (
+              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: "20px 24px", display: "flex", gap: 14, alignItems: "flex-start" }}>
+                <span style={{ fontSize: 24, flexShrink: 0 }}>{item.icon}</span>
+                <span style={{ fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.5 }}>{item.text}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* iPad FEATURES - CAROUSEL */}
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>iPad Interface</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48, textAlign: "center" }}>Intuitive. Powerful. Built for coaches.</h2>
+
+          <div style={{ width: "100%", maxWidth: 900, margin: "0 auto" }}>
+            <ScreenshotsCarousel />
           </div>
         </div>
       </section>
