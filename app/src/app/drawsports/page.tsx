@@ -44,7 +44,7 @@ export default function DrawSports() {
           <div style={{ width: "100%", maxWidth: 900, marginBottom: 80, borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)" }}>
             <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
               <iframe
-                src="https://player.vimeo.com/video/1199173148?h=a85260fd78&badge=0&autopause=0&player_id=0&app_id=58479&rel=0"
+                src={`https://player.vimeo.com/video/1199173148?h=a85260fd78&badge=0&autopause=0&player_id=0&app_id=58479&rel=0`}
                 style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
