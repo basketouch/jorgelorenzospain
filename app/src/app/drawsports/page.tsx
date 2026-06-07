@@ -44,7 +44,7 @@ export default function DrawSports() {
           </div>
 
           {/* Workflow Video */}
-          <div style={{ width: "100%", maxWidth: 900, marginBottom: 80, borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)" }}>
+          <div style={{ width: "100%", maxWidth: "900px", marginBottom: "clamp(40px, 10vw, 80px)", borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)", paddingLeft: "clamp(16px, 5vw, 20px)", paddingRight: "clamp(16px, 5vw, 20px)", marginLeft: "auto", marginRight: "auto" }}>
             <div style={{ position: "relative", paddingTop: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
               <iframe
                 src="https://player.mediadelivery.net/embed/667464/506e6999-1c9c-4c7c-957b-2401b761d130?autoplay=true&loop=false&muted=true&preload=true&responsive=true"
