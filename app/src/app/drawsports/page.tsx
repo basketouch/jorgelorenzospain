@@ -34,7 +34,7 @@ export default function DrawSports() {
 
       {/* HERO - iPad Product Showcase */}
       <section style={{ width: "100%", minHeight: "auto", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(80px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden", marginTop: 0 }}>
-        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center" }}>
           <div style={{ textAlign: "center", marginBottom: 60, maxWidth: 700 }}>
             <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · iPad Coaching Tool</p>
             <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
