@@ -25,7 +25,7 @@ export default function DrawSports() {
         <a href="/" style={{ fontSize: 14, fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color: "var(--blanco)", textDecoration: "none" }}>
           Jorge <span style={{ color: "var(--oro)" }}>Lorenzo</span>
         </a>
-        <div className="nav-links" style={{ display: "flex", gap: "32px", alignItems: "center" }}>
+        <div className="nav-links" style={{ display: "flex", gap: "clamp(16px, 3vw, 32px)", alignItems: "center" }}>
           <a href="/drawsports" style={{ fontSize: 13, color: "var(--oro)", fontWeight: 600, textDecoration: "none" }}>DrawSports</a>
           <a href="/stages" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>Pre-Season Tours</a>
           <a href="/" style={{ fontSize: 13, color: "var(--texto-suave)", textDecoration: "none" }}>← Home</a>
