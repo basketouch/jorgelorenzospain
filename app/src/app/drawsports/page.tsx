@@ -160,68 +160,47 @@ export default function DrawSports() {
         </div>
       </section>
 
-      {/* THE SOLUTION */}
-      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+      {/* SEE IT IN ACTION - VIDEOS */}
+      <section className="hide-mobile" style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Solution</p>
-          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>You deliver real-time feedback. On the court. Right now.</h2>
-          <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Bring your iPad to the court. You tag plays instantly. You draw tactical corrections while they watch. Players see, learn, and improve—in that moment. No waiting. No forgetting.</p>
-
-          {/* Quick benefits */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(8px, 2vw, 16px)", marginBottom: 80 }}>
+          <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>See It In Action</h3>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
             {[
-              { icon: "📺", text: "Project iPad on court" },
-              { icon: "✍️", text: "Write live annotations" },
-              { icon: "⚡", text: "Deliver instant feedback to players" },
+              { title: "Universal Import", id: "1159775747", hash: "629fa00f4f", desc: "Import from iCloud, Drive, or USB. Start analyzing instantly.", type: "video" },
+              { title: "Analysis & Tagging", id: "1159776689", hash: "4b7ca7c141", desc: "Tag plays while watching. Every action becomes a highlight instantly.", type: "video" },
+              { title: "Frame-by-Frame Control", id: "1160262048", hash: "dda5a1df1f", desc: "Precision seeking and detailed frame control for tactical analysis.", type: "video" },
+              { title: "Projection Mode", desc: "Coming Soon", type: "coming-soon" },
+              { title: "Export Media", desc: "Coming Soon", type: "coming-soon" },
+              { title: "Tactical Whiteboard", id: "1197447116", hash: "9c71db1b78", desc: "Design plays and tactical concepts without needing video.", type: "video" },
             ].map((item, i) => (
-              <div key={i} style={{ background: "var(--card)", border: "1px solid var(--borde)", borderRadius: 10, padding: "20px 24px", display: "flex", gap: 14, alignItems: "flex-start" }}>
-                <span style={{ fontSize: 24, flexShrink: 0 }}>{item.icon}</span>
-                <span style={{ fontSize: 15, color: "var(--texto-suave)", lineHeight: 1.5 }}>{item.text}</span>
+              <div key={i} style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--borde)" }}>
+                {item.type === "video" ? (
+                  <>
+                    <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
+                      <iframe
+                        src={`https://player.vimeo.com/video/${item.id}?h=${item.hash}&badge=0&autopause=0&player_id=0&app_id=58479`}
+                        style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                        frameBorder="0"
+                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        title={item.title}
+                      />
+                    </div>
+                    <div style={{ padding: "16px", background: "var(--card)", borderTop: "1px solid var(--borde)" }}>
+                      <h4 style={{ fontSize: 14, fontWeight: 700, color: "var(--blanco)", marginBottom: 6 }}>{item.title}</h4>
+                      <p style={{ fontSize: 13, color: "var(--texto-suave)", lineHeight: 1.5 }}>{item.desc}</p>
+                    </div>
+                  </>
+                ) : (
+                  <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "20px" }}>
+                      <p style={{ fontSize: 32, marginBottom: 12 }}>🎬</p>
+                      <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto-suave)" }}>Coming Soon</p>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
-          </div>
-
-          {/* SEE IT IN ACTION - VIDEOS */}
-          <div className="hide-mobile" style={{ marginBottom: 100 }}>
-            <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>See It In Action</h3>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
-              {[
-                { title: "Universal Import", id: "1159775747", hash: "629fa00f4f", desc: "Import from iCloud, Drive, or USB. Start analyzing instantly.", type: "video" },
-                { title: "Analysis & Tagging", id: "1159776689", hash: "4b7ca7c141", desc: "Tag plays while watching. Every action becomes a highlight instantly.", type: "video" },
-                { title: "Frame-by-Frame Control", id: "1160262048", hash: "dda5a1df1f", desc: "Precision seeking and detailed frame control for tactical analysis.", type: "video" },
-                { title: "Projection Mode", desc: "Coming Soon", type: "coming-soon" },
-                { title: "Export Media", desc: "Coming Soon", type: "coming-soon" },
-                { title: "Tactical Whiteboard", id: "1197447116", hash: "9c71db1b78", desc: "Design plays and tactical concepts without needing video.", type: "video" },
-              ].map((item, i) => (
-                <div key={i} style={{ borderRadius: 12, overflow: "hidden", border: "1px solid var(--borde)" }}>
-                  {item.type === "video" ? (
-                    <>
-                      <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
-                        <iframe
-                          src={`https://player.vimeo.com/video/${item.id}?h=${item.hash}&badge=0&autopause=0&player_id=0&app_id=58479`}
-                          style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                          frameBorder="0"
-                          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                          referrerPolicy="strict-origin-when-cross-origin"
-                          title={item.title}
-                        />
-                      </div>
-                      <div style={{ padding: "16px", background: "var(--card)", borderTop: "1px solid var(--borde)" }}>
-                        <h4 style={{ fontSize: 14, fontWeight: 700, color: "var(--blanco)", marginBottom: 6 }}>{item.title}</h4>
-                        <p style={{ fontSize: 13, color: "var(--texto-suave)", lineHeight: 1.5 }}>{item.desc}</p>
-                      </div>
-                    </>
-                  ) : (
-                    <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "20px" }}>
-                        <p style={{ fontSize: 32, marginBottom: 12 }}>🎬</p>
-                        <p style={{ fontSize: 14, fontWeight: 700, color: "var(--texto-suave)" }}>Coming Soon</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
