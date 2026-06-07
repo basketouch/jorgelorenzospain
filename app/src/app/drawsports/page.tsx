@@ -192,6 +192,28 @@ export default function DrawSports() {
         </div>
       </section>
 
+      {/* YOUR WORKFLOW */}
+      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Your Workflow</p>
+          <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48, textAlign: "center" }}>Upload. Project. Draw.</h2>
+
+          <div style={{ width: "100%", maxWidth: 900, margin: "0 auto", borderRadius: 12, overflow: "hidden", marginBottom: 60 }}>
+            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "20px" }}>
+                <p style={{ fontSize: 48, marginBottom: 16 }}>📹</p>
+                <p style={{ fontSize: 18, fontWeight: 700, color: "var(--texto)", marginBottom: 8 }}>Post-Game Analysis</p>
+                <p style={{ fontSize: 14, color: "var(--texto-suave)" }}>Coming Soon</p>
+              </div>
+            </div>
+          </div>
+
+          <p style={{ fontSize: 15, color: "var(--texto-suave)", textAlign: "center", maxWidth: 700, margin: "0 auto", lineHeight: 1.8 }}>
+            Film your game or practice. Edit in your office. Upload to the cloud. Download to iPad. Project and draw tactics in real-time on the court. Your post-game analysis, instantly actionable.
+          </p>
+        </div>
+      </section>
+
       {/* WHAT COACHES SAY */}
       <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
