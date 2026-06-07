@@ -33,7 +33,7 @@ export default function DrawSports() {
       </nav>
 
       {/* HERO - iPad Product Showcase */}
-      <section style={{ minHeight: "auto", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(80px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden", marginTop: 0 }}>
+      <section style={{ width: "100%", minHeight: "auto", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(80px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden", marginTop: 0 }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto", position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
           <div style={{ textAlign: "center", marginBottom: 60, maxWidth: 700 }}>
             <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · iPad Coaching Tool</p>
@@ -60,7 +60,7 @@ export default function DrawSports() {
       </section>
 
       {/* HERO - Scariolo Credibility */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center" }}>
             <div>
@@ -95,7 +95,7 @@ export default function DrawSports() {
       </section>
 
       {/* THE PROBLEM */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Challenge</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Feedback after practice = players forget the moment.</h2>
@@ -118,7 +118,7 @@ export default function DrawSports() {
       </section>
 
       {/* THE SOLUTION */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Solution</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>You deliver real-time feedback. On the court. Right now.</h2>
@@ -141,7 +141,7 @@ export default function DrawSports() {
       </section>
 
       {/* iPad FEATURES - CAROUSEL */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>iPad Interface</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48, textAlign: "center" }}>Intuitive. Powerful. Built for coaches.</h2>
@@ -153,7 +153,7 @@ export default function DrawSports() {
       </section>
 
       {/* THE SOLUTION */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
+      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Solution</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>You deliver real-time feedback. On the court. Right now.</h2>
@@ -219,7 +219,7 @@ export default function DrawSports() {
       </section>
 
       {/* WHY IPAD */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)" }}>
+      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Design Choice</p>
           <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24, textAlign: "center" }}>Why iPad only?</h2>
@@ -240,7 +240,7 @@ export default function DrawSports() {
       </section>
 
       {/* WHAT COACHES SAY */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>What Coaches Say</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 60, textAlign: "center" }}>Trusted by coaches worldwide.</h2>
@@ -291,7 +291,7 @@ export default function DrawSports() {
       </section>
 
       {/* CTA FINAL */}
-      <section style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)", textAlign: "center" }}>
+      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)", textAlign: "center" }}>
         <div style={{ maxWidth: 800, margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>Ready to coach differently?</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>7 days free. On your iPad.</h2>
@@ -308,7 +308,7 @@ export default function DrawSports() {
       </section>
 
       {/* TEAMS IN ACTION */}
-      <section id="teams-in-action" style={{ padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+      <section id="teams-in-action" style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Teams in Action</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48, textAlign: "center" }}>Professional teams using DrawSports.</h2>
@@ -331,7 +331,7 @@ export default function DrawSports() {
       </section>
 
       {/* TEAM PLANS LINK */}
-      <section style={{ padding: "32px clamp(20px, 5vw, 40px)", textAlign: "center", borderTop: "1px solid var(--borde)", borderBottom: "1px solid var(--borde)" }}>
+      <section style={{ width: "100%", padding: "32px clamp(20px, 5vw, 40px)", textAlign: "center", borderTop: "1px solid var(--borde)", borderBottom: "1px solid var(--borde)" }}>
         <p style={{ fontSize: 13, color: "var(--texto-suave)", marginBottom: 8 }}>
           Looking to equip your coaching staff?
         </p>
@@ -341,7 +341,7 @@ export default function DrawSports() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ borderTop: "1px solid var(--borde)", padding: "32px clamp(20px, 5vw, 40px)", textAlign: "center" }}>
+      <footer style={{ width: "100%", borderTop: "1px solid var(--borde)", padding: "32px clamp(20px, 5vw, 40px)", textAlign: "center" }}>
         <p style={{ fontSize: 13, color: "var(--texto-suave)", marginBottom: 16 }}>
           © {new Date().getFullYear()} Jorge Lorenzo · World Champion Coach
         </p>
