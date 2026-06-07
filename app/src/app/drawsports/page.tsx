@@ -133,7 +133,7 @@ export default function DrawSports() {
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Bring your iPad to the court. You tag plays instantly. You draw tactical corrections while they watch. Players see, learn, and improve—in that moment. No waiting. No forgetting.</p>
 
           {/* Quick benefits */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(8px, 2vw, 16px)", marginBottom: 80 }}>
+          <div className="hide-mobile" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "clamp(8px, 2vw, 16px)", marginBottom: 80 }}>
             {[
               { icon: "📺", text: "Project iPad on court" },
               { icon: "✍️", text: "Write live annotations" },
