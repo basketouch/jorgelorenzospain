@@ -16,6 +16,8 @@ export default function DrawSports() {
           .hero-grid { grid-template-columns: 1fr !important; }
           .features-grid { grid-template-columns: 1fr !important; }
           .testimonials-grid { grid-template-columns: 1fr !important; }
+          .scariolo-grid { grid-template-columns: 1fr !important; }
+          .problem-grid { grid-template-columns: 1fr !important; }
           .nav-links { gap: 16px !important; flex-wrap: wrap; }
         }
       `}</style>
@@ -62,7 +64,7 @@ export default function DrawSports() {
       {/* HERO - Scariolo Credibility */}
       <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center" }}>
+          <div className="scariolo-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 60px)", alignItems: "center" }}>
             <div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="/fotos/header-hero.png" alt="Sergio Scariolo and Jorge Lorenzo - Eurobasket 2022 Champions" style={{ width: "100%", borderRadius: 12, border: "3px solid var(--oro)", display: "block", marginBottom: 12 }} />
@@ -100,7 +102,7 @@ export default function DrawSports() {
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16 }}>The Challenge</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24 }}>Feedback after practice = players forget the moment.</h2>
           <p style={{ fontSize: 17, color: "var(--texto-suave)", maxWidth: 560, marginBottom: 60, lineHeight: 1.7 }}>Traditional coaching waits for the video room. Players move on. The feeling of the mistake fades. Learning slows. What if you could teach while they're still in that moment?</p>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(12px, 3vw, 24px)" }}>
+          <div className="problem-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(12px, 3vw, 24px)" }}>
             {[
               { icon: "⏰", title: "Delayed feedback", desc: "Players wait days to see what they did wrong. The learning moment is lost." },
               { icon: "📺", title: "Room-bound coaching", desc: "Feedback happens in the video room, far from the court where they played." },
