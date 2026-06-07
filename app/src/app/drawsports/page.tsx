@@ -19,6 +19,12 @@ export default function DrawSports() {
           .scariolo-grid { grid-template-columns: 1fr !important; }
           .problem-grid { grid-template-columns: 1fr !important; }
           .nav-links { gap: 16px !important; flex-wrap: wrap; }
+
+          /* Hide non-essential sections on mobile */
+          .hide-mobile { display: none !important; }
+
+          /* Show only first testimonial on mobile */
+          .testimonials-grid > div:nth-child(n+2) { display: none !important; }
         }
       `}</style>
 
@@ -176,7 +182,7 @@ export default function DrawSports() {
           </div>
 
           {/* SEE IT IN ACTION - VIDEOS */}
-          <div style={{ marginBottom: 100 }}>
+          <div className="hide-mobile" style={{ marginBottom: 100 }}>
             <h3 style={{ fontSize: 22, fontWeight: 700, color: "var(--blanco)", marginBottom: 32, textAlign: "center" }}>See It In Action</h3>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "clamp(16px, 3vw, 24px)" }}>
               {[
@@ -221,7 +227,7 @@ export default function DrawSports() {
       </section>
 
       {/* WHY IPAD */}
-      <section style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)" }}>
+      <section className="hide-mobile" style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--card)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Design Choice</p>
           <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 24, textAlign: "center" }}>Why iPad only?</h2>
@@ -310,7 +316,7 @@ export default function DrawSports() {
       </section>
 
       {/* TEAMS IN ACTION */}
-      <section id="teams-in-action" style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
+      <section id="teams-in-action" className="hide-mobile" style={{ width: "100%", padding: "clamp(60px, 10vw, 96px) clamp(20px, 5vw, 40px)", position: "relative", background: "var(--oscuro)" }}>
         <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto" }}>
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Teams in Action</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48, textAlign: "center" }}>Professional teams using DrawSports.</h2>
