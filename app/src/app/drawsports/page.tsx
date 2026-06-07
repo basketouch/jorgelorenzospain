@@ -45,13 +45,13 @@ export default function DrawSports() {
 
           {/* Workflow Video */}
           <div style={{ width: "100%", maxWidth: 900, marginBottom: 80, borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)" }}>
-            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
+            <div style={{ position: "relative", paddingTop: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
               <iframe
-                src="https://player.mediadelivery.net/play/667464/506e6999-1c9c-4c7c-957b-2401b761d130"
-                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                frameBorder="0"
-                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
+                src="https://player.mediadelivery.net/embed/667464/506e6999-1c9c-4c7c-957b-2401b761d130?autoplay=true&loop=false&muted=true&preload=true&responsive=true"
+                loading="lazy"
+                style={{ border: "0", position: "absolute", top: 0, height: "100%", width: "100%" }}
+                allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
+                allowFullScreen={true}
                 title="DrawSports Coaching Analysis Workflow"
               />
             </div>
