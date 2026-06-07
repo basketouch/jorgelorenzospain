@@ -88,13 +88,16 @@ export default function DrawSports() {
           <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 16, textAlign: "center" }}>Your Workflow</p>
           <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--blanco)", lineHeight: 1.15, marginBottom: 48, textAlign: "center" }}>Upload. Project. Draw.</h2>
 
-          <div style={{ width: "100%", maxWidth: 900, margin: "0 auto", borderRadius: 12, overflow: "hidden", marginBottom: 60 }}>
-            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "20px" }}>
-                <p style={{ fontSize: 48, marginBottom: 16 }}>📹</p>
-                <p style={{ fontSize: 18, fontWeight: 700, color: "var(--texto)", marginBottom: 8 }}>Post-Game Analysis</p>
-                <p style={{ fontSize: 14, color: "var(--texto-suave)" }}>Coming Soon</p>
-              </div>
+          <div style={{ width: "100%", maxWidth: 900, margin: "0 auto", borderRadius: 12, overflow: "hidden", marginBottom: 60, boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)" }}>
+            <div style={{ position: "relative", paddingBottom: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
+              <iframe
+                src="https://player.vimeo.com/video/1199173148?h=a85260fd78&badge=0&autopause=0&player_id=0&app_id=58479"
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title="DrawSports Coaching Analysis Workflow"
+              />
             </div>
           </div>
 
