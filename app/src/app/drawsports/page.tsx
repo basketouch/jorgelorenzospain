@@ -52,27 +52,28 @@ export default function DrawSports() {
       </nav>
 
       {/* HERO - iPad Product Showcase */}
-      <section style={{ width: "100%", minHeight: "auto", padding: "clamp(80px, 15vw, 120px) clamp(20px, 5vw, 40px) 0", position: "relative", overflow: "hidden", marginTop: 0 }}>
-        {/* Title */}
-        <div style={{ textAlign: "center", marginBottom: 48, maxWidth: 700, margin: "0 auto 48px" }}>
-          <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · iPad Coaching Tool</p>
-          <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
-            Draw on live video.<br />
-            <span style={{ color: "var(--oro)" }}>Teach instantly.</span>
-          </h1>
-        </div>
+      <section style={{ width: "100%", minHeight: "auto", display: "flex", alignItems: "center", justifyContent: "center", padding: "clamp(80px, 15vw, 120px) clamp(20px, 5vw, 40px) clamp(60px, 10vw, 80px)", position: "relative", overflow: "hidden", marginTop: 0 }}>
+        <div style={{ maxWidth: "min(100%, 1200px)", margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+          <div style={{ textAlign: "center", marginBottom: 48, maxWidth: 700 }}>
+            <p style={{ fontSize: 13, fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase", color: "var(--oro)", marginBottom: 24 }}>DrawSports · iPad Coaching Tool</p>
+            <h1 style={{ fontSize: "clamp(42px, 6vw, 72px)", fontWeight: 800, lineHeight: 1.05, color: "var(--blanco)", letterSpacing: "-0.02em", marginBottom: 24 }}>
+              Draw on live video.<br />
+              <span style={{ color: "var(--oro)" }}>Teach instantly.</span>
+            </h1>
+          </div>
 
-        {/* Workflow Video - full width */}
-        <div style={{ width: "100%", marginBottom: 0, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)" }}>
-          <div style={{ position: "relative", paddingTop: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
-            <iframe
-              src="https://player.vimeo.com/video/1199173148?badge=0&autopause=0&player_id=0&app_id=58479"
-              frameBorder="0"
-              allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-              referrerPolicy="strict-origin-when-cross-origin"
-              style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-              title="DrawSports Coaching Analysis Workflow"
-            />
+          {/* Workflow Video */}
+          <div style={{ width: "100%", maxWidth: 1100, marginBottom: "clamp(40px, 10vw, 80px)", borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)" }}>
+            <div style={{ position: "relative", paddingTop: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
+              <iframe
+                src="https://player.vimeo.com/video/1199173148?badge=0&autopause=0&player_id=0&app_id=58479"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                title="DrawSports Coaching Analysis Workflow"
+              />
+            </div>
           </div>
         </div>
       </section>
