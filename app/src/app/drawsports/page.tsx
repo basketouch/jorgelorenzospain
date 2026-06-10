@@ -3,12 +3,6 @@
 import { useState } from 'react';
 import ScreenshotsCarousel from '../components/ScreenshotsCarousel';
 
-// Export metadata separately - this file is now a client component
-// Note: metadata is handled in layout.tsx instead
-  title: "DrawSports — Coaching Tool by Jorge Lorenzo",
-  description: "iPad app for instant video analysis. Tag live, annotate in real-time, give feedback on the court. Used by World Champion coach Jorge Lorenzo.",
-};
-
 export default function DrawSports() {
   const [expandedVideos, setExpandedVideos] = useState(false);
   // Hero video configuration
