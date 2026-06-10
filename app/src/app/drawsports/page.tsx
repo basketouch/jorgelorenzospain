@@ -66,11 +66,11 @@ export default function DrawSports() {
           <div style={{ width: "100%", maxWidth: "900px", marginBottom: "clamp(40px, 10vw, 80px)", borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)", marginLeft: "auto", marginRight: "auto" }}>
             <div style={{ position: "relative", paddingTop: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
               <iframe
-                src="https://player.mediadelivery.net/embed/667464/506e6999-1c9c-4c7c-957b-2401b761d130?autoplay=true&loop=false&muted=true&preload=true&responsive=true"
-                loading="lazy"
-                style={{ border: "0", position: "absolute", top: 0, height: "100%", width: "100%" }}
-                allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;"
-                allowFullScreen={true}
+                src="https://player.vimeo.com/video/1199173148?h=a85260fd78&badge=0&autopause=0&player_id=0&app_id=58479"
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
                 title="DrawSports Coaching Analysis Workflow"
               />
             </div>
