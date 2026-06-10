@@ -63,7 +63,7 @@ export default function DrawSports() {
           </div>
 
           {/* Workflow Video */}
-          <div style={{ width: "100%", maxWidth: "900px", marginBottom: "clamp(40px, 10vw, 80px)", borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)", marginLeft: "auto", marginRight: "auto" }}>
+          <div style={{ width: "100%", maxWidth: "1200px", marginBottom: "clamp(40px, 10vw, 80px)", borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)", marginLeft: "auto", marginRight: "auto" }}>
             <div style={{ position: "relative", paddingTop: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
               <iframe
                 src="https://player.vimeo.com/video/1199173148?badge=0&autopause=0&player_id=0&app_id=58479"
