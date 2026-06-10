@@ -66,7 +66,7 @@ export default function DrawSports() {
           <div style={{ width: "100%", maxWidth: "900px", marginBottom: "clamp(40px, 10vw, 80px)", borderRadius: 12, overflow: "hidden", boxShadow: "0 8px 32px rgba(255, 215, 0, 0.15)", marginLeft: "auto", marginRight: "auto" }}>
             <div style={{ position: "relative", paddingTop: "56.25%", height: 0, overflow: "hidden", background: "var(--card)" }}>
               <iframe
-                src="https://player.vimeo.com/video/1199173148?h=a85260fd78&badge=0&autopause=0&player_id=0&app_id=58479"
+                src="https://player.vimeo.com/video/1199173148?badge=0&autopause=0&player_id=0&app_id=58479"
                 frameBorder="0"
                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
                 referrerPolicy="strict-origin-when-cross-origin"
